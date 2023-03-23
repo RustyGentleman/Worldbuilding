@@ -1,0 +1,62 @@
+//# ----------------------------------------
+//# Variables
+//# ----------------------------------------
+$main-pages: 'ras', 'kitsunes'
+
+//# ----------------------------------------
+//# Functions
+//# ----------------------------------------
+@each $mp in $main-pages
+	main[current=#{$mp}] > ##{$mp}
+		transform: scale(1)
+
+//# ----------------------------------------
+//# Defaults
+//# ----------------------------------------
+body //? Full default
+	margin: 0
+	padding: 0
+	height: 100vh
+	width: 100vw
+	overflow: hidden
+.page //? Scale 0
+	transform: scale(0)
+
+//# ----------------------------------------
+//# Layout
+//# ----------------------------------------
+body //* Two-row grid, for nav and main
+	display: grid
+	grid-template-rows: auto 1fr
+nav#topnav
+	display: grid
+	grid-auto-columns: 1fr
+	grid-auto-flow: column
+main
+	display: grid
+	align-items: center
+.page
+	display: grid
+	grid-area: 1 / 1 / 1 / 1
+	grid-template-areas: 'nav content'
+	.sidenav
+		display: flex
+		flex-direction: column
+		justify-content: center
+	.content
+		overflow: scroll
+
+//# ----------------------------------------
+//# Sizings and spacings
+//# ----------------------------------------
+$std-spacing: 1rem
+nav#topnav
+	text-align: center
+main
+	height: calc(100vh - 2rem)
+.page
+	max-height: calc(100vh - 2rem)
+	.sidenav,
+	.content
+		max-height: calc(100vh - 2rem)
+		padding: $std-spacing
