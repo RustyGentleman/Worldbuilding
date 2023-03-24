@@ -14,11 +14,13 @@ for (const page of document.querySelectorAll('main > .page')) {
 }
 
 //# ----------------------------------------
-//# Event Listeners
+//# Event listeners
 //# ----------------------------------------
 //? Section pointer updates
 for (const page of document.querySelectorAll('main > .page'))
 	page.content?.addEventListener('scroll', Page_RefreshSectionPointer)
+for (const pl of document.querySelectorAll('[page-link]'))
+	pl.addEventListener('click', function() {GoToPage(this.getAttribute('page-link'))})
 
 //# ----------------------------------------
 //# Section tracking
@@ -40,6 +42,7 @@ function Page_GetCurrentSectionHeader() {
 	return section.textContent
 }
 function Page_RefreshSectionPointer() {
+	if (!body.page.content) return
 	const headerText = Page_GetCurrentSectionHeader()
 	body.page.sidebar.querySelector('.current')?.classList.remove('current')
 	for (const child of body.page.sidebar.children)
@@ -49,3 +52,10 @@ function Page_RefreshSectionPointer() {
 		}
 }
 Page_RefreshSectionPointer()
+
+//# ----------------------------------------
+//# Page transitions
+//# ----------------------------------------
+function GoToPage(id) {
+	body.setAttribute('current', id)
+}
