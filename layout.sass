@@ -45,14 +45,16 @@ nav#topnav
 	grid-auto-columns: 1fr
 	grid-auto-flow: column
 	> div
-		&:hover > .dropdown
+		&:hover > .dropdown,
+		&:focus-within > .dropdown
 			transform: translate(-1px, 0)
 			opacity: 1
 	.dropdown
 		transform-origin: top center
 		transform: translate(-1px, -100%)
 		// opacity: 0
-		&:hover
+		&:hover,
+		&:focus-within
 			transform: translate(-1px, 0)
 			opacity: 1
 

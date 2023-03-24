@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
 body {
@@ -162,9 +163,9 @@ body[current=kitsunes] {
   border-image-slice: 1;
   border-block: solid 1px;
 }
-.page .sidebar > .header-pointer:hover > * {
+.page .sidebar > .header-pointer:hover > *, .page .sidebar > .header-pointer:focus-within > * {
   transform: translateX(0.5rem);
-  filter: drop-shadow(0 0 0.3rem);
+  transition: transform 0.15s ease;
 }
 .page .sidebar > .header-pointer:last-of-type {
   border-bottom: none;
@@ -200,7 +201,46 @@ body[current=kitsunes] {
 .page .sidebar > .header-pointer.current > *::before, .page .sidebar > .header-pointer.current > *::after {
   opacity: 1;
 }
-.page .sidebar .last-updated {
+.page .sidebar > .header {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.page .sidebar > .header:not(:first-of-type) {
+  margin-top: 1lh;
+}
+.page .sidebar [page-link] {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+  -webkit-text-decoration-color: rgba(255, 255, 255, 0.5);
+          text-decoration-color: rgba(255, 255, 255, 0.5);
+  text-underline-offset: 2px;
+}
+.page .sidebar [page-link]:hover::before, .page .sidebar [page-link]:focus-within::before {
+  width: 100%;
+}
+.page .sidebar [page-link]::before {
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--pg-acc);
+}
+.page .sidebar > .last-updated {
   margin-top: 2lh;
   font-size: 0.8rem;
   font-weight: 100;
@@ -253,41 +293,51 @@ body[current=kitsunes] {
   color: hsl(200deg, 100%, 50%);
 }
 
+nav#topnav {
+  transition-property: background, color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
 nav#topnav > div {
+  transition: color 0.3s ease;
   border-right: solid 1px;
   position: relative;
   font-size: 1.5rem;
-  background-color: var(--pg-acc);
   border-bottom: solid 1px;
-  transition: border 0s linear 0.3s;
 }
 nav#topnav > div > button {
+  transition: background 0.5s ease, color 0.3s ease;
   position: relative;
-  background-image: linear-gradient(to top, var(--pg-acc-d), var(--pg-acc));
+  background-color: var(--pg-acc);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
   height: 100%;
   width: 100%;
   z-index: 2;
 }
-nav#topnav > div > button::before, nav#topnav > div > button::after {
-  content: "-";
-  opacity: 0;
-}
-nav#topnav > div:hover {
-  border-bottom-color: transparent;
-}
 nav#topnav > div:last-of-type {
   border-right: none;
 }
+nav#topnav > div button::before, nav#topnav > div button::after {
+  transition: opacity 0.3s ease;
+  content: "—";
+  margin-inline: 0.3rem;
+  opacity: 0;
+}
+nav#topnav > div button:hover::before, nav#topnav > div button:hover::after {
+  opacity: 1;
+}
 nav#topnav .dropdown {
-  transition-property: transform, opacity;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.5s ease;
   width: 100%;
   position: absolute;
   top: 100%;
-  background-color: var(--pg-acc-d);
+  padding-block: 0.5rem;
+  background-color: var(--pg-acc);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   border: solid 1px;
   border-top: none;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
   font-size: 1rem;
   z-index: 1;
 }

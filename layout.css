@@ -71,7 +71,7 @@ nav#topnav {
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
 }
-nav#topnav > div:hover > .dropdown {
+nav#topnav > div:hover > .dropdown, nav#topnav > div:focus-within > .dropdown {
   transform: translate(-1px, 0);
   opacity: 1;
 }
@@ -79,7 +79,7 @@ nav#topnav .dropdown {
   transform-origin: top center;
   transform: translate(-1px, -100%);
 }
-nav#topnav .dropdown:hover {
+nav#topnav .dropdown:hover, nav#topnav .dropdown:focus-within {
   transform: translate(-1px, 0);
   opacity: 1;
 }
