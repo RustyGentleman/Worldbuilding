@@ -2,24 +2,39 @@ body[current=characters] > main > #characters {
   pointer-events: all;
   opacity: 1;
 }
-body[current=characters] > main > #characters > .content {
+body[current=characters] > main > #characters > .content,
+body[current=characters] > main > #characters > .sidebar {
+  transform: translateX(0%);
+}
+body[current=characters] > main > #characters.tiled > .tile {
   transform: scale(1);
+  opacity: 1;
 }
 
 body[current=ras] > main > #ras {
   pointer-events: all;
   opacity: 1;
 }
-body[current=ras] > main > #ras > .content {
+body[current=ras] > main > #ras > .content,
+body[current=ras] > main > #ras > .sidebar {
+  transform: translateX(0%);
+}
+body[current=ras] > main > #ras.tiled > .tile {
   transform: scale(1);
+  opacity: 1;
 }
 
 body[current=kitsunes] > main > #kitsunes {
   pointer-events: all;
   opacity: 1;
 }
-body[current=kitsunes] > main > #kitsunes > .content {
+body[current=kitsunes] > main > #kitsunes > .content,
+body[current=kitsunes] > main > #kitsunes > .sidebar {
+  transform: translateX(0%);
+}
+body[current=kitsunes] > main > #kitsunes.tiled > .tile {
   transform: scale(1);
+  opacity: 1;
 }
 
 body {
@@ -36,7 +51,14 @@ body {
 }
 
 .page > .content {
-  transform: scale(0);
+  transform: translateX(100%);
+}
+.page > .sidebar {
+  transform: translateX(-100%);
+}
+.page.tiled > .tile {
+  transform: scale(0.7);
+  opacity: 0;
 }
 
 body {
@@ -48,6 +70,18 @@ nav#topnav {
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
+}
+nav#topnav > div:hover > .dropdown {
+  transform: translate(-1px, 0);
+  opacity: 1;
+}
+nav#topnav .dropdown {
+  transform-origin: top center;
+  transform: translate(-1px, -100%);
+}
+nav#topnav .dropdown:hover {
+  transform: translate(-1px, 0);
+  opacity: 1;
 }
 
 main {
@@ -110,7 +144,7 @@ main {
   width: 11rem;
   padding-block: 1rem;
 }
-.page .sidebar > * {
+.page .sidebar .header-pointer {
   padding: 0.1rem 1rem;
 }
 .page .content {

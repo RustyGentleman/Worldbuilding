@@ -15,17 +15,24 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
 }
 
 body {
   transition-property: color;
-  transition-duration: 0.3s;
+  transition-duration: 1s;
+  transition-timing-function: ease;
   --pg-acc: crimson;
   --pg-acc-d: hsl(348, 83%, 30%);
   --pg-acc-h: 348;
   --pg-txt: white;
   --pg-tint: hsl(0, 100%, 100%);
   color: var(--pg-txt);
+  --c-foxfire-d: hsl(220, 100%, 50%);
+  --c-foxfire-l: hsl(203, 100%, 70%);
 }
 body[current=ras] {
   --pg-acc: hsl(203, 100%, 50%);
@@ -45,7 +52,8 @@ body[current=kitsunes] {
 
 .page {
   transition-property: opacity;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
+  transition-timing-function: ease;
 }
 .page header, .page.tiled .tile {
   font-family: "IM Fell English";
@@ -72,7 +80,8 @@ body[current=kitsunes] {
 }
 .page .content {
   transition-property: transform, opacity;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
+  transition-timing-function: ease;
 }
 .page .content > h1, .page .content > h2, .page .content > h3 {
   margin-block: 2rem 1rem;
@@ -137,8 +146,9 @@ body[current=kitsunes] {
   text-align: left;
 }
 .page .sidebar {
-  transition-property: opacity;
-  transition-duration: 0.5s;
+  transition-property: opacity, transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
   -o-border-image: linear-gradient(to bottom, currentColor 50%, transparent 100%);
      border-image: linear-gradient(to bottom, currentColor 50%, transparent 100%);
   border-image-slice: 1;
@@ -152,15 +162,23 @@ body[current=kitsunes] {
   border-image-slice: 1;
   border-block: solid 1px;
 }
+.page .sidebar > .header-pointer:hover > * {
+  transform: translateX(0.5rem);
+  filter: drop-shadow(0 0 0.3rem);
+}
 .page .sidebar > .header-pointer:last-of-type {
   border-bottom: none;
 }
 .page .sidebar > .header-pointer > * {
-  transition-property: transform;
+  transition-property: transform, color, filter;
   transition-duration: 0.3s;
+  transition-timing-function: ease;
   display: inline-block;
 }
 .page .sidebar > .header-pointer > *::before, .page .sidebar > .header-pointer > *::after {
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
   content: "";
   position: absolute;
   right: calc(100% + 0.3rem);
@@ -180,8 +198,6 @@ body[current=kitsunes] {
   transform: translateX(1rem);
 }
 .page .sidebar > .header-pointer.current > *::before, .page .sidebar > .header-pointer.current > *::after {
-  transition-property: opacity;
-  transition-duration: 0.3s;
   opacity: 1;
 }
 .page .sidebar .last-updated {
@@ -199,6 +215,9 @@ body[current=kitsunes] {
   grid-auto-rows: 1fr;
 }
 .page.tiled .tile {
+  transition-property: transform, opacity;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0, 0, 0.1, 0.99);
   width: 13rem;
   height: 13rem;
   position: relative;
@@ -214,6 +233,7 @@ body[current=kitsunes] {
 .page.tiled .tile::before {
   transition-property: opacity;
   transition-duration: 0.3s;
+  transition-timing-function: ease;
   content: "";
   position: absolute;
   inset: -1rem;
@@ -234,15 +254,42 @@ body[current=kitsunes] {
 }
 
 nav#topnav > div {
+  border-right: solid 1px;
+  position: relative;
   font-size: 1.5rem;
-  -o-border-image: linear-gradient(to top, var(--pg-txt) 0%, transparent 100%);
-     border-image: linear-gradient(to top, var(--pg-txt) 0%, transparent 100%);
-  border-image-slice: 1;
-  border-inline: solid 1px;
-  border-left: none;
+  background-color: var(--pg-acc);
+  border-bottom: solid 1px;
+  transition: border 0s linear 0.3s;
+}
+nav#topnav > div > button {
+  position: relative;
+  background-image: linear-gradient(to top, var(--pg-acc-d), var(--pg-acc));
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+nav#topnav > div > button::before, nav#topnav > div > button::after {
+  content: "-";
+  opacity: 0;
+}
+nav#topnav > div:hover {
+  border-bottom-color: transparent;
 }
 nav#topnav > div:last-of-type {
   border-right: none;
+}
+nav#topnav .dropdown {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  background-color: var(--pg-acc-d);
+  border: solid 1px;
+  border-top: none;
+  font-size: 1rem;
+  z-index: 1;
 }
 
 nav#topnav {
@@ -257,9 +304,5 @@ nav#topnav {
 }
 .page .sidebar .last-updated {
   text-align: center;
-}
-
-nav#topnav {
-  border-bottom: 1px solid currentColor;
 }
 /*# sourceMappingURL=style.css.map */

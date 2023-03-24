@@ -1,4 +1,5 @@
 @use "sass:string"
+@use "sass:meta"
 
 //# ----------------------------------------
 //# Imports
@@ -31,9 +32,13 @@
 		background-image: linear-gradient(to left, $t, $color, $color, $t)
 	@else
 		background-image: linear-gradient(to top, $t, $color, $color, $t)
-@mixin Transition($props, $length)
+@mixin Transition($props, $length, $function: ease)
 	transition-property: string.unquote($props)
-	transition-duration: $length
+	@if type-of($length) == string
+		transition-duration: string.unquote($length)
+	@else 
+		transition-duration: $length
+	transition-timing-function: $function
 
 //# ----------------------------------------
 //# Defaults
@@ -49,18 +54,25 @@ button
 	background: transparent
 	border: none
 	cursor: pointer
+	font-family: inherit
+	font-size: inherit
+	font-weight: inherit
+	text-align: inherit
 
 //# ----------------------------------------
 //# Page colors
 //# ----------------------------------------
 body
-	@include Transition('color', $length: $tr-s)
+	@include Transition('color', $length: $tr-vl)
 	--pg-acc: crimson
 	--pg-acc-d: hsl(348, 83%, 30%)
 	--pg-acc-h: 348
 	--pg-txt: white
 	--pg-tint: hsl(0, 100%, 100%)
 	color: var(--pg-txt)
+
+	--c-foxfire-d: hsl(220, 100%, 50%)
+	--c-foxfire-l: hsl(203, 100%, 70%)
 	&[current=ras]
 		$c-ras: hsl(203, 100%, 50%)
 		--pg-acc: hsl(203, 100%, 50%)
@@ -79,7 +91,7 @@ body
 //# Page styling
 //# ----------------------------------------
 .page
-	@include Transition('opacity', $length: $tr-l)
+	@include Transition('opacity', $length: $tr-vl)
 	header, &.tiled .tile //? Headers
 		font-family: 'IM Fell English'
 		font-weight: 300
@@ -99,7 +111,7 @@ body
 			margin-top: -1rem
 			font-style: italic
 	.content
-		@include Transition('transform, opacity', $tr-l)
+		@include Transition('transform, opacity', $tr-vl)
 		> h1, > h2, > h3 //? Section headers and decorations
 			margin-block: 2rem 1rem
 			line-height: 1em
@@ -160,19 +172,23 @@ body
 				&:last-child:nth-child(2)
 					text-align: left
 	.sidebar
-		@include Transition('opacity', $tr-l)
+		@include Transition('opacity, transform', $tr-vl)
 		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
 		overflow: hidden
 		border-left: none
 		> .header-pointer
 			@include UniGradientBorder($tex: 50%, $dir: 'left')
+			&:hover > *
+				transform: translateX(.5rem)
+				filter: drop-shadow(0 0 .3rem)
 			&:last-of-type
 				border-bottom: none
 			> *
-				@include Transition('transform', $tr-s)
+				@include Transition('transform, color, filter', $tr-s)
 				display: inline-block
 				&::before,
 				&::after
+					@include Transition('opacity', $tr-s)
 					content: ''
 					position: absolute
 					right: calc(100% + .3rem)
@@ -193,7 +209,6 @@ body
 				transform: translateX(1rem)
 				&::before,
 				&::after
-					@include Transition('opacity', $tr-s)
 					opacity: 1
 		.last-updated
 			margin-top: 2lh
@@ -207,6 +222,7 @@ body
 	grid-auto-columns: 1fr
 	grid-auto-rows: 1fr
 	.tile
+		@include Transition('transform, opacity', $tr-vl, cubic-bezier(0, 0, 0.1, 0.99))
 		width: 13rem
 		height: 13rem
 		position: relative
@@ -238,15 +254,41 @@ body
 		color: hsl(200deg, 100%, 50%)
 
 //# ----------------------------------------
-//# Topnav
+//# Topnav styling
 //# ----------------------------------------
 nav#topnav
 	> div
+		border-right: solid 1px
+		position: relative
 		font-size: 1.5rem
-		@include UniGradientBorder($color: var(--pg-txt), $hor: false, $dir: 'top')
-		border-left: none
+		background-color: var(--pg-acc)
+		// border-left: none
+		border-bottom: solid 1px
+		transition: border 0s linear $tr-s
+		> button
+			position: relative
+			background-image: linear-gradient(to top, var(--pg-acc-d), var(--pg-acc))
+			height: 100%
+			width: 100%
+			z-index: 2
+			&::before,
+			&::after
+				content: '-'
+				opacity: 0
+		&:hover
+			border-bottom-color: $t
 		&:last-of-type
 			border-right: none
+	.dropdown
+		@include Transition('transform, opacity', $tr-s)
+		width: 100%
+		position: absolute
+		top: 100%
+		background-color: var(--pg-acc-d)
+		border: solid 1px
+		border-top: none
+		font-size: 1rem
+		z-index: 1
 
 //# ----------------------------------------
 //# Text alignment
@@ -259,26 +301,4 @@ nav#topnav
 		text-align: left
 		.last-updated
 			text-align: center
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//# ----------------------------------------
-//# Debug vis
-//# ----------------------------------------
-$dbbd: 1px solid $cc
-nav#topnav
-	border-bottom: $dbbd
-.page .sidebar
-	// border-right: $dbbd
+		.header

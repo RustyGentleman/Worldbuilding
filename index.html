@@ -9,27 +9,43 @@
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="characters">
+<body current="ras">
 	<nav id="topnav">
-		<div>World</div>
-		<div>Ras Silverleaf</div>
-		<div>Kitsunes</div>
+		<div>
+			<button page-link="world">World</button>
+			<div class="dropdown"></div>
+		</div>
+		<div>
+			<button page-link="characters">Characters</button>
+			<div class="dropdown">
+				<button page-link="ras">Ras Silverleaf</button>
+			</div>
+		</div>
+		<div>
+			<button page-link="races">Races</button>
+			<div class="dropdown"></div>
+		</div>
 	</nav>
 
 
 	<main>
 		<article class="page tiled" id="characters">
-			<button class="tile">
+			<button class="tile" page-link="ras">
 				<div>
-					<h1 style="display: flex;flex-direction:column">
+					<h1 style="display: flex; flex-direction:column">
 						<span style="margin-bottom: -2rem;position: relative;left: -.85rem; font-size: .9em;">Ras</span>
 						<span style="font-size: 1.1em;">Silverleaf</span>
 					</h1>
 					<h2>the Gentle Kitsune</h2>
-					<img src="assets/foxfire.gif" style="transform: translateY(-25%);">
+					<img src="assets/foxfire.gif" style="
+						transform: translateY(-25%);
+						filter:
+							drop-shadow(0 0 .5rem var(--c-foxfire-l))
+							drop-shadow(0 0 1.5rem var(--c-foxfire-d))">
 				</div>
 			</button>
-			<button class="tile">
+
+			<button class="tile" page-link="riella">
 				<div>
 					<h1>Riella</h1>
 					<h2>the Dark Elf Alchemist</h2>
@@ -40,6 +56,7 @@
 
 		<article class="page" id="ras">
 			<nav class="sidebar">
+				<span class="header">Navigation:</span>
 				<button class="header-pointer"><b>Overview</b></button>
 				<button class="header-pointer"><span>Given & Family Names</span></button>
 				<button class="header-pointer"><span>Sexuality</span></button>
