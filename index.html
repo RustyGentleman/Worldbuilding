@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="ras">
+<body current="characters">
 	<nav id="topnav">
 		<div>World</div>
 		<div>Ras Silverleaf</div>
@@ -18,12 +18,39 @@
 
 
 	<main>
+		<article class="page tiled" id="characters">
+			<button class="tile">
+				<div>
+					<h1 style="display: flex;flex-direction:column">
+						<span style="margin-bottom: -2rem;position: relative;left: -.85rem; font-size: .9em;">Ras</span>
+						<span style="font-size: 1.1em;">Silverleaf</span>
+					</h1>
+					<h2>the Gentle Kitsune</h2>
+					<img src="assets/foxfire.gif" style="transform: translateY(-25%);">
+				</div>
+			</button>
+			<button class="tile">
+				<div>
+					<h1>Riella</h1>
+					<h2>the Dark Elf Alchemist</h2>
+				</div>
+			</button>
+		</article>
+
+
 		<article class="page" id="ras">
 			<nav class="sidebar">
-				<span><b>Overview</b></span>
-				<span>Given & Family Name</span>
-				<span>Sexuality</span>
-				<span>Age</span>
+				<button class="header-pointer"><b>Overview</b></button>
+				<button class="header-pointer"><span>Given & Family Names</span></button>
+				<button class="header-pointer"><span>Sexuality</span></button>
+				<button class="header-pointer"><span>Age</span></button>
+				<button class="header-pointer"><b>Appearance</b></button>
+				<button class="header-pointer"><span>Physique</span></button>
+				<button class="header-pointer"><span>Garments</span></button>
+				<button class="header-pointer"><b>Traits & Abilities</b></button>
+				<button class="header-pointer"><b>Skills</b></button>
+				<button class="header-pointer"><b>Notable Belongings</b></button>
+				<span class="last-updated">Last updated: 03/23/23</span>
 			</nav>
 			<div class="content">
 				<header>
@@ -122,7 +149,7 @@
 
 		<article class="page" id="kitsunes">
 			<nav class="sidebar">
-				<span><b>Overview</b></span>
+				<button class="header-pointer"><b>Overview</b></button>
 			</nav>
 			<div class="content">
 				<header>
@@ -142,19 +169,21 @@
 
 
 	<svg>
+		<filter id="paper">
+			<feTurbulence baseFrequency="0.055" numOctaves="7" seed="12" type="fractalNoise" result="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feTurbulence>
+			<feDisplacementMap scale="30" result="ca53054b-8680-4f7f-ae17-d93ca58bb45d" in="SourceGraphic" in2="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feDisplacementMap>
+		</filter>
+		<filter id="bigwavy">
+			<feTurbulence id="bigturbulence" type="turbulence" seed="3" numOctaves="10" result="NOISE"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="10"></feDisplacementMap>
+			<animate xlink:href="#bigturbulence" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1"
+			values=".02 .01; .05 .03; .02 .01" repeatCount="indefinite"></animate>
+		</filter>
 		<filter id="wavy">
 			<feTurbulence id="turbulence" type="turbulence" numOctaves="3" result="NOISE"></feTurbulence>
 			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="50"></feDisplacementMap>
 			<animate xlink:href="#turbulence" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1"
 			values="0.01 0.02;0.02 0.04;0.01 0.02" repeatCount="indefinite"></animate>
-		</filter>
-		<filter id="drophaze">
-			<feGaussianBlur stdDeviation="8,22" result="BLUR" in="SourceGraphic"></feGaussianBlur>
-			<feMerge result="MERGE">
-				<feMergeNode in="SourceGraphic"></feMergeNode>
-				<feMergeNode in="BLUR"></feMergeNode>
-				<feMergeNode in="BLUR"></feMergeNode>
-			</feMerge>
 		</filter>
 		<filter id="wavyh1">
 			<feTurbulence id="turbulenceh1" type="turbulence" numOctaves="5" seed="13" result="NOISEH1"></feTurbulence>
@@ -174,6 +203,15 @@
 			<animate xlink:href="#turbulenceh3" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
 			values=".04 .08; .08 .04; .04 .08" repeatCount="indefinite"></animate>
 		</filter>
+		<filter id="wavydots">
+			<feTurbulence id="turbulencedots" type="turbulence" numOctaves="5" seed="4" result="NOISEdots"></feTurbulence>
+			<feOffset id="DNOISEdots" dx="-2" dy="3" result="DNOISEdots" in="NOISEdots"></feOffset>
+			<feDisplacementMap in="SourceGraphic" in2="DNOISEdots" scale="10"></feDisplacementMap>
+			<!-- <animate xlink:href="#DNOISEdots" attributeName="dx" dur="10s" keyTimes="0;0.5;1"
+			values="10; 0; 10" repeatCount="indefinite"></animate> -->
+			<animate xlink:href="#turbulencedots" attributeName="baseFrequency" dur="30s" keyTimes="0;0.5;1"
+			values=".05 .1; .16 .1; .05 .1" repeatCount="indefinite"></animate>
+		</filter>
 		<filter id="b2a">
 			<feColorMatrix in="SourceGraphic" result="RESULT" 
 				values="0 0 0 0 1,
@@ -181,6 +219,14 @@
 						  0 0 0 0 1,
 						  1 0 0 0 0"
 			></feColorMatrix>
+		</filter>
+		<filter id="drophaze">
+			<feGaussianBlur stdDeviation="1,5" result="BLUR" in="SourceGraphic"></feGaussianBlur>
+			<feMerge result="MERGE">
+				<feMergeNode in="SourceGraphic"></feMergeNode>
+				<feMergeNode in="BLUR"></feMergeNode>
+				<feMergeNode in="BLUR"></feMergeNode>
+			</feMerge>
 		</filter>
 	</svg>
 </body>

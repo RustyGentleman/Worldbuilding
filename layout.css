@@ -1,8 +1,24 @@
+body[current=characters] > main > #characters {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=characters] > main > #characters > .content {
+  transform: scale(1);
+}
+
 body[current=ras] > main > #ras {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=ras] > main > #ras > .content {
   transform: scale(1);
 }
 
 body[current=kitsunes] > main > #kitsunes {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=kitsunes] > main > #kitsunes > .content {
   transform: scale(1);
 }
 
@@ -15,6 +31,11 @@ body {
 }
 
 .page {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.page > .content {
   transform: scale(0);
 }
 
@@ -36,6 +57,7 @@ main {
 
 .page {
   display: grid;
+  align-items: center;
   grid-area: 1/1/1/1;
   grid-template-areas: "nav content";
 }
@@ -79,14 +101,21 @@ main {
 
 .page {
   max-height: calc(100vh - 2rem);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .page .sidebar {
-  width: 8rem;
+  height: calc(100vh - 2rem);
+  width: 11rem;
+  padding-block: 1rem;
 }
-.page .sidebar,
+.page .sidebar > * {
+  padding: 0.1rem 1rem;
+}
 .page .content {
-  max-height: calc(100vh - 2rem);
-  max-height: calc(100vh - 2rem - 2rem);
+  max-height: calc(100vh - 2rem - 10rem);
   padding: 1rem;
+  padding-block: 5rem;
 }
 /*# sourceMappingURL=layout.css.map */

@@ -10,17 +10,24 @@
 //# ----------------------------------------
 //# Mixins
 //# ----------------------------------------
-@mixin GradBorder($width: 1px, $color: currentColor, $horizontal: true)
+@mixin CGradBorder($width: 1px, $color: currentColor, $hor: true)
 	border-style: solid
-	@if $horizontal == true
+	@if $hor == true
 		border-block-width: $width
 		border-image: linear-gradient(to left, $t, $color, $color, $t)
 	@else
 		border-inline-width: $width
 		border-image: linear-gradient(to top, $t, $color, $color, $t)
 	border-image-slice: 1
-@mixin GradientBg($color: currentColor, $horizontal: true)
-	@if $horizontal
+@mixin UniGradientBorder($width: 1px, $color: currentColor, $hor: true, $cex: 0%, $tex: 100%, $dir: 'right')
+	border-image: linear-gradient(to string.unquote($dir), $color $cex, $t $tex)
+	border-image-slice: 1
+	@if $hor == true
+		border-block: solid $width
+	@else 
+		border-inline: solid $width
+@mixin GradientBg($color: currentColor, $hor: true)
+	@if $hor
 		background-image: linear-gradient(to left, $t, $color, $color, $t)
 	@else
 		background-image: linear-gradient(to top, $t, $color, $color, $t)
@@ -36,43 +43,69 @@ body //? Full default
 	font-weight: 400
 	background-color: #111
 	color: white
+button
+	appearance: none
+	color: inherit
+	background: transparent
+	border: none
+	cursor: pointer
 
 //# ----------------------------------------
 //# Page colors
 //# ----------------------------------------
 body
+	@include Transition('color', $length: $tr-s)
+	--pg-acc: crimson
+	--pg-acc-d: hsl(348, 83%, 30%)
+	--pg-acc-h: 348
+	--pg-txt: white
+	--pg-tint: hsl(0, 100%, 100%)
+	color: var(--pg-txt)
 	&[current=ras]
-		--pg-acc: hsl(203, 100%, 30%)
-		--pg-acc-d: hsl(203, 100%, 20%)
+		$c-ras: hsl(203, 100%, 50%)
+		--pg-acc: hsl(203, 100%, 50%)
+		--pg-acc-d: hsl(203, 100%, 30%)
+		--pg-acc-dt: darken($c-ras 10)
+		--pg-acc-h: 203
 		--pg-txt: white
 		--pg-tint: hsl(50, 100%, 25%)
 	&[current=kitsunes]
 		--pg-acc: hsl(5, 100%, 30%)
 		--pg-acc-d: hsl(5, 100%, 20%)
+		--pg-acc-h: 5
 		--pg-txt: white
 		--pg-tint: hsl(20, 100%, 30%)
 //# ----------------------------------------
 //# Page styling
 //# ----------------------------------------
 .page
-	@include Transition('transform', $tr-s)
+	@include Transition('opacity', $length: $tr-l)
+	header, &.tiled .tile //? Headers
+		font-family: 'IM Fell English'
+		font-weight: 300
+		position: relative
+		img
+			position: absolute
+			inset: 0
+			width: 100%
+			z-index: 1
+		h1, h2
+			position: relative
+			margin: 0
+			z-index: 2
+		h1
+			font-size: 3rem
+		h2
+			margin-top: -1rem
+			font-style: italic
 	.content
-		header //? Headers
-			font-family: 'IM Fell English'
-			font-weight: 300
-			h1, h2
-				margin: 0
-			h1
-				font-size: 3rem
-			h2
-				margin-top: -1rem
-				font-style: italic
+		@include Transition('transform, opacity', $tr-l)
 		> h1, > h2, > h3 //? Section headers and decorations
 			margin-block: 2rem 1rem
 			line-height: 1em
 			font-weight: bold
 			position: relative
-			text-shadow: 0 0 1rem black, 0 0 1rem black
+			// text-shadow: 0 0 1rem black, 0 0 1rem black
 			&::before,
 			&::after
 				content: ''
@@ -102,7 +135,6 @@ body
 				// border-image: linear-gradient(to right, $cc, $t)
 				// border-image-slice: 1
 				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc))
-				
 		> h2
 			font-size: 1.5rem
 			&::before,
@@ -121,15 +153,82 @@ body
 				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc))
 		p //? Paragraphs
 			margin-block: .3rem
-		section.subcolumns
+		section.subcolumns //? Sections that separate into multiple subcolumns
 			>:not(.escape)
 				&:first-child:nth-last-child(2)
 					text-align: right
 				&:last-child:nth-child(2)
 					text-align: left
 	.sidebar
-		@include GradBorder($color: $cc, $horizontal: false)
+		@include Transition('opacity', $tr-l)
+		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
+		overflow: hidden
 		border-left: none
+		> .header-pointer
+			@include UniGradientBorder($tex: 50%, $dir: 'left')
+			&:last-of-type
+				border-bottom: none
+			> *
+				@include Transition('transform', $tr-s)
+				display: inline-block
+				&::before,
+				&::after
+					content: ''
+					position: absolute
+					right: calc(100% + .3rem)
+					top: 0
+					height: .6rem
+					width: 1.3rem
+					transform: translateY(.35rem)
+					background: url('assets/teardrop.svg')
+					background-size: 100% 100%
+					// background: $cc
+					// background: linear-gradient(to left, white, $cc 50%)
+					// clip-path: polygon(0 50%, 70% 0, 100% 50%, 70% 100%)
+					mask-image: linear-gradient(to left, white, $mw 50%, $t)
+					opacity: 0
+					filter: hue-rotate(calc(1deg * var(--pg-acc-h))) brightness(1.5) url(#wavydots)
+			&.current > *
+				color: var(--pg-acc)
+				transform: translateX(1rem)
+				&::before,
+				&::after
+					@include Transition('opacity', $tr-s)
+					opacity: 1
+		.last-updated
+			margin-top: 2lh
+			font-size: .8rem
+			font-weight: 100
+.page.tiled
+	display: grid
+	place-items: center
+	place-content: center
+	flex-direction: column
+	grid-auto-columns: 1fr
+	grid-auto-rows: 1fr
+	.tile
+		width: 13rem
+		height: 13rem
+		position: relative
+		display: flex
+		place-items: center
+		place-content: center
+		aspect-ratio: 1
+		h1, h2
+			color: white
+			filter: drop-shadow(0 0 .5rem black)
+		&::before
+			@include Transition('opacity', $length: $tr-s)
+			content: ''
+			position: absolute
+			inset: -$sp-std
+			filter: url(#paper)
+			background-color: currentColor
+			border-radius: 100%
+			opacity: .05
+		&:hover
+			&::before
+				opacity: .2
 
 //* Ras Silverleaf
 #ras .content
@@ -144,9 +243,10 @@ body
 nav#topnav
 	> div
 		font-size: 1.5rem
-		border-right: solid 1px
-		border-image: linear-gradient(to top, $cc, $t)
-		border-image-slice: 1
+		@include UniGradientBorder($color: var(--pg-txt), $hor: false, $dir: 'top')
+		border-left: none
+		&:last-of-type
+			border-right: none
 
 //# ----------------------------------------
 //# Text alignment
@@ -157,10 +257,8 @@ nav#topnav
 	text-align: center
 	.sidebar
 		text-align: left
-
-//# ----------------------------------------
-//# Text alignment
-//# ----------------------------------------
+		.last-updated
+			text-align: center
 
 
 

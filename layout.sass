@@ -4,7 +4,10 @@
 //# ----------------------------------------
 @each $mp in $main-pages
 	body[current=#{$mp}] > main > ##{$mp}
-		transform: scale(1)
+		pointer-events: all
+		opacity: 1
+		> .content
+			transform: scale(1)
 
 //# ----------------------------------------
 //# Defaults
@@ -15,7 +18,10 @@ body //? Full default
 	height: 100vh
 	width: 100vw
 	overflow: hidden
-.page //? Scale 0
+.page
+	pointer-events: none
+	opacity: 0
+.page > .content //? Scale 0
 	transform: scale(0)
 
 //# ----------------------------------------
@@ -33,6 +39,7 @@ main
 	align-items: center
 .page
 	display: grid
+	align-items: center
 	grid-area: 1 / 1 / 1 / 1
 	grid-template-areas: 'nav content'
 	.sidebar
@@ -64,15 +71,18 @@ main
 //# ----------------------------------------
 //# Sizings and spacings
 //# ----------------------------------------
-$std-spacing: 1rem
 main
 	height: calc(100vh - 2rem)
 .page
 	max-height: calc(100vh - 2rem)
+	height: fit-content
 	.sidebar
-		width: 8rem
-	.sidebar,
+		height: calc(100vh - 2rem)
+		width: 11rem
+		padding-block: $sp-std
+		> *
+			padding: $sp-std/10 $sp-std
 	.content
-		max-height: calc(100vh - 2rem)
-		max-height: calc(100vh - 2rem - $std-spacing*2)
-		padding: $std-spacing
+		max-height: calc(100vh - 2rem - 5rem*2)
+		padding: $sp-std
+		padding-block: 5rem
