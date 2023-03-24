@@ -10,7 +10,7 @@ for (const page of document.querySelectorAll('main > .page')) {
 	Object.defineProperty(page, 'content', {
 		get: function() {return this.querySelector('.content')}})
 	Object.defineProperty(page, 'sidebar', {
-		get: function() {return this.querySelector('.content')}})
+		get: function() {return this.querySelector('.sidebar')}})
 }
 const current = body.current
 const page = body.page
@@ -40,5 +40,12 @@ function Page_GetCurrentSectionHeader() {
 	return section.textContent
 }
 function Page_RefreshSectionPointer() {
-	console.log(1)
+	const headerText = Page_GetCurrentSectionHeader()
+	page.sidebar.querySelector('.current')?.classList.remove('current')
+	for (const child of page.sidebar.children)
+		if (child.textContent == headerText) {
+			child.classList.add('current')
+			return
+		}
 }
+Page_RefreshSectionPointer()
