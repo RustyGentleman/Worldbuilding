@@ -1,14 +1,32 @@
+@use "sass:string"
+
 //# ----------------------------------------
 //# Imports
 //# ----------------------------------------
+@import '_variables.sass'
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap')
 
 //# ----------------------------------------
-//# Variables
+//# Mixins
 //# ----------------------------------------
-$cc: currentColor
-$t: transparent
+@mixin GradBorder($width: 1px, $color: currentColor, $horizontal: true)
+	border-style: solid
+	@if $horizontal == true
+		border-block-width: $width
+		border-image: linear-gradient(to left, $t, $color, $color, $t)
+	@else
+		border-inline-width: $width
+		border-image: linear-gradient(to top, $t, $color, $color, $t)
+	border-image-slice: 1
+@mixin GradientBg($color: currentColor, $horizontal: true)
+	@if $horizontal
+		background-image: linear-gradient(to left, $t, $color, $color, $t)
+	@else
+		background-image: linear-gradient(to top, $t, $color, $color, $t)
+@mixin Transition($props, $length)
+	transition-property: string.unquote($props)
+	transition-duration: $length
 
 //# ----------------------------------------
 //# Defaults
@@ -20,11 +38,124 @@ body //? Full default
 	color: white
 
 //# ----------------------------------------
-//# Text alignment
+//# Page colors
+//# ----------------------------------------
+body
+	&[current=ras]
+		--pg-acc: hsl(203, 100%, 30%)
+		--pg-acc-d: hsl(203, 100%, 20%)
+		--pg-txt: white
+		--pg-tint: hsl(50, 100%, 25%)
+	&[current=kitsunes]
+		--pg-acc: hsl(5, 100%, 30%)
+		--pg-acc-d: hsl(5, 100%, 20%)
+		--pg-txt: white
+		--pg-tint: hsl(20, 100%, 30%)
+//# ----------------------------------------
+//# Page styling
 //# ----------------------------------------
 .page
+	@include Transition('transform', $tr-s)
+	.content
+		header //? Headers
+			font-family: 'IM Fell English'
+			font-weight: 300
+			h1, h2
+				margin: 0
+			h1
+				font-size: 3rem
+			h2
+				margin-top: -1rem
+				font-style: italic
+		> h1, > h2, > h3 //? Section headers and decorations
+			margin-block: 2rem 1rem
+			line-height: 1em
+			font-weight: bold
+			position: relative
+			text-shadow: 0 0 1rem black, 0 0 1rem black
+			&::before,
+			&::after
+				content: ''
+				position: relative
+				display: inline-block
+				background-image: url('/assets/leafveinhalf.png'), linear-gradient(to left, $t, var(--pg-acc))
+				background-size: 100% auto
+				background-blend-mode: overlay
+				border-top-left-radius: 50%
+				border-bottom-left-radius: 50%
+			&::before
+				margin-left: -100%
+				right: .75rem
+				transform: translateY(-.2rem) rotate(180deg)
+			&::after
+				margin-right: -100%
+				left: .75rem
+				transform: translateY(-.2rem)
+		> h1
+			font-size: 1.8rem
+			&::before,
+			&::after
+				width: 40%
+				max-width: calc((100vw - 8rem) / 2)
+				height: .7rem
+				// border-block: solid 2px
+				// border-image: linear-gradient(to right, $cc, $t)
+				// border-image-slice: 1
+				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc))
+				
+		> h2
+			font-size: 1.5rem
+			&::before,
+			&::after
+				width: 25%
+				max-width: calc((100vw - 8rem) / 2)
+				height: .4rem
+				filter: url(#wavyh2) drop-shadow(0 0 .2rem var(--pg-acc))
+		> h3
+			font-size: 1.2rem
+			&::before,
+			&::after
+				width: 10%
+				max-width: calc((100vw - 8rem) / 2)
+				height: .4rem
+				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc))
+		p //? Paragraphs
+			margin-block: .3rem
+		section.subcolumns
+			>:not(.escape)
+				&:first-child:nth-last-child(2)
+					text-align: right
+				&:last-child:nth-child(2)
+					text-align: left
+	.sidebar
+		@include GradBorder($color: $cc, $horizontal: false)
+		border-left: none
+
+//* Ras Silverleaf
+#ras .content
+	.physical
+		color: hsl(160deg, 100%, 40%)
+	.magical
+		color: hsl(200deg, 100%, 50%)
+
+//# ----------------------------------------
+//# Topnav
+//# ----------------------------------------
+nav#topnav
+	> div
+		font-size: 1.5rem
+		border-right: solid 1px
+		border-image: linear-gradient(to top, $cc, $t)
+		border-image-slice: 1
+
+//# ----------------------------------------
+//# Text alignment
+//# ----------------------------------------
+nav#topnav
 	text-align: center
-	.sidenav
+.page
+	text-align: center
+	.sidebar
 		text-align: left
 
 //# ----------------------------------------
@@ -51,5 +182,5 @@ body //? Full default
 $dbbd: 1px solid $cc
 nav#topnav
 	border-bottom: $dbbd
-.page .sidenav
-	border-right: $dbbd
+.page .sidebar
+	// border-right: $dbbd
