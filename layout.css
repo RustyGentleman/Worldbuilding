@@ -39,7 +39,7 @@ main {
   grid-area: 1/1/1/1;
   grid-template-areas: "nav content";
 }
-.page .sidenav {
+.page .sidebar {
   width: 5rem;
   display: flex;
   flex-direction: column;
@@ -80,10 +80,10 @@ main {
 .page {
   max-height: calc(100vh - 2rem);
 }
-.page .sidenav {
+.page .sidebar {
   width: 8rem;
 }
-.page .sidenav,
+.page .sidebar,
 .page .content {
   max-height: calc(100vh - 2rem);
   max-height: calc(100vh - 2rem - 2rem);
