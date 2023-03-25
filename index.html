@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="characters">
+<body current="ras">
 	<nav id="topnav">
 		<div>
 			<button page-link="world">World</button>
@@ -33,6 +33,25 @@
 
 
 	<main>
+		<!-- # Tiled pages -->
+		<!-- <article class="page tiled" id="world">
+			<div id="world-map" style="background-color: rgb(0 50 10);">
+				<div>
+
+				</div>
+			</div>
+		</article> -->
+		
+		<article class="page" id="world">
+			<nav class="sidebar"></nav>
+			<div class="content">
+				<header>
+					<h1>The World</h1>
+					<h2>Yet Unnamed</h2>
+				</header>
+			</div>
+		</article>
+
 		<article class="page tiled" id="characters">
 			<button class="tile" page-link="ras">
 				<div>
@@ -86,6 +105,8 @@
 		</article>
 
 
+		<!-- 					# Subpages -->
+		<!-- 			* Characters -->
 		<article class="page" id="ras">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
@@ -199,6 +220,7 @@
 			</div>
 		</article>
 
+		<!-- 			* Races -->
 		<article class="page" id="kitsunes">
 			<nav class="sidebar">
 				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
@@ -219,7 +241,15 @@
 		</article>
 	</main>
 
+	<div id="bg-wrapper">
+		<img page-bg="ras" src="assets/bg-ras.png">
+		<img page-bg="kitsunes" src="assets/bg-kitsune.png">
+	</div>
 	<svg>
+		<filter id="glass">
+			<feTurbulence baseFrequency="0.05" numOctaves="5" seed="2" type="fractalNoise"  result="ad42d511e-9bad-4bb2-8442-6e170a0ebef1"></feTurbulence>
+			<feDisplacementMap scale="50" result="ca53054b-8680-4f7f-ae17-d93ca58bb45d" in="SourceGraphic" in2="ad42d511e-9bad-4bb2-8442-6e170a0ebef1"></feDisplacementMap>
+		</filter>
 		<filter id="paper">
 			<feTurbulence baseFrequency="0.055" numOctaves="7" seed="12" type="fractalNoise" result="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feTurbulence>
 			<feDisplacementMap scale="30" result="ca53054b-8680-4f7f-ae17-d93ca58bb45d" in="SourceGraphic" in2="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feDisplacementMap>

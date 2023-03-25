@@ -110,7 +110,7 @@ nav#topnav {
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
 }
-nav#topnav > div:hover > .dropdown, nav#topnav > div:focus-within > .dropdown {
+nav#topnav > div:hover > .dropdown {
   transform: translate(-1px, 0);
   opacity: 1;
 }
@@ -118,7 +118,7 @@ nav#topnav .dropdown {
   transform-origin: top center;
   transform: translate(-1px, -100%);
 }
-nav#topnav .dropdown:hover, nav#topnav .dropdown:focus-within {
+nav#topnav .dropdown:hover {
   transform: translate(-1px, 0);
   opacity: 1;
 }
@@ -132,7 +132,7 @@ main {
   display: grid;
   align-items: center;
   grid-area: 1/1/1/1;
-  grid-template-areas: "nav content";
+  grid-template-columns: auto 1fr;
 }
 .page .sidebar {
   width: 5rem;

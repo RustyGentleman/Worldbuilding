@@ -1,6 +1,62 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
+@-webkit-keyframes sway {
+  0% {
+    transform: translateX(-10vw);
+  }
+  100% {
+    transform: translateX(10vw);
+  }
+}
+@keyframes sway {
+  0% {
+    transform: translateX(-10vw);
+  }
+  100% {
+    transform: translateX(10vw);
+  }
+}
+@-webkit-keyframes bg-vert-scroll {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 2000rem;
+  }
+}
+@keyframes bg-vert-scroll {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 2000rem;
+  }
+}
+body[current=world] [page-bg=world] {
+  opacity: 1;
+}
+
+body[current=characters] [page-bg=characters] {
+  opacity: 1;
+}
+
+body[current=races] [page-bg=races] {
+  opacity: 1;
+}
+
+body[current=ras] [page-bg=ras] {
+  opacity: 1;
+}
+
+body[current=riella] [page-bg=riella] {
+  opacity: 1;
+}
+
+body[current=kitsunes] [page-bg=kitsunes] {
+  opacity: 1;
+}
+
 body {
   font-family: "Dosis";
   font-weight: 400;
@@ -22,16 +78,37 @@ button {
   text-align: inherit;
 }
 
+[page-bg] {
+  position: fixed;
+  width: 120vw;
+  height: auto;
+  background-size: auto 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#bg-wrapper {
+  position: fixed;
+  left: 50%;
+  height: 100%;
+  -webkit-animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate;
+          animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate;
+  z-index: -10;
+}
+
 body {
-  transition-property: color;
-  transition-duration: 1s;
+  transition-property: background;
+  transition-duration: 0.3s;
   transition-timing-function: ease;
+  --pg-bg: #111;
   --pg-acc: crimson;
   --pg-acc-d: hsl(348, 83%, 30%);
   --pg-acc-h: 348;
   --pg-txt: white;
   --pg-tint: hsl(0, 100%, 100%);
   color: var(--pg-txt);
+  background-color: var(--pg-bg);
   --c-foxfire-d: hsl(220, 100%, 50%);
   --c-foxfire-l: hsl(203, 100%, 70%);
 }
@@ -50,7 +127,13 @@ body[current=kitsunes] {
   --pg-acc-d: hsl(5, 100%, 20%);
   --pg-acc-h: 5;
   --pg-txt: white;
-  --pg-tint: hsl(20, 100%, 30%);
+}
+body[current=world] {
+  --pg-acc: hsl(32, 24%, 57%);
+  --pg-acc-txt: hsl(32, 24%, 57%);
+  --pg-acc-d: hsl(32, 24%, 32%);
+  --pg-acc-h: 32;
+  --pg-txt: black;
 }
 
 .page {
@@ -92,11 +175,25 @@ body[current=kitsunes] {
   border-right: none;
   margin-left: -1px;
 }
+.page .content header {
+  margin-bottom: 3rem;
+}
+.page .content > h1, .page .content > h2, .page .content > h3, .page .content > section {
+  max-width: 1000px;
+  margin-inline: auto;
+}
 .page .content > h1, .page .content > h2, .page .content > h3 {
-  margin-block: 2rem 1rem;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
   line-height: 1em;
   font-weight: bold;
+  line-height: 1.2em;
   position: relative;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22));
+  box-shadow: 0 0 5rem 0.3rem rgb(0, 0, 0);
+  -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
+          clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
 }
 .page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
   content: "";
@@ -148,14 +245,28 @@ body[current=kitsunes] {
 .page .content p {
   margin-block: 0.3rem;
 }
-.page .content section.subcolumns > :not(.escape):first-child:nth-last-child(2) {
+.page .content section {
+  position: relative;
+  padding-block: 0.5rem;
+}
+.page .content section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(assets/smoke-bg.png), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-size: 100% auto;
+  -webkit-animation: bg-vert-scroll 360s linear infinite;
+          animation: bg-vert-scroll 360s linear infinite;
+  z-index: -1;
+}
+.page .content section .subcolumns > :not(.escape):first-child:nth-last-child(2) {
   text-align: right;
 }
-.page .content section.subcolumns > :not(.escape):last-child:nth-child(2) {
+.page .content section .subcolumns > :not(.escape):last-child:nth-child(2) {
   text-align: left;
 }
 .page .sidebar {
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, filter;
   transition-duration: 1s;
   transition-timing-function: ease;
   -o-border-image: linear-gradient(to bottom, currentColor 50%, transparent 100%);
@@ -164,6 +275,9 @@ body[current=kitsunes] {
   border-inline: solid 1px;
   overflow: hidden;
   border-left: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(1rem) url(#glass);
+          backdrop-filter: blur(1rem) url(#glass);
 }
 .page .sidebar > .header-pointer {
   -o-border-image: linear-gradient(to left, currentColor 0%, transparent 50%);
@@ -285,16 +399,16 @@ nav#topnav {
   transition-property: background, color;
   transition-duration: 0.5s;
   transition-timing-function: ease;
+  border-bottom: solid 1px;
 }
 nav#topnav > div {
   transition: color 0.3s ease;
   border-right: solid 1px;
   position: relative;
   font-size: 1.5rem;
-  border-bottom: solid 1px;
 }
 nav#topnav > div > button {
-  transition: background 0.5s ease, color 0.3s ease;
+  transition: background 0.5s ease;
   position: relative;
   background-color: var(--pg-acc);
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
@@ -315,6 +429,9 @@ nav#topnav > div button:hover::before, nav#topnav > div button:hover::after {
   opacity: 1;
 }
 nav#topnav .dropdown {
+  display: flex;
+  place-content: center;
+  flex-direction: column;
   transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.5s ease;
   width: 100%;
   position: absolute;
@@ -328,6 +445,11 @@ nav#topnav .dropdown {
   border-bottom-right-radius: 0.4rem;
   font-size: 1rem;
   z-index: 1;
+}
+
+#world, #world-map {
+  height: 100%;
+  width: 100%;
 }
 
 nav#topnav {

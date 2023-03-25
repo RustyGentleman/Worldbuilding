@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap')
 
 //# ----------------------------------------
-//# Mixins
+//# Mixins & Animations
 //# ----------------------------------------
 @mixin CGradBorder($width: 1px, $color: currentColor, $hor: true)
 	border-style: solid
@@ -42,6 +42,23 @@
 		transition-timing-function: string.unquote($function)
 	@else 
 		transition-timing-function: $function
+@keyframes sway
+	0%
+		transform: translateX(-10vw)
+	100%
+		transform: translateX(10vw)
+@keyframes bg-vert-scroll
+	0%
+		background-position-y: 0
+	100%
+		background-position-y: 2000rem
+
+//# ----------------------------------------
+//# Functions
+//# ----------------------------------------
+@each $page in $main-pages
+	body[current=#{$page}] [page-bg=#{$page}]
+		opacity: 1
 
 //# ----------------------------------------
 //# Defaults
@@ -61,18 +78,34 @@ button
 	font-size: inherit
 	font-weight: inherit
 	text-align: inherit
+[page-bg]
+	position: fixed
+	width: 120vw
+	height: auto
+	background-size: auto 100%
+	transform: translateX(-50%)
+	opacity: 0
+	transition: opacity $tr-l ease
+#bg-wrapper
+	position: fixed
+	left: 50%
+	height: 100%
+	animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate
+	z-index: -10
 
 //# ----------------------------------------
 //# Page colors
 //# ----------------------------------------
 body
-	@include Transition('color', $length: $tr-vl)
+	@include Transition('background', $length: $tr-s)
+	--pg-bg: #111
 	--pg-acc: crimson
 	--pg-acc-d: hsl(348, 83%, 30%)
 	--pg-acc-h: 348
 	--pg-txt: white
 	--pg-tint: hsl(0, 100%, 100%)
 	color: var(--pg-txt)
+	background-color: var(--pg-bg)
 
 	--c-foxfire-d: hsl(220, 100%, 50%)
 	--c-foxfire-l: hsl(203, 100%, 70%)
@@ -91,7 +124,14 @@ body
 		--pg-acc-d: hsl(5, 100%, 20%)
 		--pg-acc-h: 5
 		--pg-txt: white
-		--pg-tint: hsl(20, 100%, 30%)
+		// --pg-tint: hsl(20, 100%, 30%)
+	&[current=world]
+		--pg-acc: hsl(32, 24%, 57%)
+		--pg-acc-txt: hsl(32, 24%, 57%)
+		--pg-acc-d: hsl(32, 24%, 32%)
+		--pg-acc-h: 32
+		--pg-txt: black
+		// --pg-tint: hsl(20, 100%, 30%)
 
 //# ----------------------------------------
 //# Page styling
@@ -121,12 +161,23 @@ body
 		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
 		border-right: none
 		margin-left: -1px
+		header
+			margin-bottom: 3rem
+		> h1, > h2, > h3, > section
+			max-width: 1000px
+			margin-inline: auto
 		> h1, > h2, > h3 //? Section headers and decorations
-			margin-block: 2rem 1rem
+			display: inline-block
+			width: 100%
+			margin: 0
+			// margin-block: 1rem .5rem
 			line-height: 1em
 			font-weight: bold
+			line-height: 1.2em
 			position: relative
-			// text-shadow: 0 0 1rem black, 0 0 1rem black
+			background-image: linear-gradient(to right, rgb(0 0 0 / 22%), rgb(0 0 0 / 90%), rgb(0 0 0 / 90%), rgb(0 0 0 / 22%))
+			box-shadow: 0 0 5rem .3rem rgb(0 0 0 / 100%)
+			clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
 			&::before,
 			&::after
 				content: ''
@@ -155,7 +206,7 @@ body
 				// border-block: solid 2px
 				// border-image: linear-gradient(to right, $cc, $t)
 				// border-image-slice: 1
-				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc))
+				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
 		> h2
 			font-size: 1.5rem
 			&::before,
@@ -163,7 +214,7 @@ body
 				width: 25%
 				max-width: calc((100vw - 8rem) / 2)
 				height: .4rem
-				filter: url(#wavyh2) drop-shadow(0 0 .2rem var(--pg-acc))
+				filter: url(#wavyh2) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
 		> h3
 			font-size: 1.2rem
 			&::before,
@@ -171,20 +222,33 @@ body
 				width: 10%
 				max-width: calc((100vw - 8rem) / 2)
 				height: .4rem
-				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc))
+				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
 		p //? Paragraphs
 			margin-block: .3rem
-		section.subcolumns //? Sections that separate into multiple subcolumns
-			>:not(.escape)
-				&:first-child:nth-last-child(2)
-					text-align: right
-				&:last-child:nth-child(2)
-					text-align: left
+		section
+			position: relative
+			padding-block: .5rem
+			&::before
+				content: ''
+				position: absolute
+				inset: 0
+				background-image: url(assets/smoke-bg.png), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
+				background-size: 100% auto
+				animation: bg-vert-scroll 360s linear infinite
+				z-index: -1
+			.subcolumns //? Sections that separate into multiple subcolumns
+				> :not(.escape)
+					&:first-child:nth-last-child(2)
+						text-align: right
+					&:last-child:nth-child(2)
+						text-align: left
 	.sidebar
-		@include Transition('opacity, transform', $tr-vl)
+		@include Transition('opacity, transform, filter', $tr-vl)
 		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
 		overflow: hidden
 		border-left: none
+		background-color: rgb(0 0 0 / 70%)
+		backdrop-filter: blur(1rem) url(#glass)// blur(.1rem)
 		> .header-pointer
 			@include UniGradientBorder($tex: 50%, $dir: 'left')
 			border-bottom: none
@@ -278,14 +342,14 @@ body
 //# ----------------------------------------
 nav#topnav
 	@include Transition('background, color', $tr-l)
+	border-bottom: solid 1px
 	> div
 		transition: color $tr-s ease
 		border-right: solid 1px
 		position: relative
 		font-size: 1.5rem
-		border-bottom: solid 1px
 		> button
-			transition: background $tr-l ease, color $tr-s ease
+			transition: background $tr-l ease
 			position: relative
 			background-color: var(--pg-acc)
 			background-image: linear-gradient(to top, rgb(0 0 0 / 30%), $t)
@@ -306,6 +370,9 @@ nav#topnav
 				&::after
 					opacity: 1
 	.dropdown
+		display: flex
+		place-content: center
+		flex-direction: column
 		transition: transform $tr-s ease, opacity $tr-s ease, background-color $tr-l ease
 		width: 100%
 		position: absolute
@@ -321,6 +388,13 @@ nav#topnav
 		z-index: 1
 
 //# ----------------------------------------
+//# World Map
+//# ----------------------------------------
+#world, #world-map
+	height: 100%
+	width: 100%
+
+//# ----------------------------------------
 //# Text alignment
 //# ----------------------------------------
 nav#topnav
@@ -331,4 +405,5 @@ nav#topnav
 		text-align: left
 		.last-updated
 			text-align: center
-		.header
+	.content
+		> h1, > h2, > h3
