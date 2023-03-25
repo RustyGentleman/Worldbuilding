@@ -91,7 +91,20 @@ main
 				&:last-of-type
 					padding-right: 0
 					border: none
-
+.page.tiled
+	display: flex
+	place-items: center
+	place-content: center
+	flex-direction: row
+	flex-wrap: wrap
+	.tile
+		width: 13rem
+		height: 13rem
+		position: relative
+		display: flex
+		place-items: center
+		place-content: center
+		aspect-ratio: 1
 //# ----------------------------------------
 //# Sizings and spacings
 //# ----------------------------------------
@@ -110,3 +123,5 @@ main
 		max-height: calc(100vh - 2rem - 5rem*2)
 		padding: $sp-std
 		padding-block: 5rem
+.page.tiled .tile
+	margin: $sp-std*2

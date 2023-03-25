@@ -21,6 +21,13 @@ for (const page of document.querySelectorAll('main > .page'))
 	page.content?.addEventListener('scroll', Page_RefreshSectionPointer)
 for (const pl of document.querySelectorAll('[page-link]'))
 	pl.addEventListener('click', function() {GoToPage(this.getAttribute('page-link'))})
+for (const pl of document.querySelectorAll('[section-link]'))
+	pl.addEventListener('click', function() {
+		const page = this.closest('.page')
+		const sheader = page.querySelector(`[section-id="${this.getAttribute('section-link')}"]`)
+		console.log(page, sheader)
+		page.content.scrollTo({top: (sheader.offsetTop - page.clientHeight * 0.3), behavior: 'smooth' })
+	})
 
 //# ----------------------------------------
 //# Section tracking
@@ -36,20 +43,17 @@ function Page_GetCurrentSection() {
 function Page_GetCurrentSectionHeader() {
 	let section = Page_GetCurrentSection()
 	if (section.tagName == 'HEADER')
-		return body.page.content.querySelector('h1').textContent
-	for (;!section.tagName.match(/^h\d/i); section = section.previousElementSibling)
+		return body.page.content.querySelector('[section-id]').getAttribute('section-id')
+	for (;!section.getAttribute('section-id'); section = section.previousElementSibling)
 		null
-	return section.textContent
+	return section.getAttribute('section-id')
 }
 function Page_RefreshSectionPointer() {
-	if (!body.page.content) return
-	const headerText = Page_GetCurrentSectionHeader()
+	if (!body.page?.content) return
+	const headerID = Page_GetCurrentSectionHeader()
+	if (!headerID) return
 	body.page.sidebar.querySelector('.current')?.classList.remove('current')
-	for (const child of body.page.sidebar.children)
-		if (child.textContent == headerText) {
-			child.classList.add('current')
-			return
-		}
+	body.page.sidebar.querySelector(`[section-link="${headerID}"]`).classList.add('current')
 }
 Page_RefreshSectionPointer()
 
@@ -58,4 +62,5 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 function GoToPage(id) {
 	body.setAttribute('current', id)
+	setTimeout(Page_RefreshSectionPointer, 100)
 }

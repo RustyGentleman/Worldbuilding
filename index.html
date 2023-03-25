@@ -6,10 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ras Silverleaf & his World</title>
 	<script defer src="app.js"></script>
+	<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="ras">
+<body current="characters">
 	<nav id="topnav">
 		<div>
 			<button page-link="world">World</button>
@@ -19,11 +20,14 @@
 			<button page-link="characters">Characters</button>
 			<div class="dropdown">
 				<button page-link="ras">Ras Silverleaf</button>
+				<button page-link="riella">Riella Enisi</button>
 			</div>
 		</div>
 		<div>
 			<button page-link="races">Races</button>
-			<div class="dropdown"></div>
+			<div class="dropdown">
+				<button page-link="kitsunes">Kitsunes</button>
+			</div>
 		</div>
 	</nav>
 
@@ -32,9 +36,19 @@
 		<article class="page tiled" id="characters">
 			<button class="tile" page-link="ras">
 				<div>
-					<h1 style="display: flex; flex-direction:column">
-						<span style="margin-bottom: -2rem;position: relative;left: -.85rem; font-size: .9em;">Ras</span>
-						<span style="font-size: 1.1em;">Silverleaf</span>
+					<h1 style="
+						display: flex;
+						flex-direction:column
+					">
+						<span style="
+							margin-bottom: -2rem;
+							position: relative;
+							left: -.85rem;
+							font-size: .9em;
+						">Ras</span>
+						<span style="
+							font-size: 1.1em;
+						">Silverleaf</span>
 					</h1>
 					<h2>the Gentle Kitsune</h2>
 					<img src="assets/foxfire.gif" style="
@@ -47,8 +61,26 @@
 
 			<button class="tile" page-link="riella">
 				<div>
-					<h1>Riella</h1>
-					<h2>the Dark Elf Alchemist</h2>
+					<h1 style="display: flex; flex-direction:column">
+						<span style="
+							margin-bottom: -1.85rem;
+							position: relative;
+							left: 1.05rem;
+						">Riella</span>
+						<span style="
+							position: relative;
+						">El'wenysii</span>
+					</h1>
+					<h2 style="width: 15rem;">the Dark Elf Alchemist</h2>
+				</div>
+			</button>
+		</article>
+
+		<article class="page tiled" id="races">
+			<button class="tile" page-link="kitsunes">
+				<div>
+					<h1>Kitsunes</h1>
+					<h2>Courteous Tricksters</h2>
 				</div>
 			</button>
 		</article>
@@ -57,16 +89,16 @@
 		<article class="page" id="ras">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer"><b>Overview</b></button>
-				<button class="header-pointer"><span>Given & Family Names</span></button>
-				<button class="header-pointer"><span>Sexuality</span></button>
-				<button class="header-pointer"><span>Age</span></button>
-				<button class="header-pointer"><b>Appearance</b></button>
-				<button class="header-pointer"><span>Physique</span></button>
-				<button class="header-pointer"><span>Garments</span></button>
-				<button class="header-pointer"><b>Traits & Abilities</b></button>
-				<button class="header-pointer"><b>Skills</b></button>
-				<button class="header-pointer"><b>Notable Belongings</b></button>
+				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+				<button class="header-pointer" section-link="names"><span>Given & Family Names</span></button>
+				<button class="header-pointer" section-link="sexuality"><span>Sexuality</span></button>
+				<button class="header-pointer" section-link="age"><span>Age</span></button>
+				<button class="header-pointer" section-link="appearance"><b>Appearance</b></button>
+				<button class="header-pointer" section-link="physique"><span>Physique</span></button>
+				<button class="header-pointer" section-link="garments"><span>Garments</span></button>
+				<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
+				<button class="header-pointer" section-link="skills"><b>Skills</b></button>
+				<button class="header-pointer" section-link="belongings"><b>Notable Belongings</b></button>
 
 				<span class="header">Related:</span>
 				<button page-link="kitsunes">Kitsunes</button>
@@ -81,41 +113,41 @@
 					</h1>
 					<h2>the Gentle Kitsune</h2>
 				</header>
-				<h1>Overview</h1>
+				<h1 section-id="overview">Overview</h1>
 				<section>
 					<p>Ras is a male, two-tailed kitsune of a towering height of roughly 2m, or 6'8", and seemingly in his late twenties to early thirties, living in a cozy wooden house amidst the woods.</p>
 					<p>He is quite a warmhearted and caring person, having a disarmingly calm and gentle demeanor, though he can be witty and playful when comfortable with his company. Though, being true to his kin, he is not above playing tricks on others and putting his silver tongue to use for his benefit, he is good at heart, rarely intending harm with his antics. This puts his alignment somewhere between Neutral Good and True Neutral.</p>
 				</section>
-				<h2>Given & Family Names</h2>
+				<h2 section-id="names">Given & Family Names</h2>
 				<section>
 					<p>His given name is Ras, pronounced as [ɽɑs], although some may pronounce it closer to "Rasu", or [ɽɑsʉ]. Phonetically, the 'R' in his name is a tap or flap, rather than the English standard, which is a proximant.</p>
 					<p>His family name, Silverleaf, indicates his family is originally from the Silverwood forests found in elven territory. That being so, it is not only possible but highly likely that he is some-part elf as well.</p>
 				</section>
-				<h2>Sexuality</h2>
+				<h2 section-id="sexuality">Sexuality</h2>
 				<section>
 					<p>Though saying he is heterosexual would be mostly true, it is not strictly so. It is fairer to say he is attracted to femininity; to soft, graceful forms, whether curvaceous or diminute.</p>
 				</section>
-				<h2>Age</h2>
+				<h2 section-id="age">Age</h2>
 				<section>
 					<p>Despite his appearance, kitsunes age somewhat differently than humans. Although he's often hesitant to divulge his actual age, it's likely that he's in his mid thirties, or perhaps early fourties.</p>
 				</section>
-				<h1>Appearance</h1>
+				<h1 section-id="appearance">Appearance</h1>
 				<section>
 					<p>His long, wavy hair is kept loose, reaching down to the small of his back. Were it not difficult for him to braid it himself, however, he would. The fur of his tails and ears are, like his hair, pure white in color and quite well-kept, especially for one who dwells in the woods, works the soil and does manual labor.</p>
 					<p>His eyes are that of a predator; a deep, bright amber that almost seem to glow under the light of a fire, cut vertically by black slits which shimmer in the dark.</p>
 					<p>His claws are, as is common, charcoal black at the tip, fading into clear translucent toward the base, where they fuse into his fingertips. They aid in climbing trees and moving through soft terrain when barefooted. They are not retractable, and, as such, are often worn and dulled from wear, though the ones on his feet often still require trimming - considering it quite a dull job, the less often he must make new boots, the better.</p>
 				</section>
-				<h2>Physique</h2>
+				<h2 section-id="physique">Physique</h2>
 				<section>
 					<p>He is exceptionally tall, at roughly 2m, or 6'7" - not counting his ears, which measure at 20cm, or 8", tall. A wiry physique comprised of lean, tough muscles supports it well, allowing him to be quite agile, considering his size.</p>
 					<p>His form is mostly owed to the early years he spent doing manual labor at the nearby town, while, through part of it, simultaneously working on opening a clearing in the woods and building a home for himself. However, he only manages to keep his shape through chores, combat training and the occasional adventuring.</p>
 				</section>
-				<h2>Garments</h2>
+				<h2 section-id="garments">Garments</h2>
 				<section>
 					<p>Traditionally, kitsunes tend to wear kimonos, even at home, though some prefer wearing robes when in privacy. He can always be found wearing a simple, white kimono, which he owns a few of, and his dark blue obi. He does, however, own a more elaborately tailored kimono, as well as a white and black haori which doesn't get used often, as he usually finds enchanting his current apparel to be denser in cold weather sufficiently effective in all but winter.</p>
 					<p>He walks in and near his home barefooted, but wears a pair of sturdy leather boots during longer trips, paired with a belt onto which he attaches the sheath of his blade, as well as pouches, when needed.</p>
 				</section>
-				<h1>Traits & Abilities</h1>
+				<h1 section-id="traits&abilities">Traits & Abilities</h1>
 				<section class="subcolumns">
 					<span class="escape" style="grid-column: 1 / span 2;" navto="kitsunes.traits&abilities">
 						See racial traits
@@ -130,7 +162,7 @@
 						<p><b class="magical">Foxfire</b> - His foxfire is a gentle, light blue hue close to cyan.</p>
 					</div>
 				</section>
-				<h1>Skills</h1>
+				<h1 section-id="skills">Skills</h1>
 				<section class="subcolumns">
 					<div>
 						<b>Physical</b>
@@ -145,7 +177,7 @@
 						<p><b class="magical">Illusionary Magic</b> - He is respectably skilled in this school of magic, which pertains to effects that change the perception of those who witness the effect itself or whatever object or entity it is cast upon. One example would be the spell that keeps others from finding Ras's home in the woods: when a being approaches a certain radius around it while having the intent of finding his home, it is made to either walk in circles or turn around unwittingly.</p>
 					</div>
 				</section>
-				<h1>Notable Belongings</h1>
+				<h1 section-id="belongings">Notable Belongings</h1>
 				<section>
 					<p><b>'Grace'</b></p>
 					<p>A fittingly-named, finely-crafted sword forged by a minotaur blacksmith, given to him as a gift in return for his assistance in a personal matter. It has a long and somewhat thin, double-edged blade that tapers to a fine point, similar to a rapier or an estoc, with a blade measuring about 100 centimeters (or about 40 inches) in length. It has a cruciform cross-guard, with ring guards on either side, and a hand-and-a-half hilt.</p>
@@ -167,17 +199,16 @@
 			</div>
 		</article>
 
-
 		<article class="page" id="kitsunes">
 			<nav class="sidebar">
-				<button class="header-pointer"><b>Overview</b></button>
+				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
 			</nav>
 			<div class="content">
 				<header>
 					<h1>Kitsunes</h1>
 					<h2>Courteous Tricksters</h2>
 				</header>
-				<h1>Overview</h1>
+				<h1 section-id="overview">Overview</h1>
 				<section>
 					<p>Kitsunes are a race of humanoid beings with of large, bushy tails and tall, furry ears atop their heads.</p>
 					<p>Compared to humans, their joints and spines are more flexible, but also somewhat more prone to certain injuries. Other differences include claws in place of nails, often charcoal black toward the tip, a somewhat low sensitivity to sweetness, and a tendency towards having androgynous appearance, presumably so as to attract more types of prey.</p>
@@ -187,7 +218,6 @@
 			</div>
 		</article>
 	</main>
-
 
 	<svg>
 		<filter id="paper">

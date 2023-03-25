@@ -79,6 +79,7 @@ body
 	&[current=ras]
 		$c-ras: hsl(203, 100%, 50%)
 		--pg-acc: hsl(203, 100%, 50%)
+		--pg-acc-txt: hsl(203, 100%, 60%)
 		--pg-acc-d: hsl(203, 100%, 30%)
 		--pg-acc-dt: darken($c-ras 10)
 		--pg-acc-h: 203
@@ -86,10 +87,12 @@ body
 		--pg-tint: hsl(50, 100%, 25%)
 	&[current=kitsunes]
 		--pg-acc: hsl(5, 100%, 30%)
+		--pg-acc-txt: hsl(5, 100%, 55%)
 		--pg-acc-d: hsl(5, 100%, 20%)
 		--pg-acc-h: 5
 		--pg-txt: white
 		--pg-tint: hsl(20, 100%, 30%)
+
 //# ----------------------------------------
 //# Page styling
 //# ----------------------------------------
@@ -115,6 +118,9 @@ body
 			font-style: italic
 	.content
 		@include Transition('transform, opacity', $tr-vl)
+		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
+		border-right: none
+		margin-left: -1px
 		> h1, > h2, > h3 //? Section headers and decorations
 			margin-block: 2rem 1rem
 			line-height: 1em
@@ -181,38 +187,31 @@ body
 		border-left: none
 		> .header-pointer
 			@include UniGradientBorder($tex: 50%, $dir: 'left')
+			border-bottom: none
+			&:first-of-type
+				border-top: none
 			&:hover > *,
 			&:focus-within > *
 				transform: translateX(.5rem)
 				transition: transform $tr-vs ease
-			&:last-of-type
-				border-bottom: none
 			> *
 				@include Transition('transform, color, filter', $tr-s)
 				display: inline-block
-				&::before,
-				&::after
-					@include Transition('opacity', $tr-s)
-					content: ''
+				// &::before,
+				&::before
+					@include Transition('opacity, transform', $tr-s)
+					content: '•'
 					position: absolute
 					right: calc(100% + .3rem)
-					top: 0
-					height: .6rem
-					width: 1.3rem
-					transform: translateY(.35rem)
-					background: url('assets/teardrop.svg')
-					background-size: 100% 100%
-					// background: $cc
-					// background: linear-gradient(to left, white, $cc 50%)
-					// clip-path: polygon(0 50%, 70% 0, 100% 50%, 70% 100%)
-					mask-image: linear-gradient(to left, white, $mw 50%, $t)
+					transform: translateX(-.5rem)
+					font-weight: bold
 					opacity: 0
-					filter: hue-rotate(calc(1deg * var(--pg-acc-h))) brightness(1.5) url(#wavydots)
 			&.current > *
-				color: var(--pg-acc)
+				color: var(--pg-acc-txt)
 				transform: translateX(1rem)
 				&::before,
 				&::after
+					transform: translateX(0rem)
 					opacity: 1
 		> .header
 			text-align: center
@@ -249,21 +248,8 @@ body
 			font-size: .8rem
 			font-weight: 100
 .page.tiled
-	display: grid
-	place-items: center
-	place-content: center
-	flex-direction: column
-	grid-auto-columns: 1fr
-	grid-auto-rows: 1fr
 	.tile
 		@include Transition('transform, opacity', $tr-vl, cubic-bezier(0, 0, 0.1, 0.99))
-		width: 13rem
-		height: 13rem
-		position: relative
-		display: flex
-		place-items: center
-		place-content: center
-		aspect-ratio: 1
 		h1, h2
 			color: white
 			filter: drop-shadow(0 0 .5rem black)

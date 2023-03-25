@@ -1,3 +1,16 @@
+body[current=world] > main > #world {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=world] > main > #world > .content,
+body[current=world] > main > #world > .sidebar {
+  transform: translateX(0%);
+}
+body[current=world] > main > #world.tiled > .tile {
+  transform: scale(1);
+  opacity: 1;
+}
+
 body[current=characters] > main > #characters {
   pointer-events: all;
   opacity: 1;
@@ -11,6 +24,19 @@ body[current=characters] > main > #characters.tiled > .tile {
   opacity: 1;
 }
 
+body[current=races] > main > #races {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=races] > main > #races > .content,
+body[current=races] > main > #races > .sidebar {
+  transform: translateX(0%);
+}
+body[current=races] > main > #races.tiled > .tile {
+  transform: scale(1);
+  opacity: 1;
+}
+
 body[current=ras] > main > #ras {
   pointer-events: all;
   opacity: 1;
@@ -20,6 +46,19 @@ body[current=ras] > main > #ras > .sidebar {
   transform: translateX(0%);
 }
 body[current=ras] > main > #ras.tiled > .tile {
+  transform: scale(1);
+  opacity: 1;
+}
+
+body[current=riella] > main > #riella {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=riella] > main > #riella > .content,
+body[current=riella] > main > #riella > .sidebar {
+  transform: translateX(0%);
+}
+body[current=riella] > main > #riella.tiled > .tile {
   transform: scale(1);
   opacity: 1;
 }
@@ -129,6 +168,23 @@ main {
   border: none;
 }
 
+.page.tiled {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.page.tiled .tile {
+  width: 13rem;
+  height: 13rem;
+  position: relative;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  aspect-ratio: 1;
+}
+
 main {
   height: calc(100vh - 2rem);
 }
@@ -151,5 +207,9 @@ main {
   max-height: calc(100vh - 2rem - 10rem);
   padding: 1rem;
   padding-block: 5rem;
+}
+
+.page.tiled .tile {
+  margin: 2rem;
 }
 /*# sourceMappingURL=layout.css.map */
