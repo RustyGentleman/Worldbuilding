@@ -80,18 +80,20 @@ button
 	text-align: inherit
 [page-bg]
 	position: fixed
-	width: 120vw
-	height: auto
-	background-size: auto 100%
-	transform: translateX(-50%)
+	width: 100vw
+	height: 100vh
+	background-size: cover
+	background-position: center center
+	// transform: translateX(-50%)
 	opacity: 0
 	transition: opacity $tr-l ease
-#bg-wrapper
-	position: fixed
-	left: 50%
-	height: 100%
-	animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate
 	z-index: -10
+// #bg-wrapper
+// 	position: fixed
+// 	left: 50%
+// 	height: 100%
+// 	animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate
+// 	z-index: -10
 
 //# ----------------------------------------
 //# Page colors
@@ -126,6 +128,7 @@ body
 		--pg-txt: white
 		// --pg-tint: hsl(20, 100%, 30%)
 	&[current=world]
+		--pg-bg: hsl(32, 24%, 57%)
 		--pg-acc: hsl(32, 24%, 57%)
 		--pg-acc-txt: hsl(32, 24%, 57%)
 		--pg-acc-d: hsl(32, 24%, 32%)
