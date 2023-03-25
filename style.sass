@@ -88,12 +88,29 @@ button
 	opacity: 0
 	transition: opacity $tr-l ease
 	z-index: -10
-// #bg-wrapper
-// 	position: fixed
-// 	left: 50%
-// 	height: 100%
-// 	animation: sway 30s cubic-bezier(0.25, 0, 0.75, 1) infinite alternate
-// 	z-index: -10
+main [page-link]
+	position: relative
+	width: fit-content
+	margin-inline: auto
+	padding: 0
+	text-align: center
+	text-decoration: underline
+	text-decoration-style: dotted
+	text-decoration-color: $mw
+	text-underline-offset: 2px
+	&:hover::before,
+	&:focus-within::before
+		width: 100%
+	&::before
+		@include Transition('width, background', $tr-s)
+		content: ''
+		position: absolute
+		bottom: 1px
+		left: 50%
+		transform: translateX(-50%)
+		width: 0
+		height: 2px
+		background-color: var(--pg-acc)
 
 //# ----------------------------------------
 //# Page colors
@@ -160,12 +177,21 @@ body
 			margin-top: -1rem
 			font-style: italic
 	.content
-		@include Transition('transform, opacity', $tr-vl)
 		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
 		border-right: none
 		margin-left: -1px
+		transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
 		header
 			margin-bottom: 3rem
+			text-shadow: 0 0 1rem black
+			position: relative
+			img
+				position: absolute
+				inset: 0
+				left: 50%
+				width: 15rem
+				transform: translateX(-50%)
+				z-index: 1
 		> h1, > h2, > h3, > section
 			max-width: 1000px
 			margin-inline: auto
@@ -173,7 +199,6 @@ body
 			display: inline-block
 			width: 100%
 			margin: 0
-			// margin-block: 1rem .5rem
 			line-height: 1em
 			font-weight: bold
 			line-height: 1.2em
@@ -198,7 +223,7 @@ body
 			&::after
 				margin-right: -100%
 				left: .75rem
-				transform: translateY(-.2rem)
+				transform: translateY(-.4rem)
 		> h1
 			font-size: 1.8rem
 			&::before,
@@ -206,10 +231,7 @@ body
 				width: 40%
 				max-width: calc((100vw - 8rem) / 2)
 				height: .7rem
-				// border-block: solid 2px
-				// border-image: linear-gradient(to right, $cc, $t)
-				// border-image-slice: 1
-				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
+				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc))
 		> h2
 			font-size: 1.5rem
 			&::before,
@@ -227,7 +249,7 @@ body
 				height: .4rem
 				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
 		p //? Paragraphs
-			margin-block: .3rem
+			margin-block: .8rem
 		section
 			position: relative
 			padding-block: .5rem
@@ -237,7 +259,7 @@ body
 				inset: 0
 				background-image: url(assets/smoke-bg.png), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
 				background-size: 100% auto
-				animation: bg-vert-scroll 360s linear infinite
+				animation: bg-vert-scroll 1024s linear infinite
 				z-index: -1
 			.subcolumns //? Sections that separate into multiple subcolumns
 				> :not(.escape)
@@ -286,34 +308,15 @@ body
 			font-weight: bold
 			&:not(:first-of-type)
 				margin-top: 1lh
-		[page-link]
-			position: relative
-			width: fit-content
-			margin-inline: auto
-			padding: 0
-			text-align: center
-			text-decoration: underline
-			text-decoration-style: dotted
-			text-decoration-color: $mw
-			text-underline-offset: 2px
-			&:hover::before,
-			&:focus-within::before
-				width: 100%
-			&::before
-				@include Transition('width', $tr-s)
-				content: ''
-				position: absolute
-				bottom: 1px
-				left: 50%
-				transform: translateX(-50%)
-				width: 0
-				height: 2px
-				background-color: var(--pg-acc)
 
 		> .last-updated
 			margin-top: 2lh
 			font-size: .8rem
 			font-weight: 100
+	&.content-only
+		transition: transform $tr-vl ease, opacity $tr-vl ease
+		.content
+			border: none
 .page.tiled
 	.tile
 		@include Transition('transform, opacity', $tr-vl, cubic-bezier(0, 0, 0.1, 0.99))
@@ -359,9 +362,7 @@ nav#topnav
 			height: 100%
 			width: 100%
 			z-index: 2
-		&:last-of-type
-			border-right: none
-		button
+		> button:not(:first-child)
 			&::before,
 			&::after
 				transition: opacity $tr-s ease
@@ -372,6 +373,8 @@ nav#topnav
 				&::before,
 				&::after
 					opacity: 1
+		&:last-of-type
+			border-right: none
 	.dropdown
 		display: flex
 		place-content: center
@@ -389,6 +392,14 @@ nav#topnav
 		border-bottom-right-radius: .4rem
 		font-size: 1rem
 		z-index: 1
+		button
+			background-image: linear-gradient(to right, $t, rgb(0 0 0 / 50%), $t)
+			background-position: center center
+			background-size: 100% 0%
+			background-repeat: no-repeat
+			transition: background $tr-s ease
+			&:hover
+				background-size: 100% 100%
 
 //# ----------------------------------------
 //# World Map

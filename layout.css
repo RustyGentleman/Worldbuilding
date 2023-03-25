@@ -1,13 +1,26 @@
+body[current=home] > main > #home {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=home] > main > #home:not(.content-only) > .content,
+body[current=home] > main > #home > .sidebar {
+  transform: translateX(0%);
+}
+body[current=home] > main > #home.tiled > .tile, body[current=home] > main > #home.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 body[current=world] > main > #world {
   pointer-events: all;
   opacity: 1;
 }
-body[current=world] > main > #world > .content,
+body[current=world] > main > #world:not(.content-only) > .content,
 body[current=world] > main > #world > .sidebar {
   transform: translateX(0%);
 }
-body[current=world] > main > #world.tiled > .tile {
-  transform: scale(1);
+body[current=world] > main > #world.tiled > .tile, body[current=world] > main > #world.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -15,12 +28,12 @@ body[current=characters] > main > #characters {
   pointer-events: all;
   opacity: 1;
 }
-body[current=characters] > main > #characters > .content,
+body[current=characters] > main > #characters:not(.content-only) > .content,
 body[current=characters] > main > #characters > .sidebar {
   transform: translateX(0%);
 }
-body[current=characters] > main > #characters.tiled > .tile {
-  transform: scale(1);
+body[current=characters] > main > #characters.tiled > .tile, body[current=characters] > main > #characters.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -28,12 +41,12 @@ body[current=races] > main > #races {
   pointer-events: all;
   opacity: 1;
 }
-body[current=races] > main > #races > .content,
+body[current=races] > main > #races:not(.content-only) > .content,
 body[current=races] > main > #races > .sidebar {
   transform: translateX(0%);
 }
-body[current=races] > main > #races.tiled > .tile {
-  transform: scale(1);
+body[current=races] > main > #races.tiled > .tile, body[current=races] > main > #races.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -41,12 +54,12 @@ body[current=ras] > main > #ras {
   pointer-events: all;
   opacity: 1;
 }
-body[current=ras] > main > #ras > .content,
+body[current=ras] > main > #ras:not(.content-only) > .content,
 body[current=ras] > main > #ras > .sidebar {
   transform: translateX(0%);
 }
-body[current=ras] > main > #ras.tiled > .tile {
-  transform: scale(1);
+body[current=ras] > main > #ras.tiled > .tile, body[current=ras] > main > #ras.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -54,12 +67,12 @@ body[current=riella] > main > #riella {
   pointer-events: all;
   opacity: 1;
 }
-body[current=riella] > main > #riella > .content,
+body[current=riella] > main > #riella:not(.content-only) > .content,
 body[current=riella] > main > #riella > .sidebar {
   transform: translateX(0%);
 }
-body[current=riella] > main > #riella.tiled > .tile {
-  transform: scale(1);
+body[current=riella] > main > #riella.tiled > .tile, body[current=riella] > main > #riella.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -67,12 +80,12 @@ body[current=kitsunes] > main > #kitsunes {
   pointer-events: all;
   opacity: 1;
 }
-body[current=kitsunes] > main > #kitsunes > .content,
+body[current=kitsunes] > main > #kitsunes:not(.content-only) > .content,
 body[current=kitsunes] > main > #kitsunes > .sidebar {
   transform: translateX(0%);
 }
-body[current=kitsunes] > main > #kitsunes.tiled > .tile {
-  transform: scale(1);
+body[current=kitsunes] > main > #kitsunes.tiled > .tile, body[current=kitsunes] > main > #kitsunes.content-only {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -89,13 +102,13 @@ body {
   opacity: 0;
 }
 
-.page > .content {
+.page:not(.content-only) > .content {
   transform: translateX(100%);
 }
 .page > .sidebar {
   transform: translateX(-100%);
 }
-.page.tiled > .tile {
+.page.tiled > .tile, .page.content-only {
   transform: scale(0.7);
   opacity: 0;
 }
@@ -107,8 +120,14 @@ body {
 
 nav#topnav {
   display: grid;
+  grid-template-columns: 2.5rem;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
+}
+nav#topnav > :first-child svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-bottom: -0.1rem;
 }
 nav#topnav > div:hover > .dropdown {
   transform: translate(-1px, 0);
