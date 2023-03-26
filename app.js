@@ -43,7 +43,7 @@ function Page_GetCurrentSection() {
 function Page_GetCurrentSectionHeader() {
 	let section = Page_GetCurrentSection()
 	if (section.tagName == 'HEADER')
-		return body.page.content.querySelector('[section-id]').getAttribute('section-id')
+		return body.page.content.querySelector('[section-id]')?.getAttribute('section-id')
 	for (;!section.getAttribute('section-id'); section = section.previousElementSibling)
 		null
 	return section.getAttribute('section-id')
