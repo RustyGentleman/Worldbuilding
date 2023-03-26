@@ -41,6 +41,10 @@ body[current=world] [page-bg=world] {
   opacity: 1;
 }
 
+body[current=whisperwood-forest] [page-bg=whisperwood-forest] {
+  opacity: 1;
+}
+
 body[current=characters] [page-bg=characters] {
   opacity: 1;
 }
@@ -93,7 +97,8 @@ button {
   z-index: -10;
 }
 
-main [page-link] {
+.content [page-link],
+.sidebar [page-link] {
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -108,10 +113,13 @@ main [page-link] {
           text-decoration-color: rgba(255, 255, 255, 0.5);
   text-underline-offset: 2px;
 }
-main [page-link]:hover::before, main [page-link]:focus-within::before {
+.content [page-link]:hover::before, .content [page-link]:focus-within::before,
+.sidebar [page-link]:hover::before,
+.sidebar [page-link]:focus-within::before {
   width: 100%;
 }
-main [page-link]::before {
+.content [page-link]::before,
+.sidebar [page-link]::before {
   transition-property: width, background;
   transition-duration: 0.3s;
   transition-timing-function: ease;
@@ -206,6 +214,10 @@ body[current=world] {
   margin-bottom: 3rem;
   text-shadow: 0 0 1rem black;
   position: relative;
+}
+.page .content header h1, .page .content header h2 {
+  display: flex;
+  flex-direction: column;
 }
 .page .content header img {
   position: absolute;
@@ -368,6 +380,7 @@ body[current=world] {
   font-size: 0.8rem;
   font-weight: 100;
 }
+
 .page.content-only {
   transition: transform 1s ease, opacity 1s ease;
 }
@@ -381,8 +394,10 @@ body[current=world] {
   transition-timing-function: cubic-bezier(0, 0, 0.1, 0.99);
 }
 .page.tiled .tile h1, .page.tiled .tile h2 {
+  display: flex;
+  flex-direction: column;
   color: white;
-  filter: drop-shadow(0 0 0.5rem black);
+  filter: drop-shadow(0 0 0.4rem black);
 }
 .page.tiled .tile::before {
   transition-property: opacity;
@@ -394,10 +409,10 @@ body[current=world] {
   filter: url(#paper);
   background-color: currentColor;
   border-radius: 100%;
-  opacity: 0.05;
+  opacity: 0.1;
 }
 .page.tiled .tile:hover::before {
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 #ras .content .physical {

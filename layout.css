@@ -24,6 +24,19 @@ body[current=world] > main > #world.tiled > .tile, body[current=world] > main > 
   opacity: 1;
 }
 
+body[current=whisperwood-forest] > main > #whisperwood-forest {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=whisperwood-forest] > main > #whisperwood-forest:not(.content-only) > .content,
+body[current=whisperwood-forest] > main > #whisperwood-forest > .sidebar {
+  transform: translateX(0%);
+}
+body[current=whisperwood-forest] > main > #whisperwood-forest.tiled > .tile, body[current=whisperwood-forest] > main > #whisperwood-forest.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 body[current=characters] > main > #characters {
   pointer-events: all;
   opacity: 1;
@@ -202,6 +215,10 @@ main {
   place-items: center;
   place-content: center;
   aspect-ratio: 1;
+}
+
+.page.content-only {
+  margin-inline: auto;
 }
 
 main {

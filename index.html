@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="home">
+<body current="whisperwood-forest">
 	<nav id="topnav">
 		<div>
 			<button page-link="home">
@@ -42,26 +42,35 @@
 
 	<main>
 		<!-- # Tiled pages -->
-		<!-- <article class="page tiled" id="world">
-			<div id="world-map" style="background-color: rgb(0 50 10);">
-				<div>
-
-				</div>
-			</div>
-		</article> -->
 
 		<article class="page content-only" id="home">
 			<div class="content">
 				<header>
 					<h1>About</h1>
-					<!-- <h2>and his World</h2> -->
 				</header>
-				<!-- <h1>About</h1> -->
 				<section style="margin-top: -1.5rem;">
 					<p>Yet Unnamed is a worldbuilding and writing project set in a medieval-era fantasy world. It was born from a continual development of the character <button page-link="ras">Ras Silverleaf</button>, his home and the surrounding area, and, as such, its development is being done 'from inside out', so to say.</p>
 					<p>Though this organic manner of development - and, indeed, the creation of this project - was unintended, I, as a writer, enjoy the idea that each fact, item, being or idea is to be moreso discovered or inferred than purely invented on a whim.</p>
 				</section>
 			</div>
+		</article>
+
+		<article class="page tiled" id="world">
+			<button class="tile" page-link="whisperwood-forest">
+				<div>
+					<h1>
+						<span style="font-size: .9em;">Whisperwood</span>
+						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
+					</h1>
+					<!-- <h2>the Murmuring Woods</h2> -->
+				</div>
+			</button>
+			<button class="tile" page-link="tel'ere-desert">
+				<div>
+					<h1>Tel'ere</h1>
+					<!-- <h2>the Scalding Desert</h2> -->
+				</div>
+			</button>
 		</article>
 
 		<article class="page tiled" id="characters">
@@ -117,6 +126,31 @@
 
 
 		<!-- 					# Subpages -->
+		<!-- 			* World -->
+		<article class="page" id="whisperwood-forest">
+			<nav class="sidebar"></nav>
+			<div class="content">
+				<header>
+					<h1>
+						<span style="font-size: .9em;">Whisperwood</span>
+						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
+					</h1>
+				</header>
+				<h1>Overview</h1>
+				<section>
+					<p>The Whisperwood Forest is a large forest region, comprised of a mix of evergreen and deciduous trees. It is named after the Whisperwood Oak, a rather intriguing species endemic to it - meaning it only exists here.</p>
+					<p>Its climate is cold, but not boreal, with fairly temperate summers and springs, cold falls and frigid winters. Though its coastal areas see a fair bit of rain during summers and springs, rainfall diminishes towards more inland areas, some of which may only see rain during the summer.</p>
+					<p>A number of villages and small towns dot the region, their formation and survival predominantly owed to forestry, hunting and clay extraction, but also, in smaller part, to animal husbandry. Trade also plays an important role in the increasing growth of these settlements, due to the traffic of people and goods to and from [the large coastal city], a large city in the south coast.</p>
+				</section>
+				<h1>Whisperwood</h1>
+				<section>
+					<p>A species of oak known to grow only in this region. While structurally similar to other species of oak, it has a tendency to exhibit various forms of symmetry in the way its branches and leaves grow.</p>
+					<p>Its most interesting trait, however, is the growth of thin, stem-like modified leaves along its branches that are able to perform elaborate gestures. Though other types of trees and plants are known to have flowers or leaves that move, the mechanism through which these gestures are activated is unknown, a small number of different gestures have been recorded.</p>
+					<p>During spring and early summer, when its flowers blossom, these modified leaves perform a series of gestures throughout the day that generate winds in an upward and outward direction, which spreads pollen towards neighboring trees and up into stronger natural air currents.</p>
+					<p>Other series have been recorded, though their patterns or objectives have so far been elusive. Some of them have been known to generate winds as well, but also whistling, howling and murmuring sounds, which give the region its name.</p>
+				</section>
+			</div>
+		</article>
 		<!-- 			* Characters -->
 		<article class="page" id="ras">
 			<nav class="sidebar">
