@@ -22,7 +22,10 @@
 		</div>
 		<div>
 			<button page-link="world">World</button>
-			<div class="dropdown"></div>
+			<div class="dropdown">
+				<button page-link="whisperwood-forest">Whisperwood Forest</button>
+				<button page-link="telere">Tel'ere</button>
+			</div>
 		</div>
 		<div>
 			<button page-link="characters">Characters</button>
@@ -58,7 +61,7 @@
 		<article class="page tiled" id="world">
 			<button class="tile" page-link="whisperwood-forest">
 				<div>
-					<h1>
+					<h1 translate="no">
 						<span style="font-size: .9em;">Whisperwood</span>
 						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
 					</h1>
@@ -76,10 +79,10 @@
 		<article class="page tiled" id="characters">
 			<button class="tile" page-link="ras">
 				<div>
-					<h1 style="
+					<h1 translate="no" style="
 						display: flex;
 						flex-direction:column
-					">
+						">
 						<span style="
 							margin-bottom: -2rem;
 							position: relative;
@@ -118,7 +121,7 @@
 		<article class="page tiled" id="races">
 			<button class="tile" page-link="kitsunes">
 				<div>
-					<h1>Kitsunes</h1>
+					<h1 translate="no">Kitsunes</h1>
 					<h2>Courteous Tricksters</h2>
 				</div>
 			</button>
@@ -128,26 +131,49 @@
 		<!-- 					# Subpages -->
 		<!-- 			* World -->
 		<article class="page" id="whisperwood-forest">
-			<nav class="sidebar"></nav>
+			<nav class="sidebar">
+				<span class="header">Navigation:</span>
+				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+				<button class="header-pointer" section-link="flora"><b>Flora</b></button>
+				<button class="header-pointer" section-link="whisperwood"><span>Whisperwood Oak</span></button>
+				<button class="header-pointer" section-link="fluffberry"><span>Fluffberry</span></button>
+			</nav>
 			<div class="content">
 				<header>
-					<h1>
+					<h1 translate="no">
 						<span style="font-size: .9em;">Whisperwood</span>
 						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
 					</h1>
 				</header>
-				<h1>Overview</h1>
+				<h1 section-id="overview">Overview</h1>
 				<section>
-					<p>The Whisperwood Forest is a large forest region, comprised of a mix of evergreen and deciduous trees. It is named after the Whisperwood Oak, a rather intriguing species endemic to it - meaning it only exists here.</p>
+					<p>The Whisperwood Forest is a large, thickly forested region, comprised of a mix of evergreen and deciduous trees. It is named after the Whisperwood Oak, a rather intriguing species endemic to it - meaning it only exists here.</p>
 					<p>Its climate is cold, but not boreal, with fairly temperate summers and springs, cold falls and frigid winters. Though its coastal areas see a fair bit of rain during summers and springs, rainfall diminishes towards more inland areas, some of which may only see rain during the summer.</p>
 					<p>A number of villages and small towns dot the region, their formation and survival predominantly owed to forestry, hunting and clay extraction, but also, in smaller part, to animal husbandry. Trade also plays an important role in the increasing growth of these settlements, due to the traffic of people and goods to and from [the large coastal city], a large city in the south coast.</p>
 				</section>
-				<h1>Whisperwood</h1>
+				<h1 section-id="flora">Flora</h1>
+				<section>
+					<p>Its size and fertile soil contribute to a fairly large diversity of plants and fungi, while its climate allows for a significant variety of types and species of trees, as well, being home to both deciduous and evergreen trees.</p>
+					<p>Below are some notable mentions.</p>
+				</section>
+				<h2 section-id="whisperwood">Whisperwood Oak</h2>
 				<section>
 					<p>A species of oak known to grow only in this region. While structurally similar to other species of oak, it has a tendency to exhibit various forms of symmetry in the way its branches and leaves grow.</p>
+					<p>Its leaves are green during spring and summer, and progressively turn light yellow, orange, and then red during fall, to then turn a dark crimson come winter. Though the tree is deciduous, it retains large part of its leaves throughout winter.</p>
 					<p>Its most interesting trait, however, is the growth of thin, stem-like modified leaves along its branches that are able to perform elaborate gestures. Though other types of trees and plants are known to have flowers or leaves that move, the mechanism through which these gestures are activated is unknown, a small number of different gestures have been recorded.</p>
 					<p>During spring and early summer, when its flowers blossom, these modified leaves perform a series of gestures throughout the day that generate winds in an upward and outward direction, which spreads pollen towards neighboring trees and up into stronger natural air currents.</p>
 					<p>Other series have been recorded, though their patterns or objectives have so far been elusive. Some of them have been known to generate winds as well, but also whistling, howling and murmuring sounds, which give the region its name.</p>
+				</section>
+				<h2 section-id="fluffberry">Fluffberry</h2>
+				<section>
+					<p>A very common berry, found in most temperate and cold regions in the continent. They are amber in color and of lobular, lumpy shape, which lends them the colloquial name of <i>'cloudberries'</i>. They grow from shrubs that range in size from that of a bush to the size of a small tree, though they are generally about the height of a person.</p>
+					<p>The reason for its proper name, and another reason for its colloquial name, is the fact that it is quite airy on the inside, with vacuoles, or bubbles, of air. Despite this, it still is juicy and sweet, which, together with its light weight, lends well to its dispersal mechanism: once the berries have grown and matured, they detach from the plant and float in the air to be carried away by winds and/or eaten by birds, both of which help it spread further.</p>
+					<p>Due to its highly effective seed dispersal, it is considered invasive in some regions, though it is also farmed in some places.</p>
+				</section>
+				<h1 section-id="fauna">Fauna</h1>
+				<section>
+					<p>Hares and deer, as well as small arboreal mammals and some species of rodents, are the most prevalent, being seen in nearly all areas of the region. A variety of amphibians like frogs and salamanders can be seen in wetter regions and near lakes and rivers, where insects are more often seen as well.</p>
+					<p>Its predatory population comes down to boars</p>
 				</section>
 			</div>
 		</article>
@@ -173,7 +199,7 @@
 			</nav>
 			<div class="content">
 				<header>
-					<h1 style="
+					<h1 translate="no" style="
 						display: flex;
 						flex-direction:column
 					">
@@ -287,7 +313,7 @@
 			</nav>
 			<div class="content">
 				<header>
-					<h1>Kitsunes</h1>
+					<h1 translate="no">Kitsunes</h1>
 					<h2>Courteous Tricksters</h2>
 				</header>
 				<h1 section-id="overview">Overview</h1>

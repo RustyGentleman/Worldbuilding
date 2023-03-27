@@ -25,7 +25,6 @@ for (const pl of document.querySelectorAll('[section-link]'))
 	pl.addEventListener('click', function() {
 		const page = this.closest('.page')
 		const sheader = page.querySelector(`[section-id="${this.getAttribute('section-link')}"]`)
-		console.log(page, sheader)
 		page.content.scrollTo({top: (sheader.offsetTop - page.clientHeight * 0.3), behavior: 'smooth' })
 	})
 

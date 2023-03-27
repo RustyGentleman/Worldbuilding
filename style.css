@@ -172,6 +172,12 @@ body[current=world] {
   --pg-acc-h: 32;
   --pg-txt: black;
 }
+body[current=whisperwood-forest] {
+  --pg-acc: hsl(140,100%,41%);
+  --pg-acc-txt: hsl(140,100%,41%);
+  --pg-acc-d: hsl(140,100%,31%);
+  --pg-acc-h: 140;
+}
 
 .page {
   transition-property: opacity;
