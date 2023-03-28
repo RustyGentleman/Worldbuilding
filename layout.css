@@ -40,16 +40,16 @@ body[current=whisperwood-forest] #whisperwood-forest .tiled > .tile, body[curren
   opacity: 1;
 }
 
-body[current=magic] #magic {
+body[current=magicsystem] #magicsystem {
   pointer-events: all;
   opacity: 1;
 }
-body[current=magic] #magic:not(.content-only) > .content,
-body[current=magic] #magic > .sidebar {
+body[current=magicsystem] #magicsystem:not(.content-only) > .content,
+body[current=magicsystem] #magicsystem > .sidebar {
   transform: translateX(0%);
 }
-body[current=magic] #magic.tiled > .tile,
-body[current=magic] #magic .tiled > .tile, body[current=magic] #magic.content-only {
+body[current=magicsystem] #magicsystem.tiled > .tile,
+body[current=magicsystem] #magicsystem .tiled > .tile, body[current=magicsystem] #magicsystem.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
@@ -236,11 +236,13 @@ main {
   justify-content: center;
   padding-inline: 0.5rem;
 }
-.sidebar .header {
+.sidebar .header,
+.sidebar .credit {
   text-align: center;
   margin-block: 1rem 0;
 }
-.sidebar .header:first-child {
+.sidebar .header:first-child,
+.sidebar .credit:first-child {
   margin-top: 0;
 }
 .sidebar [page-link] {
@@ -261,7 +263,7 @@ main {
   padding: 5rem 1rem;
   text-align: center;
 }
-.content > h1, .content > h2 {
+.content > h1, .content > h2, .content > h3 {
   margin: 0;
 }
 .content section {

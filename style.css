@@ -45,6 +45,20 @@ a {
   background-position: center center;
 }
 
+.content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.content::-webkit-scrollbar {
+  width: 10px;
+}
+.content::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, var(--pg-acc-d), var(--pg-acc), var(--pg-acc-d));
+  background-color: var(--pg-acc);
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+}
+
 body {
   --pg-bg: #111;
   --pg-acc: crimson;
@@ -404,6 +418,9 @@ nav#topnav .dropdown {
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-backdrop-filter: blur(0.5rem) url(#glass);
           backdrop-filter: blur(0.5rem) url(#glass);
+}
+.sidebar .credit a {
+  color: inherit;
 }
 
 .content > h1, .content > h2, .content > h3 {
