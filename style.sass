@@ -91,6 +91,7 @@ a
 		box-shadow: none
 		border-radius: 0
 		border: none
+		transition: background $tr-vl ease
 
 //# ----------------------------------------
 //# Page colors
@@ -137,7 +138,15 @@ body
 		--pg-acc: hsl(140 100% 41%)
 		--pg-acc-hsl: 140 100% 41%
 		--pg-acc-txt: hsl(140 100% 41%)
-		--pg-acc-d: hsl(140 100% 31%)
+		--pg-acc-d: hsl(140 100% 25%)
+		// --pg-txt: black
+		// --pg-tint: hsl(20 100% 30%)
+	&[current=magicsystem]
+		// --pg-bg: hsl(32 24% 57%)
+		--pg-acc: hsl(268 100% 60%)
+		--pg-acc-hsl: 268 100% 50%
+		--pg-acc-txt: hsl(268 100% 69%)
+		--pg-acc-d: hsl(268 100% 30%)
 		// --pg-txt: black
 		// --pg-tint: hsl(20 100% 30%)
 
@@ -164,6 +173,7 @@ a[page-link]:hover
 //* Current header in navigation
 .header-pointer.current
 	color: var(--pg-acc-txt, var(--pg-acc))
+	font-weight: bold
 //* Current section pointer
 .header-pointer
 	> *::before
@@ -289,7 +299,7 @@ a[page-link]:hover
 	.dropdown button::before
 		transition: background $tr-s ease
 .page
-	transition: transform $tr-vl ease, opacity $tr-vl ease
+	transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
 	> .sidebar,
 	&:not(.content-only) > .content
 		transition: transform $tr-vl ease
@@ -300,6 +310,10 @@ a[page-link]:hover
 	transition: color $tr-s ease
 	> *
 		transition: transform $tr-s ease
+.page .content
+	> h1, > h2, > h3
+		&::before, &::after
+			transition: background $tr-vl ease
 [page-bg]
 	transition: opacity $tr-vl ease
 
@@ -376,11 +390,14 @@ nav#topnav
 .sidebar
 	background-color: rgb(0 0 0 / 80%)
 	backdrop-filter: blur(.5rem) url(#glass)
+	.header-pointer i
+		font-size: .9em
 	.credit a
 		color: inherit
 .content
 	header
 		@extend .ts-b
+		margin-bottom: 2rem
 	> h1, > h2, > h3
 		// filter: drop-shadow(0 0 .5rem var(--pg-txt-i))
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22))
