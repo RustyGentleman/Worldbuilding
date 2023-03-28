@@ -20,13 +20,14 @@ for (const page of document.querySelectorAll('main > .page')) {
 for (const page of document.querySelectorAll('main > .page'))
 	page.content?.addEventListener('scroll', Page_RefreshSectionPointer)
 for (const pl of document.querySelectorAll('[page-link]'))
-	pl.addEventListener('click', function() {GoToPage(this.getAttribute('page-link'))})
-for (const pl of document.querySelectorAll('[section-link]'))
 	pl.addEventListener('click', function() {
-		const page = this.closest('.page')
-		const sheader = page.querySelector(`[section-id="${this.getAttribute('section-link')}"]`)
-		page.content.scrollTo({top: (sheader.offsetTop - page.clientHeight * 0.3), behavior: 'smooth' })
+		GoToPage(
+			this.getAttribute('page-link'),
+			this.getAttribute('section')
+		)
 	})
+for (const sl of document.querySelectorAll('[section-link]'))
+	sl.addEventListener('click', function() {GoToSection(this.getAttribute('section-link'))})
 
 //# ----------------------------------------
 //# Section tracking
@@ -59,7 +60,15 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 //# Page transitions
 //# ----------------------------------------
-function GoToPage(id) {
+function GoToPage(id, section) {
 	body.setAttribute('current', id)
 	setTimeout(Page_RefreshSectionPointer, 100)
+	if (section)
+		setTimeout(() => GoToSection(section), 100)
+}
+function GoToSection(id) {
+	body.page.content.scrollTo({
+		top: (body.page.querySelector(`[section-id="${id}"]`).offsetTop - body.page.clientHeight * 0.3),
+		behavior: 'smooth'
+	})
 }
