@@ -327,7 +327,7 @@ nav#topnav > div > .dropdown {
   border-right: solid 1px;
 }
 
-:not(.content-only) .content {
+.page:not(.content-only) .content {
   -o-border-image: linear-gradient(to bottom, currentColor, transparent);
      border-image: linear-gradient(to bottom, currentColor, transparent);
   border-image-slice: 1;
