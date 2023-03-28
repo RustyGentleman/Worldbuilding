@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="layout.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body current="whisperwood-forest">
+<body current="kitsunes">
 	<nav id="topnav">
 		<div>
 			<button page-link="home">
@@ -23,6 +23,9 @@
 		<div>
 			<button page-link="world">World</button>
 			<div class="dropdown">
+				<b>About:</b>
+				<button page-link="magic">Magic</button>
+				<b>Regions:</b>
 				<button page-link="whisperwood-forest">Whisperwood Forest</button>
 				<button page-link="telere">Tel'ere</button>
 			</div>
@@ -51,33 +54,47 @@
 				<header>
 					<h1>About</h1>
 				</header>
-				<section style="margin-top: -1.5rem;">
+				<section>
 					<p>Yet Unnamed is a worldbuilding and writing project set in a medieval-era fantasy world. It was born from a continual development of the character <button page-link="ras">Ras Silverleaf</button>, his home and the surrounding area, and, as such, its development is being done 'from inside out', so to say.</p>
 					<p>Though this organic manner of development - and, indeed, the creation of this project - was unintended, I, as a writer, enjoy the idea that each fact, item, being or idea is to be moreso discovered or inferred than purely invented on a whim.</p>
 				</section>
 			</div>
 		</article>
 
-		<article class="page tiled" id="world">
-			<button class="tile" page-link="whisperwood-forest">
-				<div>
-					<h1 translate="no">
-						<span style="font-size: .9em;">Whisperwood</span>
-						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
-					</h1>
-					<!-- <h2>the Murmuring Woods</h2> -->
-				</div>
-			</button>
-			<button class="tile" page-link="tel'ere-desert">
-				<div>
-					<h1>Tel'ere</h1>
-					<!-- <h2>the Scalding Desert</h2> -->
-				</div>
-			</button>
+		<article class="page" id="world" style="display: flex;flex-direction: column; place-content: center;">
+			<header><h1>About</h1></header>
+			<div class="tiled">
+				<button class="tile" page-link="magic">
+					<div>
+						<h1>
+							<span style="margin-bottom: -1.4rem;">Magic</span>
+							<span>System</span>
+						</h1>
+					</div>
+				</button>
+			</div>
+			<header><h1>Regions</h1></header>
+			<div class="tiled">
+				<button class="tile" page-link="whisperwood-forest">
+					<div>
+						<h1 translate="no">
+							<span style="font-size: .9em;">Whisperwood</span>
+							<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
+						</h1>
+						<!-- <h2>the Murmuring Woods</h2> -->
+					</div>
+				</button>
+				<button class="tile" page-link="tel'ere-desert">
+					<div>
+						<h1>Tel'ere</h1>
+						<!-- <h2>the Scalding Desert</h2> -->
+					</div>
+				</button>
+			</div>
 		</article>
 
 		<article class="page tiled" id="characters">
-			<button class="tile" page-link="ras">
+			<button class="tile ts-b" page-link="ras">
 				<div>
 					<h1 translate="no" style="
 						display: flex;
@@ -95,7 +112,8 @@
 					</h1>
 					<h2>the Gentle Kitsune</h2>
 					<img src="assets/foxfire.gif" style="
-						transform: translateY(-25%);
+						height: 20rem;
+						transform: translate(-50%, -63%);
 						filter:
 							drop-shadow(0 0 .5rem var(--c-foxfire-l))
 							drop-shadow(0 0 1.5rem var(--c-foxfire-d))">
@@ -137,6 +155,7 @@
 				<button class="header-pointer" section-link="flora"><b>Flora</b></button>
 				<button class="header-pointer" section-link="whisperwood"><span>Whisperwood Oak</span></button>
 				<button class="header-pointer" section-link="fluffberry"><span>Fluffberry</span></button>
+				<span class="last-updated">Last updated:<br>March 27th, 2023</span>
 			</nav>
 			<div class="content">
 				<header>
@@ -173,8 +192,13 @@
 				<h1 section-id="fauna">Fauna</h1>
 				<section>
 					<p>Hares and deer, as well as small arboreal mammals and some species of rodents, are the most prevalent, being seen in nearly all areas of the region. A variety of amphibians like frogs and salamanders can be seen in wetter regions and near lakes and rivers, where insects are more often seen as well.</p>
-					<p>Its predatory population comes down to boars</p>
+					<p>Its predatory population mostly comes down to boars, which appear in the entire region, some species of wolves, which only appear in certain areas, bears and foxes, which will wander in from surrounding regions during fall and winter, and birds of prey.</p>
+					<p>Herbives and omnivores seem to thrive particularly well in most areas of the region. Popular local belief attributes it partly to the gestures and sounds that whisperwood oaks produce, though the presence of certain animal species certainly plays a part as well.</p>
 				</section>
+				<!-- <h2 section-id="whisperwood-ants">Whisperwood Ants</h2>
+				<section>
+					<p>A species of ant that is thought to have a symbiotic relationship with whisperwood oaks, being, as such, endemic to the region.</p>
+				</section> -->
 			</div>
 		</article>
 		<!-- 			* Characters -->
@@ -193,12 +217,12 @@
 				<button class="header-pointer" section-link="belongings"><b>Notable Belongings</b></button>
 
 				<span class="header">Related:</span>
-				<button page-link="kitsunes">Kitsunes</button>
+				<a page-link="kitsunes">Kitsunes</a>
 
-				<span class="last-updated">Last updated: 03/23/23</span>
+				<span class="last-updated">Last updated:<br>March 23rd, 2023</span>
 			</nav>
 			<div class="content">
-				<header>
+				<header class="ts-b">
 					<h1 translate="no" style="
 						display: flex;
 						flex-direction:column
@@ -215,7 +239,8 @@
 					</h1>
 					<h2>the Gentle Kitsune</h2>
 					<img src="assets/foxfire.gif" style="
-						transform: translate(-50%, -45%);
+						height: 20rem;
+						transform: translate(-50%, -63%);
 						filter:
 							drop-shadow(0 0 .5rem var(--c-foxfire-l))
 							drop-shadow(0 0 1.5rem var(--c-foxfire-d))">
@@ -256,8 +281,8 @@
 				</section>
 				<h1 section-id="traits&abilities">Traits & Abilities</h1>
 				<section class="subcolumns">
-					<span class="escape" style="grid-column: 1 / span 2;" navto="kitsunes.traits&abilities">
-						See racial traits
+					<span class="escape" style="grid-column: 1 / span 2;">
+						<a page-link="kitsunes" section="traits&abilities">See racial traits</a>
 					</span>
 					<div>
 						<b>Physical</b>
@@ -295,10 +320,6 @@
 					<p><b>White & black haori</b></p>
 					<p>A white, thigh-length haori, with a black lining painted in an elaborate bamboo leaf pattern, symbolizing calmness and tranquility. He doesn't use it often, and how he came into possession of it is unclear, though, given its style, it's likely he had it tailored specifically for him as well.</p>
 				</section>
-				<h1>Home</h1>
-				<section>
-					[Link to home post]
-				</section>
 				<!-- <h2></h2>
 				<section>
 					
@@ -309,7 +330,16 @@
 		<!-- 			* Races -->
 		<article class="page" id="kitsunes">
 			<nav class="sidebar">
+				<span class="header">Navigation:</span>
 				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+				<button class="header-pointer" section-link="culture"><b>Culture</b></button>
+				<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
+				<button class="header-pointer" section-link="foxfire"><span>Foxfire</span></button>
+
+				<span class="header">Related:</span>
+				<a page-link="ras">Ras Silverleaf</a>
+
+				<span class="last-updated">Last updated:<br>?</span>
 			</nav>
 			<div class="content">
 				<header>
@@ -322,6 +352,32 @@
 					<p>Compared to humans, their joints and spines are more flexible, but also somewhat more prone to certain injuries. Other differences include claws in place of nails, often charcoal black toward the tip, a somewhat low sensitivity to sweetness, and a tendency towards having androgynous appearance, presumably so as to attract more types of prey.</p>
 					<p>At the back of their eyes, in front of their retinas, lies a layer of reflective tissue, called the tapetum lucidum, allowing them to see better in the dark, as well as making their vertical pupils appear to shimmer against the light.</p>
 					<p>They are born with a single tail, which splits into multiple over the course of their lives. The necessary conditions for this splitting to occur are still unclear even to them; while some attribute it to epistemological or spiritual enlightenment, others attribute it to expertise in magic, as their already-great magic capacity seems to increase each time they get a new tail.</p>
+				</section>
+				<h1 section-id="culture">Culture</h1>
+				<section>
+					<p>Not much is known of their culture; as a race, they tend to keep to themselves, and as individuals, they often avoid subjects involving their kin. Furthermore, of those who know more than what may be considered common knowledge, most are scholars, experienced adventurers and/or individuals who are acquainted with or otherwise have relations with them.</p>
+					<p>Most well known are their hunting habits, as they'll sometimes prey upon other humanoid or sapient races, with intent ranging from sport, mischief and entertainment, to attaining or earning servants and mates. Though most would consider this evil and immoral, they often consider it little more than a fun, engaging and rewarding activity. Such hunts rarely result in injuries, and those who fall prey usually enjoy the ordeal, for one reason or another - and, aside from those who are taken as servants and mates, return to their lives as normal, sometimes not even remembering the hunt.</p>
+					<p>Knowledge of their family gatherings is only fairly well known due to being one of very few events wherein outsiders are welcomed, and even then, only those who have earned a kitsune's favor, companionship or trust. It is said that, in such events, even dwarves may find themselves strongly inebriated</p>
+				</section>
+				<h1 section-id="traits&abilities">Traits & Abilities</h1>
+				<section class="subcolumns">
+					<div>
+						<b class="title">Physical</b>
+						<p><b>Prehensile Tails</b> - Their tails tails are prehensile, and can be used to push, pull and grasp objects. As their mass of furs makes them functionally akin to an enormous thumb, they're not well suited to manipulating delicate or small objects. They do, however, serve very well as paddles for swimming.</p>
+						<p><b>Dimsight</b> - Their vision in low-light conditions is improved by the presence of a <i>tapetum lucidum</i> in front of their retinas. They don't, however, see perfectly well in such conditions, or see at all in complete absence of light.</p>
+						<p><b>Predatory Instincts</b> - Being a predatory species, their alertness is always on a hair-trigger; they can become very alert at the slightest stimulus, and tend to be very perceptive. That's not to say they are constantly in fight-or-flight, however - it is simply natural to them. It does, however, make it fairly difficult to catch one off-guard.</p>
+					</div>
+					<div>
+						<b class="title">Magical</b>
+						<p><b>Magic Affinity</b> - Magic comes quite naturally to them, in both understanding and execution, unlike with dragonkins, to whom only the execution comes effortlessly. Consequently, kitsunes are amongst the most innovative and versatile mages there are. Though not all dedicate themselves to the study of its workings, nearly all have some level of knowledge or practice, even if only for convenience.</p>
+						<p><b>Foxfire</b> - The name given to their ability to conjure special magic flames, as well as to the flames themselves. These flames and its effects are unique to their race, and can be used as lighting and even as spell proxies, but they are primarily used for hunting prey.</p>
+					</div>
+				</section>
+				<h2 section-id="foxfire">Foxfire</h2>
+				<section>
+					<p>Perhaps their most important racial trait and ability, these flames differ visually from normal fire in that they move much more slowly, as though they are viscous or semisolid - as if there is substance to them. They also differ in color per individual, though most come in cool colors. This dominance may be explained by the fact that warm colors may agitate potential prey, thus being selected against.</p>
+					<p>Used as the primary means for hunting, these flames incite not heat - they only feel comfortingly warm - but lust and desire, the effects increasing with amount and length of exposure. Prolonged exposure can even induce intrusive thoughts of submission. Kitsunes themselves are impervious to this effect, however; instead, contact with the foxfire of another kitsune can convey vague impressions of its conjurer's thoughts and emotions, and is considered a form of bonding. Such bonding is also possible with those of other species, although it requires mental discipline on the conjurer's part, as it falls on them to alter the effects of their foxfire; the other party, however, cannot reciprocate - this then becomes an expression of trust.</p>
+					<p>Foxfire is often also used as lighting, and, behaving as an extension of its conjurer, can be used as a proxy for contact spells and as an anchor for other types of spells.</p>
 				</section>
 			</div>
 		</article>
@@ -337,7 +393,7 @@
 			<feDisplacementMap scale="50" result="ca53054b-8680-4f7f-ae17-d93ca58bb45d" in="SourceGraphic" in2="ad42d511e-9bad-4bb2-8442-6e170a0ebef1"></feDisplacementMap>
 		</filter>
 		<filter id="paper">
-			<feTurbulence baseFrequency="0.055" numOctaves="7" seed="12" type="fractalNoise" result="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feTurbulence>
+			<feTurbulence baseFrequency="0.055" numOctaves="4" seed="10" type="fractalNoise" result="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feTurbulence>
 			<feDisplacementMap scale="30" result="ca53054b-8680-4f7f-ae17-d93ca58bb45d" in="SourceGraphic" in2="d42d511e-9bad-4bb2-8442-6e170a0ebef1"></feDisplacementMap>
 		</filter>
 		<filter id="bigwavy">
@@ -353,8 +409,8 @@
 			values="0.01 0.02;0.02 0.04;0.01 0.02" repeatCount="indefinite"></animate>
 		</filter>
 		<filter id="wavyh1">
-			<feTurbulence id="turbulenceh1" type="turbulence" numOctaves="5" seed="13" result="NOISEH1"></feTurbulence>
-			<feDisplacementMap in="SourceGraphic" in2="NOISEH1" scale="15"></feDisplacementMap>
+			<feTurbulence id="turbulenceh1" type="turbulence" numOctaves="5" seed="4" result="NOISEH1"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISEH1" scale="20"></feDisplacementMap>
 			<animate xlink:href="#turbulenceh1" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
 			values=".04 .08; .08 .16; .04 .08" repeatCount="indefinite"></animate>
 		</filter>
