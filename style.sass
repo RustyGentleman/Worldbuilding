@@ -1,73 +1,64 @@
 @use "sass:string"
 @use "sass:meta"
 
-//# ----------------------------------------
-//# Imports
-//# ----------------------------------------
+// //# ----------------------------------------
+// //# Imports
+// //# ----------------------------------------
 @import '_variables.sass'
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap')
 
-//# ----------------------------------------
-//# Mixins & Animations
-//# ----------------------------------------
-@mixin CGradBorder($width: 1px, $color: currentColor, $hor: true)
-	border-style: solid
-	@if $hor == true
-		border-block-width: $width
-		border-image: linear-gradient(to left, $t, $color, $color, $t)
-	@else
-		border-inline-width: $width
-		border-image: linear-gradient(to top, $t, $color, $color, $t)
-	border-image-slice: 1
-@mixin UniGradientBorder($width: 1px, $color: currentColor, $hor: true, $cex: 0%, $tex: 100%, $dir: 'right')
-	border-image: linear-gradient(to string.unquote($dir), $color $cex, $t $tex)
-	border-image-slice: 1
-	@if $hor == true
-		border-block: solid $width
-	@else 
-		border-inline: solid $width
-@mixin GradientBg($color: currentColor, $hor: true)
-	@if $hor
-		background-image: linear-gradient(to left, $t, $color, $color, $t)
-	@else
-		background-image: linear-gradient(to top, $t, $color, $color, $t)
-@mixin Transition($props, $length, $function: ease)
-	transition-property: string.unquote($props)
-	@if type-of($length) == string
-		transition-duration: string.unquote($length)
-	@else 
-		transition-duration: $length
-	@if type-of($function) == string
-		transition-timing-function: string.unquote($function)
-	@else 
-		transition-timing-function: $function
-@keyframes sway
-	0%
-		transform: translateX(-10vw)
-	100%
-		transform: translateX(10vw)
+// //# ----------------------------------------
+// //# Mixins & Animations
+// //# ----------------------------------------
+// @mixin CGradBorder($width: 1px, $color: currentColor, $hor: true)
+// 	border-style: solid
+// 	@if $hor == true
+// 		border-block-width: $width
+// 		border-image: linear-gradient(to left, $t, $color, $color, $t)
+// 	@else
+// 		border-inline-width: $width
+// 		border-image: linear-gradient(to top, $t, $color, $color, $t)
+// 	border-image-slice: 1
+// @mixin UniGradientBorder($width: 1px, $color: currentColor, $hor: true, $cex: 0%, $tex: 100%, $dir: 'right')
+// 	border-image: linear-gradient(to string.unquote($dir), $color $cex, $t $tex)
+// 	border-image-slice: 1
+// 	@if $hor == true
+// 		border-block: solid $width
+// 	@else 
+// 		border-inline: solid $width
+// @mixin GradientBg($color: currentColor, $hor: true)
+// 	@if $hor
+// 		background-image: linear-gradient(to left, $t, $color, $color, $t)
+// 	@else
+// 		background-image: linear-gradient(to top, $t, $color, $color, $t)
+// @mixin Transition($props, $length, $function: ease)
+// 	transition-property: string.unquote($props)
+// 	@if type-of($length) == string
+// 		transition-duration: string.unquote($length)
+// 	@else 
+// 		transition-duration: $length
+// 	@if type-of($function) == string
+// 		transition-timing-function: string.unquote($function)
+// 	@else 
+// 		transition-timing-function: $function
+// @keyframes sway
+// 	0%
+// 		transform: translateX(-10vw)
+// 	100%
+// 		transform: translateX(10vw)
 @keyframes bg-vert-scroll
 	0%
 		background-position-y: 0
 	100%
 		background-position-y: 2000rem
-
-//# ----------------------------------------
-//# Functions
-//# ----------------------------------------
-@each $page in $main-pages
-	body[current=#{$page}] [page-bg=#{$page}]
-		opacity: 1
+@function lg($dir, $stops)
+	@return linear-gradient(to $dir, string.unquote($stops))
 
 //# ----------------------------------------
 //# Defaults
 //# ----------------------------------------
-body //? Full default
-	font-family: 'Dosis'
-	font-weight: 400
-	background-color: #111
-	color: white
+//* Button reset
 button
 	appearance: none
 	color: inherit
@@ -78,361 +69,332 @@ button
 	font-size: inherit
 	font-weight: inherit
 	text-align: inherit
+a
+	cursor: pointer
 [page-bg]
 	position: fixed
 	width: 100vw
 	height: 100vh
+	opacity: 0
+	z-index: -10
 	background-size: cover
 	background-position: center center
-	// transform: translateX(-50%)
-	opacity: 0
-	transition: opacity $tr-l ease
-	z-index: -10
-.content [page-link],
-.sidebar [page-link]
-	position: relative
-	width: fit-content
-	margin-inline: auto
-	padding: 0
-	text-align: center
-	text-decoration: underline
-	text-decoration-style: dotted
-	text-decoration-color: $mw
-	text-underline-offset: 2px
-	&:hover::before,
-	&:focus-within::before
-		width: 100%
-	&::before
-		@include Transition('width, background', $tr-s)
-		content: ''
-		position: absolute
-		bottom: 1px
-		left: 50%
-		transform: translateX(-50%)
-		width: 0
-		height: 2px
-		background-color: var(--pg-acc)
-
 
 //# ----------------------------------------
 //# Page colors
 //# ----------------------------------------
 body
-	@include Transition('background', $length: $tr-s)
 	--pg-bg: #111
 	--pg-acc: crimson
-	--pg-acc-d: hsl(348, 83%, 30%)
+	--pg-acc-d: hsl(348 83% 30%)
 	--pg-acc-h: 348
 	--pg-txt: white
-	--pg-tint: hsl(0, 100%, 100%)
+	--pg-txt-i: black
+	--pg-tint: hsl(0 100% 100%)
 	color: var(--pg-txt)
 	background-color: var(--pg-bg)
 
-	--c-foxfire-d: hsl(220, 100%, 50%)
-	--c-foxfire-l: hsl(203, 100%, 70%)
+	--c-foxfire-d: hsl(220 100% 50%)
+	--c-foxfire-l: hsl(203 100% 70%)
 	&[current=ras]
-		$c-ras: hsl(203, 100%, 50%)
-		--pg-acc: hsl(203, 100%, 50%)
-		--pg-acc-txt: hsl(203, 100%, 60%)
-		--pg-acc-d: hsl(203, 100%, 30%)
-		--pg-acc-dt: darken($c-ras 10)
-		--pg-acc-h: 203
+		$c-ras: hsl(203 100% 50%)
+		--pg-acc: hsl(203 100% 50%)
+		--pg-acc-hsl: 203 100% 50%
+		--pg-acc-txt: hsl(203 100% 60%)
+		--pg-acc-d: hsl(203 100% 30%)
 		--pg-txt: white
-		--pg-tint: hsl(50, 100%, 25%)
+		--pg-tint: hsl(50 100% 25%)
 	&[current=kitsunes]
-		--pg-acc: hsl(5, 100%, 30%)
-		--pg-acc-txt: hsl(5, 100%, 55%)
-		--pg-acc-d: hsl(5, 100%, 20%)
-		--pg-acc-h: 5
+		--pg-acc: hsl(5 100% 30%)
+		--pg-acc-hsl: 5 100% 30%
+		--pg-acc-txt: hsl(5 100% 55%)
+		--pg-acc-d: hsl(5 100% 20%)
 		--pg-txt: white
-		// --pg-tint: hsl(20, 100%, 30%)
+		// --pg-tint: hsl(20 100% 30%)
 	&[current=world]
-		--pg-bg: hsl(32, 24%, 57%)
-		--pg-acc: hsl(32, 24%, 57%)
-		--pg-acc-txt: hsl(32, 24%, 57%)
-		--pg-acc-d: hsl(32, 24%, 32%)
-		--pg-acc-h: 32
+		--pg-bg: hsl(32 24% 57%)
+		--pg-acc: hsl(32 24% 57%)
+		--pg-acc-hsl: 32 24% 57%
+		--pg-acc-txt: hsl(32 24% 57%)
+		--pg-acc-d: hsl(32 24% 32%)
 		--pg-txt: black
-		// --pg-tint: hsl(20, 100%, 30%)
+		--pg-txt-i: white
+		// --pg-tint: hsl(20 100% 30%)
 	&[current="whisperwood-forest"]
-		// --pg-bg: hsl(32, 24%, 57%)
-		--pg-acc: hsl(140,100%,41%)
-		--pg-acc-txt: hsl(140,100%,41%)
-		--pg-acc-d: hsl(140,100%,31%)
-		--pg-acc-h: 140
+		// --pg-bg: hsl(32 24% 57%)
+		--pg-acc: hsl(140 100% 41%)
+		--pg-acc-hsl: 140 100% 41%
+		--pg-acc-txt: hsl(140 100% 41%)
+		--pg-acc-d: hsl(140 100% 31%)
 		// --pg-txt: black
-		// --pg-tint: hsl(20, 100%, 30%)
+		// --pg-tint: hsl(20 100% 30%)
 
-//# ----------------------------------------
-//# Page styling
-//# ----------------------------------------
-.page
-	@include Transition('opacity', $length: $tr-vl)
-	header, &.tiled .tile //? Headers
-		font-family: 'IM Fell English'
-		font-weight: 300
-		position: relative
-		img
-			position: absolute
-			inset: 0
-			width: 100%
-			z-index: 1
-		h1, h2
-			position: relative
-			margin: 0
-			z-index: 2
-		h1
-			font-size: 3rem
-		h2
-			margin-top: -1rem
-			font-style: italic
-	.content
-		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
-		border-right: none
-		margin-left: -1px
-		transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
-		header
-			margin-bottom: 3rem
-			text-shadow: 0 0 1rem black
-			position: relative
-			h1, h2
-				display: flex
-				flex-direction: column
-			img
-				position: absolute
-				inset: 0
-				left: 50%
-				width: 15rem
-				transform: translateX(-50%)
-				z-index: 1
-		> h1, > h2, > h3, > section
-			max-width: 1000px
-			margin-inline: auto
-		> h1, > h2, > h3 //? Section headers and decorations
-			display: inline-block
-			width: 100%
-			margin: 0
-			line-height: 1em
-			font-weight: bold
-			line-height: 1.2em
-			position: relative
-			background-image: linear-gradient(to right, rgb(0 0 0 / 22%), rgb(0 0 0 / 90%), rgb(0 0 0 / 90%), rgb(0 0 0 / 22%))
-			box-shadow: 0 0 5rem .3rem rgb(0 0 0 / 100%)
-			clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
-			&::before,
-			&::after
-				content: ''
-				position: relative
-				display: inline-block
-				background-image: url('/assets/leafveinhalf.png'), linear-gradient(to left, $t, var(--pg-acc))
-				background-size: 100% auto
-				background-blend-mode: overlay
-				border-top-left-radius: 50%
-				border-bottom-left-radius: 50%
-			&::before
-				margin-left: -100%
-				right: .75rem
-				transform: translateY(-.2rem) rotate(180deg)
-			&::after
-				margin-right: -100%
-				left: .75rem
-				transform: translateY(-.4rem)
-		> h1
-			font-size: 1.8rem
-			&::before,
-			&::after
-				width: 40%
-				max-width: calc((100vw - 8rem) / 2)
-				height: .7rem
-				filter: url(#wavyh1) drop-shadow(0 0 .2rem var(--pg-acc))
-		> h2
-			font-size: 1.5rem
-			&::before,
-			&::after
-				width: 25%
-				max-width: calc((100vw - 8rem) / 2)
-				height: .4rem
-				filter: url(#wavyh2) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
-		> h3
-			font-size: 1.2rem
-			&::before,
-			&::after
-				width: 10%
-				max-width: calc((100vw - 8rem) / 2)
-				height: .4rem
-				filter: url(#wavyh3) drop-shadow(0 0 .2rem var(--pg-acc)) //drop-shadow(0 0 .1rem black)
-		p //? Paragraphs
-			margin-block: .8rem
-		section
-			position: relative
-			padding-block: .5rem
-			&::before
-				content: ''
-				position: absolute
-				inset: 0
-				background-image: url(assets/smoke-bg.png), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
-				background-size: 100% auto
-				animation: bg-vert-scroll 1024s linear infinite
-				z-index: -1
-			.subcolumns //? Sections that separate into multiple subcolumns
-				> :not(.escape)
-					&:first-child:nth-last-child(2)
-						text-align: right
-					&:last-child:nth-child(2)
-						text-align: left
-	.sidebar
-		@include Transition('opacity, transform, filter', $tr-vl)
-		@include UniGradientBorder($hor: false, $cex: 50%, $dir: 'bottom')
-		overflow: hidden
-		border-left: none
-		background-color: rgb(0 0 0 / 70%)
-		backdrop-filter: blur(1rem) url(#glass)// blur(.1rem)
-		> .header-pointer
-			@include UniGradientBorder($tex: 50%, $dir: 'left')
-			border-bottom: none
-			&:first-of-type
-				border-top: none
-			&:hover > *,
-			&:focus-within > *
-				transform: translateX(.5rem)
-				transition: transform $tr-vs ease
-			> *
-				@include Transition('transform, color, filter', $tr-s)
-				display: inline-block
-				// &::before,
-				&::before
-					@include Transition('opacity, transform', $tr-s)
-					content: '•'
-					position: absolute
-					right: calc(100% + .3rem)
-					transform: translateX(-.5rem)
-					font-weight: bold
-					opacity: 0
-			&.current > *
-				color: var(--pg-acc-txt)
-				transform: translateX(1rem)
-				&::before,
-				&::after
-					transform: translateX(0rem)
-					opacity: 1
-		> .header
-			text-align: center
-			font-size: 1.1em
-			font-weight: bold
-			&:not(:first-of-type)
-				margin-top: 1lh
+@each $pg in $pages
+	body[current="#{$pg}"] [page-bg="#{$pg}"]
+		opacity: 1
 
-		> .last-updated
-			margin-top: 2lh
-			font-size: .8rem
-			font-weight: 100
-.page.content-only
-	transition: transform $tr-vl ease, opacity $tr-vl ease
-	.content
-		border: none
-.page.tiled
-	.tile
-		@include Transition('transform, opacity', $tr-vl, cubic-bezier(0, 0, 0.1, 0.99))
-		h1, h2
-			display: flex
-			flex-direction: column
-			color: white
-			filter: drop-shadow(0 0 .4rem black)
+// # ----------------------------------------
+// # Effects
+// # ----------------------------------------
+//* Page links
+a[page-link]
+	background-image: linear-gradient(to right, var(--pg-acc), var(--pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
+	background-size: 0% 1px, 100% 1px
+	background-position: bottom left, bottom center
+	background-repeat: no-repeat, repeat-x
+	transition: background-size $tr-s ease
+//* Page link hover
+a[page-link]:hover
+	background-size: 100% 1px, 100% 1px
+//* Sidebar page-links
+.sidebar a[page-link]
+	background-position: bottom center, bottom center
+//* Current header in navigation
+.header-pointer.current
+	color: var(--pg-acc-txt, var(--pg-acc))
+//* Current section pointer
+.header-pointer
+	> *::before
+		content: '•'
+		display: inline-block
+		position: absolute
+		left: -1rem
+		color: var(--pg-acc-txt, var(--pg-acc))
+		font-weight: bold
+		transform: translateX(-1rem)
+		transition: transform .3s ease
+	> *
+		display: inline-block
+	&.current > *
+		transform: translateX(1rem)
 		&::before
-			@include Transition('opacity', $length: $tr-s)
+			transform: translateX(0)
+//* Sidebar navigation dividers
+.sidebar .header-pointer + .header-pointer
+	position: relative
+	&::after
+		content: ''
+		position: absolute
+		inset: 0
+		right: -.5rem
+		border-image: lg(left, 'var(--pg-txt), transparent')
+		border-image-slice: 1
+		border-top: solid 1px
+		opacity: .2
+//* Dropdown button hover
+#topnav .dropdown button
+	position: relative
+	&::before
+		content: ''
+		position: absolute
+		inset: 0
+		background-image: linear-gradient(to right, $t, var(--pg-txt-i), $t)
+		background-position: center center
+		background-size: 100% 0%
+		background-repeat: no-repeat
+		opacity: .5
+		z-index: -1
+	&:hover::before
+		background-size: 100% 100%
+//* Content section smoke background
+.content section
+	position: relative
+	&::before
+		content: ''
+		position: absolute
+		inset: 0
+		background-image: url(assets/smoke-bg.png), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
+		background-size: 100% auto
+		animation: bg-vert-scroll 1024s linear infinite
+		z-index: -1
+//* Text shadow where necessary
+.ts-b
+	text-shadow: 0 0 .5em black
+//* Tile hover effect
+.tiled .tile
+	position: relative
+	&::before
+		content: ''
+		position: absolute
+		inset: -.5rem
+		background-color: var(--pg-txt)
+		z-index: -1
+		border-radius: 100%
+		opacity: .1
+		filter: url(#paper)
+	&:hover::before
+		opacity: .2
+		transform: scale(1.1)
+//* Section header decoration
+.page .content
+	> h1, > h2, > h3
+		position: relative
+		&::before, &::after
+			--size: 10rem
+			--height: 100%
 			content: ''
 			position: absolute
-			inset: -$sp-std
-			filter: url(#paper)
-			background-color: currentColor
-			border-radius: 100%
-			opacity: .1
-		&:hover
-			&::before
-				opacity: .3
-
-//* Ras Silverleaf
-#ras .content
-	.physical
-		color: hsl(160deg, 100%, 40%)
-	.magical
-		color: hsl(200deg, 100%, 50%)
+			top: 50%
+			transform: translateY(-50%)
+			height: var(--height)
+			width: var(--size)
+			background-color: var(--pg-acc)
+			border-top-right-radius: 		70%
+			border-bottom-right-radius: 	70%
+			mask-image: lg(left, 'white, transparent')
+			background-image: url(assets/leafveinhalf.png)
+			background-size: 100% auto
+			background-position: right center
+			background-blend-mode: overlay
+		&::before
+			margin-left: calc(var(--size) * -1 - 1rem)
+		&::after
+			margin-left: 1rem
+			transform: translateY(-50%) rotate(180deg)
+	> h1
+		&::before, &::after
+			--size: calc(100% / 2 * .8)
+			--height: 1rem
+			filter: url(#wavyh1)
+	> h2
+		&::before, &::after
+			--size: calc(100% / 2 * .5)
+			--height: .6rem
+			filter: url(#wavyh2)
+	> h3
+		&::before, &::after
+			--size: calc(100% / 2 * .3)
+			--height: .3rem
+			filter: url(#wavyh3)
 
 //# ----------------------------------------
-//# Topnav styling
+//# Transitions
+//# ----------------------------------------
+#topnav
+	transition: color $tr-l ease
+	button, .dropdown
+		transition: background $tr-l ease, transform $tr-s ease
+	.dropdown button::before
+		transition: background $tr-s ease
+.page
+	transition: transform $tr-vl ease, opacity $tr-vl ease
+	> .sidebar,
+	&:not(.content-only) > .content
+		transition: transform $tr-vl ease
+	&.tiled > .tile,
+	.tiled > .tile
+		transition: transform $tr-vl ease, opacity $tr-vl ease
+.page .sidebar .header-pointer
+	transition: color $tr-s ease
+	> *
+		transition: transform $tr-s ease
+[page-bg]
+	transition: opacity $tr-vl ease
+
+//# ----------------------------------------
+//# Borders
 //# ----------------------------------------
 nav#topnav
-	@include Transition('background, color', $tr-l)
 	border-bottom: solid 1px
-	> div
-		transition: color $tr-s ease
-		border-right: solid 1px
-		position: relative
-		font-size: 1.5rem
-		> button
-			transition: background $tr-l ease
-			position: relative
-			background-color: var(--pg-acc)
-			background-image: linear-gradient(to top, rgb(0 0 0 / 30%), $t)
-			height: 100%
-			width: 100%
-			z-index: 2
-		> button:not(:first-child)
-			&::before,
-			&::after
-				transition: opacity $tr-s ease
-				content: '—'
-				margin-inline: .3rem
-				opacity: 0
-			&:hover
-				&::before,
-				&::after
-					opacity: 1
-		&:last-of-type
-			border-right: none
-	.dropdown
-		display: flex
-		place-content: center
-		flex-direction: column
-		transition: transform $tr-s ease, opacity $tr-s ease, background-color $tr-l ease
-		width: 100%
-		position: absolute
-		top: 100%
-		padding-block: $sp-std/2
-		background-color: var(--pg-acc)
-		background-image: linear-gradient(to top, rgb(0 0 0 / 30%), rgb(0 0 0 / 30%))
+	> div:not(:first-child) > button
+		border-left: solid 1px
+	> div > .dropdown
 		border: solid 1px
 		border-top: none
-		border-bottom-left-radius: .4rem
-		border-bottom-right-radius: .4rem
-		font-size: 1rem
-		z-index: 1
-		button
-			background-image: linear-gradient(to right, $t, rgb(0 0 0 / 50%), $t)
-			background-position: center center
-			background-size: 100% 0%
-			background-repeat: no-repeat
-			transition: background $tr-s ease
-			&:hover
-				background-size: 100% 100%
+.sidebar
+	border-image: lg(bottom, 'currentColor, transparent')
+	border-image-slice: 1
+	border-right: solid 1px
+:not(.content-only) .content
+	border-image: lg(bottom, 'currentColor, transparent')
+	border-image-slice: 1
+	border-left: solid 1px
+
+// # ----------------------------------------
+// # Text
+// # ----------------------------------------
+body
+	font-family: 'Dosis'
+	font-weight: 400
+header, .tile
+	font-family: 'IM Fell English'
+	h1
+		font-size: 3rem
+nav#topnav > div > button
+	font-size: 1.5rem
+.sidebar
+	.header
+		font-weight: bold
+	.last-updated
+		text-align: center
+.content //* Page section headers
+	> h1
+		font-size: 1.8rem
+	> h2
+		font-size: 1.5rem
+	> h3
+		font-size: 1.2rem
+header, .tile //* Page headers and tiles
+	h1
+		text-align: center
+	h2
+		font-style: italic
+.page > header > h1 //* Section header in pages with tiles
+	font-size: 1.5rem
 
 //# ----------------------------------------
-//# World Map
-//# ----------------------------------------
-#world, #world-map
-	height: 100%
-	width: 100%
-
-//# ----------------------------------------
-//# Text alignment
+//# Styles
 //# ----------------------------------------
 nav#topnav
-	text-align: center
-.page
-	text-align: center
-	.sidebar
-		text-align: left
-		.last-updated
-			text-align: center
-	.content
-		> h1, > h2, > h3
+	position: relative
+	background-color: var(--pg-acc)
+	z-index: 10
+	> div > button
+		position: relative
+		background-color: var(--pg-acc)
+		background-image: lg(top, 'rgba(0 0 0 / 30%), transparent')
+		z-index: 2
+	.dropdown
+		position: relative
+		background-color: var(--pg-acc)
+		background-image: lg(bottom, 'rgba(0 0 0 / 40%), rgba(0 0 0 / 30%)')
+		border-bottom-left-radius: .4rem
+		border-bottom-right-radius: .4rem
+		z-index: -1
+.sidebar
+	background-color: rgb(0 0 0 / 80%)
+	backdrop-filter: blur(.5rem) url(#glass)
+.content
+	header
+		@extend .ts-b
+	> h1, > h2, > h3
+		// filter: drop-shadow(0 0 .5rem var(--pg-txt-i))
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22))
+		box-shadow: 0 0 5rem 0.3rem rgb(0 0 0)
+		clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
+	section.subcolumns
+		> :not(.escape)
+			border-right: solid 1px
+			border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
+			border-image-slice: 1
+			&:first-of-type
+				padding-left: 0
+			&:last-of-type
+				padding-right: 0
+				border: none
+
+//# ----------------------------------------
+//# Specifics
+//# ----------------------------------------
+#ras
+	section.subcolumns
+		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
+			color: hsl(160 100% 40%)
+		> :nth-of-type(2):last-of-type p b:not(.escape)
+			color: hsl(274 100% 69%)
+#kitsunes
+	section.subcolumns
+		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
+			color: hsl(44 100% 51%)
+		> :nth-of-type(2):last-of-type p b:not(.escape)
+			color: hsl(341 100% 63%)
