@@ -61,12 +61,20 @@ Page_RefreshSectionPointer()
 //# Page transitions
 //# ----------------------------------------
 function GoToPage(id, section) {
+	if (!document.querySelector(`.page#${id}`)) {
+		console.warn(`No page with ID "${id}"`)
+		return
+	}
 	body.setAttribute('current', id)
 	setTimeout(Page_RefreshSectionPointer, 100)
 	if (section)
-		setTimeout(() => GoToSection(section), 100)
+	setTimeout(() => GoToSection(section), 100)
 }
 function GoToSection(id) {
+	if (!body.page.querySelector(`[section-id="${id}"]`)) {
+		console.warn(`No section with ID "${id}"`)
+		return
+	}
 	body.page.content.scrollTo({
 		top: (body.page.querySelector(`[section-id="${id}"]`).offsetTop - body.page.clientHeight * 0.3),
 		behavior: 'smooth'
