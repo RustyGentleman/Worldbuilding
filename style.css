@@ -147,7 +147,7 @@ body[current=kitsunes] [page-bg=kitsunes] {
   opacity: 1;
 }
 
-a[page-link] {
+a[page-link], a[section-link] {
   background-image: linear-gradient(to right, var(--pg-acc), var(--pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt));
   background-size: 0% 1px, 100% 1px;
   background-position: bottom left, bottom center;
@@ -155,7 +155,7 @@ a[page-link] {
   transition: background-size 0.3s ease;
 }
 
-a[page-link]:hover {
+a[page-link]:hover, a[section-link]:hover {
   background-size: 100% 1px, 100% 1px;
 }
 

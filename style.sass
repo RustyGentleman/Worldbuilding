@@ -157,15 +157,15 @@ body
 // # ----------------------------------------
 // # Effects
 // # ----------------------------------------
-//* Page links
-a[page-link]
+//* In-site links
+a[page-link], a[section-link]
 	background-image: linear-gradient(to right, var(--pg-acc), var(--pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
 	background-size: 0% 1px, 100% 1px
 	background-position: bottom left, bottom center
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease
-//* Page link hover
-a[page-link]:hover
+//* In-site link hover
+a[page-link]:hover, a[section-link]:hover
 	background-size: 100% 1px, 100% 1px
 //* Sidebar page-links
 .sidebar a[page-link]
