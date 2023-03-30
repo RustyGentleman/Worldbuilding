@@ -245,6 +245,9 @@ main {
 .sidebar .credit:first-child {
   margin-top: 0;
 }
+.sidebar .header-pointer {
+  padding-block: 0.2rem;
+}
 .sidebar [page-link] {
   text-align: center;
   width: -webkit-fit-content;
