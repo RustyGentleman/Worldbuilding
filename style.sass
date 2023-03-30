@@ -239,13 +239,14 @@ a[page-link]:hover, a[section-link]:hover
 		content: ''
 		position: absolute
 		inset: -.5rem
-		background-color: var(--pg-txt)
+		background-image: radial-gradient(ellipse at center, transparent 30%,var(--pg-txt))
+		// background-color: var(--pg-txt)
 		z-index: -1
 		border-radius: 100%
-		opacity: .1
+		opacity: .3
 		filter: url(#paper)
 	&:hover::before
-		opacity: .2
+		opacity: .5
 		transform: scale(1.1)
 //* Section header decoration
 .page .content
@@ -306,6 +307,8 @@ a[page-link]:hover, a[section-link]:hover
 	&.tiled > .tile,
 	.tiled > .tile
 		transition: transform $tr-vl ease, opacity $tr-vl ease
+		&::before
+			transition: transform $tr-s ease, opacity $tr-s ease
 .page .sidebar .header-pointer
 	transition: color $tr-s ease
 	> *

@@ -246,14 +246,14 @@ a[page-link]:hover, a[section-link]:hover {
   content: "";
   position: absolute;
   inset: -0.5rem;
-  background-color: var(--pg-txt);
+  background-image: radial-gradient(ellipse at center, transparent 30%, var(--pg-txt));
   z-index: -1;
   border-radius: 100%;
-  opacity: 0.1;
+  opacity: 0.3;
   filter: url(#paper);
 }
 .tiled .tile:hover::before {
-  opacity: 0.2;
+  opacity: 0.5;
   transform: scale(1.1);
 }
 
@@ -321,6 +321,10 @@ a[page-link]:hover, a[section-link]:hover {
 .page.tiled > .tile,
 .page .tiled > .tile {
   transition: transform 1s ease, opacity 1s ease;
+}
+.page.tiled > .tile::before,
+.page .tiled > .tile::before {
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .page .sidebar .header-pointer {
