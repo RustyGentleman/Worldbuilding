@@ -54,6 +54,20 @@ body[current=magicsystem] #magicsystem .tiled > .tile, body[current=magicsystem]
   opacity: 1;
 }
 
+body[current=schoolsofmagic] #schoolsofmagic {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=schoolsofmagic] #schoolsofmagic:not(.content-only) > .content,
+body[current=schoolsofmagic] #schoolsofmagic > .sidebar {
+  transform: translateX(0%);
+}
+body[current=schoolsofmagic] #schoolsofmagic.tiled > .tile,
+body[current=schoolsofmagic] #schoolsofmagic .tiled > .tile, body[current=schoolsofmagic] #schoolsofmagic.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 body[current=characters] #characters {
   pointer-events: all;
   opacity: 1;
