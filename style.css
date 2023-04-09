@@ -112,18 +112,11 @@ body[current=magicsystem] {
   --pg-acc-d: hsl(268 100% 30%);
 }
 body[current=elves] {
-  --pg-acc: hsl(60 100% 97%);
+  --pg-acc: hsl(60,81%,90%);
   --pg-acc-hsl: 60 100% 97%;
-  --pg-acc-txt: hsl(60,52%,82%);
+  --pg-acc-txt: hsl(60,61%,71%);
   --pg-acc-d: hsl(60,11%,65%);
-  --pg-txt: black;
-  --pg-txt-i: white;
-  --pg-txt-i-rgb: 255 255 255;
 }
-body[current=elves] .content section::before {
-  filter: invert(1);
-}
-
 body[current=home] [page-bg=home] {
   opacity: 1;
 }
@@ -506,5 +499,12 @@ nav#topnav .dropdown {
 }
 #kitsunes section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
   color: hsl(341deg, 100%, 63%);
+}
+
+#elves section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+  color: hsl(204deg, 78%, 82%);
+}
+#elves section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+  color: hsl(60deg, 89%, 89%);
 }
 /*# sourceMappingURL=style.css.map */
