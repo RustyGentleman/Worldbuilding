@@ -127,6 +127,10 @@ body[current=magicsystem] [page-bg=magicsystem] {
   opacity: 1;
 }
 
+body[current=schoolsofmagic] [page-bg=schoolsofmagic] {
+  opacity: 1;
+}
+
 body[current=characters] [page-bg=characters] {
   opacity: 1;
 }
@@ -144,6 +148,10 @@ body[current=races] [page-bg=races] {
 }
 
 body[current=kitsunes] [page-bg=kitsunes] {
+  opacity: 1;
+}
+
+body[current=elves] [page-bg=elves] {
   opacity: 1;
 }
 
@@ -404,6 +412,7 @@ header h1, .tile h1 {
   text-align: center;
 }
 header h2, .tile h2 {
+  font-weight: normal;
   font-style: italic;
 }
 
