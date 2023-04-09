@@ -104,12 +104,13 @@ body
 	--pg-txt: white
 	--pg-txt-i: black
 	--pg-tint: hsl(0 100% 100%)
+	--pg-sec-invert: 0
 	color: var(--pg-txt)
 	background-color: var(--pg-bg)
 
 	--c-foxfire-d: hsl(220 100% 50%)
 	--c-foxfire-l: hsl(203 100% 70%)
-	&[current=ras]
+	&[current='ras']
 		$c-ras: hsl(203 100% 50%)
 		--pg-acc: hsl(203 100% 50%)
 		--pg-acc-hsl: 203 100% 50%
@@ -117,14 +118,14 @@ body
 		--pg-acc-d: hsl(203 100% 30%)
 		--pg-txt: white
 		--pg-tint: hsl(50 100% 25%)
-	&[current=kitsunes]
+	&[current='kitsunes']
 		--pg-acc: hsl(5 100% 30%)
 		--pg-acc-hsl: 5 100% 30%
 		--pg-acc-txt: hsl(5 100% 55%)
 		--pg-acc-d: hsl(5 100% 20%)
 		--pg-txt: white
 		// --pg-tint: hsl(20 100% 30%)
-	&[current=world]
+	&[current='world']
 		--pg-bg: hsl(32 24% 57%)
 		--pg-acc: hsl(32 24% 57%)
 		--pg-acc-hsl: 32 24% 57%
@@ -133,7 +134,7 @@ body
 		--pg-txt: black
 		--pg-txt-i: white
 		// --pg-tint: hsl(20 100% 30%)
-	&[current="whisperwood-forest"]
+	&[current='whisperwood-forest']
 		// --pg-bg: hsl(32 24% 57%)
 		--pg-acc: hsl(140 100% 41%)
 		--pg-acc-hsl: 140 100% 41%
@@ -141,7 +142,7 @@ body
 		--pg-acc-d: hsl(140 100% 25%)
 		// --pg-txt: black
 		// --pg-tint: hsl(20 100% 30%)
-	&[current=magicsystem]
+	&[current='magicsystem']
 		// --pg-bg: hsl(32 24% 57%)
 		--pg-acc: hsl(268 100% 60%)
 		--pg-acc-hsl: 268 100% 50%
@@ -149,6 +150,18 @@ body
 		--pg-acc-d: hsl(268 100% 30%)
 		// --pg-txt: black
 		// --pg-tint: hsl(20 100% 30%)
+	&[current='elves']
+		// --pg-bg: hsl(32 24% 100%)
+		--pg-acc: hsl(60 100% 97%)
+		--pg-acc-hsl: 60 100% 97%
+		--pg-acc-txt: hsl(60,52%,82%)
+		--pg-acc-d: hsl(60,11%,65%)
+		--pg-txt: black
+		--pg-txt-i: white
+		--pg-txt-i-rgb: 255 255 255
+		// --pg-tint: hsl(20 100% 30%)
+		.content section::before
+			filter: invert(1)
 
 @each $pg in $pages
 	body[current="#{$pg}"] [page-bg="#{$pg}"]
@@ -159,7 +172,7 @@ body
 // # ----------------------------------------
 //* In-site links
 a[page-link], a[section-link]
-	background-image: linear-gradient(to right, var(--pg-acc), var(--pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
+	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
 	background-size: 0% 1px, 100% 1px
 	background-position: bottom left, bottom center
 	background-repeat: no-repeat, repeat-x
@@ -231,7 +244,7 @@ a[page-link]:hover, a[section-link]:hover
 		z-index: -1
 //* Text shadow where necessary
 .ts-b
-	text-shadow: 0 0 .5em black
+	text-shadow: 0 0 .5em var(--pg-txt-i)
 //* Tile hover effect
 .tiled .tile
 	position: relative
@@ -278,17 +291,17 @@ a[page-link]:hover, a[section-link]:hover
 		&::before, &::after
 			--size: calc(100% / 2 * .8)
 			--height: 1rem
-			filter: url(#wavyh1)
+			filter: url(#wavyh1) blur(.6px)
 	> h2
 		&::before, &::after
 			--size: calc(100% / 2 * .5)
 			--height: .6rem
-			filter: url(#wavyh2)
+			filter: url(#wavyh2) blur(.6px)
 	> h3
 		&::before, &::after
 			--size: calc(100% / 2 * .3)
 			--height: .3rem
-			filter: url(#wavyh3)
+			filter: url(#wavyh3) blur(.6px)
 
 //# ----------------------------------------
 //# Transitions
@@ -403,6 +416,7 @@ nav#topnav
 		@extend .ts-b
 		margin-bottom: 2rem
 	> h1, > h2, > h3
+		color: white
 		// filter: drop-shadow(0 0 .5rem var(--pg-txt-i))
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22))
 		box-shadow: 0 0 5rem 0.3rem rgb(0 0 0)
