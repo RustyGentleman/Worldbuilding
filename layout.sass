@@ -65,7 +65,7 @@ body
 	display: grid
 	grid-template-rows: auto 1fr
 nav#topnav
-	height: 2*1rem
+	height: 2rem
 	position: relative
 	display: grid
 	grid-template-columns: 2.5rem
@@ -91,12 +91,12 @@ nav#topnav
 			display: flex
 			flex-direction: column
 main
-	height: calc(100vh - 2*1rem)
+	height: calc(100vh - 2rem)
 	display: grid
 	align-items: center
 	overflow: hidden
 .page
-	height: calc(100vh - 2*1rem)
+	height: calc(100vh - 2rem)
 	display: grid
 	align-items: center
 	grid-area: 1 / 1 / 1 / 1
@@ -105,12 +105,12 @@ main
 		margin-inline: auto
 		.content
 			height: auto
-			max-height: calc(100vh - 2*1rem - 2*5*1rem)
+			max-height: calc(100vh - 2rem - 2*5rem)
 	&:not(.content-only) .content
 		margin-left: -1px
 .sidebar
 	position: relative
-	height: calc(100vh - 2*1rem)
+	height: calc(100vh - 2rem)
 	width: 8rem
 	max-width: 30vw
 	display: flex
@@ -132,17 +132,18 @@ main
 	.last-updated
 		margin-block: 1rem 0
 .content
-	height: calc(100vh - 2*1rem - 2*5*1rem)
+	height: calc(100vh - 2rem - 2*5rem)
 	overflow-y: scroll
 	overflow-x: hidden
-	padding: 5*1rem 1rem
+	padding: 5rem 1rem
 	text-align: center
 	> h1, > h2, > h3
 		margin: 0
 	section
-		padding-block: .5*1rem
+		padding-block: .5rem
+		padding-inline: .5rem
 	section p
-		margin-block: 0 .5*1rem
+		margin-block: 0 .5rem
 		&:last-of-type
 			margin-bottom: 0
 	section, > h1, > h2, > h3
@@ -159,7 +160,7 @@ main
 			margin-bottom: .5rem
 		> .escape
 			grid-row: 1 / -1
-			margin-block: .5*1rem
+			margin-block: .5rem
 			&:first-child
 				margin-top: 0
 			&:last-child
@@ -185,7 +186,7 @@ main
 		display: flex
 		place-items: center
 		place-content: center
-		margin: 2*1rem
+		margin: 2rem
 		aspect-ratio: 1
 header, .tile
 	text-align: center
