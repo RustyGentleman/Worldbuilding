@@ -217,8 +217,8 @@ a[page-link]:hover, a[section-link]:hover {
   position: absolute;
   inset: 0;
   right: -0.5rem;
-  -o-border-image: linear-gradient(to left, var(--pg-txt), transparent);
-     border-image: linear-gradient(to left, var(--pg-txt), transparent);
+  -o-border-image: linear-gradient(to left, white, transparent);
+     border-image: linear-gradient(to left, white, transparent);
   border-image-slice: 1;
   border-top: solid 1px;
   opacity: 0.2;
@@ -404,6 +404,9 @@ nav#topnav > div > button {
   font-size: 1.5rem;
 }
 
+.sidebar {
+  color: white;
+}
 .sidebar .header {
   font-weight: bold;
 }
@@ -411,6 +414,9 @@ nav#topnav > div > button {
   text-align: center;
 }
 
+.content > h1, .content > h2, .content > h3 {
+  color: white;
+}
 .content > h1 {
   font-size: 1.8rem;
 }
@@ -469,7 +475,6 @@ nav#topnav .dropdown {
   margin-bottom: 2rem;
 }
 .content > h1, .content > h2, .content > h3 {
-  color: white;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22));
   box-shadow: 0 0 5rem 0.3rem rgb(0, 0, 0);
   -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
