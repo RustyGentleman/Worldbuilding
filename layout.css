@@ -138,16 +138,16 @@ body[current=kitsunes] #kitsunes .tiled > .tile, body[current=kitsunes] #kitsune
   opacity: 1;
 }
 
-body[current=elves] #elves {
+body[current=elfins] #elfins {
   pointer-events: all;
   opacity: 1;
 }
-body[current=elves] #elves:not(.content-only) > .content,
-body[current=elves] #elves > .sidebar {
+body[current=elfins] #elfins:not(.content-only) > .content,
+body[current=elfins] #elfins > .sidebar {
   transform: translateX(0%);
 }
-body[current=elves] #elves.tiled > .tile,
-body[current=elves] #elves .tiled > .tile, body[current=elves] #elves.content-only {
+body[current=elfins] #elfins.tiled > .tile,
+body[current=elfins] #elfins .tiled > .tile, body[current=elfins] #elfins.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }

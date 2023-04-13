@@ -111,7 +111,7 @@ body[current=magicsystem] {
   --pg-acc-txt: hsl(268 100% 69%);
   --pg-acc-d: hsl(268 100% 30%);
 }
-body[current=elves] {
+body[current=elfins] {
   --pg-acc: hsl(60,81%,90%);
   --pg-acc-hsl: 60 100% 97%;
   --pg-acc-txt: hsl(60,61%,71%);
@@ -501,10 +501,10 @@ nav#topnav .dropdown {
   color: hsl(341deg, 100%, 63%);
 }
 
-#elves section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+#elfins section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
   color: hsl(204deg, 78%, 82%);
 }
-#elves section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+#elfins section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
   color: hsl(60deg, 89%, 89%);
 }
 /*# sourceMappingURL=style.css.map */
