@@ -14,6 +14,12 @@ for (const page of document.querySelectorAll('main > .page')) {
 }
 
 //# ----------------------------------------
+//# In development
+//# ----------------------------------------
+const DEV = true
+// if (DEV) GoToPage('ras')
+
+//# ----------------------------------------
 //# Event listeners
 //# ----------------------------------------
 //? Section pointer updates
