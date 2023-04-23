@@ -181,6 +181,12 @@ Plural	we			wai
 **Noun -> Verb**			-> Prefix za-
 **Noun -> Adjective**	-> Prefix a•la- (like <>)
 
+**"Sapient" class**		-> Suffix -al (from 'al', person)
+**"Animal" class**		-> Suffix -vys (from 'invys', animal)
+**"Object" class**		-> Suffix -yr (from 'lyr', item)
+**Male gender**			-> Suffix -u (from 'sul', him, and 'su', male)
+**Female gender**			-> Suffix -e (from 'sel', her, and 'se', female)
+
 # Pronouns
 **Singular**
 first				-> si
@@ -298,19 +304,20 @@ strong		-> li•sze
 delicious	-> lu•wey
 
 # Adpositions
-before				-> za
-during				-> ze•vi
-after/far			-> zli
-to, toward			-> tal
-from, away			-> tul
-in						-> ni
-on						-> vo
-above					-> azi
-below					-> lo
-at (location)		-> yal
-of						-> wen
-with					-> ri•'i
-like					-> a•la•a•la
+before							-> za
+during							-> ze•vi
+after/far						-> zli
+to, toward, close (time)	-> tal
+from, away, far (time)		-> tul
+in									-> ni
+on									-> vo
+above								-> azi
+below								-> lo
+at (location)					-> yal
+of									-> wen
+with								-> ri•'i
+like								-> a•la•a•la
+this								-> na
 
 ## Derived words
 # Nouns
