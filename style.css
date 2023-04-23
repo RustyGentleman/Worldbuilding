@@ -66,6 +66,7 @@ body {
   --pg-acc: crimson;
   --pg-acc-d: hsl(348 83% 30%);
   --pg-acc-h: 348;
+  --pg-acc-txt: crimson;
   --pg-txt: white;
   --pg-txt-i: black;
   --pg-tint: hsl(0 100% 100%);
@@ -157,7 +158,7 @@ body[current=kitsunes] [page-bg=kitsunes] {
   opacity: 1;
 }
 
-body[current=elves] [page-bg=elves] {
+body[current=elfins] [page-bg=elfins] {
   opacity: 1;
 }
 
