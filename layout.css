@@ -381,5 +381,6 @@ header h1, .tile h1 {
 }
 header h2, .tile h2 {
   margin-top: -0.8em;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=layout.css.map */
