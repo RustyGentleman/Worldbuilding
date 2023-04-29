@@ -16,8 +16,8 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 //# In development
 //# ----------------------------------------
-const DEV = true
-// if (DEV) GoToPage('ras')
+const DEV = false
+if (DEV) GoToPage('elves')
 
 //# ----------------------------------------
 //# Event listeners
