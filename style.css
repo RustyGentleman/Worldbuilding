@@ -112,7 +112,7 @@ body[current=magicsystem] {
   --pg-acc-txt: hsl(268 100% 69%);
   --pg-acc-d: hsl(268 100% 30%);
 }
-body[current=elfins] {
+body[current=elves] {
   --pg-acc: hsl(60,81%,90%);
   --pg-acc-hsl: 60 100% 97%;
   --pg-acc-txt: hsl(60,61%,71%);
