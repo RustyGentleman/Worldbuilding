@@ -199,6 +199,9 @@ With								-> ri'i
 "[A rock] bigger than [his]"
 -> "Bigger rock than his rock"
 -> "Vewuzalahe venn ansa sulasye venn"
+"[My friend's [second mother]] is pretty"
+-> "Mine friend's secondmother pretty is"
+-> "Silasye lanfialasye nennalan isa'illasna az"
 #### Relativization
 sentence	subclause	example												in-language
 subject	subject		The man [who caught the fish] is here 	->	The man [that the fish caught] here is

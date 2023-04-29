@@ -247,7 +247,7 @@ prey, herbivore			-> ra•ya
 matter/substance, earth	-> wir•ru				+
 life							-> rin
 source						-> wiv•ni
-rest/sleep					-> sush
+rest/sleep					-> suhi
 known (fact/skill)		-> 
 familiar						-> es•zir
 unfamiliar/strange		-> a'•es•zir
@@ -276,6 +276,8 @@ eat							-> av•az
 cook							-> fa•wef
 like							-> lu•yun
 walk							-> 
+exist							-> neli
+move							-> efei
 _Object-related_
 have							-> se•si
 use							-> lin
@@ -318,6 +320,15 @@ of									-> wen
 with								-> ri•'i
 like								-> a•la•a•la
 this								-> na
+
+# Conjunctions
+and								->
+because							-> nera
+while								-> nea
+then/so							-> neli
+if
+but
+
 
 ## Derived words
 # Nouns
