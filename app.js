@@ -25,16 +25,17 @@ if (DEV) GoToPage('elves')
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('page'))
-	GoToPage(qparams.get('page'), qparams.get('section'))
+	GoToPage(qparams.get('page'), qparams.get('section').replaceAll('ý', '&'))
 
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
 	h.innerHTML = `<span>${h.innerHTML}</span><button></button>`
 	h.lastElementChild.addEventListener('click', () => {
+		console.log(h.getAttribute('section-id').replaceAll('&', 'ý'))
 		navigator.clipboard.writeText(
 			window.location.origin
 			+ window.location.pathname
-			+ `?page=${h.closest('.page').id}&section=${h.getAttribute('section-id')}`
+			+ `?page=${h.closest('.page').id}&section=${h.getAttribute('section-id').replaceAll('&', 'ý')}`
 		)
 	})
 })
