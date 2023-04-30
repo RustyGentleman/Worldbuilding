@@ -1,5 +1,5 @@
 //# ----------------------------------------
-//# Shortcuts
+//# Access shortcuts
 //# ----------------------------------------
 const body = document.body
 Object.defineProperty(document.body, 'current', {
@@ -18,6 +18,26 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 const DEV = false
 if (DEV) GoToPage('elves')
+
+//# ----------------------------------------
+//# Run on load
+//# ----------------------------------------
+//? Go to page and section on the link
+const qparams = new URLSearchParams(window.location.search)
+if (qparams.get('page'))
+	GoToPage(qparams.get('page'), qparams.get('section'))
+
+//? Generate link-generators for page sections
+document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
+	h.innerHTML = `<span>${h.innerHTML}</span><button></button>`
+	h.lastElementChild.addEventListener('click', () => {
+		navigator.clipboard.writeText(
+			window.location.origin
+			+ window.location.pathname
+			+ `?page=${h.closest('.page').id}&section=${h.getAttribute('section-id')}`
+		)
+	})
+})
 
 //# ----------------------------------------
 //# Event listeners
