@@ -2,8 +2,11 @@
 ley•'i•yish (born from silver)
 
 # Notes
-Maybe some verbs could be rooted in nouns? (To tree, to grow)
-Animals!
+-Maybe some verbs could be rooted in nouns? (To tree, to grow)
+-Animals!
+-Specialized vocabulary related to elven magic, such as terms for specific spells or enchantments, magical ingredients and materials, or magical concepts and theories
+-Expand the vocabulary of nature-related terms
+-
 
 # Grammar =====================================
 ## Phonology - the sounds of the language
@@ -22,9 +25,9 @@ Always on the last syllable of the root (ignoring affixes)
 
 ## Morphology - how words are formed (inflections, compounding, etc)
 ### Nouns
-ROOT/gender/plurality/case
+ROOT/plurality/case
 ### Verbs
-adj/ROOT/tense
+ROOT/tense
 ### Inflectional morphemes - affixes used to conjugate verbs and decline nouns
 Plural							-> Suffix -i
 Dual								-> Suffix -iyi
@@ -42,6 +45,8 @@ Frequentative (repeated)	-> Reduplication of whole verb
 	* ""
 Interrogative					-> Prefix alw(e)-
 	* "Which fox is bigger?" -> "Alwerah'yilan vewuzalahe az?"
+Conditional/Hypothetical	-> Prefix "nara-"
+	* "If we move" -> "Filan naraefei"
 ### Derivational morphemes
 Concept -> Thing				-> Suffix -'ar
 	Meaning "manifested" or "given form"
@@ -181,6 +186,7 @@ Distal							-> ves
 	* when ambiguous, refer specifically to temporal deixis with prefix fe-
 ### Particles
 Habitual							-> na		(before verb)
+Imperative						-> ha		(before verb)
 Relative							-> size	(between relativized word and relative clause)
 ### Conjunctions
 Conjunction (and)				-> nze
@@ -216,15 +222,29 @@ An example of reanalysis, the rise of new underlying relationships and rules in 
 Another example of reanalysis. _(-)hile(-)_ started as a morpheme which is added to other morphemes to embody what they mean. Eventually, however, as it lacked meaning without other morphemes, it began to be used by itself with the meaning of "emptiness", or "absence of".
 
 # Pragmatics - actual use, how meanings change in context
+## Hierarchical honorifics
+In elven communities, these titles immediately precede the name or pronoun of a given person. The first tree must agree in gender and plurality with the pronoun it precedes.
+Child, young					-> nela
+Unmarried, single				-> vela
+Married							-> zena
+Council member					-> doril
+Coordinator						-> arvane
+
+The following respect markers are applied to one's name or pronoun, and title, respectively
+Nomial							-> Suffix -el
+Titular							-> Suffix -nir
+
 
 # Lexicon - words and their meanings
 class		word				meaning									notes
 noun		al					a person
 verb		az					to be (in a state)
+noun		doril				(title for) a member of a community's council; "wise one"
 verb		efei				to move or shake
 	noun		enilefei			motion
 noun		elas				a leaf
 noun		enira				a sun
+noun		evesh				rain
 noun		fiýen				time
 noun		fi'enira			day, daytime (around midday)
 	noun		fi'enirara		yesterday (at daytime)
@@ -242,7 +262,7 @@ noun		hile				emptiness, absence (in general, or of something)
 	verb		elhile			to exemplify or personify (a quality or trait)
 	noun		hile'ar			(of an idea or concept) manifested; given form
 	noun		hileshi			a concept or idea
-	verb		hileshi			to conceptualize or abstract
+	verb		hileshi			to think; to conceptualize or abstract
 	noun		hileala			likeness, resemblance; the fact or quality of being alike or similar
 	verb		hileala			to resemble, to be like
 	verb		zahile			to be like, act like or pretend to be (some thing)
@@ -254,6 +274,7 @@ noun		innali				a family
 	noun		inna				a sibling; an individual born from the same father or male mother
 	noun		innu				a brother; a male individual born from the same father or male mother
 	noun		inne				a sister; a female individual born from the same father or male mother
+	noun		ivash				water
 	noun		enna				a mother; a progenitor other than one's father
 		noun		ennu				a male mother; a male progenitor who is a wife of the head of one's family 
 		noun		enne				a female mother; one's female progenitor who isn't part of the family
@@ -276,7 +297,9 @@ noun		liza				grass
 noun		lyeve				a leaf
 noun		lyr				a thing or object
 verb		ne					to cause something to happen			Can be used as a conjunction when conjugated
+noun		nela				(title for) a child; "young one", or "little one"
 noun		revya				a moon
+noun		vela				(title for) an unmarried person
 noun		venn				a rock
 	adj		vennala			(of an object or material) hard, stiff
 		verb		nivennala		to make (some thing) hard or stiff
@@ -287,3 +310,4 @@ noun		vewuz				a mountain
 adj		waya				beautiful
 	noun		elwaya			beauty
 	verb		niwaya			to embelish or decorate
+noun		zena				(title for) a married person
