@@ -317,6 +317,19 @@ a[page-link]:hover, a[section-link]:hover {
   filter: url(#wavyh3) blur(0.6px);
 }
 
+.page .content > h1:hover button, .page .content > h2:hover button, .page .content > h3:hover button {
+  opacity: 1;
+}
+.page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
+  height: 1rem;
+  margin-left: -0.25rem;
+  aspect-ratio: 1;
+  transform: translateX(0.5rem);
+  background-image: url(assets/createlink.png);
+  background-size: cover;
+  opacity: 0;
+}
+
 #topnav {
   transition: color 0.5s ease;
 }

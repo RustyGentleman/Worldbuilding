@@ -302,6 +302,19 @@ a[page-link]:hover, a[section-link]:hover
 			--size: calc(100% / 2 * .3)
 			--height: .3rem
 			filter: url(#wavyh3) blur(.6px)
+//* "Create link" button on section headers
+.page .content
+	> h1, > h2, > h3
+		&:hover button
+			opacity: 1
+		button
+			height: 1rem
+			margin-left: -.25rem
+			aspect-ratio: 1
+			transform: translateX(.5rem)
+			background-image: url(assets/createlink.png)
+			background-size: cover
+			opacity: 0
 
 //# ----------------------------------------
 //# Transitions
