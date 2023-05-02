@@ -16,7 +16,7 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 //# In development
 //# ----------------------------------------
-const DEV = true
+const DEV = false
 if (DEV) GoToPage('elvenempire')
 
 //# ----------------------------------------
