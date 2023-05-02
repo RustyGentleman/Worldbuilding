@@ -6,6 +6,7 @@ ley•'i•yish (born from silver)
 -Animals!
 -Specialized vocabulary related to elven magic, such as terms for specific spells or enchantments, magical ingredients and materials, or magical concepts and theories
 -Expand the vocabulary of nature-related terms
+-Silverleaf leaves have medicinal properties
 **AI blurbs:**
 - Barkenweave: a type of craft made from the bark of the silverwood tree.
 - Leafwhisper: a ritual performed by the tribe's spiritual leader in which they communicate with the goddess through the leaves of the silverwood tree.
@@ -55,34 +56,42 @@ Interrogative					-> Prefix alw(e)-
 	* "Which fox is bigger?" -> "Alwerah'yilan vewuzalahe az?"
 Augmentative					-> Suffix "-ya"
 	* "That is a big rock!" -> "Ves vennya az!"
-Diminutive						-> Suffix 
+Diminutive						-> Suffix "-nar"
+	* "I lit a small fire" -> "Silan lýenar lýen'ar"
 	* "A light rain is falling" -> 
 Conditional/Hypothetical	-> Prefix "nara-"
 	* "If we move" -> "Filan naraefei"
 ### Derivational morphemes
-Concept -> Thing				-> Suffix -'ar
+Manifestive						-> Suffix -'ar
 	Meaning "manifested" or "given form"
 	Ex.: rah, predator -> rah'ar, wolf
 	* example of reanalysis: rah'ar, wolf -> rah'-, predator prefix / rah, predator -> -'ar, concept-to-thing
-Thing -> Concept				-> Suffix -(i)shi (similar to -ship in friendship)
+Abstractive						-> Suffix -(i)shi (similar to -ship in friendship)
 	Meaning "the idea or concept of"
 	Ex.: lanfial, family member -> lanfialishi, family
+Professional					-> Suffix -zvy
+"That which comes from"		-> Suffix "-(a)sh"
+	* enira, sun -> enirash, sunlight, warmth
+"(Terr. feat.) having"		-> Suffix "-(i)sii"
+	* vewuz, mountain -> vewuzisii, mountainous; highland
 ---------------------
 Noun -> Adjective				-> Suffix -(a)la
 	Meaning "having the quality of", or "resembling"
 	Ex.: len'ýa, tree -> len'ýala, tall
-	* the (a) is ommitted if root word ends with l
-	* the (a) is present when root word ends with e
+	* the (a) is ommitted if word ends with l
+	* the (a) is present if word ends with Ce
 Noun -> Verb (quality)		-> Prefix za-
 	Meaning "imitating" or "attaining the properties of"
 	Ex.: venn, rock -> zavenn, to harden
-Noun -> Verb/Noun (action)	-> Suffix "-shal"
+Noun -> Verb/Noun (action)	-> Suffix "-sha(l)"
 	Meaning "to perform an action generally attributed to", or "the action generally attributed to"
+	* the (l) may be ommitted if additional suffixes are added
 Adjective -> Noun				-> Prefix el-
 	Meaning "the quality of being"
 	Ex.: waya, beautiful -> elwaya, beauty
-Verb -> Adjective				-> Suffix -(y)elin
+Verb -> Adjective				-> Suffix -(ý)elin
 	Meaning "having suffered or undergone an action or process"
+	* (ý) is ommitted if word ends in a
 Verb -> Noun					-> Prefix eni(l)-
 	Meaning "the result of performing"
 	Ex.: efei, move -> enilefei, motion
@@ -90,23 +99,18 @@ Adjective -> Verb				-> n(i)-
 	Meaning "to change into a form that attains the property of"
 	Ex.: waya, beautiful -> niwaya, to embelish or decorate
 ---------------------
-"One who Xs"					-> Suffix -zvy
-"That which comes from"		-> Suffix "-(a)sh"
-	* "enira", sun -> "enirash", sunlight, warmth
-"(Terr. feat.) having"		-> Suffix "-(i)sii"
-	* "vewuz", mountain -> "vewuzisii", mountainous; highland
 ### Other morphemes
 Morpheme grammatization		-> (-)hile(-)
 	A root word to which morphemes are added to form meaning. I.e.:
 	hileala, noun: likeness, resemblance; the fact or quality of being alike or similar
 	hileala, verb: to resemble, to be like
 	hile'ar, noun: manifested; given form
-"Predator" prefix				-> Prefix rah- (from "rah", predator)
+"Predator"						-> Affix (-)rah(-) (from "rah", predator)
 	The names of most predators or carnivorous animals start with this prefix, often followed by an onomatopeia of a sound they make, or some trait or short descriptor compound.
 	I.e.: rah'ar, wolf/other canid; rah'yi, fox.
-"Herbivore" prefix			-> Prefix rya-
+"Herbivore"						-> Affix (-)rya(-)
 	Like the "predator" prefix, this applies to the names of herbivores.
-"Aquatic" prefix				-> Prefix fye-
+"Aquatic"						-> Affix (-)fye(-)
 "Artificial" prefix			-> Suffix -vash
 	A morpheme present in some words for man-made objects, constructs and materials
 ---------------------
@@ -265,13 +269,14 @@ verb		efei				to move or shake
 noun		enira				a sun
 	noun		enirash			sunlight, warmth; energy
 noun		esyra				(of a plant) a root
-noun		esýfisil			a root of a silverwood tree
+noun		esyshe			a tuber or edible root
+noun		esyfisil			a root of a silverwood tree
 noun		evesh				rain
 	verb		eveshal			to rain or fall
 	noun		eveshal			rainfall
-noun		fesh				a fruit o
+noun		fesh				a fruit, berry or similar structure or product from a plant
 noun		fiýen				time
-	adj		fiýenala			unending; unstoppable
+	adj		fiýenala			unending, unstoppable
 	verb		fiýeshal			to flow or march; to progress
 noun		fi'enira			day, daytime (around midday)
 	noun		fi'enirara		yesterday (at daytime)
@@ -283,9 +288,11 @@ noun		fi'revya			night, nighttime (around midnight)
 	noun		fi'revyali		tomorrow (at nighttime)
 noun		fye				an aquatic animal
 	adj		fye				aquatic; living (predominantly) in or belonging to water
+	noun		fyenya			an aquatic plant
 	noun		fyelsi			a fish or other fish-like animal
 	verb		fyeshal			to swim; to move like an aquatic animal
 	noun		fyeshal			the act of swimming
+noun		fynir				a sea or ocean; a very large body of water
 noun		hile				emptiness, absence (in general, or of something)
 	noun		enihile			(of an action) a result or outcome
 	verb		enihile			(of an action) resulting in or having the outcome of
@@ -299,6 +306,7 @@ noun		hile				emptiness, absence (in general, or of something)
 	noun		hileala			likeness, resemblance; the fact or quality of being alike or similar
 	verb		hileala			to resemble, to be like
 	verb		zahile			to be like, act like or pretend to be (some thing)
+noun		hýe				a mountain range
 adj		iase				alive, animate
 	verb		niase				to give life; to birth or germinate
 	noun		eliase			life, lifetime;
@@ -322,8 +330,7 @@ noun		innali				a family
 	verb		unnashal			to act paternally; to protect and guide
 noun		invys				an animal
 noun		ivash				water
-	verb		ivashal			to flow; to fill or contour (some thing); to migrate
-	noun		ivashal			(of some thing) a flow; a migration
+	verb		ivashal			to fill or contour (some thing)
 noun		ivashyl			a body of water, such as a lake or sea
 noun		isa'il			a flower
 	adj		isa'illa			colorful, pretty
@@ -331,6 +338,13 @@ noun		isa'il			a flower
 noun		ishan				a petal
 	adj		ishanala			delicate, fragile
 	verb		ishanshal		to detach and fall from
+noun		lash				air, wind
+	adj		lashala			lightweight, gentle
+		noun		lashala'ar		a gentle person or animal
+		noun		elashala			a leaf or feather; some thing that falls slowly
+	verb		lashal			to blow
+		adj		enilashal		(of a person or animal) clumsy, inelegant
+	verb		zalash			to be gentle
 adj		lanfi				familiar, well known
 	noun		lanfial			a family member
 	noun		lanfiala			a friend									With comparative "-he", may denote close friendship
@@ -345,36 +359,75 @@ noun		lyerv				(of a plant) a branch or similar structure; (of a living being) a
 noun		lyeve				(of a plant) a leaf or similar structure; (of a living being) a finger or digit
 	verb		lyeveshal		to sway; to move like a leaf in the wind
 	noun		lyeveshal		a swaying movement
-noun		lyefisil			an herb; a part of a planet that can be used for medicinal effects
+noun		lýefi			an herb; a part of a planet that can be used for medicinal effects
 noun		lyr				a thing or object
 	noun		lyrvash			an artificial, man-made or unnatural construct, object or material
-noun		lýefisil			a leaf of the silverwood tree
+noun		lyefisil			a leaf of the silverwood tree
+noun		lýen				fire
+	adj		lýenala			hot, intense
+		verb		nilýenala		to heat up, to intensify
+	noun		lýenshal			the act of burning, charring or melting (some thing)
+	verb		lýenshal			to burn, char or melt (some thing)
+		adj		lýenshaelin		burned, charred or molten
+		noun		enilýenshal		ash or smoke; burnt matter or tissue
+	noun		lýenash			flame
+		adj		lýenashala		faltering, flickering
+		verb		lýenashal		to falter, to flicker
+	verb		lýen'ar			to ignite or light a fire
+		adj		lýen'arelin		ignited, on fire
+noun		lýenar			a small flame; a candle or similar light source
 verb		ne					to cause something to happen			Can be used as a conjunction when conjugated
 noun		nela				(title for) a child; "young one", or "little one"
 noun		nyrshyl			an individual star associated with the culture's goddess
 noun		rah				a predator or carnivore
 	verb		rahshal			to predate on; to hunt
 	noun		rahshal			a hunt or chase
+noun		rahar			a wolf or similar barking animal
+noun		rahyi			a fox or other vulpine
+noun		rahhis		a lizard or similar reptile
+adj		ralala			fast or quick; quickly, in a fast manner
+noun		reshen			a river, stream or similar natural feature
+	adj		reshenala		flowing, meandering; in a continuous manner
+	verb		reshensha		to flow; to move continually in a given direction or through a given path
+	noun		reshensha		a flow or stream; a continuous motion
 noun		rya				an herbivore
 	verb		ryashal			to flee; to chew on or grind
 	noun		ryashal			(the act of) fleeing; chewing, grinding
+noun		ryahýi			a horse or similar animal
 noun		revya				a moon
+	adj		revyala			silver, pale
+	verb		revyashal		to keep watch; to watch over or oversee (some thing or someone)
+	noun		revyashal		a lookout; an overseer or chaperone
 	noun		revyash			moonlight
+noun		syl				earth, soil
+	noun		sylash			dirt
+	noun		sylashal			(some thing) that leaves a residue on what it touches
+	adj		sylla				earthen; similar to soil or dirt
 noun		vela				(title for) an unmarried person
+noun		veshy				lightning
+	noun		veshyash			thunder
+	noun		veshyi			thunderstorm
 noun		venn				a rock
 	adj		vennala			(of an object or material) hard, stiff
-	verb		nivennala		to make (some thing) hard or stiff
+		verb		nivennala		to make (some thing) hard or stiff
 	adj		vennisii			(of a place or terrain) rocky or gravely; difficult to traverse
 	verb		zavenn			to become hard or stiff; to tense up
-	adj		zavennelin		(of a muscle, body or object) tense, rigid
+		adj		zavennelin		(of a muscle, body or object) tense, rigid
 noun		vewuz				a mountain
-	adj		vewuzala			large; unmoving
+	adj		vewuzala			unmoving, unyielding; difficult to move or affect
+		verb		nivewuzala		to affix or hold (some thing) still 
+	verb		zavewuz			to stay still
+		adj		zavewuzýelin	still, in place
 	adj		vewuzisii		(of a place or terrain) mountainous
 	noun		vewuzisii		a highland
 noun		veze				a hill; the foot of a mountain
 	adj	vezesii				(of a place or terrain) hilly, with many small mountains
 	noun	vezesii				a hilly terrain; a foothill
+noun		vyrshash				a comet or meteor
+noun		vyn				a cave, cavern or similar natural structure
 adj		waya				beautiful
 	noun		elwaya			beauty
 	verb		niwaya			to embelish or decorate
+noun		wynyra			a cloud
+noun		wýe				a water spring; a brook or narrow stream close to where the water originates from
 noun		zena				(title for) a married person
