@@ -152,6 +152,20 @@ body[current=elves] #elves .tiled > .tile, body[current=elves] #elves.content-on
   opacity: 1;
 }
 
+body[current=elvenempire] #elvenempire {
+  pointer-events: all;
+  opacity: 1;
+}
+body[current=elvenempire] #elvenempire:not(.content-only) > .content,
+body[current=elvenempire] #elvenempire > .sidebar {
+  transform: translateX(0%);
+}
+body[current=elvenempire] #elvenempire.tiled > .tile,
+body[current=elvenempire] #elvenempire .tiled > .tile, body[current=elvenempire] #elvenempire.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 body {
   margin: 0;
   padding: 0;

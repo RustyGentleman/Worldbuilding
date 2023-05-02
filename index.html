@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ras Silverleaf & his World</title>
-	<script defer src="app.js"></script>
+	<script defer src="code/app.js"></script>
 	<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-	<link rel="stylesheet" href="layout.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="code/layout.css">
+	<link rel="stylesheet" href="code/style.css">
 </head>
 <body current="home">
 	<nav id="topnav">
@@ -90,7 +90,7 @@
 					</div>
 				</button>
 			</div>
-			<header><h1>Regions</h1></header>
+			<header><h1>Regions & Places of Interest</h1></header>
 			<div class="tiled">
 				<button class="tile" page-link="whisperwood-forest">
 					<div>
@@ -108,7 +108,20 @@
 					</div>
 				</button>
 			</div>
-		</article>
+			<header><h1>Societies & Empires</h1></header>
+			<div class="tiled">
+				<button class="tile" page-link="elvenempire">
+					<div>
+						<h1>
+							<span style="margin-bottom: -1.5rem;">The</span>
+							<span style="margin-bottom: -2rem;">Elven</span>
+							<span>Empire</span>
+						</h1>
+						<h2>Aegides of the West</h2>
+					</div>
+				</button>
+			</div>
+			</article>
 
 		<article class="page tiled" id="characters">
 			<button class="tile ts-b" page-link="ras">
@@ -363,6 +376,37 @@
 					<p>The details on the mechanics of how senseweaving actually works is somewhat debated. While the production of stimulus clearly depends on the caster's ability to mentally produce said stimulus and to focus on projecting it, what affects a recipient's ability to receive and process the projected stimulus is ambiguous. In some cases, projecting auditory stimuli toward a deaf person succeeds in allowing them to hear, while in others it fails. The same seems to be true with other stimuli where this has been tested.</p>
 				</section>
 			</div>
+		</article>
+		<article class="page" id="elvenempire">
+			<nav class="sidebar">
+				<span class="header">Navigation:</span>
+				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+			</nav>
+			<div class="content">
+				<header>
+					<h1>Elves</h1>
+					<h2>Archons of Nature</h2>
+				</header>
+				<h1 section-id="overview">Overview</h1>
+				<section>
+					<p>A powerful, decentralized empire formed by a pre-existing group of allied races, the central constituent being the Ley'iyish, or the Elves, which lends its name.</p>
+					<p>Though it is multiracial in nature, it is bound by a strong kinship, which the Ley'iyish have fostered over their history, which, along with the expansion of their territory and influence, led to the empire's formation.</p>
+				</section>
+				<h1 section-id="structure">Governance Structure</h1>
+				<section>
+					<p>The empire is loosely-structured, with no single individual or entity in power. Instead, each community has a council consisting of a few of its most intellectual and politically-inclined individuals. Each community's council, in turn, has a head member that communicates with the heads of the councils of nearby communities, forming a network through which information is distributed and actions are coordinated.</p>
+					<p>The heads of councils of the communities in a given congregate periodically to coordinate and share information among themselves, though urgent and critical information can be, and often is, disseminated by small parties of messengers.</p>
+					<p>The decisionmaking and the resolvement of disputes local to a community are handled by the community's council, in gatherings where members are usually allowed to participate, though more delicate matters are tended to in privacy.</p>
+					<p>This structure allows for the voices of all the members of this society to reach those that make decisions, which reflects the empire's ethos, especially the aspect of living in harmony in nature.</p>
+				</section>
+				<h1 section-id="society">Society</h1>
+				<section>
+					<p>In this society, gender and race are generally irrelevant to someone's worth, and every individual's contribution is valued regardless. Family units are not strictly defined and can consist of multiple parents and offspring, with the community as a whole taking part in raising and educating children.</p>
+				</section>
+			</div>
+		</nav>
+		<div class="content">
+		</div>
 		</article>
 
 		<!-- 			* Characters -->
