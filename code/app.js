@@ -25,7 +25,10 @@ if (DEV) GoToPage('elvenempire')
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('page'))
-	GoToPage(qparams.get('page'), qparams.get('section').replaceAll('ý', '&'))
+	if (qparams.get('section'))
+		GoToPage(qparams.get('page'), qparams.get('section')?.replaceAll('ý', '&'))
+	else
+		GoToPage(qparams.get('page'))
 
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
@@ -87,7 +90,7 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 //# Page transitions
 //# ----------------------------------------
-function GoToPage(id, section) {
+function GoToPage(id, section=null) {
 	if (!document.querySelector(`.page#${id}`)) {
 		console.warn(`No page with ID "${id}"`)
 		return
