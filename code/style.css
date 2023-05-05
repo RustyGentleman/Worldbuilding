@@ -247,7 +247,7 @@ a[page-link]:hover, a[section-link]:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url(assets/smoke-bg.png), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-image: url(../assets/smoke-bg.png), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   background-size: 100% auto;
   -webkit-animation: bg-vert-scroll 1024s linear infinite;
           animation: bg-vert-scroll 1024s linear infinite;
@@ -293,7 +293,7 @@ a[page-link]:hover, a[section-link]:hover {
   border-bottom-right-radius: 70%;
   -webkit-mask-image: linear-gradient(to left, white, transparent);
           mask-image: linear-gradient(to left, white, transparent);
-  background-image: url(assets/leafveinhalf.png);
+  background-image: url(../assets/leafveinhalf.png);
   background-size: 100% auto;
   background-position: right center;
   background-blend-mode: overlay;
@@ -329,7 +329,7 @@ a[page-link]:hover, a[section-link]:hover {
   margin-left: -0.25rem;
   aspect-ratio: 1;
   transform: translateX(0.5rem);
-  background-image: url(assets/createlink.png);
+  background-image: url(../assets/createlink.png);
   background-size: cover;
   opacity: 0;
 }
