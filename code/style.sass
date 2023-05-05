@@ -307,13 +307,17 @@ a[page-link]:hover, a[section-link]:hover
 	> h1, > h2, > h3
 		&:hover button
 			opacity: 1
+			transform: translateX(1.2rem)
+			transition: opacity $tr-s ease, transform $tr-s ease
+			transition-delay: 0s
 		button
 			height: 1rem
-			margin-left: -.25rem
 			aspect-ratio: 1
-			transform: translateX(.5rem)
 			background-image: url(../assets/createlink.png)
 			background-size: cover
+			margin-left: -1rem
+			transition: opacity .1s ease, transform .1s ease
+			transition-delay: $tr-s
 			opacity: 0
 
 //# ----------------------------------------
@@ -386,6 +390,8 @@ nav#topnav > div > button
 .content //* Page section headers
 	> h1, > h2, > h3
 		color: white
+	> h2, > h3
+		font-weight: normal
 	> h1
 		font-size: 1.8rem
 	> h2

@@ -323,14 +323,18 @@ a[page-link]:hover, a[section-link]:hover {
 
 .page .content > h1:hover button, .page .content > h2:hover button, .page .content > h3:hover button {
   opacity: 1;
+  transform: translateX(1.2rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: 0s;
 }
 .page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
   height: 1rem;
-  margin-left: -0.25rem;
   aspect-ratio: 1;
-  transform: translateX(0.5rem);
   background-image: url(../assets/createlink.png);
   background-size: cover;
+  margin-left: -1rem;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+  transition-delay: 0.3s;
   opacity: 0;
 }
 
@@ -427,6 +431,9 @@ nav#topnav > div > button {
 
 .content > h1, .content > h2, .content > h3 {
   color: white;
+}
+.content > h2, .content > h3 {
+  font-weight: normal;
 }
 .content > h1 {
   font-size: 1.8rem;
