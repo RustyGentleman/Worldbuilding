@@ -397,4 +397,8 @@ header h2, .tile h2 {
   margin-top: -0.8em;
   margin-bottom: 0;
 }
+
+#world, #characters, #races {
+  overflow-y: scroll;
+}
 /*# sourceMappingURL=layout.css.map */
