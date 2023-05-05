@@ -24,7 +24,7 @@ f	v	n	s	z	ɾ	l	ɹ̠̊˔	j	ʔ	h	w
 f	v	n	s	z	r	l	sh	 ý	'	h	w
 ### Vowels
 a	e	i	y
-ah	eh	i	yi
+ä	ɪ	i	ɪ̝
 ### Syllable structure
 (CC)V(C)
 ### Stress pattern
@@ -251,7 +251,8 @@ In elven communities, these titles immediately precede the name or pronoun of a 
 Child, young					-> nela
 Unmarried, single				-> vela
 Married							-> zena
-Council member					-> doril
+
+Councilor						-> doril
 Coordinator						-> arvane
 
 The following respect markers are applied to one's name or pronoun, and title, respectively
