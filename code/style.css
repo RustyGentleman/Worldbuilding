@@ -321,11 +321,9 @@ a[page-link]:hover, a[section-link]:hover {
   filter: url(#wavyh3) blur(0.6px);
 }
 
-.page .content > h1:hover button, .page .content > h2:hover button, .page .content > h3:hover button {
+.page .content > h1:has(+ section:hover) button, .page .content > h1:hover button, .page .content > h2:has(+ section:hover) button, .page .content > h2:hover button, .page .content > h3:has(+ section:hover) button, .page .content > h3:hover button {
   opacity: 1;
-  transform: translateX(1.2rem);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transition-delay: 0s;
+  margin-left: 0.3rem;
 }
 .page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
   height: 1rem;
@@ -333,8 +331,8 @@ a[page-link]:hover, a[section-link]:hover {
   background-image: url(../assets/createlink.png);
   background-size: cover;
   margin-left: -1rem;
-  transition: opacity 0.1s ease, transform 0.1s ease;
-  transition-delay: 0.3s;
+  padding: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease;
   opacity: 0;
 }
 

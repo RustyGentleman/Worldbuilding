@@ -305,19 +305,18 @@ a[page-link]:hover, a[section-link]:hover
 //* "Create link" button on section headers
 .page .content
 	> h1, > h2, > h3
+		&:has(+section:hover) button,
 		&:hover button
 			opacity: 1
-			transform: translateX(1.2rem)
-			transition: opacity $tr-s ease, transform $tr-s ease
-			transition-delay: 0s
+			margin-left: .3rem
 		button
 			height: 1rem
 			aspect-ratio: 1
 			background-image: url(../assets/createlink.png)
 			background-size: cover
 			margin-left: -1rem
-			transition: opacity .1s ease, transform .1s ease
-			transition-delay: $tr-s
+			padding: 0
+			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
 
 //# ----------------------------------------
