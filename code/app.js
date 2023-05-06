@@ -16,8 +16,8 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 //# In development
 //# ----------------------------------------
-const DEV = false
-if (DEV) GoToPage('elvenempire')
+const DEV = window.location.origin.match(/127.0.0.1/)
+if (DEV) GoToPage('kitsunes')
 
 //# ----------------------------------------
 //# Run on load
