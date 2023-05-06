@@ -386,7 +386,7 @@ nav#topnav > div > button
 		font-weight: bold
 	.last-updated
 		text-align: center
-.content //* Page section headers
+.content
 	> h1, > h2, > h3
 		color: white
 	> h2, > h3
@@ -397,6 +397,8 @@ nav#topnav > div > button
 		font-size: 1.5rem
 	> h3
 		font-size: 1.2rem
+	section ul
+		text-align: left
 header, .tile //* Page headers and tiles
 	h1
 		text-align: center
@@ -441,16 +443,27 @@ nav#topnav
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22))
 		box-shadow: 0 0 5rem 0.3rem rgb(0 0 0)
 		clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
-	section.subcolumns
-		> :not(.escape)
-			border-right: solid 1px
-			border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
-			border-image-slice: 1
-			&:first-of-type
-				padding-left: 0
-			&:last-of-type
-				padding-right: 0
-				border: none
+	section
+		ul li
+			&::marker
+				content: ''
+			&::before
+				content: '•'
+				display: inline-block
+				width: 1rem
+				font-size: 1.3em
+				font-weight: bolder
+				transform: translateY(.05rem)
+		&.subcolumns
+			> :not(.escape)
+				border-right: solid 1px
+				border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
+				border-image-slice: 1
+				&:first-of-type
+					padding-left: 0
+				&:last-of-type
+					padding-right: 0
+					border: none
 
 //# ----------------------------------------
 //# Specifics
@@ -460,14 +473,14 @@ nav#topnav
 		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
 			color: hsl(160 100% 40%)
 		> :nth-of-type(2):last-of-type p b:not(.escape)
-			color: hsl(274 100% 69%)
+			color: hsl(214,94%,56%)
 #kitsunes
 	section.subcolumns
 		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
-			color: hsl(44 100% 51%)
+			color: hsl(27,100%,51%)
 		> :nth-of-type(2):last-of-type p b:not(.escape)
-			color: hsl(341 100% 63%)
-#elfins
+			color: hsl(352,100%,63%)
+#elves
 	section.subcolumns
 		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
 			color: hsl(204,78%,82%)

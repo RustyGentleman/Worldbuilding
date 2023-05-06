@@ -324,6 +324,10 @@ main {
 .content section p:last-of-type {
   margin-bottom: 0;
 }
+.content section ul {
+  max-width: 40rem;
+  margin: auto;
+}
 .content section, .content > h1, .content > h2, .content > h3 {
   max-width: 60rem;
   margin-inline: auto;

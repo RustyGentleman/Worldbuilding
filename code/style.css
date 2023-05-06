@@ -442,6 +442,9 @@ nav#topnav > div > button {
 .content > h3 {
   font-size: 1.2rem;
 }
+.content section ul {
+  text-align: left;
+}
 
 header h1, .tile h1 {
   text-align: center;
@@ -496,6 +499,17 @@ nav#topnav .dropdown {
   -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
           clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
 }
+.content section ul li::marker {
+  content: "";
+}
+.content section ul li::before {
+  content: "•";
+  display: inline-block;
+  width: 1rem;
+  font-size: 1.3em;
+  font-weight: bolder;
+  transform: translateY(0.05rem);
+}
 .content section.subcolumns > :not(.escape) {
   border-right: solid 1px;
   -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
@@ -514,20 +528,20 @@ nav#topnav .dropdown {
   color: hsl(160deg, 100%, 40%);
 }
 #ras section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
-  color: hsl(274deg, 100%, 69%);
+  color: hsl(214deg, 94%, 56%);
 }
 
 #kitsunes section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
-  color: hsl(44deg, 100%, 51%);
+  color: hsl(27deg, 100%, 51%);
 }
 #kitsunes section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
-  color: hsl(341deg, 100%, 63%);
+  color: hsl(352deg, 100%, 63%);
 }
 
-#elfins section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+#elves section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
   color: hsl(204deg, 78%, 82%);
 }
-#elfins section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+#elves section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
   color: hsl(60deg, 89%, 89%);
 }
 /*# sourceMappingURL=style.css.map */
