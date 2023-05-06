@@ -319,7 +319,10 @@ main {
   padding-bottom: 2rem;
 }
 .content section p {
-  margin-block: 0 0.5rem;
+  margin-block: 0.5rem 0.5rem;
+}
+.content section p:first-of-type {
+  margin-top: 0;
 }
 .content section p:last-of-type {
   margin-bottom: 0;
