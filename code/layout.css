@@ -1,167 +1,179 @@
-body[current=home] #home {
+#home.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=home] #home:not(.content-only) > .content,
-body[current=home] #home > .sidebar {
+#home.current:not(.content-only) > .content,
+#home.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=home] #home.tiled > .tile,
-body[current=home] #home .tiled > .tile, body[current=home] #home.content-only {
+#home.current.tiled > .tile,
+#home.current .tiled > .tile, #home.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=world] #world {
+#world.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=world] #world:not(.content-only) > .content,
-body[current=world] #world > .sidebar {
+#world.current:not(.content-only) > .content,
+#world.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=world] #world.tiled > .tile,
-body[current=world] #world .tiled > .tile, body[current=world] #world.content-only {
+#world.current.tiled > .tile,
+#world.current .tiled > .tile, #world.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=whisperwood-forest] #whisperwood-forest {
+#whisperwood-forest.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=whisperwood-forest] #whisperwood-forest:not(.content-only) > .content,
-body[current=whisperwood-forest] #whisperwood-forest > .sidebar {
+#whisperwood-forest.current:not(.content-only) > .content,
+#whisperwood-forest.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=whisperwood-forest] #whisperwood-forest.tiled > .tile,
-body[current=whisperwood-forest] #whisperwood-forest .tiled > .tile, body[current=whisperwood-forest] #whisperwood-forest.content-only {
+#whisperwood-forest.current.tiled > .tile,
+#whisperwood-forest.current .tiled > .tile, #whisperwood-forest.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=magicsystem] #magicsystem {
+#magicsystem.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=magicsystem] #magicsystem:not(.content-only) > .content,
-body[current=magicsystem] #magicsystem > .sidebar {
+#magicsystem.current:not(.content-only) > .content,
+#magicsystem.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=magicsystem] #magicsystem.tiled > .tile,
-body[current=magicsystem] #magicsystem .tiled > .tile, body[current=magicsystem] #magicsystem.content-only {
+#magicsystem.current.tiled > .tile,
+#magicsystem.current .tiled > .tile, #magicsystem.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=schoolsofmagic] #schoolsofmagic {
+#schoolsofmagic.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=schoolsofmagic] #schoolsofmagic:not(.content-only) > .content,
-body[current=schoolsofmagic] #schoolsofmagic > .sidebar {
+#schoolsofmagic.current:not(.content-only) > .content,
+#schoolsofmagic.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=schoolsofmagic] #schoolsofmagic.tiled > .tile,
-body[current=schoolsofmagic] #schoolsofmagic .tiled > .tile, body[current=schoolsofmagic] #schoolsofmagic.content-only {
+#schoolsofmagic.current.tiled > .tile,
+#schoolsofmagic.current .tiled > .tile, #schoolsofmagic.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=characters] #characters {
+#characters.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=characters] #characters:not(.content-only) > .content,
-body[current=characters] #characters > .sidebar {
+#characters.current:not(.content-only) > .content,
+#characters.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=characters] #characters.tiled > .tile,
-body[current=characters] #characters .tiled > .tile, body[current=characters] #characters.content-only {
+#characters.current.tiled > .tile,
+#characters.current .tiled > .tile, #characters.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=ras] #ras {
+#ras.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=ras] #ras:not(.content-only) > .content,
-body[current=ras] #ras > .sidebar {
+#ras.current:not(.content-only) > .content,
+#ras.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=ras] #ras.tiled > .tile,
-body[current=ras] #ras .tiled > .tile, body[current=ras] #ras.content-only {
+#ras.current.tiled > .tile,
+#ras.current .tiled > .tile, #ras.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=riella] #riella {
+#riella.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=riella] #riella:not(.content-only) > .content,
-body[current=riella] #riella > .sidebar {
+#riella.current:not(.content-only) > .content,
+#riella.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=riella] #riella.tiled > .tile,
-body[current=riella] #riella .tiled > .tile, body[current=riella] #riella.content-only {
+#riella.current.tiled > .tile,
+#riella.current .tiled > .tile, #riella.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=races] #races {
+#races.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=races] #races:not(.content-only) > .content,
-body[current=races] #races > .sidebar {
+#races.current:not(.content-only) > .content,
+#races.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=races] #races.tiled > .tile,
-body[current=races] #races .tiled > .tile, body[current=races] #races.content-only {
+#races.current.tiled > .tile,
+#races.current .tiled > .tile, #races.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=kitsunes] #kitsunes {
+#kitsunes.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=kitsunes] #kitsunes:not(.content-only) > .content,
-body[current=kitsunes] #kitsunes > .sidebar {
+#kitsunes.current:not(.content-only) > .content,
+#kitsunes.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=kitsunes] #kitsunes.tiled > .tile,
-body[current=kitsunes] #kitsunes .tiled > .tile, body[current=kitsunes] #kitsunes.content-only {
+#kitsunes.current.tiled > .tile,
+#kitsunes.current .tiled > .tile, #kitsunes.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=elves] #elves {
+#elves.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=elves] #elves:not(.content-only) > .content,
-body[current=elves] #elves > .sidebar {
+#elves.current:not(.content-only) > .content,
+#elves.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=elves] #elves.tiled > .tile,
-body[current=elves] #elves .tiled > .tile, body[current=elves] #elves.content-only {
+#elves.current.tiled > .tile,
+#elves.current .tiled > .tile, #elves.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
 
-body[current=elvenempire] #elvenempire {
+#elvenempire.current {
+  display: grid;
   pointer-events: all;
   opacity: 1;
 }
-body[current=elvenempire] #elvenempire:not(.content-only) > .content,
-body[current=elvenempire] #elvenempire > .sidebar {
+#elvenempire.current:not(.content-only) > .content,
+#elvenempire.current > .sidebar {
   transform: translateX(0%);
 }
-body[current=elvenempire] #elvenempire.tiled > .tile,
-body[current=elvenempire] #elvenempire .tiled > .tile, body[current=elvenempire] #elvenempire.content-only {
+#elvenempire.current.tiled > .tile,
+#elvenempire.current .tiled > .tile, #elvenempire.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
@@ -189,6 +201,9 @@ nav#topnav > div .dropdown:hover {
   opacity: 1;
 }
 
+.page.displaying {
+  display: grid;
+}
 .page > .sidebar {
   transform: translateX(-100%);
 }
@@ -252,7 +267,7 @@ main {
 
 .page {
   height: calc(100vh - 2rem);
-  display: grid;
+  display: none;
   align-items: center;
   grid-area: 1/1/1/1;
   grid-template-columns: auto 1fr;
@@ -271,7 +286,7 @@ main {
 .sidebar {
   position: relative;
   height: calc(100vh - 2rem);
-  width: 8rem;
+  width: 10rem;
   max-width: 30vw;
   display: flex;
   flex-direction: column;

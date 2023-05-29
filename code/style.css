@@ -117,52 +117,62 @@ body[current=elves] {
   --pg-acc-hsl: 60 100% 97%;
   --pg-acc-txt: hsl(60,61%,71%);
   --pg-acc-d: hsl(60,11%,65%);
+  --nav-txt: black;
 }
-body[current=home] [page-bg=home] {
+body[current=elvenempire] {
+  --pg-acc: hsl(54,97%,73%);
+  --pg-acc-hsl: 203 100% 50%;
+  --pg-acc-txt: hsl(203 100% 60%);
+  --pg-acc-d: hsl(203 100% 30%);
+  --pg-txt: white;
+  --pg-tint: hsl(50 100% 25%);
+}
+
+#home.current ~ [page-bg=home] {
   opacity: 1;
 }
 
-body[current=world] [page-bg=world] {
+#world.current ~ [page-bg=world] {
   opacity: 1;
 }
 
-body[current=whisperwood-forest] [page-bg=whisperwood-forest] {
+#whisperwood-forest.current ~ [page-bg=whisperwood-forest] {
   opacity: 1;
 }
 
-body[current=magicsystem] [page-bg=magicsystem] {
+#magicsystem.current ~ [page-bg=magicsystem] {
   opacity: 1;
 }
 
-body[current=schoolsofmagic] [page-bg=schoolsofmagic] {
+#schoolsofmagic.current ~ [page-bg=schoolsofmagic] {
   opacity: 1;
 }
 
-body[current=characters] [page-bg=characters] {
+#characters.current ~ [page-bg=characters] {
   opacity: 1;
 }
 
-body[current=ras] [page-bg=ras] {
+#ras.current ~ [page-bg=ras] {
   opacity: 1;
 }
 
-body[current=riella] [page-bg=riella] {
+#riella.current ~ [page-bg=riella] {
   opacity: 1;
 }
 
-body[current=races] [page-bg=races] {
+#races.current ~ [page-bg=races] {
   opacity: 1;
 }
 
-body[current=kitsunes] [page-bg=kitsunes] {
+#kitsunes.current ~ [page-bg=kitsunes] {
   opacity: 1;
 }
 
-body[current=elves] [page-bg=elves] {
+#elves.current ~ [page-bg=elves] {
   opacity: 1;
 }
 
-body[current=elvenempire] [page-bg=elvenempire] {
+#elvenempire.current ~ [page-bg=elvenempire] {
   opacity: 1;
 }
 
@@ -440,6 +450,7 @@ nav#topnav > div > button {
   font-size: 1.5rem;
 }
 .content > h3 {
+  font-style: italic;
   font-size: 1.2rem;
 }
 .content section ul {
@@ -461,6 +472,7 @@ header h2, .tile h2 {
 nav#topnav {
   position: relative;
   background-color: var(--pg-acc);
+  color: var(--nav-txt, inherit);
   z-index: 10;
 }
 nav#topnav > div > button {
@@ -488,6 +500,12 @@ nav#topnav .dropdown {
 }
 .sidebar .credit a {
   color: inherit;
+}
+.sidebar .header-pointer:has(> span) {
+  margin-left: 0.5rem;
+}
+.sidebar .header-pointer:has(> i) {
+  margin-left: 1rem;
 }
 
 .content header {

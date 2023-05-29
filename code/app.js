@@ -3,9 +3,9 @@
 //# ----------------------------------------
 const body = document.body
 Object.defineProperty(document.body, 'current', {
-	get: function() {return this.getAttribute('current')}})
+	get: function() {return this.querySelector('page.current').id}})
 Object.defineProperty(document.body, 'page', {
-	get: function() {return document.querySelector(`.page#${this.current}`)}})
+	get: function() {return document.querySelector(`.page.current`)}})
 for (const page of document.querySelectorAll('main > .page')) {
 	Object.defineProperty(page, 'content', {
 		get: function() {return this.querySelector('.content')}})
@@ -17,7 +17,34 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# In development
 //# ----------------------------------------
 const DEV = window.location.origin.match(/127.0.0.1/)
-if (DEV) GoToPage('kitsunes')
+if (DEV) GoToPage('ras')
+function gena(element, level=1) {
+	let a = 'a'
+	if (level == 1)
+		a += `[section-link="${element.closest('h1, h2, h3').getAttribute('section-id')}"]`
+	else if (level == 2)
+		a += `[page-link="${element.closest('.page').id}"][section="${element.closest('h1, h2, h3').getAttribute('section-id')}"]`
+	return a
+}
+function gena1(element) {return gena(element, 1)}
+function gena2(element) {return gena(element, 2)}
+function sidenav() {
+	const tabs = '\t\t\t\t'
+	const pg = document.body.getAttribute('current')
+	let r = '<span class="header">Navigation:</span>\n'
+	document.querySelector('.page#'+pg).querySelectorAll('.content>h1, .content>h2, .content>h3').forEach(h => {
+		const l = h.getAttribute('section-id')
+		const t = h.textContent
+		let w
+		switch (h.tagName) {
+			case 'H1': w = 'b'; break
+			case 'H2': w = 'span'; break
+			case 'H3': w = 'i'; break
+		}
+		r += tabs+`<button class="header-pointer" section-link="${l}"><${w}>${t}</${w}></button>\n`
+	})
+	return r
+}
 
 //# ----------------------------------------
 //# Run on load
@@ -96,6 +123,18 @@ function GoToPage(id, section=null) {
 		return
 	}
 	body.setAttribute('current', id)
+
+	const cur = document.querySelectorAll('.current')
+	cur?.forEach(e => e.classList.remove('current'))
+	cur?.forEach(e => e.classList.add('displaying'))
+	setTimeout(() => cur?.forEach(e => e.classList.remove('displaying')), 1000)
+
+	const next = document.querySelector('#'+id)
+	next.classList.add('displaying')
+	setTimeout(() => {
+		next.classList.add('current')
+		next.classList.remove('displaying')
+	}, 10)
 	setTimeout(Page_RefreshSectionPointer, 100)
 	if (section)
 	setTimeout(() => GoToSection(section), 100)

@@ -152,19 +152,21 @@ body
 		// --pg-txt: black
 		// --pg-tint: hsl(20 100% 30%)
 	&[current='elves']
-		// --pg-bg: hsl(32 24% 100%)
 		--pg-acc: hsl(60,81%,90%)
 		--pg-acc-hsl: 60 100% 97%
 		--pg-acc-txt: hsl(60,61%,71%)
 		--pg-acc-d: hsl(60,11%,65%)
-		// --pg-txt: black
-		// --pg-txt-i: hsl(60,69%,94%)
-		// --pg-tint: hsl(20 100% 30%)
-		.content section::before
-			// filter: invert(1)
+		--nav-txt: black
+	&[current='elvenempire']
+		--pg-acc: hsl(54,97%,73%)
+		--pg-acc-hsl: 203 100% 50%
+		--pg-acc-txt: hsl(203 100% 60%)
+		--pg-acc-d: hsl(203 100% 30%)
+		--pg-txt: white
+		--pg-tint: hsl(50 100% 25%)
 
 @each $pg in $pages
-	body[current="#{$pg}"] [page-bg="#{$pg}"]
+	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
 
 // # ----------------------------------------
@@ -396,6 +398,7 @@ nav#topnav > div > button
 	> h2
 		font-size: 1.5rem
 	> h3
+		font-style: italic
 		font-size: 1.2rem
 	section ul
 		text-align: left
@@ -414,6 +417,7 @@ header, .tile //* Page headers and tiles
 nav#topnav
 	position: relative
 	background-color: var(--pg-acc)
+	color: var(--nav-txt, inherit)
 	z-index: 10
 	> div > button
 		position: relative
@@ -434,6 +438,11 @@ nav#topnav
 		font-size: .9em
 	.credit a
 		color: inherit
+	.header-pointer
+		&:has(>span)
+			margin-left: .5rem
+		&:has(>i)
+			margin-left: 1rem
 .content
 	header
 		@extend .ts-b
