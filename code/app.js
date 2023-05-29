@@ -18,6 +18,7 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 const DEV = window.location.origin.match(/127.0.0.1/)
 if (DEV) GoToPage('ras')
+else GoToPage('home')
 function gena(element, level=1) {
 	let a = 'a'
 	if (level == 1)
