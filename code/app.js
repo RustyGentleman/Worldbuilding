@@ -75,7 +75,7 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 //# ----------------------------------------
 //? Section pointer updates
 for (const page of document.querySelectorAll('main > .page'))
-	page.content?.addEventListener('scroll', Page_RefreshSectionPointer)
+	page.content?.addEventListener('scroll', throttle(Page_RefreshSectionPointer, 64))
 for (const pl of document.querySelectorAll('[page-link]'))
 	pl.addEventListener('click', function() {
 		GoToPage(
@@ -111,6 +111,7 @@ function Page_RefreshSectionPointer() {
 	if (!headerID) return
 	body.page.sidebar.querySelector('.current')?.classList.remove('current')
 	body.page.sidebar.querySelector(`[section-link="${headerID}"]`).classList.add('current')
+	console.log('Refreshing pointer')
 }
 Page_RefreshSectionPointer()
 
@@ -148,4 +149,23 @@ function GoToSection(id) {
 		top: (body.page.querySelector(`[section-id="${id}"]`).offsetTop - body.page.clientHeight * 0.3),
 		behavior: 'smooth'
 	})
+}
+
+//# ----------------------------------------
+//# Helper functions
+//# ----------------------------------------
+function throttle(cb, delay) {
+	let wait = false;
+
+	return (...args) => {
+		if (wait) {
+			return;
+		}
+
+		cb(...args);
+		wait = true;
+		setTimeout(() => {
+			wait = false;
+		}, delay);
+	}
 }
