@@ -112,7 +112,6 @@ function Page_RefreshSectionPointer() {
 	if (!headerID) return
 	body.page.sidebar.querySelector('.current')?.classList.remove('current')
 	body.page.sidebar.querySelector(`[section-link="${headerID}"]`).classList.add('current')
-	console.log('Refreshing pointer')
 }
 Page_RefreshSectionPointer()
 
