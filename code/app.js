@@ -53,10 +53,13 @@ function sidenav() {
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('page'))
-	if (qparams.get('section'))
+	if (qparams.get('section')){
+		document.querySelector('#home.current').classList.remove('current')
 		GoToPage(qparams.get('page'), qparams.get('section')?.replaceAll('ý', '&'))
-	else
+	}else{
+		document.querySelector('#home.current').classList.remove('current')
 		GoToPage(qparams.get('page'))
+	}
 
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
