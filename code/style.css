@@ -120,10 +120,10 @@ body[current=elves] {
   --nav-txt: black;
 }
 body[current=elvenempire] {
-  --pg-acc: hsl(54,97%,73%);
+  --pg-acc: hsl(54,76%,59%);
   --pg-acc-hsl: 203 100% 50%;
-  --pg-acc-txt: hsl(203 100% 60%);
-  --pg-acc-d: hsl(203 100% 30%);
+  --pg-acc-txt: hsl(54,81%,61%);
+  --pg-acc-d: hsl(54,61%,27%);
   --pg-txt: white;
   --pg-tint: hsl(50 100% 25%);
 }
