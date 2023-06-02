@@ -346,6 +346,11 @@ a[page-link]:hover, a[section-link]:hover {
   opacity: 0;
 }
 
+section.blink, p.blink {
+  text-shadow: 0 0 1rem, 0 0 1rem;
+  transition: text-shadow 0.3s ease 0.3s !important;
+}
+
 #topnav {
   transition: color 0.5s ease;
 }
@@ -370,16 +375,18 @@ a[page-link]:hover, a[section-link]:hover {
 .page .tiled > .tile::before {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+.page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
+  transition: background 1s ease;
+}
+.page .content section, .page .content section p {
+  transition: text-shadow 1s ease-out;
+}
 
 .page .sidebar .header-pointer {
   transition: color 0.3s ease;
 }
 .page .sidebar .header-pointer > * {
   transition: transform 0.3s ease;
-}
-
-.page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
-  transition: background 1s ease;
 }
 
 [page-bg] {

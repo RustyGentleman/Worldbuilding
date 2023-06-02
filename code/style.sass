@@ -320,6 +320,10 @@ a[page-link]:hover, a[section-link]:hover
 			padding: 0
 			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
+//* Navigation blink
+section.blink, p.blink
+	text-shadow: 0 0 1rem, 0 0 1rem
+	transition: text-shadow $tr-s ease $tr-s !important
 
 //# ----------------------------------------
 //# Transitions
@@ -340,14 +344,16 @@ a[page-link]:hover, a[section-link]:hover
 		transition: transform $tr-vl ease, opacity $tr-vl ease
 		&::before
 			transition: transform $tr-s ease, opacity $tr-s ease
+	.content
+		> h1, > h2, > h3
+			&::before, &::after
+				transition: background $tr-vl ease
+		section, section p
+			transition: text-shadow $tr-vl ease-out
 .page .sidebar .header-pointer
 	transition: color $tr-s ease
 	> *
 		transition: transform $tr-s ease
-.page .content
-	> h1, > h2, > h3
-		&::before, &::after
-			transition: background $tr-vl ease
 [page-bg]
 	transition: opacity $tr-vl ease
 

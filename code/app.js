@@ -52,14 +52,11 @@ function sidenav() {
 //# ----------------------------------------
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
-if (qparams.get('page'))
-	if (qparams.get('section')){
-		document.querySelector('#home.current').classList.remove('current')
-		GoToPage(qparams.get('page'), qparams.get('section')?.replaceAll('ý', '&'))
-	}else{
-		document.querySelector('#home.current').classList.remove('current')
-		GoToPage(qparams.get('page'))
-	}
+if (qparams.get('goto')){
+	document.querySelector('.current')?.classList.remove('current')
+	const [pg, sc, pr] = [...qparams.get('goto').split(':')]
+	setTimeout(() =>GoToPage(pg, sc.replaceAll('ý', '&') || null, pr || null), 20)
+}
 
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
@@ -69,7 +66,7 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 		navigator.clipboard.writeText(
 			window.location.origin
 			+ window.location.pathname
-			+ `?page=${h.closest('.page').id}&section=${h.getAttribute('section-id').replaceAll('&', 'ý')}`
+			+ `?goto=${h.closest('.page').id}:${h.getAttribute('section-id').replaceAll('&', 'ý')}`
 		)
 	})
 })
@@ -82,10 +79,8 @@ for (const page of document.querySelectorAll('main > .page'))
 	page.content?.addEventListener('scroll', throttle(Page_RefreshSectionPointer, 64))
 for (const pl of document.querySelectorAll('[page-link]'))
 	pl.addEventListener('click', function() {
-		GoToPage(
-			this.getAttribute('page-link'),
-			this.getAttribute('section')
-		)
+		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
+		GoToPage(pg, sc || null, pr || null)
 	})
 for (const sl of document.querySelectorAll('[section-link]'))
 	sl.addEventListener('click', function() {GoToSection(this.getAttribute('section-link'))})
@@ -121,7 +116,7 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 //# Page transitions
 //# ----------------------------------------
-function GoToPage(id, section=null) {
+function GoToPage(id, section=null, p=null) {
 	if (!document.querySelector(`.page#${id}`)) {
 		console.warn(`No page with ID "${id}"`)
 		return
@@ -141,17 +136,23 @@ function GoToPage(id, section=null) {
 	}, 10)
 	setTimeout(Page_RefreshSectionPointer, 100)
 	if (section)
-	setTimeout(() => GoToSection(section), 100)
+	setTimeout(() => GoToSection(section, p || null), 100)
 }
-function GoToSection(id) {
-	if (!body.page.querySelector(`[section-id="${id}"]`)) {
-		console.warn(`No section with ID "${id}"`)
-		return
-	}
+function GoToSection(id, p=null) {
+	const dest = p? body.page.querySelector(`[section-id="${id}"] + section > p:nth-child(${p})`)
+		: body.page.querySelector(`[section-id="${id}"] + section`)
+	if (!dest) return console.warn(`Destination not valid`)
+
 	body.page.content.scrollTo({
-		top: (body.page.querySelector(`[section-id="${id}"]`).offsetTop - body.page.clientHeight * 0.3),
+		top: (dest.getBoundingClientRect().top + body.page.content.scrollTop - body.page.clientHeight * 0.3),
 		behavior: 'smooth'
 	})
+	Blink(dest)
+}
+function Blink(element) {
+	console.log("Blinking: ", element)
+	element.classList.add('blink')
+	setTimeout(() => element.classList.remove('blink'), 2000)
 }
 
 //# ----------------------------------------
