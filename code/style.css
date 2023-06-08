@@ -403,15 +403,6 @@ section.blink p, p.blink {
   transition: opacity 1s ease;
 }
 
-::-moz-selection {
-  -moz-transition: background 0.3s ease, text-shadow 0.3s ease;
-  transition: background 0.3s ease, text-shadow 0.3s ease;
-}
-
-::selection {
-  transition: background 0.3s ease, text-shadow 0.3s ease;
-}
-
 nav#topnav {
   border-bottom: solid 1px;
 }
