@@ -136,7 +136,7 @@ body[current=elvenempire] {
   opacity: 1;
 }
 
-#whisperwood-forest.current ~ [page-bg=whisperwood-forest] {
+#whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
   opacity: 1;
 }
 
@@ -177,7 +177,7 @@ body[current=elvenempire] {
 }
 
 a[page-link], a[section-link] {
-  background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt));
+  background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor);
   background-size: 0% 1px, 100% 1px;
   background-position: bottom left, bottom center;
   background-repeat: no-repeat, repeat-x;
@@ -346,9 +346,19 @@ a[page-link]:hover, a[section-link]:hover {
   opacity: 0;
 }
 
-section.blink, p.blink {
+section.blink p, p.blink {
   text-shadow: 0 0 1rem, 0 0 1rem;
   transition: text-shadow 0.3s ease 0.3s !important;
+}
+
+::-moz-selection {
+  color: var(--nav-txt);
+  background: var(--pg-acc);
+}
+
+::selection {
+  color: var(--nav-txt);
+  background: var(--pg-acc);
 }
 
 #topnav {
@@ -391,6 +401,15 @@ section.blink, p.blink {
 
 [page-bg] {
   transition: opacity 1s ease;
+}
+
+::-moz-selection {
+  -moz-transition: background 0.3s ease, text-shadow 0.3s ease;
+  transition: background 0.3s ease, text-shadow 0.3s ease;
+}
+
+::selection {
+  transition: background 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav#topnav {
@@ -548,12 +567,19 @@ nav#topnav .dropdown {
   padding-right: 0;
   border: none;
 }
+.content section.subcolumns > .escape {
+  grid-column: 1/-1;
+  grid-row: auto;
+}
 
-#ras section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+#ras section.subcolumns > div.phy p b:not(.escape) {
   color: hsl(160deg, 100%, 40%);
 }
-#ras section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+#ras section.subcolumns > div.psy p b:not(.escape) {
   color: hsl(214deg, 94%, 56%);
+}
+#ras section.subcolumns > div.mag p b:not(.escape) {
+  color: hsl(249deg, 96%, 68%);
 }
 
 #kitsunes section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {

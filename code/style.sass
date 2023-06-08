@@ -174,7 +174,7 @@ body
 // # ----------------------------------------
 //* In-site links
 a[page-link], a[section-link]
-	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
+	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor)
 	background-size: 0% 1px, 100% 1px
 	background-position: bottom left, bottom center
 	background-repeat: no-repeat, repeat-x
@@ -321,9 +321,14 @@ a[page-link]:hover, a[section-link]:hover
 			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
 //* Navigation blink
-section.blink, p.blink
+section.blink p, p.blink
 	text-shadow: 0 0 1rem, 0 0 1rem
 	transition: text-shadow $tr-s ease $tr-s !important
+//* Text selection
+::selection
+	color: var(--nav-txt)
+	background: var(--pg-acc)
+	// text-shadow: 0 0 3px var(--pg-txt-i), 0 0 3px var(--pg-txt-i), 0 0 3px var(--pg-txt-i)
 
 //# ----------------------------------------
 //# Transitions
@@ -356,6 +361,8 @@ section.blink, p.blink
 		transition: transform $tr-s ease
 [page-bg]
 	transition: opacity $tr-vl ease
+::selection
+	transition: background $tr-s ease, text-shadow $tr-s ease
 
 //# ----------------------------------------
 //# Borders
@@ -479,16 +486,24 @@ nav#topnav
 				&:last-of-type
 					padding-right: 0
 					border: none
+			> .escape
+				grid-column: 1/-1
+				grid-row: auto
 
 //# ----------------------------------------
 //# Specifics
 //# ----------------------------------------
 #ras
 	section.subcolumns
-		> :first-of-type:nth-last-of-type(2) p b:not(.escape)
-			color: hsl(160 100% 40%)
-		> :nth-of-type(2):last-of-type p b:not(.escape)
-			color: hsl(214,94%,56%)
+		> div.phy
+			p b:not(.escape)
+				color: hsl(160 100% 40%)
+		> div.psy
+			p b:not(.escape)
+				color: hsl(214,94%,56%)
+		> div.mag
+			p b:not(.escape)
+				color: hsl(249,96%,68%)
 #kitsunes
 	section.subcolumns
 		> :first-of-type:nth-last-of-type(2) p b:not(.escape)

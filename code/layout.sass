@@ -176,12 +176,11 @@ main
 			&:last-child
 				margin-bottom: 0
 		> :not(.escape)
-			grid-row: 2 / 2
 			padding-inline: .5rem
-			//? Sections with only two subcolumns
-			&:first-of-type:nth-last-of-type(2)
+			//? First and last columns
+			&:first-of-type
 				text-align: right
-			&:last-of-type:nth-of-type(2)
+			&:last-of-type
 				text-align: left
 .tiled
 	display: flex
