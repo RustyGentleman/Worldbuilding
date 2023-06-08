@@ -22,9 +22,9 @@ else GoToPage('home')
 function gena(element, level=1) {
 	let a = 'a'
 	if (level == 1)
-		a += `[section-link="${element.closest('h1, h2, h3').getAttribute('section-id')}"]`
+		a += `[section-link="${element.closest('section').previousElementSibling.getAttribute('section-id')}"]`
 	else if (level == 2)
-		a += `[page-link="${element.closest('.page').id}"][section="${element.closest('h1, h2, h3').getAttribute('section-id')}"]`
+		a += `[page-link="${element.closest('.page').id}:${element.closest('section').previousElementSibling.getAttribute('section-id')}"]`
 	return a
 }
 function gena1(element) {return gena(element, 1)}
@@ -54,8 +54,8 @@ function sidenav() {
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('goto')){
 	document.querySelector('.current')?.classList.remove('current')
-	const [pg, sc, pr] = [...qparams.get('goto').split(':')]
-	setTimeout(() =>GoToPage(pg, sc.replaceAll('ý', '&') || null, pr || null), 20)
+	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
+	setTimeout(() => GoToPage(pg, sc.replaceAll('ý', '&') || null, ps || null, pe || null), 20)
 }
 
 //? Generate link-generators for page sections
@@ -116,7 +116,7 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 //# Page transitions
 //# ----------------------------------------
-function GoToPage(id, section=null, p=null) {
+function GoToPage(id, section=null, ps=null, pe=null) {
 	if (!document.querySelector(`.page#${id}`)) {
 		console.warn(`No page with ID "${id}"`)
 		return
@@ -136,21 +136,24 @@ function GoToPage(id, section=null, p=null) {
 	}, 10)
 	setTimeout(Page_RefreshSectionPointer, 100)
 	if (section)
-	setTimeout(() => GoToSection(section, p || null), 100)
+	setTimeout(() => GoToSection(section, ps, pe), 100)
 }
-function GoToSection(id, p=null) {
-	const dest = p? body.page.querySelector(`[section-id="${id}"] + section > p:nth-child(${p})`)
-		: body.page.querySelector(`[section-id="${id}"] + section`)
+function GoToSection(id, ps=null, pe=null) {
+	pe? pe-- : null
+	ps? ps-- : null
+	const dest = ps? Array.from(body.page.querySelectorAll(`[section-id="${id}"] + section p`)).filter((_, i) => i >= ps && i <= (pe || ps))
+		: [body.page.querySelector(`[section-id="${id}"] + section`)]
 	if (!dest) return console.warn(`Destination not valid`)
 
+	console.log(dest)
+
 	body.page.content.scrollTo({
-		top: (dest.getBoundingClientRect().top + body.page.content.scrollTop - body.page.clientHeight * 0.3),
+		top: (dest[0].getBoundingClientRect().top + body.page.content.scrollTop - body.page.clientHeight * 0.3),
 		behavior: 'smooth'
 	})
-	Blink(dest)
+	for (const e of dest) Blink(e)
 }
 function Blink(element) {
-	console.log("Blinking: ", element)
 	element.classList.add('blink')
 	setTimeout(() => element.classList.remove('blink'), 2000)
 }
