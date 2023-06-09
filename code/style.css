@@ -545,6 +545,12 @@ nav#topnav .dropdown {
   font-weight: bolder;
   transform: translateY(0.05rem);
 }
+.content section.subcolumns.sc-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.content section.subcolumns.sc-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
 .content section.subcolumns > :not(.escape) {
   border-right: solid 1px;
   -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);

@@ -475,6 +475,10 @@ nav#topnav
 				font-weight: bolder
 				transform: translateY(.05rem)
 		&.subcolumns
+			&.sc-2
+				grid-template-columns: 1fr 1fr
+			&.sc-3
+				grid-template-columns: 1fr 1fr 1fr
 			> :not(.escape)
 				border-right: solid 1px
 				border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
