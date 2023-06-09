@@ -141,7 +141,7 @@ function GoToPage(id, section=null, ps=null, pe=null) {
 function GoToSection(id, ps=null, pe=null) {
 	ps !== null? ps-- : null
 	pe !== null? pe-- : null
-	const dest = ps !== null? Array.from(body.page.querySelectorAll(`[section-id="${id}"] + section p`)).filter((_, i) => i >= ps && i <= (pe || ps))
+	const dest = ps !== null? Array.from(body.page.querySelector(`[section-id="${id}"] + section`).querySelectorAll('p, li')).filter((_, i) => i >= ps && i <= (pe || ps))
 	: [body.page.querySelector(`[section-id="${id}"] + section`)]
 	if (!dest) return console.warn(`Destination not valid`)
 	

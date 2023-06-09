@@ -346,7 +346,7 @@ a[page-link]:hover, a[section-link]:hover {
   opacity: 0;
 }
 
-section.blink p, p.blink {
+section.blink > *, section .blink {
   text-shadow: 0 0 1rem, 0 0 1rem;
   transition: text-shadow 0.3s ease 0.3s !important;
 }
@@ -388,7 +388,7 @@ section.blink p, p.blink {
 .page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
   transition: background 1s ease;
 }
-.page .content section, .page .content section p {
+.page .content section, .page .content section p, .page .content section li {
   transition: text-shadow 1s ease-out;
 }
 

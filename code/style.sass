@@ -321,7 +321,7 @@ a[page-link]:hover, a[section-link]:hover
 			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
 //* Navigation blink
-section.blink p, p.blink
+section.blink > *, section .blink
 	text-shadow: 0 0 1rem, 0 0 1rem
 	transition: text-shadow $tr-s ease $tr-s !important
 //* Text selection
@@ -353,7 +353,7 @@ section.blink p, p.blink
 		> h1, > h2, > h3
 			&::before, &::after
 				transition: background $tr-vl ease
-		section, section p
+		section, section p, section li
 			transition: text-shadow $tr-vl ease-out
 .page .sidebar .header-pointer
 	transition: color $tr-s ease
