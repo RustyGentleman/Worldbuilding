@@ -139,13 +139,13 @@ function GoToPage(id, section=null, ps=null, pe=null) {
 	setTimeout(() => GoToSection(section, ps, pe), 100)
 }
 function GoToSection(id, ps=null, pe=null) {
-	pe? pe-- : null
-	ps? ps-- : null
-	const dest = ps? Array.from(body.page.querySelectorAll(`[section-id="${id}"] + section p`)).filter((_, i) => i >= ps && i <= (pe || ps))
-		: [body.page.querySelector(`[section-id="${id}"] + section`)]
+	ps !== null? ps-- : null
+	pe !== null? pe-- : null
+	debugger
+	const dest = ps !== null? Array.from(body.page.querySelectorAll(`[section-id="${id}"] + section p`)).filter((_, i) => i >= ps && i <= (pe || ps))
+	: [body.page.querySelector(`[section-id="${id}"] + section`)]
 	if (!dest) return console.warn(`Destination not valid`)
-
-	console.log(dest)
+	
 
 	body.page.content.scrollTo({
 		top: (dest[0].getBoundingClientRect().top + body.page.content.scrollTop - body.page.clientHeight * 0.3),
