@@ -579,17 +579,20 @@ nav#topnav .dropdown {
   color: hsl(249deg, 96%, 68%);
 }
 
-#kitsunes section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+#kitsunes section.subcolumns > div.phy p b:not(.escape) {
   color: hsl(27deg, 100%, 51%);
 }
-#kitsunes section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+#kitsunes section.subcolumns > div.psy p b:not(.escape) {
+  color: hsl(51deg, 100%, 63%);
+}
+#kitsunes section.subcolumns > div.mag p b:not(.escape) {
   color: hsl(352deg, 100%, 63%);
 }
 
-#elves section.subcolumns > :first-of-type:nth-last-of-type(2) p b:not(.escape) {
+#elves section.subcolumns > div.phy p b:not(.escape) {
   color: hsl(204deg, 78%, 82%);
 }
-#elves section.subcolumns > :nth-of-type(2):last-of-type p b:not(.escape) {
+#elves section.subcolumns > div.mag p b:not(.escape) {
   color: hsl(60deg, 89%, 89%);
 }
 /*# sourceMappingURL=style.css.map */
