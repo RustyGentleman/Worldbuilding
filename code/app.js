@@ -106,7 +106,10 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 //# ----------------------------------------
 //? Section pointer updates
 for (const page of document.querySelectorAll('main > .page'))
-	page.content?.addEventListener('scroll', throttle(Page_RefreshSectionPointer, 64))
+	page.content?.addEventListener('scroll', () => {
+		throttle(Page_RefreshSectionPointer, 64)()
+		page.content?.addEventListener('mouseup', Page_RefreshSectionPointer, {once:true})
+	})
 for (const pl of document.querySelectorAll('[page-link]'))
 	pl.addEventListener('click', function() {
 		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
