@@ -25,10 +25,13 @@ function gena(element, level=1) {
 		a += `[section-link="${element.closest('section').previousElementSibling.getAttribute('section-id')}"]`
 	else if (level == 2)
 		a += `[page-link="${element.closest('.page').id}:${element.closest('section').previousElementSibling.getAttribute('section-id')}"]`
+	else if (level == 3)
+		a += `[page-link="${element.closest('.page').id}:${element.closest('section').previousElementSibling.getAttribute('section-id')}:${Array.from(element.parentElement.querySelectorAll('p, li')).indexOf(element)+1}"]`
 	return a
 }
 function gena1(element) {return gena(element, 1)}
 function gena2(element) {return gena(element, 2)}
+function gena3(element) {return gena(element, 3)}
 function sidenav() {
 	const tabs = '\t\t\t\t'
 	const pg = document.body.getAttribute('current')
@@ -45,6 +48,33 @@ function sidenav() {
 		r += tabs+`<button class="header-pointer" section-link="${l}"><${w}>${t}</${w}></button>\n`
 	})
 	return r
+}
+function pg2md() {
+	const children = Array.from(document.body.page.content.children)
+	let res = ''
+	while (children.length) {
+		const c = children.shift()
+		switch (c.tagName) {
+			case 'HEADER':
+				res += c.querySelector('h1').textContent.replaceAll('\t','').trim().replace('\n', ' ')
+					+ '\n'
+					+ c.querySelector('h2').textContent.replaceAll('\t','').trim().replace('\n', ' ')
+					+ '\n\n'
+				break
+			case 'H1':
+				res += '# ' + c.textContent
+				break
+			case 'H2':
+				res += '## ' + c.textContent
+				break
+			case 'H3':
+				res += '### ' + c.textContent
+				break
+			case 'SECTION':
+				res += c.textContent.replaceAll('\t', '')+'\n'
+		}
+	}
+	return res
 }
 
 //# ----------------------------------------
