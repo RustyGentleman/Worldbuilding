@@ -4,6 +4,8 @@
 //# ----------------------------------------
 @each $page in $pages
 	##{$page}.current
+		&.tiled
+			display: flex
 		display: grid
 		pointer-events: all
 		opacity: 1
@@ -46,6 +48,8 @@ nav#topnav
 //# ----------------------------------------
 .page
 	&.displaying
+		&.tiled
+			display: flex
 		display: grid
 	> .sidebar
 		transform: translateX(-100%)

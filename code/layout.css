@@ -3,6 +3,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#home.current.tiled {
+  display: flex;
+}
 #home.current:not(.content-only) > .content,
 #home.current > .sidebar {
   transform: translateX(0%);
@@ -17,6 +20,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#world.current.tiled {
+  display: flex;
 }
 #world.current:not(.content-only) > .content,
 #world.current > .sidebar {
@@ -33,6 +39,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#whisperwoodforest.current.tiled {
+  display: flex;
+}
 #whisperwoodforest.current:not(.content-only) > .content,
 #whisperwoodforest.current > .sidebar {
   transform: translateX(0%);
@@ -47,6 +56,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#magicsystem.current.tiled {
+  display: flex;
 }
 #magicsystem.current:not(.content-only) > .content,
 #magicsystem.current > .sidebar {
@@ -63,6 +75,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#schoolsofmagic.current.tiled {
+  display: flex;
+}
 #schoolsofmagic.current:not(.content-only) > .content,
 #schoolsofmagic.current > .sidebar {
   transform: translateX(0%);
@@ -77,6 +92,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#characters.current.tiled {
+  display: flex;
 }
 #characters.current:not(.content-only) > .content,
 #characters.current > .sidebar {
@@ -93,6 +111,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#ras.current.tiled {
+  display: flex;
+}
 #ras.current:not(.content-only) > .content,
 #ras.current > .sidebar {
   transform: translateX(0%);
@@ -107,6 +128,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#riella.current.tiled {
+  display: flex;
 }
 #riella.current:not(.content-only) > .content,
 #riella.current > .sidebar {
@@ -123,6 +147,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#races.current.tiled {
+  display: flex;
+}
 #races.current:not(.content-only) > .content,
 #races.current > .sidebar {
   transform: translateX(0%);
@@ -137,6 +164,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#kitsunes.current.tiled {
+  display: flex;
 }
 #kitsunes.current:not(.content-only) > .content,
 #kitsunes.current > .sidebar {
@@ -153,6 +183,9 @@
   pointer-events: all;
   opacity: 1;
 }
+#elves.current.tiled {
+  display: flex;
+}
 #elves.current:not(.content-only) > .content,
 #elves.current > .sidebar {
   transform: translateX(0%);
@@ -167,6 +200,9 @@
   display: grid;
   pointer-events: all;
   opacity: 1;
+}
+#elvenempire.current.tiled {
+  display: flex;
 }
 #elvenempire.current:not(.content-only) > .content,
 #elvenempire.current > .sidebar {
@@ -203,6 +239,9 @@ nav#topnav > div .dropdown:hover {
 
 .page.displaying {
   display: grid;
+}
+.page.displaying.tiled {
+  display: flex;
 }
 .page > .sidebar {
   transform: translateX(-100%);
