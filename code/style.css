@@ -574,6 +574,10 @@ nav#topnav .dropdown {
   grid-row: auto;
 }
 
+#world > :last-child {
+  margin-bottom: 5rem;
+}
+
 #ras section.subcolumns > div.phy p b:not(.escape) {
   color: hsl(160deg, 100%, 40%);
 }
