@@ -112,6 +112,12 @@ body[current=magicsystem] {
   --pg-acc-txt: hsl(268 100% 69%);
   --pg-acc-d: hsl(268 100% 30%);
 }
+body[current=schoolsofmagic] {
+  --pg-acc: hsl(234,100%,60%);
+  --pg-acc-hsl: 234 100% 50%;
+  --pg-acc-txt: hsl(234 100% 69%);
+  --pg-acc-d: hsl(234 100% 30%);
+}
 body[current=elves] {
   --pg-acc: hsl(60,81%,90%);
   --pg-acc-hsl: 60 100% 97%;
