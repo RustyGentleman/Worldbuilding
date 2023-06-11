@@ -497,6 +497,18 @@ nav#topnav
 			> .escape
 				grid-column: 1/-1
 				grid-row: auto
+.left-scrollbar
+	&::-webkit-scrollbar
+		width: 5px
+	&::-webkit-scrollbar-track
+		background-color: transparent
+	&::-webkit-scrollbar-thumb
+		background-color: var(--pg-acc)
+		border-radius: 5px
+	&::-webkit-scrollbar-button
+		background-color: var(--pg-acc)
+		height: 5px
+		border-radius: 100%
 
 //# ----------------------------------------
 //# Specifics

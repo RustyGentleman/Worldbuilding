@@ -580,6 +580,22 @@ nav#topnav .dropdown {
   grid-row: auto;
 }
 
+.left-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.left-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.left-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--pg-acc);
+  border-radius: 5px;
+}
+.left-scrollbar::-webkit-scrollbar-button {
+  background-color: var(--pg-acc);
+  height: 5px;
+  border-radius: 100%;
+}
+
 #world > :last-child {
   margin-bottom: 5rem;
 }

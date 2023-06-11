@@ -394,14 +394,31 @@ main {
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
 }
-.content section.subcolumns .title {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 0.5rem;
+.content section.subcolumns.sc-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.content section.subcolumns.sc-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.content section.subcolumns > :not(.escape) {
+  padding-inline: 0.5rem;
+  border-right: solid 1px;
+  -o-border-image: lg(top, "transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent");
+     border-image: lg(top, "transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent");
+  border-image-slice: 1;
+}
+.content section.subcolumns > :not(.escape):first-of-type {
+  padding-left: 0;
+  text-align: right;
+}
+.content section.subcolumns > :not(.escape):last-of-type {
+  padding-right: 0;
+  text-align: left;
+  border: none;
 }
 .content section.subcolumns > .escape {
-  grid-row: 1/-1;
+  grid-column: 1/-1;
+  grid-row: auto;
   margin-block: 0.5rem;
 }
 .content section.subcolumns > .escape:first-child {
@@ -409,15 +426,6 @@ main {
 }
 .content section.subcolumns > .escape:last-child {
   margin-bottom: 0;
-}
-.content section.subcolumns > :not(.escape) {
-  padding-inline: 0.5rem;
-}
-.content section.subcolumns > :not(.escape):first-of-type {
-  text-align: right;
-}
-.content section.subcolumns > :not(.escape):last-of-type {
-  text-align: left;
 }
 
 .tiled {
@@ -459,6 +467,19 @@ header h1, .tile h1 {
 header h2, .tile h2 {
   margin-top: -0.8em;
   margin-bottom: 0;
+}
+
+.left-scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  direction: rtl;
+}
+.left-scrollbar > div {
+  direction: ltr;
+}
+.sidebar > .left-scrollbar > div {
+  display: flex;
+  flex-direction: column;
 }
 
 #world, #characters, #races {
