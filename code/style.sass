@@ -112,7 +112,7 @@ body
 	--c-foxfire-d: hsl(220 100% 50%)
 	--c-foxfire-l: hsl(203 100% 70%)
 	&[current='ras']
-		$c-ras: hsl(203 100% 50%)
+		$c-ras: rgb(0,157,255)
 		--pg-acc: hsl(203 100% 50%)
 		--pg-acc-hsl: 203 100% 50%
 		--pg-acc-txt: hsl(203 100% 60%)
@@ -218,10 +218,14 @@ a[page-link]:hover, a[section-link]:hover
 		border-image-slice: 1
 		border-top: solid 1px
 		opacity: .2
-//* Dropdown button hover
+//* Dropdown button hover & disabled
 #topnav .dropdown button
 	position: relative
-	&::before
+	&:disabled
+		font-style: italic
+		text-decoration: line-through
+		cursor: default
+	&:not(:disabled)::before
 		content: ''
 		position: absolute
 		inset: 0
@@ -231,7 +235,7 @@ a[page-link]:hover, a[section-link]:hover
 		background-repeat: no-repeat
 		opacity: .5
 		z-index: -1
-	&:hover::before
+	&:not(:disabled):hover::before
 		background-size: 100% 100%
 //* Content section smoke background
 .content section

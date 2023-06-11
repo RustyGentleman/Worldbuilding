@@ -235,7 +235,12 @@ a[page-link]:hover, a[section-link]:hover {
 #topnav .dropdown button {
   position: relative;
 }
-#topnav .dropdown button::before {
+#topnav .dropdown button:disabled {
+  font-style: italic;
+  text-decoration: line-through;
+  cursor: default;
+}
+#topnav .dropdown button:not(:disabled)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -246,7 +251,7 @@ a[page-link]:hover, a[section-link]:hover {
   opacity: 0.5;
   z-index: -1;
 }
-#topnav .dropdown button:hover::before {
+#topnav .dropdown button:not(:disabled):hover::before {
   background-size: 100% 100%;
 }
 
