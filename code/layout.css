@@ -88,6 +88,24 @@
   opacity: 1;
 }
 
+#fauna.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#fauna.current.tiled {
+  display: flex;
+}
+#fauna.current:not(.content-only) > .content,
+#fauna.current > .sidebar {
+  transform: translateX(0%);
+}
+#fauna.current.tiled > .tile,
+#fauna.current .tiled > .tile, #fauna.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 #characters.current {
   display: grid;
   pointer-events: all;
