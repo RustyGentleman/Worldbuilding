@@ -213,9 +213,14 @@ a[page-link], a[section-link]
 				transform: translateX(0)
 	&:hover,
 	&:focus-within
-		color: var(--pg-acc-txt, var(--pg-acc))
-		filter: saturate(0.5) brightness(1.5)
 		outline: none
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			inset: 1px 0 0 0
+			background-image: lg(left, 'var(--pg-acc-txt, var(--pg-acc)), transparent')
+			opacity: .5
 //* Sidebar navigation dividers
 .sidebar .header-pointer + .header-pointer
 	position: relative
@@ -565,10 +570,14 @@ nav#topnav
 //# ----------------------------------------
 //# Specifics
 //# ----------------------------------------
-#world > :last-child
-	margin-bottom: 5rem
-	header h1
+#world
+	> :last-child
+		margin-bottom: 5rem
+	> div > span
+		font-family: 'IM Fell English'
 		font-size: 1.5rem
+		font-weight: bold
+		text-align: center
 #feedbackform, .btn-container>a.kofi-button
 	padding: 2px .65rem
 	border: .1rem solid white !important

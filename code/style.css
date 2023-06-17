@@ -226,9 +226,15 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
   transform: translateX(0);
 }
 .header-pointer:hover, .header-pointer:focus-within {
-  color: var(--pg-acc-txt, var(--pg-acc));
-  filter: saturate(0.5) brightness(1.5);
   outline: none;
+  position: relative;
+}
+.header-pointer:hover::before, .header-pointer:focus-within::before {
+  content: "";
+  position: absolute;
+  inset: 1px 0 0 0;
+  background-image: linear-gradient(to left, var(--pg-acc-txt, var(--pg-acc)), transparent);
+  opacity: 0.5;
 }
 
 .sidebar .header-pointer + .header-pointer {
@@ -659,8 +665,11 @@ nav#topnav #history > a:last-child::before {
 #world > :last-child {
   margin-bottom: 5rem;
 }
-#world > :last-child header h1 {
+#world > div > span {
+  font-family: "IM Fell English";
   font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 #feedbackform, .btn-container > a.kofi-button {
