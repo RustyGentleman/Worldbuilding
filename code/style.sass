@@ -106,6 +106,8 @@ body
 	--pg-txt-i: black
 	--pg-tint: hsl(0 100% 100%)
 	--pg-sec-invert: 0
+	--nav-txt: white
+	--nav-txt-i: black
 	color: var(--pg-txt)
 	background-color: var(--pg-bg)
 
@@ -159,6 +161,7 @@ body
 		--pg-acc-txt: hsl(60,61%,71%)
 		--pg-acc-d: hsl(60,11%,65%)
 		--nav-txt: black
+		--nav-txt-i: white
 	&[current='elvenempire']
 		--pg-acc: hsl(54,76%,59%)
 		--pg-acc-hsl: 203 100% 50%
@@ -166,7 +169,6 @@ body
 		--pg-acc-d: hsl(54,61%,27%)
 		--pg-txt: white
 		--pg-tint: hsl(50 100% 25%)
-
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
@@ -182,16 +184,15 @@ a[page-link], a[section-link]
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease
 //* In-site link hover
-a[page-link]:hover, a[section-link]:hover
-	background-size: 100% 1px, 100% 1px
-//* Sidebar page-links
-.sidebar a[page-link]
-	background-position: bottom center, bottom center
+a[page-link], a[section-link]
+	&:hover, &:focus
+		background-size: 100% 1px, 100% 1px
+		outline: none
 //* Current header in navigation
 .header-pointer.current
 	color: var(--pg-acc-txt, var(--pg-acc))
 	font-weight: bold
-//* Current section pointer
+//* Current section pointer and hover/focus
 .header-pointer
 	> *::before
 		content: '•'
@@ -204,10 +205,17 @@ a[page-link]:hover, a[section-link]:hover
 		transition: transform .3s ease
 	> *
 		display: inline-block
-	&.current > *
-		transform: translateX(1rem)
-		&::before
-			transform: translateX(0)
+	&.current
+		filter: none !important
+		> *
+			transform: translateX(1rem)
+			&::before
+				transform: translateX(0)
+	&:hover,
+	&:focus-within
+		color: var(--pg-acc-txt, var(--pg-acc))
+		filter: saturate(0.5) brightness(1.5)
+		outline: none
 //* Sidebar navigation dividers
 .sidebar .header-pointer + .header-pointer
 	position: relative
@@ -221,24 +229,35 @@ a[page-link]:hover, a[section-link]:hover
 		border-top: solid 1px
 		opacity: .2
 //* Dropdown button hover & disabled
-#topnav .dropdown button
-	position: relative
-	&:disabled
-		font-style: italic
-		text-decoration: line-through
-		cursor: default
-	&:not(:disabled)::before
-		content: ''
-		position: absolute
-		inset: 0
-		background-image: linear-gradient(to right, $t, var(--pg-txt-i), $t)
+#topnav
+	> div > button
+		background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, $t, $t)
 		background-position: center center
-		background-size: 100% 0%
 		background-repeat: no-repeat
-		opacity: .5
-		z-index: -1
-	&:not(:disabled):hover::before
-		background-size: 100% 100%
+		&:focus-within
+			background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, var(--nav-txt-i), $t)
+			outline: none
+	.dropdown button
+		position: relative
+		&:disabled
+			font-style: italic
+			text-decoration: line-through
+			cursor: default
+		&:not(:disabled)::before
+			content: ''
+			position: absolute
+			inset: 0
+			background-image: linear-gradient(to right, $t, var(--nav-txt-i), $t)
+			background-position: center center
+			background-size: 100% 0%
+			background-repeat: no-repeat
+			opacity: .5
+			z-index: -1
+		&:not(:disabled):hover,
+		&:not(:disabled):focus-within
+			outline: none
+			&::before
+				background-size: 100% 100%
 //* Content section smoke background
 .content section
 	position: relative
@@ -314,7 +333,9 @@ a[page-link]:hover, a[section-link]:hover
 .page .content
 	> h1, > h2, > h3
 		&:has(+section:hover) button,
-		&:hover button
+		&:has(+section:focus-within) button,
+		&:hover button,
+		&:focus-within button
 			opacity: 1
 			margin-left: .3rem
 		button
@@ -362,12 +383,13 @@ section.blink > *, section .blink
 		section, section p, section li
 			transition: text-shadow $tr-vl ease-out
 .page .sidebar .header-pointer
-	transition: color $tr-s ease
+	transition: color $tr-s ease, filter $tr-s ease
 	> *
 		transition: transform $tr-s ease
 [page-bg]
 	transition: opacity $tr-vl ease
-
+#feedbackform, .btn-container>a.kofi-button
+	transition: background $tr-s ease
 //# ----------------------------------------
 //# Borders
 //# ----------------------------------------
@@ -378,6 +400,8 @@ nav#topnav
 	> div > .dropdown
 		border: solid 1px
 		border-top: none
+	#history:not(:empty)
+		border-block: solid 1px
 .sidebar
 	border-image: lg(bottom, 'currentColor, transparent')
 	border-image-slice: 1
@@ -439,7 +463,6 @@ nav#topnav
 	> div > button
 		position: relative
 		background-color: var(--pg-acc)
-		background-image: lg(top, 'rgba(0 0 0 / 30%), transparent')
 		z-index: 2
 	.dropdown
 		position: relative
@@ -448,6 +471,35 @@ nav#topnav
 		border-bottom-left-radius: .4rem
 		border-bottom-right-radius: .4rem
 		z-index: -1
+	#history
+		position: relative
+		color: var(--nav-txt)
+		background-image: lg(bottom, 'rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)')
+		&::before
+			content: ''
+			position: absolute
+			inset: 0
+			z-index: -1
+			background-color: var(--nav-txt-i)
+			opacity: .5
+		> a
+			position: relative
+			background-image: none
+			&::after
+				content: '>'
+				position: absolute
+				left: calc(100% + .5rem)
+				top: 50%
+				transform: translate(-50%, -50%)
+				font-weight: bold
+			&:last-child::before
+				content: 'Here'
+				display: block
+				position: absolute
+				left: calc(100% + 2rem)
+				top: 50%
+				transform: translate(-50%, -50%)
+				font-weight: bold
 .sidebar
 	background-color: rgb(0 0 0 / 80%)
 	backdrop-filter: blur(.5rem) url(#glass)
@@ -515,6 +567,23 @@ nav#topnav
 //# ----------------------------------------
 #world > :last-child
 	margin-bottom: 5rem
+	header h1
+		font-size: 1.5rem
+#feedbackform, .btn-container>a.kofi-button
+	padding: 2px .65rem
+	border: .1rem solid white !important
+	border-radius: 7px
+	background-color: black !important
+	color: white !important
+	font-family: inherit !important
+	font-weight: bold !important
+	font-size: 1em !important
+	line-height: initial !important
+	&:hover,
+	&:focus-within
+		background-color: #222 !important
+		opacity: 1
+		color: inherit
 #ras
 	section.subcolumns
 		> div.phy

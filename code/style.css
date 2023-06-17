@@ -71,6 +71,8 @@ body {
   --pg-txt-i: black;
   --pg-tint: hsl(0 100% 100%);
   --pg-sec-invert: 0;
+  --nav-txt: white;
+  --nav-txt-i: black;
   color: var(--pg-txt);
   background-color: var(--pg-bg);
   --c-foxfire-d: hsl(220 100% 50%);
@@ -124,6 +126,7 @@ body[current=elves] {
   --pg-acc-txt: hsl(60,61%,71%);
   --pg-acc-d: hsl(60,11%,65%);
   --nav-txt: black;
+  --nav-txt-i: white;
 }
 body[current=elvenempire] {
   --pg-acc: hsl(54,76%,59%);
@@ -190,12 +193,9 @@ a[page-link], a[section-link] {
   transition: background-size 0.3s ease;
 }
 
-a[page-link]:hover, a[section-link]:hover {
+a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:focus {
   background-size: 100% 1px, 100% 1px;
-}
-
-.sidebar a[page-link] {
-  background-position: bottom center, bottom center;
+  outline: none;
 }
 
 .header-pointer.current {
@@ -216,11 +216,19 @@ a[page-link]:hover, a[section-link]:hover {
 .header-pointer > * {
   display: inline-block;
 }
+.header-pointer.current {
+  filter: none !important;
+}
 .header-pointer.current > * {
   transform: translateX(1rem);
 }
 .header-pointer.current > *::before {
   transform: translateX(0);
+}
+.header-pointer:hover, .header-pointer:focus-within {
+  color: var(--pg-acc-txt, var(--pg-acc));
+  filter: saturate(0.5) brightness(1.5);
+  outline: none;
 }
 
 .sidebar .header-pointer + .header-pointer {
@@ -238,6 +246,15 @@ a[page-link]:hover, a[section-link]:hover {
   opacity: 0.2;
 }
 
+#topnav > div > button {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent), radial-gradient(closest-side, transparent, transparent);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#topnav > div > button:focus-within {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent), radial-gradient(closest-side, var(--nav-txt-i), transparent);
+  outline: none;
+}
 #topnav .dropdown button {
   position: relative;
 }
@@ -250,14 +267,17 @@ a[page-link]:hover, a[section-link]:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, transparent, var(--pg-txt-i), transparent);
+  background-image: linear-gradient(to right, transparent, var(--nav-txt-i), transparent);
   background-position: center center;
   background-size: 100% 0%;
   background-repeat: no-repeat;
   opacity: 0.5;
   z-index: -1;
 }
-#topnav .dropdown button:not(:disabled):hover::before {
+#topnav .dropdown button:not(:disabled):hover, #topnav .dropdown button:not(:disabled):focus-within {
+  outline: none;
+}
+#topnav .dropdown button:not(:disabled):hover::before, #topnav .dropdown button:not(:disabled):focus-within::before {
   background-size: 100% 100%;
 }
 
@@ -342,7 +362,7 @@ a[page-link]:hover, a[section-link]:hover {
   filter: url(#wavyh3) blur(0.6px);
 }
 
-.page .content > h1:has(+ section:hover) button, .page .content > h1:hover button, .page .content > h2:has(+ section:hover) button, .page .content > h2:hover button, .page .content > h3:has(+ section:hover) button, .page .content > h3:hover button {
+.page .content > h1:has(+ section:hover) button, .page .content > h1:has(+ section:focus-within) button, .page .content > h1:hover button, .page .content > h1:focus-within button, .page .content > h2:has(+ section:hover) button, .page .content > h2:has(+ section:focus-within) button, .page .content > h2:hover button, .page .content > h2:focus-within button, .page .content > h3:has(+ section:hover) button, .page .content > h3:has(+ section:focus-within) button, .page .content > h3:hover button, .page .content > h3:focus-within button {
   opacity: 1;
   margin-left: 0.3rem;
 }
@@ -404,7 +424,7 @@ section.blink > *, section .blink {
 }
 
 .page .sidebar .header-pointer {
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, filter 0.3s ease;
 }
 .page .sidebar .header-pointer > * {
   transition: transform 0.3s ease;
@@ -412,6 +432,10 @@ section.blink > *, section .blink {
 
 [page-bg] {
   transition: opacity 1s ease;
+}
+
+#feedbackform, .btn-container > a.kofi-button {
+  transition: background 0.3s ease;
 }
 
 nav#topnav {
@@ -423,6 +447,9 @@ nav#topnav > div:not(:first-child) > button {
 nav#topnav > div > .dropdown {
   border: solid 1px;
   border-top: none;
+}
+nav#topnav #history:not(:empty) {
+  border-block: solid 1px;
 }
 
 .sidebar {
@@ -506,7 +533,6 @@ nav#topnav {
 nav#topnav > div > button {
   position: relative;
   background-color: var(--pg-acc);
-  background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent);
   z-index: 2;
 }
 nav#topnav .dropdown {
@@ -516,6 +542,40 @@ nav#topnav .dropdown {
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
   z-index: -1;
+}
+nav#topnav #history {
+  position: relative;
+  color: var(--nav-txt);
+  background-image: linear-gradient(to bottom, rgba(0 0 0 / 40%), rgba(0 0 0 / 40%));
+}
+nav#topnav #history::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--nav-txt-i);
+  opacity: 0.5;
+}
+nav#topnav #history > a {
+  position: relative;
+  background-image: none;
+}
+nav#topnav #history > a::after {
+  content: ">";
+  position: absolute;
+  left: calc(100% + 0.5rem);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+nav#topnav #history > a:last-child::before {
+  content: "Here";
+  display: block;
+  position: absolute;
+  left: calc(100% + 2rem);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
 }
 
 .sidebar {
@@ -598,6 +658,26 @@ nav#topnav .dropdown {
 
 #world > :last-child {
   margin-bottom: 5rem;
+}
+#world > :last-child header h1 {
+  font-size: 1.5rem;
+}
+
+#feedbackform, .btn-container > a.kofi-button {
+  padding: 2px 0.65rem;
+  border: 0.1rem solid white !important;
+  border-radius: 7px;
+  background-color: black !important;
+  color: white !important;
+  font-family: inherit !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  line-height: initial !important;
+}
+#feedbackform:hover, #feedbackform:focus-within, .btn-container > a.kofi-button:hover, .btn-container > a.kofi-button:focus-within {
+  background-color: #222 !important;
+  opacity: 1;
+  color: inherit;
 }
 
 #ras section.subcolumns > div.phy p b:not(.escape) {

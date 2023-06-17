@@ -231,8 +231,9 @@ nav#topnav > div > .dropdown {
   transform-origin: top center;
   transform: translateY(-100%);
 }
-nav#topnav > div:hover > .dropdown,
-nav#topnav > div .dropdown:hover {
+nav#topnav > div:hover > .dropdown, nav#topnav > div:focus-within > .dropdown,
+nav#topnav > div .dropdown:hover,
+nav#topnav > div .dropdown:focus-within {
   transform: translateY(0);
   opacity: 1;
 }
@@ -282,6 +283,7 @@ nav#topnav > :first-child svg {
   margin-bottom: -0.1rem;
 }
 nav#topnav > div {
+  grid-row: 1;
   position: relative;
 }
 nav#topnav > div button {
@@ -293,6 +295,18 @@ nav#topnav > div button {
 nav#topnav > div .dropdown {
   position: absolute;
   width: calc(100% - 1px);
+  display: flex;
+  flex-direction: column;
+}
+nav#topnav #history {
+  display: flex;
+  place-content: center;
+  gap: 1rem;
+  grid-row: 2;
+  grid-column: 1/span 4;
+  z-index: -2;
+}
+nav#topnav #history > a {
   display: flex;
   flex-direction: column;
 }
@@ -320,6 +334,9 @@ main {
 }
 .page:not(.content-only) .content {
   margin-left: -1px;
+}
+.page.tiled {
+  display: none;
 }
 
 .sidebar {
@@ -372,13 +389,13 @@ main {
 .content section:has(+ h1) {
   padding-bottom: 2rem;
 }
-.content section p {
+.content section > * {
   margin-block: 0.5rem 0.5rem;
 }
-.content section p:first-of-type {
+.content section > *:first-child {
   margin-top: 0;
 }
-.content section p:last-of-type {
+.content section > *:last-child {
   margin-bottom: 0;
 }
 .content section ul {
