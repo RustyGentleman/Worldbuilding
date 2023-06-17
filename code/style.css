@@ -102,7 +102,7 @@ body[current=world] {
   --pg-txt: black;
   --pg-txt-i: white;
 }
-body[current=whisperwood-forest] {
+body[current=whisperwoodforest] {
   --pg-acc: hsl(140 100% 41%);
   --pg-acc-hsl: 140 100% 41%;
   --pg-acc-txt: hsl(140 100% 41%);
@@ -154,6 +154,14 @@ body[current=elvenempire] {
 }
 
 #schoolsofmagic.current ~ [page-bg=schoolsofmagic] {
+  opacity: 1;
+}
+
+#fauna.current ~ [page-bg=fauna] {
+  opacity: 1;
+}
+
+#flora.current ~ [page-bg=flora] {
   opacity: 1;
 }
 
