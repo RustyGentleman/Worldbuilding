@@ -13,6 +13,7 @@
 
 	<meta name="description" content="A worldbuilding, conlanging and writing project set in a medieval-era fantasy world.">
 	<meta name="keywords" content="worldbuilding, fantasy, medieval, medieval fantasy, fantasy world, lore, mythology, magic, magic system, hard magic, hard magic system, magic users, adventure, storytelling, writing, creative writing, roleplaying, sword and sorcery, creatures, kingdoms, non-human races">
+	<meta name="theme-color" content="#009DFF">
 
 	<meta property="og:description" content="A worldbuilding, conlanging and writing project set in a medieval-era fantasy world.">
 	<meta property="twitter:description" content="A worldbuilding, conlanging and writing project set in a medieval-era fantasy world.">
@@ -23,7 +24,7 @@
 <body current="home">
 	<nav id="topnav">
 		<div>
-			<button page-link="home">
+			<button page-link="home" tabindex="0">
 				<svg viewBox="0 0 80 69" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M14.6458 68.1029V32.6497H0.749969L39.8782 1.34052L79.0064 32.6497H65.1106V68.1029H47.1832V44.6976H32.5731V68.1029H14.6458Z" fill="currentColor"/>
 					<path d="M32.5731 68.1029H14.6458V32.6497H0.749969L39.8782 1.34052L79.0064 32.6497H65.1106V68.1029H47.1832M32.5731 68.1029V44.6976H47.1832V68.1029M32.5731 68.1029H47.1832" stroke="currentColor" stroke-linejoin="round"/>
@@ -31,32 +32,36 @@
 			</button>
 		</div>
 		<div>
-			<button page-link="world">World</button>
+			<button page-link="world" tabindex="0">World</button>
 			<div class="dropdown">
 				<b>About</b>
 				<button page-link="magicsystem">Magic System</button>
 				<button page-link="schoolsofmagic">Schools of Magic</button>
 				<b>Regions</b>
 				<button page-link="whisperwoodforest">Whisperwood Forest</button>
-				<button page-link="telere">Tel'ere</button>
+				<button page-link="telere" disabled>Tel'ere</button>
 				<b>Societies & Empires</b>
 				<button page-link="elvenempire">The Elven Empire</button>
 			</div>
 		</div>
 		<div>
-			<button page-link="characters">Characters</button>
+			<button page-link="characters" tabindex="0">Characters</button>
 			<div class="dropdown">
 				<button page-link="ras">Ras Silverleaf</button>
-				<button page-link="riella">Riella El'wenysii</button>
+				<button page-link="riella" disabled>Riella Elwenyis</button>
 			</div>
 		</div>
 		<div>
-			<button page-link="races">Races</button>
+			<button page-link="races" tabindex="0">Races</button>
 			<div class="dropdown">
 				<button page-link="kitsunes">Kitsunes</button>
 				<button page-link="elves">Elves</button>
+				<button page-link="beastkins" disabled>Beastkins</button>
+				<button page-link="lizans" disabled>Lizans</button>
+				<button page-link="dragonkins" disabled>Dragonkins</button>
 			</div>
 		</div>
+		<div id="history"></div>
 	</nav>
 
 
@@ -66,72 +71,109 @@
 		<article class="page content-only" id="home">
 			<div class="content">
 				<header>
-					<h1>About</h1>
+					<h1>Yet Unnamed</h1>
 				</header>
+				<h1 section-id="about">About</h1>
 				<section>
-					<p>Yet Unnamed is a worldbuilding and writing project set in a medieval-era fantasy world. It was born from a continual development of the character <a page-link="ras">Ras Silverleaf</a>, his home and the surrounding area, and, as such, its development is being done 'from inside out', so to say.</p>
+					<p>Yet Unnamed is a worldbuilding and writing project set in a medieval-era fantasy world. It was born from a continual development of the character <a page-link="ras" style="display: inline-block;">Ras Silverleaf</a>, his home and the surrounding area, and, as such, its development is being done 'from inside out', so to say.</p>
 					<p>Though this organic manner of development - and, indeed, the creation of this project - was unintended, I, as a writer, enjoy the idea that each fact, item, being or idea is to be moreso discovered or inferred than purely invented on a whim.</p>
 					<p><b><u>Use the menu at the top to navigate.</u></b></p>
+				</section>
+				<h1 section-id="support&feedback">Support & Feedback</h1>
+				<section>
+					<p>If you enjoy my creations and would like to support me, consider donating.</p>
+					<p>Consider also providing feedback on my writing through the following form. You may also submit spelling mistakes, errors, and even suggestions.</p>
+					<div style="display: flex; place-content: center; gap: .5rem;">
+						<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'Z8Z5M07RO');kofiwidget2.draw();</script> 
+						<button id="feedbackform" class="btn-container" onclick="window.open('https://dqh2e9egn9r.typeform.com/to/ncGrHFaa', '_blank').focus()">Feedback Form</button>
+					</div>
 				</section>
 			</div>
 		</article>
 
-		<article class="page" id="world" style="display: flex;flex-direction: column; place-content: center;">
-			<header><h1>About</h1></header>
-			<div class="tiled">
-				<button class="tile" page-link="magicsystem">
-					<div>
-						<h1>
-							<span style="margin-bottom: -1.4rem;">Magic</span>
-							<span>System</span>
-						</h1>
-						<h2>Mana & the Veil</h2>
-					</div>
-				</button>
-				<button class="tile" page-link="schoolsofmagic">
-					<div>
-						<h1>
-							<span style="position: relative; right: .3rem;">Schools</span>
-							<span style="
-								margin-block: -1.3rem;
-								margin-bottom: -1.7rem;
-								font-size: .7em;
-								">of</span>
-							<span>Magic</span>
-						</h1>
-					</div>
-				</button>
-			</div>
-			<header><h1>Regions & Places of Interest</h1></header>
-			<div class="tiled">
-				<button class="tile" page-link="whisperwoodforest">
-					<div>
-						<h1 translate="no">
-							<span style="font-size: .9em;">Whisperwood</span>
-							<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
-						</h1>
-						<!-- <h2>the Murmuring Woods</h2> -->
-					</div>
-				</button>
-				<button class="tile" page-link="tel'ere-desert">
-					<div>
-						<h1>Tel'ere</h1>
-						<!-- <h2>the Scalding Desert</h2> -->
-					</div>
-				</button>
-			</div>
-			<header><h1>Societies & Empires</h1></header>
-			<div class="tiled">
-				<button class="tile" page-link="elvenempire">
-					<div>
-						<h1>
-							<span style="margin-bottom: -1.5rem;">The</span>
-							<span style="margin-bottom: -2rem;">Elven</span>
-							<span>Empire</span>
-						</h1>
-						<h2>Aegides of the West</h2>
-					</div>
-				</button>
+		<article class="page" id="world" style="grid-template-columns: 1fr">
+			<div style="padding-block: 2rem 5rem;">
+				<header><h1>About</h1></header>
+				<div class="tiled">
+					<button class="tile" page-link="magicsystem">
+						<div>
+							<h1>
+								<span style="margin-bottom: -1.4rem;">Magic</span>
+								<span>System</span>
+							</h1>
+							<h2>Mana & the Veil</h2>
+						</div>
+					</button>
+					<button class="tile" page-link="schoolsofmagic">
+						<div>
+							<h1 style="line-height: .6em;">
+								<span style="transform: translateX(-.3rem);">Schools</span>
+								<span style="font-size: .7em; transform: translateX(3.7rem);">of</span>
+								<span>Magic</span>
+							</h1>
+							<h2 style="position: absolute; top: calc(50% + .2rem); transform: translateX(-1rem);">
+								<span>Types &</span>
+								<span>Forms</span>
+							</h2>
+						</div>
+					</button>
+					<button class="tile" page-link="fauna">
+						<div>
+							<h1>Fauna</h1>
+							<h2 style="position: absolute;">
+								<span style="position: absolute; transform: translate(2rem, -3rem);">Unique</span>
+								<span style="position: absolute; transform: translateX(1.4rem);">Animals</span>
+							</h2>
+						</div>
+					</button>
+					<button class="tile" page-link="flora">
+						<div>
+							<h1>Flora</h1>
+							<h2 style="position: absolute;">
+								<span style="position: absolute; transform: translate(2.5rem, -3rem);">Unique</span>
+								<span style="position: absolute; width: 9rem; transform: translateX(-1.1rem);">Plants & Fungi</span>
+							</h2>
+						</div>
+					</button>
+				</div>
+				<header><h1>Regions & Places of Interest</h1></header>
+				<div class="tiled">
+					<button class="tile" page-link="whisperwoodforest">
+						<div>
+							<h1 translate="no">
+								<span style="font-size: .9em;">Whisperwood</span>
+								<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
+							</h1>
+							<h2>
+								<span style="position: absolute; top: 50%; left: 50%; transform: translate(-6rem, -.3rem);">the</span>
+								<span style="position: absolute; top: 50%; left: 50%; transform: translate(4.2rem, -.3rem);">of</span>
+								<span>Talking Trees</span>
+							</h2>
+						</div>
+					</button>
+					<button class="tile" page-link="tel'ere-desert">
+						<div>
+							<h1>Tel'ere</h1>
+							<h2>the Desert Settlement</h2>
+						</div>
+					</button>
+				</div>
+				<header><h1>Societies & Empires</h1></header>
+				<div class="tiled">
+					<button class="tile" page-link="elvenempire">
+						<div>
+							<h1>
+								<span style="margin-bottom: -1.5rem; width: 13rem;">The Elven</span>
+								<span>Empire</span>
+							</h1>
+							<h2>
+								<span style="margin-right: -1rem; margin-left: -1.3rem;">Aegides</span>
+								<span style="display: inline-block; transform: translateY(1rem);">of the</span>
+								<span style="margin-left: -1rem;">West</span>
+							</h2>
+						</div>
+					</button>
+				</div>
 			</div>
 		</article>
 
@@ -198,11 +240,20 @@
 		<article class="page" id="whisperwoodforest">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="flora"><b>Flora</b></button>
-				<button class="header-pointer" section-link="whisperwood"><span>Whisperwood Oak</span></button>
-				<button class="header-pointer" section-link="fluffberry"><span>Fluffberry</span></button>
-				<button class="header-pointer" section-link="fauna"><b>Fauna</b></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="flora"><b>Flora</b></button>
+						<button class="header-pointer" section-link="whisperwood"><span>Whisperwood Oak</span></button>
+						<button class="header-pointer" section-link="fluffberry"><span>Fluffberry</span></button>
+						<button class="header-pointer" section-link="fauna"><b>Fauna</b></button>
+					</div>
+				</div>
+
+
+				<span class="header">Related:</span>
+				<a page-link="ras">Ras Silverleaf</a>
+
 				<span class="last-updated">Last updated:<br>March 27th, 2023</span>
 			</nav>
 			<div class="content">
@@ -211,6 +262,11 @@
 						<span style="font-size: .9em;">Whisperwood</span>
 						<span style="position: relative; right: .2rem; margin-top: -1.2rem;">Forest</span>
 					</h1>
+					<h2>
+						<span style="position: absolute; top: 50%; left: 50%; transform: translate(-6rem, -2.7rem);">the</span>
+						<span style="position: absolute; top: 50%; left: 50%; transform: translate(4.2rem, -2.7rem);">of</span>
+						<span>Talking Trees</span>
+					</h2>
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
@@ -243,6 +299,13 @@
 					<p>Its predatory population mostly comes down to boars, which appear in the entire region, some species of wolves, which only appear in certain areas, bears and foxes, which will wander in from surrounding regions during fall and winter, and birds of prey.</p>
 					<p>Herbives and omnivores seem to thrive particularly well in most areas of the region. Popular local belief attributes it partly to the gestures and sounds that whisperwood oaks produce, though the presence of certain animal species certainly plays a part as well.</p>
 				</section>
+				<h2 section-id="moonlightperch">Moonlight Perch</h2>
+				<section>
+					<p>A species of freshwater fish characterized by its mutable small to medium size and the pale glow it emits, which is often compared to that of the moon - thus the name. Males display a slightly bluish, cold white glow, while females glow in a warm white. While they typically grow to 15-20 centimeters (6-8 inches) in most rivers, they may grow larger in lakes and large rivers, reaching sizes up to 25-30 centimeters (10-12 inches).</p>
+					<p>They are opportunistic carnivores, generally feeding on aquatic insects, crustaceans and smaller fish. They are rather fast and agile, capable of producing sudden bursts of speed to escape predators or catch prey. They are generally more active at dusk, night and early dawn, when light levels are low, being less active during the day, when they generally seek shelter among rocks and aquatic vegetation or under shade.</p>
+					<p>The glow it emits is a <a page-link="magicsystem:structural">structurally-induced</a> <a page-link="schoolsofmagic:conjuring">conjuration</a> effect, caused by intricate internal structures in its scales. It is generally dim enough to be barely noticeable during the day, but much more noticeable at night, leading to the misconception that they only glow at night. This dim glow makes it harder for visually-oriented predators, such as birds and land animals, to see its outline beneath the water, especially during night time, as it makes them blend in with the reflections of the moon and the stars.</p>
+					<p>During breeding season, however, their glow intensifies significantly, as they divert nutrients and resources towards growing thicker scales. Though this makes them more noticeable and attractive to both potential mates and predators, the increased protection these thicker scales provide offset the increased risk. It is still possible for them to get injured and lose scales from being attacked, however, leaving gaps in their bodily glow that won't grow over until the next breeding season. Such gaps also heavily affect how attractive they are to mates.</p>
+				</section>
 				<!-- <h2 section-id="whisperwood-ants">Whisperwood Ants</h2>
 				<section>
 					<p>A species of ant that is thought to have a symbiotic relationship with whisperwood oaks, being, as such, endemic to the region.</p>
@@ -252,19 +315,27 @@
 		<article class="page" id="magicsystem">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="mechanics"><b>Mechanics</b></button>
-				<button class="header-pointer" section-link="life&theveil"><span>Life & the Veil</span></button>
-				<button class="header-pointer" section-link="capacity"><span>Capacity</span></button>
-				<button class="header-pointer" section-link="accumulators"><span>Mana Accumulators</span></button>
-				<button class="header-pointer" section-link="effects&spellcasting"><b>Effects & Spellcasting</b></button>
-				<button class="header-pointer" section-link="structural"><span>Structurally Induced</span></button>
-				<button class="header-pointer" section-link="gestural&verbal"><span>Gestural & Verbal Casting</span></button>
-				<button class="header-pointer" section-link="differences"><i>Differences</i></button>
-				<button class="header-pointer" section-link="dancerituals"><span>Dance Rituals</span></button>
-				<button class="header-pointer" section-link="will"><span>Will Projection</span></button>
-				<button class="header-pointer" section-link="spellproxies"><b>Spell Proxies</b></button>
-				<button class="header-pointer" section-link="conjuring"><b>Mana Conjuring</b></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="mechanics"><b>Mechanics</b></button>
+						<button class="header-pointer" section-link="life&theveil"><span>Life & the Veil</span></button>
+						<button class="header-pointer" section-link="capacity"><span>Capacity</span></button>
+						<button class="header-pointer" section-link="accumulators"><span>Mana Accumulators</span></button>
+						<button class="header-pointer" section-link="effects&spellcasting"><b>Effects & Spellcasting</b></button>
+						<button class="header-pointer" section-link="structural"><span>Structurally Induced</span></button>
+						<button class="header-pointer" section-link="gestural&verbal"><span>Gestural & Verbal Casting</span></button>
+						<button class="header-pointer" section-link="differences"><i>Differences</i></button>
+						<button class="header-pointer" section-link="dancerituals"><span>Dance Rituals</span></button>
+						<button class="header-pointer" section-link="will"><span>Will Projection</span></button>
+						<button class="header-pointer" section-link="spellproxies"><b>Spell Proxies</b></button>
+						<button class="header-pointer" section-link="conjuring"><b>Mana Conjuring</b></button>
+					</div>
+				</div>
+
+
+				<span class="header">Related:</span>
+				<a page-link="schoolsofmagic">Schools of Magic</a>
 
 				<span class="last-updated">Last updated:<br>March 30th, 2023</span>
 			</nav>
@@ -348,56 +419,123 @@
 				<section>
 					<p>Mana itself can be forced to manifest in physical form. With few exceptions, this usually requires both a high degree of proficiency and a very intimate understanding of the nature of mana and the Veil. As such, it is understood that only sapient beings can conjure mana itself in this way, though some scholars challenge this idea.</p>
 					<p>Conjuring mana in this way has interesting effects. A person who touches an individual's mana may get impressions of their current emotions, or even feel them directly. In some cases, it is also possible to reach a more intimate understanding of the conjurer's being, if both persons involved already share a relationship that facilitates it.</p>
-					<p>Due to this effect, it is widely believed that the <a page-link="kitsunes:foxfire">foxfire</a> of kitsunes is comprised, at least partially, by mana. Only a limited amount of study has been conducted in this matter, however.</p>
+					<p>Due to this effect, it is widely believed that the <a page-link="kitsunes:foxfire">foxfire</a> of Kitsunes is comprised, at least partially, by mana. Only a limited amount of study has been conducted in this matter, however.</p>
 				</section>
 			</div>
 		</article>
 		<article class="page" id="schoolsofmagic">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="conjuration"><b>Conjuration</b></button>
-				<button class="header-pointer" section-link="senseweaving"><b>Senseweaving</b></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="conjuration"><b>Conjuration</b></button>
+						<button class="header-pointer" section-link="healing"><span>Healing</span></button>
+						<button class="header-pointer" section-link="senseweaving"><b>Senseweaving</b></button>
+						<button class="header-pointer" section-link="enchanting"><b>Enchanting</b></button>
+						<button class="header-pointer" section-link="attunement"><span>Attunement</span></button>
+						<button class="header-pointer" section-link="illusion"><b>Illusion</b></button>
+					</div>
+				</div>
+
+
+				<span class="header">Related:</span>
+				<a page-link="magicsystem">Magic System</a>
+
+				<span class="last-updated">Last updated:<br>June 11th, 2023</span>
 			</nav>
 			<div class="content">
 				<header>
-					<h1>
-						<span style="position: relative; right: .3rem;">Schools</span>
-						<span style="
-							margin-block: -1.3rem;
-							margin-bottom: -1.7rem;
-							font-size: .7em;
-							">of</span>
+					<h1 style="line-height: .6em;">
+						<span style="transform: translateX(-.3rem);">Schools</span>
+						<span style="font-size: .7em; transform: translateX(3.7rem);">of</span>
 						<span>Magic</span>
 					</h1>
+					<h2 style="position: relative; transform: translate(-1.8rem, -2.5rem);">
+						<span>Types &</span>
+						<span>Forms</span>
+					</h2>
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
-					<p>Due to the large variety of spells and magical effects that can be achieved by drawing upon mana, scholars have, over time, divided these practices into separate schools of practice - 'school', in this case, referring to a group of people who share the same or similar ideas, styles or methods.</p>
+					<p>The various forms of magic effects that may be achieved by manipulating mana can take may be divided into separate, distinct practices, often called <i>schools of magic</i> - 'school', in this case, referring to a style, approach, or method. Many scholars, and even some societies, make similar distinctions as they explore the multifaceted nature the art of spellcasting can take.</p>
+					<p>Unless mentioned otherwise, it is assumed that mental acuity and focus are a factor in one's ability to perform any school of magic. There may be other factors, however, which will be discussed.</p>
+					<p>Additionally, one is highly encouraged to read about this world's <a page-link="magicsystem">magic system</a> before delving into the contents of this page.</p>
 				</section>
 				<h1 section-id="conjuration">Conjuration</h1>
 				<section>
-					<p>Conjuration pertains to the act of making mana manifest itself in the world. Though it is a broad description, it usually refers to mana-to-energy conversion, though it is also used to refer to <a page-link="magicsystem:conjuring">mana conjuring</a>.</p>
-					<p>As it includes the production of fire and light, in various forms, it is highly regarded as the most versatile and utilitarian form of magic, often being among the first to be development in any given culture.</p>
-					<p>Being such a wide-ranging school of magic, spells that fall under its umbrella vary from the simple conjuration of light-emitting</p>
+					<p>Perhaps the broadest and most versatile school of magic, conjuration pertains to the act of making mana manifest itself in the world in the form of energy or matter. While it is possible to <a page-link="magicsystem:conjuring">conjure mana itself</a>, it is exceedingly difficult and rare, as it doesn't exist in nature as something that can be directly interacted with.</p>
+					<p>One's ability to manifest mana in the form of energy depends largely on the person's understanding of the characteristics and properties of said form of energy. For example, one seeking to learn how to conjure a small flame may need to study how fire consumes common materials to sufficiently understand it. One seeking to master flame conjuration, however, may need to study how it consumes a wide variety of materials, how different substances interact with it, and the shape and motion of its flames, and may even go through ritualistic self-immolation to more deeply familiarize themselves with and embrace the essence of what fire is.</p>
+					<p>The most common forms in which mana is conjured are heat, light, fire and wind, while less common forms include electricity and motion. Electricity is generally only present in nature in the form of lightning, which is either very hard or very deadly to familiarize oneself with. As for motion, while it may seem like a simple and ubiquitous subject matter, there are various forms of motion, which involve many concepts of physics, such as drag, lift and inertia, among many others.</p>
+					<p>Additionally, it is naturally harder to conjure mana into some forms. Conjuring matter is universally exceedingly difficult, many societies and cultures considering it impossible. It can be said that mana is more "willing" to be converted into certain forms than others, so to say.</p>
 				</section>
-				<h1 section-id="senseweaving">Senseweaving</h1>
+				<h1 section-id="catalyst">Catalyst</h1>
 				<section>
-					<p>Also known by other names, such as sensory or sensorial magic, it pertains to producing and imparting sensory stimuli onto other beings. While it isn't considered a difficult school of magic, it does require some knowledge of such sensory stimuli, as well as the ability of abstraction. As such, some individuals may struggle with it, while others may excel.</p>
-					<p>The details on the mechanics of how senseweaving actually works is somewhat debated. While the production of stimulus clearly depends on the caster's ability to mentally produce said stimulus and to focus on projecting it, what affects a recipient's ability to receive and process the projected stimulus is ambiguous. In some cases, projecting auditory stimuli toward a deaf person succeeds in allowing them to hear, while in others it fails. The same seems to be true with other stimuli where this has been tested.</p>
+					<p>In some cultures, conjurers often craft <i>catalysts</i>, usually in the form of wands, staves, orbs, bracelets, or otherwise easily carriable implements, which are intricately and artfully adorned with figures and patterns relating to a particular form of energy that they conjure the most. These catalysts are often culturally or personally significant, and, as such, tend to be meticulously crafted and ornamented, in addition to their characteristic patterns.</p>
+					<p>While the matter is a source of debate among scholars, there is merit to this practice, as these intricate patterns and decorations may allude to, and aid in the recollection of, the caster's understanding of that particular form of energy, consequently aiding them in the conjuration. However, while they haven't been discovered in the current era, intricate patterns do exist which may coax mana into more easily manifesting itself as a particular form of energy.</p>
+				</section>
+				<h1 section-id="senseweaving" translate="no">Senseweaving</h1>
+				<section>
+					<p>Known more commonly as sensory or sensorial magic to some societies, <span translate="no">senseweaving</span> pertains to the production (or creation, or generation) and impartation (or projection, or transmission) of sensory stimuli onto the mind of another sentient being nearby - which can be crudely described as a form of one-way telepathy. It's regarded by some as one of the least challenging forms of magic to learn the basics of, though mastering it can be quite difficult.</p>
+					<p>Casting a <span translate="no">senseweaving</span> spell, more commonly described as projecting a stimulus, occurs in two stages: <i>creation</i> and <i>projection</i>. The creation stage is where many struggle, as it requires the caster to create, within their own mind, the stimulus or stimuli that they wish to impart, and to understand, to some degree, the senses involved in their perception. Being able to create vivid mental representations of particular stimuli is important in this stage, and is an ability which many may struggle with or even completely lack, in the case of aphantasic individuals, creating a divide in proficiency. The projection stage, then, requires the caster to focus on the desired recipient and project the created stimuli into their mind, and for the recipient to be within the caster's projection range, which, while varies based on both skill and cognitive ability, is generally within thirty meters (or a hundred feet), or double that if there is a direct line of sight.</p>
+					<p>There are some oddities involved in <span translate="no">senseweaving</span>. While the production of sensory stimuli is dependent on the caster's abilities, what affects the recipient's ability to receive and perceive the projected stimulus is unclear. For example, in some cases projecting auditory stimuli onto the mind of a deaf being succeeds in causing them to hear, while in others it fails. The same is true with other stimuli.</p>
+				</section>
+				<h2 section-id="sensoryfocus">Sensory Focus</h2>
+				<section>
+					<p>An object - typically small, such as a pendant or charm - inscribed or engraved with intricate patterns that interact with the Veil in such a way that it can be <i>"addressed"</i> by a <span translate="no">senseweaver</span>. This allows them to project sensory stimuli towards the person carrying or wearing it without knowing where they are, and from significantly farther, given they know of the focus's existence and are sufficiently familiar with its patterns.</p>
+					<p>The increase in effective range a sensory focus provides is dependent on its material and on the precision and craftsmanship involved in its patterns. A well crafted sensory focus can increase the range of projection by up to and beyond tenfold the <span translate="no">senseweaver</span>'s range.</p>
+				</section>
+				<h1 section-id="enchanting">Enchanting</h1>
+				<section>
+					<p>Being a difficult and elusive form of magic to grasp, the school of enchanting pertains to the ability of altering the physical properties of matter, while requiring constant mental focus on the caster's part to maintain said alterations. One may alter an object's shape, size, density and even internal and surface structures, such as making it shinier or more porous.</p>
+					<p>The difficulty associated with enchanting comes largely from two important factors, one being the very deep understanding required of the material, or materials, composing the object one wishes to enchant, as well as the distinct qualities of the individual object itself. The other is the inherently high complexity involved in the process, which makes the use of <a page-link="magicsystem:will">will projection</a> almost a requirement. This means that many races and individuals may face great difficulty in attempting to learn it, and may not be able to at all, while those from races that have a natural inclination towards understanding the particulars and mechanics of magic generally have much better success. It takes an almost instinctual understanding of certain aspects of magic to fully master enchanting however.</p>
+					<p>Another layer of difficulty lies in the particular inherent properties of the object to be enchanted. Inanimate matter is generally fairly simple to enchant, though composite and complex objects are more challenging. Living tissue is orders of magnitude more difficult to enchant, however, as they tend to involve multiple complex materials and low-scale structures, leading to a requirement of very good understanding of biology and medicine as well.</p>
+					<p>The intricate complexity and level of understanding required also reveals an interesting characteristic about reality itself and the mechanics of magic: no two complex objects are exactly the same. One may own two of the same type of sword, made the same way, from the same materials, even by the same person, and still be able to tell which is which, based on the individual qualities of each object and how they "behave" when being enchanted.</p>
+				</section>
+				<h2 section-id="attunement">Attunement</h2>
+				<section>
+					<p>Being moreso an extension of enchanting than a school of magic of its own, attunement can be described as a process through which a particularly skilled enchanter may "imprint" certain qualities inherent to their <a page-link="magicsystem:life&theveil:1">well</a> into the very structure of a particular object.</p>
+					<p>More than skilled, however, the caster is also required to be intimately familiar with the individual object in question, its innate qualities and individual properties, and how it behaves when being enchanted. The benefits of this process are direct and significant, however, as an object attuned to its caster is effectively primed to more easily and readily accept enchantments from them. As a result, the caster may apply alterations of significantly greater complexity and magnitude to said object.</p>
+				</section>
+				<h1 section-id="illusion">Illusion</h1>
+				<section>
+					<p>A prevalent and versatile art of many faces and fames, illusion, sometimes also called illusionary magic, is the art of crafting perceptual distortions that manipulate the senses of outside observers, herding them into a false version of local reality.</p>
+					<p>Though it is difficult to describe, one possible description is that illusions are a set of instructions, suggestions or descriptions of what the perceived reality within the distortion field contains, or how it differs from true reality. Once the distortion field is cast, continuous mental focus is required to maintain it, the complexity of the illusion dictating the necessary level of focus. If focus is broken, so too is the illusion.</p>
+					<p>In all forms, a good understanding of perception and the senses involved, as well as varying degrees of abstraction and creativity, are required to create cohesive illusions. Knowledge of what the intended perception entails is also necessary, of course, on part of both the caster and the perceiver. This means that sapient creatures, especially those with high capacity for imagination and creativity, are particularly susceptible to illusions, while an animal can generally only perceive things it either has seen before, know exists, or can form by combining things it has seen before or know exists.</p>
+					<p><span translate="no">Miragecraft</span> and illusory art are some of the most common among the various names illusion is known as in entertainment and performance circles, where it is used to inspire awe, mystique and joy in audiences. The term <span translate="no">shadowplay</span> is also used by some, though it is also used by criminals that cast illusions to conceal themselves, granting it a contentious fame. <span translate="no">Veiling</span> and <span translate="no">guisecraft</span> are other terms used by criminals, moreso referring to the usage of illusions as a form of disguise and manipulation.</p>
+					<p>Notably, illusion is also used by some as a form of self-defense and intimidation. <span translate="no">Shapeshifting</span> and <span translate="no">formshaping</span> are terms used by those who cast illusions upon themselves, often to appear larger and more intimidating or smaller and less noticeable, or to more easily blend in within a crowd, for example. Others may employ illusions more actively during confrontations, creating illusory animals and creatures to distract or deter attackers. Skilled illusioners may cast illusory creatures so convincing that they're mistaken as either real or as spirits, leading to some calling it invocation, spectral warding or spectral conjuration.</p>
+				</section>
+				<h1 section-id="restoration">Restoration</h1>
+				<section>
+					<p>Drawing upon the natural interactions between living beings and the Veil, restoration, also known as healing, is a nearly universally useful form of magic pertaining to coaxing mana into accelerating the natural healing processes in a living being's body.</p>
+					<p>It requires a solid understanding of the interactions between mana and living beings, but also relies heavily on the caster's understanding of anatomy, physiology and other aspects of biology and medicine. Knowledge of the specific wound or ailment, and how it was inflicted, is also a factor, making prior diagnosis and wound assessment crucial, as incorrect or incomplete information may lead to potential risks or undesirable side effects, from the formation of scar tissue and lingering pains to improper bone alignment and functional impairments.</p>
+					<p>While small, superficial wounds are generally quite simple to heal, taking most healers only a few minutes, the process of mending fractures, wide gashes and wounded organs is usually long, arduous and taxing, both mentally and magically. Such cases often involve multiple sessions and/or multiple healers. The effects, however, can never exceed the particular being's natural healing abilities - one can only regenerate a creature's lost limb if it would otherwise regrow on its own. Similarly, mental illnesses, genetic disorders and magical conditions cannot be healed through restoration.</p>
+				</section>
+				<h1 section-id="warding" translate="no">Wardweaving</h1>
+				<section>
+					<p>An intricate and even artistic form of magic, <i translate="no">wardweaving</i>, also known as <i translate="no">wardcraft</i> or simply <i translate="no">warding</i>, is the art of creating barriers that protect from both physical and magical harm. Such barriers can vary in size and strength, and remain active until either it or the caster's focus is broken.</p>
+					<p>By channeling their mana through a small implement called a wardstone, a warder essentially draws patterns into the veil, which then manifest as a visible, physical barrier. The size of a barrier and the level of mental focus required to maintain it are dictated by the given pattern, while its strength and durability and the amount of mana that will be consumed are dictated by its complexity and structure. However, it is possible to create small, reasonably strong wards quickly by expending a significantly greater amount of mana.</p>
+					<p>Warding is divided into three aspects: <b>theory</b>, <b>crafting</b> and <b>practice</b>. Theory pertains to understanding the mechanics that allow and are involved in this art, and, of course, requires a good understanding of certain aspects of magic. Crafting pertains to creating, altering, choosing and combining different patterns based on how complex they are, how easy they are to draw, how much precision they require, and how much strength they contribute to the resulting barrier. Finally, practice pertains to training one's ability to draw these complex patterns in the air without being able to see them, and with reasonable precision. This usually involves improving coordination, developing a muscle memory for drawing certain patterns, and learning to mentally manipulate these patterns in a variety of ways.</p>
+					<p>Wardstones are small objects engraved with elaborate, symmetric patterns. They are shaped into a ditetragonal prism - a type of octagonal prism with eight side faces of two alternating widths - with one end forming a sharp tip. As the name alludes to, they were originally crafted from stone, and generally still are, though it is possible to make wardstones from other materials.</p>
+					<p>Wards appear as a transparent solid covered in patterns that often form distinct symbols and lines in radial patterns. The particular pattern on a ward directly correlates to the pattern from which it was cast, which can be identified by a skilled warder. They are also tinted, and the color is consistent for every individual, being the same color as their mana, if they're able to <a page-link="magicsystem:conjuring">conjure it</a>.</p>
 				</section>
 			</div>
 		</article>
 		<article class="page" id="elvenempire">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="structure"><b>Governance Structure</b></button>
-				<button class="header-pointer" section-link="messengers"><span>Messenger Network</spa></button>
-				<button class="header-pointer" section-link="society"><b>Society</b></button>
-				<button class="header-pointer" section-link="military&tactics"><b>Military & Tactics</b></button>
-				<button class="header-pointer" section-link="scouts"><span>Scouts</sp></button>
-				<button class="header-pointer" section-link="arms&equipment"><span>Arms & Equipment</span></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="structure"><b>Governance Structure</b></button>
+						<button class="header-pointer" section-link="messengers"><span>Messenger Network</span></button>
+						<button class="header-pointer" section-link="society"><b>Society</b></button>
+						<button class="header-pointer" section-link="military&tactics"><b>Military & Tactics</b></button>
+						<button class="header-pointer" section-link="scouts"><span>Scouts</span></button>
+						<button class="header-pointer" section-link="arms&equipment"><span>Arms & Equipment</span></button>
+					</div>
+				</div>
+
 
 				<span class="header">Related:</span>
 				<a page-link="elves">Elves</a>
@@ -407,8 +545,15 @@
 			</nav>
 			<div class="content">
 				<header>
-					<h1>The Elven Empire</h1>
-					<h2>Aegides of Nature</h2>
+					<h1>
+						<span style="margin-bottom: -1.5rem; z-index: 3;">The Elven</span>
+						<span>Empire</span>
+					</h1>
+					<h2>
+						<span style="margin-right: -1rem; margin-left: -1.3rem;">Aegides</span>
+						<span style="display: inline-block; transform: translateY(1rem);">of the</span>
+						<span style="margin-left: -1rem;">West</span>
+					</h2>
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
@@ -427,15 +572,15 @@
 				</section>
 				<h1 section-id="society">Society</h1>
 				<section>
-					<p>To members of the empire, one's gender and race are irrelevant to their worth, and every individual's contribution is valued regardless. Family units are not strictly defined, most individuals following what their own racial traditions dictate, though the prominence of <a page-link="elves">elves</a> in the society means some adopt <a page-link="elves:families">their family structure</a>. In either case, however, the community as a whole still generally takes part in raising and educating the children of its constituting families.</p>
-					<p>Despite this egalitarian attitude, the strong kinship between its constituent races and the elves does impact the values and views of the empire's society, especially regarding races, communities and individuals that exploit and endanger natural environments and the flora and fauna therein. Such outsiders are usually met with distrust and apprehension, and communities that encroach on the empire's territory are often met with resistance.</p>
+					<p>To members of the empire, one's gender and race are irrelevant to their worth, and every individual's contribution is valued regardless. Family units are not strictly defined, most individuals following what their own racial traditions dictate, though the prominence of <a page-link="elves">Elves</a> in the society means some adopt <a page-link="elves:families">their family structure</a>. In either case, however, the community as a whole still generally takes part in raising and educating the children of its constituting families.</p>
+					<p>Despite this egalitarian attitude, the strong kinship between its constituent races and the Elves does impact the values and views of the empire's society, especially regarding races, communities and individuals that exploit and endanger natural environments and the flora and fauna therein. Such outsiders are usually met with distrust and apprehension, and communities that encroach on the empire's territory are often met with resistance.</p>
 					<p>Though there are a fair share of disputes and conflicts with outsiders, some communities bordering the empire's territory do have neutral, and even friendly relations with the empire, usually in the form of trade, diplomatic relations and treaties regarding the use and extraction of natural resources.</p>
 				</section>
 				<h1 section-id="military&tactics">Military & Tactics</h1>
 				<section>
 					<p>The decentralized nature of the empire is reflected on its military, with groups of nearby communities along the empire's borders coordinating their resources and manpower together to defend themselves against encroachment and small enemy parties. Against larger and more organized forces, however, they are able to quickly amass a considerable number of troops from communities further away in relatively short time by employing their <a section-link="messengers">messenger network</a>. To an attacker, this makes it difficult to accurately assess and quantify the military power available to any single community, which in itself is a deterrent.</p>
 					<p>Differently than councils, which preside over a single community, military leaders have a number of communities under their jurisdiction and command, though soldiers themselves are trained locally or at the nearest community with appropriately skilled trainers. They are appointed by the collective opinions of the councils in the area, based on their knowledge of tactics and experience in battle.</p>
-					<p>They employ guerrilla tactics to great effect in both defensive and offensive positions, capitalizing on their knowledge of the terrain and their ease of movement through a variety of natural terrains to create traps and hidden pits, which serve well in deterring encroaching parties and slowing down and demoralizing enemy forces. Ambushes are also employed heavily, especially in wooded areas and where they meet lower terrain, where elves especially, pure or hybrid, can make use of their <a page-link="elves:traits&abilities">longsight</a> launch surprise attacks from great distances.</p>
+					<p>They employ guerrilla tactics to great effect in both defensive and offensive positions, capitalizing on their knowledge of the terrain and their ease of movement through a variety of natural terrains to create traps and hidden pits, which serve well in deterring encroaching parties and slowing down and demoralizing enemy forces. Ambushes are also employed heavily, especially in wooded areas and where they meet lower terrain, where Elves especially, pure or hybrid, can make use of their <a page-link="elves:traits&abilities">longsight</a> launch surprise attacks from great distances.</p>
 				</section>
 				<h2 section-id="scouts">Scouts</h2>
 				<section>
@@ -445,42 +590,53 @@
 				</section>
 				<h2 section-id="arms&equipment">Arms & Equipment</h2>
 				<section>
-					<p>Despite limited availability of metal, nearly all of it coming from trade and consisting of goods, the elves' <a page-link="elves:traits&abilities">woodforming</a> abilities and their intimate knowledge of wood as a material allow for the creation of very effective and precisely crafted weapons, especially bows and blunt weapons. Particularly skilled woodformers are even able to craft effective bladed weapons and arrowheads out of wood, though bone and stone is more widely used for those purposes.</p>
+					<p>Despite limited availability of metal, nearly all of it coming from trade and consisting of goods, the Elves' <a page-link="elves:woodforming">woodforming</a> abilities and their intimate knowledge of wood as a material allow for the creation of very effective and precisely crafted weapons, especially bows and blunt weapons. Particularly skilled woodformers are even able to craft effective bladed weapons and arrowheads out of wood, though bone and stone is more widely used for those purposes.</p>
 					<p>Perhaps the staple of the empire's arsenal, however, is the <i>core staff</i>, a weapon-tool "hybrid" similar to a quarterstaff, though thicker, and fitted with a chunk of crystalline material from the core of a Silverwood tree at one end. As well as being used in a traditional <a page-link="magicsystem:effects&spellcasting">form of spellcasting</a> that combines <a page-link="magicsystem:gestural&verbal">gestural and verbal</a> components, these can be easily adapted by woodformers to serve as a variety of weapons or tools, from spears and scythes to hoes and axes. For this purpose, military troops are always appointed at least one properly skilled woodformer.</p>
 				</section>
 			</div>
+		</article>
+		<article class="page" id="fauna">
+			<nav class="sidebar"></nav>
+			<div class="content"></div>
 		</article>
 
 		<!-- 			* Characters -->
 		<article class="page" id="ras">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="backstory"><b>Backstory</b></button>
-				<button class="header-pointer" section-link="family"><span>Family</span></button>
-				<button class="header-pointer" section-link="childhood"><span>Childhood</span></button>
-				<button class="header-pointer" section-link="firstlove"><i>First Love</i></button>
-				<button class="header-pointer" section-link="teenagehood"><span>Teenagehood</span></button>
-				<button class="header-pointer" section-link="communion"><i>Communion</i></button>
-				<button class="header-pointer" section-link="personality"><b>Personality</b></button>
-				<button class="header-pointer" section-link="flaws"><span>Flaws</span></button>
-				<button class="header-pointer" section-link="morals"><span>Morals</span></button>
-				<button class="header-pointer" section-link="appearance"><b>Appearance</b></button>
-				<button class="header-pointer" section-link="physique"><span>Physique</span></button>
-				<button class="header-pointer" section-link="garments"><span>Garments</span></button>
-				<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
-				<button class="header-pointer" section-link="skills"><b>Skills</b></button>
-				<button class="header-pointer" section-link="belongings"><b>Notable Belongings</b></button>
-
-
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="backstory"><b>Backstory</b></button>
+						<button class="header-pointer" section-link="family"><span>Family</span></button>
+						<button class="header-pointer" section-link="childhood"><span>Early Life</span></button>
+						<button class="header-pointer" section-link="firstlove"><i>First Love</i></button>
+						<button class="header-pointer" section-link="teenagehood"><span>Journey of Self-Discovery</span></button>
+						<button class="header-pointer" section-link="communion"><i>Communion</i></button>
+						<button class="header-pointer" section-link="personality"><b>Personality</b></button>
+						<button class="header-pointer" section-link="flaws"><span>Flaws</span></button>
+						<button class="header-pointer" section-link="morals"><span>Morals</span></button>
+						<button class="header-pointer" section-link="appearance"><b>Appearance</b></button>
+						<button class="header-pointer" section-link="garments"><span>Garments</span></button>
+						<button class="header-pointer" section-link="masteries"><b>Traits, Skills & Abilities</b></button>
+						<button class="header-pointer" section-link="innate"><span>Innate</span></button>
+						<button class="header-pointer" section-link="developed"><span>Developed</span></button>
+						<button class="header-pointer" section-link="attained"><span>Attained</span></button>
+						<button class="header-pointer" section-link="belongings"><b>Notable Belongings</b></button>
+						<button class="header-pointer" section-link="grace"><span>Grace</span></button>
+						<button class="header-pointer" section-link="obi"><span>Silk Obi</span></button>
+						<button class="header-pointer" section-link="kimono"><span>Embroidered Kimono</span></button>
+						<button class="header-pointer" section-link="haori"><span>Haori</span></button>
+					</div>
+				</div>
 
 
 				<span class="header">Related:</span>
 				<a page-link="kitsunes">Kitsunes</a>
-				<a page-link="elves">Elves</a>
 				<a page-link="whisperwoodforest">Whisperwood Forest</a>
+				<a page-link="elves">Elves</a>
 
-				<span class="last-updated">Last updated:<br>June 3rd, 2023</span>
+				<span class="last-updated">Last updated:<br>June 10th, 2023</span>
 				<small class="credit">Background artwork from <a href="https://louise-auxcimes.tumblr.com/post/673841705147039744/the-summit-of-the-gods-2021" target="_blank">The Summit of the Gods, 2021</a></small>
 			</nav>
 			<div class="content">
@@ -509,9 +665,9 @@
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
-					<p>Ras is a male, <a page-link="kitsunes:tails">three-tailed</a> <a page-link="kitsunes">kitsune</a> with <a page-link="elves">elven</a> ancestry, a "gentle giant" standing at a towering height of roughly two meters (or 6'8"). Though he <a page-link="kitsunes:aging">looks</a> to be in his mid to late twenties, in reality, he's in his mid thirties.</p>
+					<p>Ras is a male, <a page-link="kitsunes:tails">three-tailed</a> <a page-link="kitsunes">Kitsune</a> with <a page-link="elves">elven</a> ancestry, a "gentle giant" standing at a towering height of roughly two meters (or 6'8"). Though he <a page-link="kitsunes:aging">looks</a> to be in his mid to late twenties, in reality, he's in his mid thirties.</p>
 					<p>Though saying he is heterosexual would be mostly true, it is not strictly so. It is fairer to say he is attracted to femininity; to soft, graceful forms, whether curvaceous or diminute.</p>
-					<p>His given name is <i>Ras</i>, although some may pronounce it closer to <i>Rasu</i>, which is also acceptable. Phonetically, the 'R' in his name is a tap /ɾ/, not a proximant /ɹ/, as it is in English.</p>
+					<p>His given name is <i>Ras</i>, some people use the extended form <i>Rasu</i>, which is also acceptable. Phonetically, the 'R' in his name is a tap /ɾ/, not a proximant /ɹ/, as it is in English.</p>
 				</section>
 				<h1 section-id="backstory">Backstory</h1>
 				<section>
@@ -520,9 +676,9 @@
 				</section>
 				<h2 section-id="family">Family</h2>
 				<section>
-					<p>He was born into the Silverleaf family, whose <a page-link="kitsunes:trades:1">familial specialization</a> is in the smithing of arms, armor, various crafts, and magical manipulation, such as enchanting, woodforming and conjuring. His family group has blacksmithing and enchanting as its chosen crafts, and consists of his parents, his maternal grandparents - which are the elders, or "heads", of the group - a maternal aunt and her mate (an intrafamilial pairing), and their two daughters, totaling 8 family members, excluding him.</p>
+					<p>He was born into the Silverleaf family, whose <a page-link="kitsunes:trades:1">familial specialization</a> is in the smithing of arms, armor, various crafts, and magical manipulation, such as <a page-link="schoolsofmagic:enchanting">enchanting</a>, <a page-link="elves:woodforming">woodforming</a> and <a page-link="schoolsofmagic:conjuring">conjuring</a>. His family group has blacksmithing and enchanting as its chosen crafts, and consists of his parents, his maternal grandparents - which, being the oldest pair, are the <a page-link="kitsunes:families">heads of the group</a> - a maternal aunt and her mate (an intrafamilial pairing), and their two daughters, totaling 8 family members, excluding him.</p>
 					<p>His parents, grandparents and aunt are part of an independent, and famously talented, band of blacksmiths - albeit not publicly, as they'd rather <a page-link="kitsunes:secrecy:1">avoid being bothered</a>. They are very well respected by other members of this band, known by the various unique techniques their talent in enchanting has afforded them. The band generally works by contract, but they also sell their products to merchants, individuals and authorities alike.</p>
-					<p>The family name, Silverleaf, harkens back to the family's origin in elven territory, where Silverwood trees grow. Due to their proximity and relations with elves and other races under the <a page-link="elvenempire">elven empire</a>, they tend to have closer ties with nature, and most have some woodforming ability, though they may not be trained in it. Intermingling with elves also resulted in them generally having paler skin and lighter hairs, as well as slightly longer ears, in comparison to other kitsunes.</p>
+					<p>The family name, Silverleaf, harkens back to the family's origin in elven territory, where Silverwood trees grow. Due to their proximity and relations with Elves and other races under the <a page-link="elvenempire">elven empire</a>, they tend to have closer ties with nature, and most have some woodforming ability, though they may not be trained in it. Intermingling with Elves also resulted in them generally having paler skin and lighter hairs, as well as slightly longer ears, in comparison to other Kitsunes.</p>
 				</section>
 				<h2 section-id="childhood">Early Life</h2>
 				<section>
@@ -535,7 +691,7 @@
 				<h3 section-id="firstlove">First Love</h3>
 				<section>
 					<p>During an interfamilial social gathering when he was about ten years of age, amidst joyous songs and laughter, he was introduced to a soft, delicate beauty of a girl, belonging to a family of artisans. Wavy locks of hair cascaded over her shoulders down to her chest, in a near-white light blue, and adorned with a pair of white flowers as delicate as her. Her sweet visage held a round nose and seafoam green eyes atop soft, blushed cheeks. He was enchanted, even awestruck, by her charm, and his composure faltered like it never had before, but not enough to dissuade him from being with her.</p>
-					<p>As they conversed, they quickly discovered a shared interest in craftsmanship; she showed him the fine fabrics and elaborate garments that her gentle hands helped create, and he showed her the whimsical baubles and intricate pendants he'd crafted himself. As together they indulged in the diverse array of food and drinks, marveled at the displays of craftsmanship, and reveled in the melodies and dances of their kin - which seemed less bothersome in her company - they grew closer and closer, a bond forming between them.</p>
+					<p>As they conversed, they quickly discovered a shared interest in <a page-link="ras:developed:3">craftsmanship</a>; she showed him the fine fabrics and elaborate garments that her gentle hands helped create, and he showed her the whimsical baubles and intricate pendants he'd crafted himself. As together they indulged in the diverse array of food and drinks, marveled at the displays of craftsmanship, and reveled in the melodies and dances of their kin - which seemed less bothersome in her company - they grew closer and closer, a bond forming between them.</p>
 					<p>On the last night of the celebration, this bond blossomed into affection, and then romance, as they shared their feelings and emotions through their <a page-link="kitsunes:foxfire:2">foxfire</a>, and discovered they were mutual. It was then that Ras had his first kiss, under moonlit skies and amidst distant sounds of joy and mirth.</p>
 					<p>Though they seldom met, only able to in these gatherings, they cherished the times they could spend together, and enjoyed sharing their progress in their respective crafts, as well as other interests. At the age of sixteen, however, he started preparing to split from his family in search of new experiences, skills and knowledge, and only days before he departed, he received a gift from her family: a fine silk obi, in a vibrant dark blue - a pigment that only her family knew how to make. He recognized, however, that it was her work, as it was as soft, delicate and thoughtful as her; a simple yet tangible reminder of her affection for him to carry in his journey.</p>
 				</section>
@@ -557,7 +713,7 @@
 				</section>
 				<h1 section-id="personality">Personality</h1>
 				<section>
-					<p>His personality is marked by contrast, both inside and outside, as can be fairly common in <a page-link="kitsunes">kitsunes</a>, given their predatory nature and their <a page-link="kitsunes:culture">focus on family</a>. Him being a particularly gentle and caring individual, however, intensifies this contrast, as he treats even <a page-link="kitsunes:behavior">his prey</a> with tenderness, relying much more on charm and manipulation rather than force. He himself finds the effect of this contrast on others amusing, often intentionally displaying a disarmingly calm and gentle demeanor, especially around those who may feel frightened or discomforted under the gaze of his slit pupils, to play with their expectations and exacerbate the resulting confusion, though not maliciously.</p>
+					<p>His personality is marked by contrast, both inside and outside, as can be fairly common in <a page-link="kitsunes">Kitsunes</a>, given their predatory nature and their <a page-link="kitsunes:culture">focus on family</a>. Him being a particularly gentle and caring individual, however, intensifies this contrast, as he treats even <a page-link="kitsunes:behavior">his prey</a> with tenderness, relying much more on charm and manipulation rather than force. He himself finds the effect of this contrast on others amusing, often intentionally displaying a disarmingly calm and gentle demeanor, especially around those who may feel frightened or discomforted under the gaze of his slit pupils, to play with their expectations and exacerbate the resulting confusion, though not maliciously.</p>
 					<p>His playful, curious nature and humorous wit tend to show only with closer acquaintances, though it depends on his mood and on the particular stranger. With those he knows well and cares for, however, his care and affection show much more strongly, especially in the forms of physical contact, small acts of service and gifts. He behaves almost paternally towards those he feels close to, which is a prime example of his caring and affectionate nature, though some may find being treated inferiorly, or even childishly, disconcerting. Most tend to accept and cherish the guidance and sense of security he provides, however.</p>
 				</section>
 				<h2 section-id="flaws">Flaws</h2>
@@ -573,7 +729,7 @@
 				</section>
 				<h1 section-id="appearance">Appearance</h1>
 				<section>
-					<p>He is quite tall, reaching a height of around two meters (or six feet and seven inches), excluding the length of his ears. Despite the intimidating height, however, his build is wiry, lean and vaguely androgynous, resulting in a graceful appearance that still reflects the agility and dexterity he inherits from his kitsune physiology. His svelte form is misleading, however, as his apprenticeship with the village's smith and his years spent building his home in the Whisperwoods by himself left him more than fit, though his muscles are dense and solid, rather than bulky.</p>
+					<p>He is quite tall, reaching a height of around two meters (or six feet and seven inches), excluding the length of his ears. Despite the intimidating height, however, his build is wiry, lean and vaguely androgynous, resulting in a graceful appearance that still reflects the agility and dexterity he inherits from his Kitsune physiology. His svelte form is misleading, however, as his apprenticeship with the village's smith and his years spent building his home in the Whisperwoods by himself left him more than fit, though his muscles are dense and solid, rather than bulky.</p>
 					<p>Along with this physique, his <a page-link="kitsunes:physiology:2">soft facial features</a>, V-shaped face and long, wavy hair - white as snow, like his fur, and reaching down to his lower back - add much to his androgynous appearance, as well. His claws are mostly charcoal black, but fade into a clear, transluscent appearance towards the base, where they join his fingertips. Perhaps his most striking feature, however, are his bright amber eyes, which, under firelight, shimmer like the flames themselves.</p>
 					<p>Though he isn't vain by any means, he does care about his appearance somewhat, and regularly spends time brushing and applying oils and other substances to his hair and furs. Though his claws generally don't require much maintenance, he does have to periodically dull or cut those on his feet, as he sometimes wears boots and doesn't enjoy having to repair them. He also tries to keep the claws on his fingers nice and sharp, as they serve as tools for many purposes; being part of his body, of course, he's always able to be gentle when touching others with them, however - his head scratches are notoriously good among his friends and acquaintances.</p>
 				</section>
@@ -593,7 +749,7 @@
 					<div class="phy">
 						<b>Physical</b>
 						<p><b>Towering</b> - <i>Personal Trait.</i> He is exceptionally tall. While this doesn't negatively impact his agility as much as one would expect, it does make it more difficult to find clothes that fit, or weapons that are appropriately sized.</p>
-						<p><b>Graceful</b> - <i>Inherited Trait.</i> His physique and quick mind, combined with his kitsune physiology and elven ancestry, bestow him light, agile and graceful movement.</p>
+						<p><b>Graceful</b> - <i>Inherited Trait.</i> His physique and quick mind, combined with his Kitsune physiology and elven ancestry, bestow him light, agile and graceful movement.</p>
 					</div>
 					<div class="psy">
 						<b>Mental</b>
@@ -618,7 +774,7 @@
 						<p><b>Martial Arts</b> - <i>Skill.</i> He is respectably skilled in close quarters combat, and in wielding swords of various types, having a preference for wielding them in one hand while favoring hilts that can accomodate a second hand. Most of his experience is with straight, double-edged blades.</p>
 						<p><b>Archery</b> - <i>Skill.</i> He is decently skilled at wielding bows, a skill taught by his father and which he hones by hunting. Though he does own a short compound bow, which he brings to situations where he may expect confrontations, he often hunts with a longbow for training, which his physique and stature allow him some ease in wielding.</p>
 						<p><b>Craftsmanship</b> - <i>Skill.</i> He is an avid artisan and craftsman, and has learned many crafts throughout his life, out of both interest and necessity. He is especially fond of carving small accessories and trinkets from bones, horns, tusks and antlers. Some of his skills include blacksmithing, forging, carpentry, leatherworking, carving, painting and dyeing.</p>
-						<p><b>Whispergait</b> - <i>Skill.</i> Hunting and stalking prey in nature, he has learned, over time, where, when and how to step in such a way that the sound of his footfalls are either diminished or masked by other sounds, allowing him to follow and close the distance to his prey</p>
+						<p><b>Whispergait</b> - <i>Skill.</i> Hunting and stalking prey in nature, he has learned, over time, where, when and how to step in such a way that the sound of his footfalls are either diminished - though not silenced - or masked by other sounds, allowing him to follow and close the distance to his prey more easily.</p>
 					</div>
 					<div class="mag" style="grid-row: 2;">
 						<b>Magical</b>
@@ -639,46 +795,29 @@
 						<p><b>Whisperwood Listener</b> - <i>Ability/Skill.</i> Through his communion with the whisperwood oaks, he is notified of odd, interesting or otherwise significant events that happen within the forest.</p>
 					</div>
 				</section>
-				<h1 section-id="traits&abilities">Traits & Abilities</h1>
-				<section class="subcolumns">
-					<span class="escape" style="grid-column: 1 / span 2;">
-						<a page-link="kitsunes:traits&abilities">See racial traits</a>
-					</span>
-					<div>
-						<b>Physical</b>
-						<p><b class="physical">Towering</b> - He is exceptionally tall, measuring between 2 and 2.1 meters, or roughly 6'7" to 6'10". Though, thanks to his physique, this doesn't negatively impact his speed and agility, it does make it more difficult to find clothes that fit, or weapons that are appropriately sized.</p>
-					</div>
-					<div>
-						<b>Magical</b>
-						<p><b class="magical"><a page-link="whisperwoodforest">Whisperwood</a> Guardian</b> - He communes with the forest wherein he resides; the trees carry whispers to him of happenings throughout the forest, and may guide him towards anything of note.</p>
-						<p><b class="magical">Foxfire</b> - His foxfire is a gentle, light blue hue close to cyan.</p>
-					</div>
-				</section>
-				<h1 section-id="skills">Skills</h1>
-				<section class="subcolumns">
-					<div>
-						<b>Physical</b>
-						<p><b class="physical">Swordsmanship</b> - He is respectably skilled in wielding swords of various types, having a preference for wielding them in one hand while favoring hilts that can accomodate a second hand. Most of his experience, however, is with Grace, a particularly long, double-edged sword crafted specifically for him</p>
-						<p><b class="physical">Archery</b> - He is decently skilled at wielding bows, a skill taught by his father and which he hones by hunting. Though he does own a short compound bow, which he brings to adventures and other situations where he may expect confrontations, he often hunts with a longbow for training, which his physique and stature allow him some ease in wielding.</p>
-						<p><b class="physical">Crafts</b> - He is adequately skilled in many crafts, out of both interest and necessity - living alone in the woods, the ability to transform raw materials into useful objects, apparel and furniture is indispensable. Such skills include carpentry, woodworking, leatherworking and tailoring, among others. He is quite fond of carving bones, horns, tusks and antlers into pendants and trinkets that often exalt the beauty, form and/or traits of the animal or creature they come from, considering it a way to express appreciation for them.</p>
-					</div>
-					<div>
-						<b>Magical</b>
-						<p><b class="magical">Enchanting</b> - He is exceptionally skilled in this form of emergent magic, which pertains to the ability to alter both the appearance and the physical properties of objects and matter. In fact, he is one of very few enchanters in history to successfully apply enchantments to living tissue, though he is unaware of this fact.</p>
-						<p><b class="magical">Sense-weaving</b> - He is highly skilled in this form of emergent magic, more often called sensorial or sensory magic, which pertains to imposing simple sensory perceptions onto other beings, such as sights or sounds. One example of this is Voice Projection, wherein the caster can project their own voice to another's mind, and which he is so well-practiced in that it sometimes takes less effort than actually speaking. This form of magic is limited in scope, but can be quite useful.</p>
-						<p><b class="magical">Illusionary Magic</b> - He is respectably skilled in this school of magic, which pertains to effects that change the perception of those who witness the effect itself or whatever object or entity it is cast upon. One example would be the spell that keeps others from finding Ras' home in the woods: when a being approaches a certain radius around it while having the intent of finding his home, it is made to either walk in circles or turn around unwittingly.</p>
-					</div>
-				</section>
 				<h1 section-id="belongings">Notable Belongings</h1>
 				<section>
-					<p><b>'Grace'</b></p>
-					<p>A fittingly-named, finely-crafted sword forged by a minotaur blacksmith, given to him as a gift in return for his assistance in a personal matter. It has a long and somewhat thin, double-edged blade that tapers to a fine point, similar to a rapier or an estoc, with a blade measuring about 100 centimeters (or about 40 inches) in length. It has a cruciform cross-guard, with ring guards on either side, and a hand-and-a-half hilt.</p>
-					<p><b>Blue silk obi</b></p>
-					<p>A dark blue obi made of fine silk which he always wears. It was given to him as a remembrance by his mother before he left to live alone. He was told it was gifted to them by another kitsune family, though by then the occasion for such a gift had escaped her mind.</p>
-					<p><b>Embroidered white kimono</b></p>
-					<p>An elaborately tailored kimono, white in color, with an embroidered pattern of leaves, also in white, resulting in a subtle but elegant look. It was made by a member of a family of talented kitsune craftsmen at his order, and cost a small fortune. He'll sometimes wear it at home while smoking and indulging himself on anything sweet he might have, though he'll also wear it out on the few rare occasions that warrant it.</p>
-					<p><b>White & black haori</b></p>
-					<p>A white, thigh-length haori, with a black lining painted in an elaborate bamboo leaf pattern, symbolizing calmness and tranquility. He doesn't use it often, and how he came into possession of it is unclear, though, given its style, it's likely he had it tailored specifically for him as well.</p>
+					<p>A small collection of some of his more notable personal belongings, and the story behind them.</p>
+				</section>
+				<h2 section-id="grace">Grace</h2>
+				<section>
+					<p>A fittingly-named, finely-crafted sword forged by a Beastkin blacksmith who also lives in the Whisperwoods, closer to the mountain range. It is similar to an estoc, having a long, straight and somewhat thin double-edged blade that tapers to a fine thrusting point, a cruciform cross-guard with ring guards on either side, and a hand-and-a-half hilt.</p>
+					<p>It given to him as a gift in return for his assistance in a personal matter involving a tribe of bothersome Harpies.</p>
+				</section>
+				<h2 section-id="obi">Silk Obi</h2>
+				<section>
+					<p>An obi made of fine silk, in a vibrant royal blue, which he always wears. It was a gift from his <a section-link="firstlove">first love</a>, handed to him through their parents under the guise of a parting gift for his journey; a token of her affection and tangible reminder of their bond and the moments they shared.</p>
+				</section>
+				<h2 section-id="kimono">Embroidered Kimono</h2>
+				<section>
+					<p>An elaborately tailored kimono in the purest, brightest white, with a pattern of leaves embroidered in lustrous white thread. The white on white results in a subtle but elegant look. The hems on the sleeves, neck and bottom are wide and dyed in the same vibrant royal blue as his obi - a pigment <a page-link="ras:firstlove:4">only one kitsune family</a> knows how to produce.</p>
+					<p>After splitting from his family, he built a small fortune and returned years later to visit the family of his <a section-link="firstlove">first love</a> to see her, under the guise of wanting to order an elaborate kimono. However, by then she had also split from her family and moved to live elsewhere.</p>
+					<p>While it's mostly reserved for celebrations, gatherings and special occasions, he'll sometimes wear it at home as well, while smoking or indulging on sweets, drinks or other substances.</p>
+				</section>
+				<h2 section-id="haori">Haori</h2>
+				<section>
+					<p>A pure white, hip-length haori - essentially a jacket with loose, wide sleeves - hemmed in black. Its lining is dyed black, and painted in an elaborate bamboo leaf pattern, symbolizing calmness and tranquility.</p>
+					<p>It isn't used often, generally reserved for colder days in which he can't be bothered to enchant his clothes for warmth. How he came into possession of it is unclear, though, given its style, either he had it tailored for him as well, or it was a fairly lucky find.</p>
 				</section>
 			</div>
 		</article>
@@ -687,28 +826,35 @@
 		<article class="page" id="kitsunes">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="culture"><b>Culture</b></button>
-				<button class="header-pointer" section-link="pairings"><span>Pairings</span></button>
-				<button class="header-pointer" section-link="families"><span>Family Structure</span></button>
-				<button class="header-pointer" section-link="trades"><span>Familial Trades</span></button>
-				<button class="header-pointer" section-link="alliances"><span>Familial Alliances</span></button>
-				<button class="header-pointer" section-link="secrecy"><span>Secrecy</span></button>
-				<button class="header-pointer" section-link="physiology"><b>Physiology</b></button>
-				<button class="header-pointer" section-link="aging"><span>Aging</span></button>
-				<button class="header-pointer" section-link="diet"><span>Diet</span></button>
-				<button class="header-pointer" section-link="vision"><span>Vision</span></button>
-				<button class="header-pointer" section-link="tails"><b>Tails</b></button>
-				<button class="header-pointer" section-link="behavior"><b>Behavior</b></button>
-				<button class="header-pointer" section-link="reproduction"><span>Reproduction</span></button>
-				<button class="header-pointer" section-link="foxfire"><span>Foxfire</span></button>
-				<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="culture"><b>Culture</b></button>
+						<button class="header-pointer" section-link="pairings"><span>Pairings</span></button>
+						<button class="header-pointer" section-link="families"><span>Family Structure</span></button>
+						<button class="header-pointer" section-link="trades"><span>Familial Trades</span></button>
+						<button class="header-pointer" section-link="alliances"><span>Familial Alliances</span></button>
+						<button class="header-pointer" section-link="gatherings"><span>Social Gatherings</span></button>
+						<button class="header-pointer" section-link="secrecy"><span>Secrecy</span></button>
+						<button class="header-pointer" section-link="physiology"><b>Physiology</b></button>
+						<button class="header-pointer" section-link="aging"><span>Aging</span></button>
+						<button class="header-pointer" section-link="diet"><span>Diet</span></button>
+						<button class="header-pointer" section-link="vision"><span>Vision</span></button>
+						<button class="header-pointer" section-link="tails"><b>Tails</b></button>
+						<button class="header-pointer" section-link="behavior"><b>Behavior</b></button>
+						<button class="header-pointer" section-link="reproduction"><span>Reproduction</span></button>
+						<button class="header-pointer" section-link="foxfire"><span>Foxfire</span></button>
+						<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
+					</div>
+				</div>
 
 
 				<span class="header">Related:</span>
 				<a page-link="ras">Ras Silverleaf</a>
+				<a page-link="elvenempire">The Elven Empire</a>
 
-				<span class="last-updated">Last updated:<br>May 7th, 2023</span>
+				<span class="last-updated">Last updated:<br>June 10th, 2023</span>
+				<small class="credit">Background artwork by <a href="https://www.deviantart.com/gydw1n/art/X-799132653" target="_blank">Gydw1n, 2019</a></small>
 			</nav>
 			<div class="content">
 				<header>
@@ -717,54 +863,61 @@
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
-					<p>A race characterized by <a section-link="tails">bushy tails</a>, triangle-shaped furry ears, high magic affinity, a propensity towards wit and mischief and their <a section-link="foxfire">foxfire</a>. Despite their superficial <a section-link="physiology">resemblance to beastkins</a>, they are not significantly related. A few geographically-distant variants exist, the differences between them mostly consisting of the shape and size of their tails and ears, the length of their furs and behavior, to an extent.</p>
+					<p>A race characterized by <a section-link="tails">bushy tails</a>, triangle-shaped furry ears, high magic affinity, a propensity towards wit and mischief, and their <a section-link="foxfire">foxfire</a>. Despite their superficial <a section-link="physiology">resemblance to Beastkins</a>, they are not significantly related. A few geographically-distant variants exist, the differences between them mostly consisting of the shape and size of their tails and ears, the length of their furs, and behavior, to an extent.</p>
 					<p>The color of their hair rarely differs from that of the fur on their tails and ears - though the density might sometimes make them appear different - and it consists of blacks, browns, blondes, silver, and even unusual colors, such as greens, blues and pinks, as well as nearly anything inbetween. The color of their eyes also varies significantly, including similar colors, though reds are absent, while pinks and purples are quite uncommon.</p>
 					<p>They are <a section-link="secrecy">reclusive</a> and generally exhibit hedonistic, or pleasure-seeking, behaviors, a combination which, though may initially seem contradictory or even paradoxical, simply means they often prefer the novel and stimulating rather than the mundane and monotonous, though they do find value in simpler pleasures as well. In a sense, these behavioral tendencies are reflected in the unusual variety and vibrance in the coloration of their hairs and furs, which in turn, along with their <a section-link="physiology">tendency towards androgyny</a>, may be explained by their promiscuous and predatory <a section-link="procreation">breeding habits</a>, as more vibrant and exotic colors may make them more attractive to their prey.</p>
 				</section>
 				<h1 section-id="culture">Culture</h1>
 				<section>
 					<p>Being a <a section-link="secrecy">reclusive</a> race, the breadth of their culture as a race is limited, but present, and supplemented by familial cultures, which are simultaneously too diverse and too specific to document. The very existence of this diversity, however, exemplifies the importance and value they place on family ties, which consists much of their racial culture.</p>
-					<p>They live in family groups, which are groups consisting of members of a single family. Each family group usually consists anywhere from as low as 5 to 7 individuals, to as high as 15-20, some groups even consisting of an entire family. Most groups, however, stay within 8 to 14 members.</p>
+					<p>They live in family groups, which are groups consisting of members of a single family. Each family group usually consists of anywhere from as low as 5 to 7 individuals, to as high as 15-20, some groups even consisting of an entire family. Most groups, however, stay within 8 to 14 members.</p>
+					<p>Their hedonistic tendencies are also reflected in their culture, as days-long social gatherings are a norm among nearly all families. Some of such gatherings are intrafamilial, wherein various groups belonging to the same family will come together to reminisce, celebrate, catch up and, of course, brag.</p>
 				</section>
 				<h2 section-id="pairings">Pairings</h2>
 				<section>
 					<p>Kitsune pairings can be inter- or intrafamilial, and usually consist of a male and female, though same-sex pairings exist as well. Though sexual dominance often isn't important to them, social dominance is: usually either one from the pair will be considered more socially dominant, meaning, if the pairing is the oldest in the family group, they'll be considered the head of the family, or both will be considered equally socially dominant, in which case both will be considered the heads of the family group.</p>
 					<p>It is somewhat uncommon for a pairing to consist of two socially submissive individuals, but such cases do exist, in which both would also be considered the heads of their family group, if applicable. Such pairs aren't usually looked down upon, even being regarded as charming and adorable, though they do often find it challenging to assert themselves as heads of a family group.</p>
 					<p>Social dominance also determines which family an <a section-link="alliances">interfamilial pairing</a> belongs to, in the case of a dominant-submissive pairing. In equal pairings, this is decided in the form of an agreement or a concession on the part of the pairing or the heads of both families.</p>
-					<p>It is possible, however, for a pairing to split from their respective families and form a new family, for reasons including disagreements about familial traditions and the desire to seek <a section-link="trades">new skills and professions</a>. This can be difficult if they lack the support of one or both their previous families, however.</p>
+					<p>It is possible, however, for a pairing to split from their respective families and form a new family, for reasons including disagreements about familial traditions and the desire to seek <a section-link="trades">new skills and professions</a>. This can be difficult if they lack the support of one or both of their previous families, however.</p>
 				</section>
 				<h2 section-id="families">Family Structure</h2>
 				<section>
-					<p>The kitsune family structure is complex, with a base hierarchy based on the number of tails and on age, and three additional levels of hierarchy.</p>
-					<p>The number of tails a kitsune has is the primary factor in determining their position in the basic hierarchy, meaning those with more tails are generally higher in the hierarchy than those with less, regardless of age. Among those with the same number of tails, the hierarchy follows an age-grade system, meaning if an individual's niece is <i>older</i> than them, their niece is <i>higher</i> in the hierarchy, despite them being one level lower in the family tree.</p>
+					<p>The Kitsune family structure is complex, with a base hierarchy based on the number of tails and age, and three additional levels of hierarchy.</p>
+					<p>The number of tails a Kitsune has is the primary factor in determining their position in the basic hierarchy, meaning those with more tails are generally higher in the hierarchy than those with fewer, regardless of age. Among those with the same number of tails, the hierarchy follows an age-grade system, meaning if an individual's niece is <i>older</i> than them, their niece is <i>higher</i> in the hierarchy, despite them being one level lower in the family tree.</p>
 					<p>The three additional levels of hierarchy work as follows:</p>
 					<ul>
-						<li>Firstly, the two oldest pairings, or couples, in the entire family, referred to as the <i>elders</i>, hold the highest degree of respect and authority in the family as a whole, including members outside of their family groups.</li>
+						<li>Firstly, the two oldest <a section-link="pairings">pairings</a>, in the entire family, referred to as the <i>elders</i>, hold the highest degree of respect and authority in the family as a whole, including members outside of their family groups.</li>
 						<li>Secondly, either the dominant or both members that comprise the oldest pairing in a family group, referred to as the <i>head</i> or the <i>heads</i> of the family, holds the highest degree of respect and authority in the family group.</li>
-						<li>Finally, each pairing holds authority over their direct progeny, whether or not the son or daughter come from both parents, and are personally responsible for their upbringing.</li>
+						<li>Finally, each pairing holds authority over their direct progeny, whether or not the son or daughter comes from both parents, and are personally responsible for their upbringing.</li>
 					</ul>
 				</section>
 				<h2 section-id="trades">Familial Trades</h2>
 				<section>
-					<p>Each kitsune family specializes in one broad, but well-defined, group of skills and professions. Groups belonging to those families then devote themselves to narrower, more specific sets of crafts and services under their familial specialization. For example, in a family that specializes in agriculture, a family group may devote themselves to farming fruits and berries, another to farming and producing herbs, teas and spices, another to brewing alcoholic beverages, and another to growing medicinal herbs and offering healing and medical services, and so on.</p>
+					<p>Each Kitsune family specializes in one broad, but well-defined, group of skills and professions. Groups belonging to those families then devote themselves to narrower, more specific sets of crafts and services under their familial specialization. For example, in a family that specializes in agriculture, a family group may devote themselves to farming fruits and berries, another to farming and producing herbs, teas and spices, another to brewing alcoholic beverages, and another to growing medicinal herbs and offering healing and medical services, and so on.</p>
 					<p>A family group's choice of crafts is informed partly by the personal interests of its members, but also by the availability of and the demand for the goods, resources and services that can be provided by those crafts. This ensures there won't be much overlap in the crafts that family groups that live in proximity perform, while making some overlap in the trades of co-inhabiting families acceptable. It also generates an interdependence among families, creating a strong sense of community and cooperation between <a section-link="alliances">allied families</a> in an otherwise reclusive race.</p>
-					<p>Though somewhat rare, it is possible for an individual, pairing or family group to decide against following their familial trade and instead seek developing skills and crafts that diverge from it, in which case they may split from their family to form a new one. Usually, though not always, this decision is met with empathy and support, facilitating the estabilishment of the new family and forming a new <a section-link="alliances">alliance</a>.</p>
-					<p>It is possible for an individual, or group of individuals, to desire and seek a profession that diverges significantly from their family's trade, in which case they may decide to split from their family and form a new one, though this can be difficult without the support of their previous family. This form of splitting is one of the mechanisms through which new families come to be, the other being a pairing's desire to split from their respective families.</p>
+					<p>Though somewhat rare, it is possible for an individual, pairing or family group to decide against following their familial trade and instead seek developing skills and crafts that diverge from it, in which case they may split from their family to form a new one. Usually, though not always, this decision is met with empathy and support, facilitating the establishment of the new family and forming a new <a section-link="alliances">alliance</a>.</p>
 				</section>
 				<h2 section-id="alliances">Familial Alliances</h2>
 				<section>
 					<p>Kitsune families depend and rely on each other, forming alliances among themselves. Family groups belonging to allied families often live in relative proximity, while still keeping some distance from each other. This allows them to exist as separate communities, while also allowing for ease of interaction, as they rely on each other for resources, goods and services, as well as social and emotional needs.</p>
 					<p>There are norms and expectations involved in such familial alliances. They are maintained and strengthened through the exchange of gifts and favors, interfamilial <a section-link="socialgatherings">social gatherings</a>, and the encouragement of interfamilial <a section-link="pairings">pairings</a>.</p>
 				</section>
+				<h2 section-id="gatherings">Social Gatherings</h2>
+				<section>
+					<p>Due to their highly social nature, nearly all families participate in regular social gatherings, both inter and intrafamilial. In intrafamilial gatherings, groups belonging to the same family will congregate, usually at the home of the family elders, while in interfamilial gatherings, groups from allied families will meet at an appointed group's home for the occasion.</p>
+					<p>These social gatherings offer a chance for individuals to reminisce about old times, catch up on recent events, seek support during hardships, and brag about accomplishments, though they also serve as an excuse to indulge in hedonistic pleasures such as food, drinks, drugs and sex. Groups often also set up small areas to display their best works, according to their <a section-link="trades">chosen crafts</a>.</p>
+					<p>These gatherings also serve as the biggest exception to their <a section-link="secrecy">reclusive, secretive tendencies</a>, as, with permission - from the elders, in intrafamilial gatherings, and one's group heads, in interfamilial ones - individuals may invite close, trusted non-Kitsune friends to these gatherings.</p>
+				</section>
 				<h2 section-id="secrecy">Secrecy</h2>
 				<section>
-					<p>Another aspect of their culture is that kitsunes rarely divulge about their own race, be it culture, family dynamics or racial traits, to non-kitsunes, causing details and particulars about their race to be largely unknown to most races and societies. Of those who do know more than what may be considered either common knowledge or myth, all are either scholars or experienced adventurers, or individuals who have close ties with and are trusted by a kitsune, or some combination of these. It is ambiguous whether the root of this unwillingness is cultural or behavioral.</p>
-					<p>Knowledge of their family gatherings, though not common, is slightly more widespread, due to them being the only instance where a non-kitsune may be exposed to their culture and customs, though only those who have earned a kitsune's favor, companionship or trust.</p>
+					<p>Another aspect of their culture is that Kitsunes rarely divulge about their own race, be it culture, family dynamics or racial traits, to non-Kitsunes, causing details and particulars about their race to be largely unknown to most races and societies. Of those who do know more than what may be considered either common knowledge or myth, all are either scholars or experienced adventurers, or individuals who have close ties with and are trusted by a Kitsune, or some combination of these. It is ambiguous whether the root of this unwillingness is cultural or behavioral.</p>
+					<p>Knowledge of their family gatherings, though not common, is slightly more widespread, due to them being the only instance where a non-Kitsune may be exposed to their culture and customs, though only those who have earned a Kitsune's favor, companionship or trust.</p>
 				</section>
 				<h1 section-id="physiology">Physiology</h1>
 				<section>
-					<p>Their outward appearance bears resemblance to some beastkin subraces, including features such as animal-like teeth and ears, tails, and slitted pupils, but they are much more human-like. Their legs are plantigrade, their digits end in pointed, nonretractible claws, and fur is only present on their tails and ears. In fact, they have minimal body hair, with only a light fuzz covering most of their skin, including their face, meaning males can rarely grow a stubble, much less a beard.</p>
-					<p>Males also tend to have softer facial features, lending them a somewhat androgynous, ambiguous appearance, which is exacerbated by the lack of facial hair. Though this androgyny isn't reflected in the rest of their bodies, it is sufficient to generate confusion in their prey, which might give them enough pause to make them more susceptible to the kitsune's tricks.</p>
+					<p>Their outward appearance bears resemblance to some Beastkin subraces, including features such as animal-like teeth and ears, tails, and slitted pupils, but they are much more human-like. Their legs are plantigrade, their digits end in pointed, nonretractable claws, and fur is only present on their tails and ears. In fact, they have minimal body hair, with only a light fuzz covering most of their skin, including their face, meaning males can rarely grow a stubble, much less a beard.</p>
+					<p>Males also tend to have softer facial features, lending them a somewhat androgynous, ambiguous appearance, which is exacerbated by the lack of facial hair. Though this androgyny isn't reflected in the rest of their bodies, it is sufficient to generate confusion in their prey, which might give them enough pause to make them more susceptible to the Kitsune's tricks.</p>
+					<p>Their joints, especially on their spine, arms and legs, are more flexible than humans and most other sapient races, making them generally more dexterous and agile, and allowing them to more easily chase prey through and around obstacles and in some terrains where it would otherwise be difficult. However, despite also having stronger ligaments and other adaptations, this also makes them more prone to certain injuries, such as dislocation, sprains and hyperextension.</p>
 				</section>
 				<h2 section-id="aging">Aging</h2>
 				<section>
@@ -774,48 +927,54 @@
 				</section>
 				<h2 section-id="diet">Diet</h2>
 				<section>
-					<p>Their diet consisted mostly of meat during much of their evolution, and they've only relatively recently become more omnivorous, in an evolutionary scale, meaning they are still adapting to this change. They still have sharp, pointed canines and premolars for ripping and tearing meat, but also flatter molars for grinding plant matter. Their palate, for the same reason, is less sensitive to sweetness, and, consequentially, more receptive to bitterness and sourness.</p>
+					<p>Their diet consisted mostly of meat during much of their evolution, and they've only relatively recently become more omnivorous, on an evolutionary scale, meaning they are still adapting to this change. They still have sharp, pointed canines and premolars for ripping and tearing meat, but also flatter molars for grinding plant matter. Their palate, for the same reason, is less sensitive to sweetness, and, consequentially, more receptive to bitterness and sourness.</p>
 					<p>They are also able to tolerate and digest foods that are inedible or even toxic to most other races, though this is a result of their novel-seeking behavior - meaning they might've simply intentionally exposed themselves to potentially poisonous or harmful foods and plants often enough that they've developed a resistance over time.</p>
 				</section>
 				<h2 section-id="vision">Vision</h2>
 				<section>
-					<p>Another physiological trait that resembles some beastkin subraces is the presence of a <a section-link="traits&abilities"><i>tapetum lucidum</i></a>, a layer of reflective tissue behind their retinas that increases the chances of photon absorption, which improves vision under low light conditions while making them prone to temporary blindness or visual distortions when exposed to bright lights. Their slitted pupils remedy this somewhat, allowing for more precise tuning of how much light enters the eye, though their shape also hinders the speed of adaptation to different light conditions.</p>
+					<p>Another physiological trait that resembles some Beastkin subraces is the presence of a <a section-link="traits&abilities"><i>tapetum lucidum</i></a>, a layer of reflective tissue behind their retinas that increases the chances of photon absorption, which improves vision under low light conditions while making them prone to temporary blindness or visual distortions when exposed to bright lights. Their slitted pupils remedy this somewhat, allowing for more precise tuning of how much light enters the eye, though their shape also hinders the speed of adaptation to different light conditions.</p>
 				</section>
 				<h1 section-id="tails">Tails</h1>
 				<section>
-					<p>Their tails, other than being one of their most distinctive characteristics, are highly important to them, both culturally and physiologically. The number of tails a kitsune has is socially important, as it's one of the main factors that determine one's position in their <a section-link="families">familial hierarchy</a>, but it also greatly affects one's potential as a magic user.</p>
-					<p>They are all born with a single tail, which splits into two, then three, and so forth, over the course of their lives. As they acquire more tails, their mental acuity and ability to maintain focus improves significantly, consequentially increasing their ease in performing all forms of <a page-link="magicsystem" section-link="effects&spellcasting">spellcasting</a>, but, most importantly, <a page-link="magicsystem" section-link="will">will projection</a>, which is the most powerful and mentally demanding form of spellcasting.</p>
-					<p>The conditions for the splitting of a kitsune's tail is unclear even to them, and how it happens and what mechanisms allow it are even more mysterious. Some attribute <i>the splitting</i>, as it's referred to, to one's epistemological or spiritual enlightenment, others attribute it to expertise in magic, and others still attribute it to the development of emotional and familial ties or the birth of children; the conditions differ between individuals, and even between an individual's splittings.</p>
+					<p>Their tails, other than being one of their most distinctive characteristics, are highly important to them, both culturally and physiologically. The number of tails a Kitsune has is socially important, as it's one of the main factors that determine one's position in their <a section-link="families">familial hierarchy</a>, but it also greatly affects one's potential as a magic user.</p>
+					<p>They are all born with a single tail, which splits into two, then three, and so forth, over the course of their lives. As they acquire more tails, their mental acuity and ability to maintain focus improve significantly, consequentially increasing their ease in performing all forms of <a page-link="magicsystem" section-link="effects&spellcasting">spellcasting</a>, but, most importantly, <a page-link="magicsystem" section-link="will">will projection</a>, which is the most powerful and mentally demanding form of spellcasting.</p>
+					<p>The conditions for the splitting of a Kitsune's tail are unclear even to them, and how it happens and what mechanisms allow it are even more mysterious. Some attribute <i>the splitting</i>, as it's referred to, to one's epistemological or spiritual enlightenment, others attribute it to expertise in magic, and others still attribute it to the development of emotional and familial ties or the birth of children; the conditions differ between individuals, and even between an individual's splittings.</p>
 				</section>
 				<h1 section-id="behavior">Behavior</h1>
 				<section>
-					<p>They are perhaps most well-known for their mischievous behavior, as they'll often play tricks on those who pass by the areas they inhabit, such as luring them astray using their <a section-link="foxfire">foxfire</a>, casting <a page-link="schoolsofmagic:illusion">illusions</a> to disorient them or <a page-link="schoolsofmagic:senseweaving">projecting</a> laughter and provocations into their minds. Though they commonly do this simply for fun or sport - occasionally even to make acquaintances and friends - sometimes they will also "hunt" for potential <a section-link="reproduction">mating partners</a> or servants, both, especially the former, being temporary affairs.</p>
+					<p>They are perhaps most well known for their mischievous behavior, as they'll often play tricks on those who pass by the areas they inhabit, such as luring them astray using their <a section-link="foxfire">foxfire</a>, casting <a page-link="schoolsofmagic:illusion">illusions</a> to disorient them or <a page-link="schoolsofmagic:senseweaving">projecting</a> laughter and provocations into their minds. Though they commonly do this simply for fun or sport - occasionally even to make acquaintances and friends - sometimes they will also "hunt" for potential <a section-link="reproduction">mating partners</a> or servants, both, especially the former, being temporary affairs.</p>
 					<p>While some view their trickery and hunting activities as morally wrong or even evil, others find attracting their interest fun and engaging, even rewarding, if sometimes annoying or inconvenient. Particularly reckless or adventurous individuals may even intentionally wander into the areas they inhabit, in hopes of encountering them, while others may avoid them due to <a section-link="foxfire">superstitious</a> beliefs or discomfort with their behavior.</p>
-					<p>It is important to note that these behaviors are part of their instinct, and that they generally hold no ill intent when indulging in them. Accidental injury and harm seldom occur, the effets of their <a section-link="foxfire">foxfire</a> often blur the line between consent and non-consent, and those that are extensively exposed it tend to keep little memory of the ordeal, often dismissing it as a dream or fantasy.</p>
+					<p>It is important to note that these behaviors are part of their instinct, and that they generally hold no ill intent when indulging in them. Accidental injury and harm seldom occur, the effects of their <a section-link="foxfire">foxfire</a> often blur the line between consent and non-consent, and those that are extensively exposed to it tend to keep little memory of the ordeal, often dismissing it as a dream or fantasy.</p>
 				</section>
 				<h2 section-id="reproduction">Reproduction</h2>
 				<section>
-					<p>When a kitsune, male or female, procreates with a non-kitsune, the resulting offspring will typically inherit physical traits primarily from the kitsune parent, while still inheriting other traits and genetic material from the non-kitsune parent. This mechanism allows them to increase their genetic diversity while minimizing the risk of creating hybrids, which could threaten their integrity and survival as a species.</p>
-					<p>This adaptation, alongside their predatory behavior, forms a very effective reproductive strategy, which was important in their success as a race - kitsunes and their variants exist in a variety of habitats, from tundras to deserts. Their ability to incorporate the genetic diversity of local populations into theirs allows them to persist even when their populations dwindle, making them fairly resilient.</p>
+					<p>When a Kitsune, male or female, procreates with a non-Kitsune, the resulting offspring will typically inherit physical traits primarily from the Kitsune parent, while still inheriting other traits and genetic material from the non-Kitsune parent. This mechanism allows them to increase their genetic diversity while minimizing the risk of creating hybrids, which could threaten their integrity and survival as a species.</p>
+					<p>This adaptation, alongside their predatory behavior, forms a very effective reproductive strategy, which was important in their success as a race - Kitsunes and their variants exist in a variety of habitats, from tundras to deserts. Their ability to incorporate the genetic diversity of local populations into theirs allows them to persist even when their populations dwindle, making them fairly resilient.</p>
 				</section>
 				<h2 section-id="foxfire">Foxfire</h2>
 				<section>
 					<p>Perhaps their most important racial trait and ability, these flames differ visually from normal fire in that they move much more slowly, as though they are viscous or semisolid - as if there is substance to them. They also differ in color per individual, though most come in cool colors. This dominance may be explained by the fact that warm colors may agitate potential prey, thus being selected against.</p>
-					<p>Used as the primary means for hunting, these flames incite not heat - they only feel comfortingly warm - but lust and desire, the effects increasing with amount and length of exposure. Prolonged exposure can even induce intrusive thoughts of submission. Kitsunes themselves are impervious to this effect, however; instead, contact with the foxfire of another kitsune can convey vague impressions of its conjurer's thoughts and emotions, and is considered a form of bonding. Such bonding is also possible with those of other species, although it requires mental discipline on the conjurer's part, as it falls on them to alter the effects of their foxfire; the other party, however, cannot reciprocate - this then becomes an expression of trust.</p>
+					<p>Used as the primary means for hunting, these flames incite not heat - they only feel comfortingly warm - but lust and desire, the effects increasing with the amount and length of exposure. Prolonged exposure can even induce intrusive thoughts of submission. Kitsunes themselves are impervious to this effect, however; instead, contact with the foxfire of another Kitsune can convey vague impressions of its conjurer's thoughts and emotions, and is considered a form of bonding. Such bonding is also possible with those of other species, although it requires mental discipline on the conjurer's part, as it falls on them to alter the effects of their foxfire; the other party, however, cannot reciprocate - this then becomes an expression of trust.</p>
 					<p>Foxfire is often also used as lighting, and, behaving as an extension of its conjurer, can be used as a proxy for contact spells and as an anchor for other types of spells.</p>
 				</section>
-				<h1 section-id="traits&abilities">Traits & Abilities</h1>
-				<section class="subcolumns">
-					<div>
-						<b class="title">Physical</b>
-						<p><b><a section-link="tails">Prehensile Tails</a></b> - Their tails tails are prehensile, though their usual size and fur coverage makes them functionally akin to an enormous thumb. As such, they're not well suited for precise manipulation. They do, however, serve very well as paddles for swimming.</p>
-						<p><b><a section-link="vision">Dimsight</a></b> - Their vision in low-light conditions is improved by the presence of a <i>tapetum lucidum</i> behind their retinas.</p>
-						<p><b>Predatory Instincts</b> - Having evolved as predators, they can become alert at the slightest stimulus, and tend to be very perceptive, making it difficult to catch them off-guard. That's not to say they are constantly in fight-or-flight, however - it is simply natural to them</p>
+				<h1 section-id="traits&abilities">Innate Traits</h1>
+				<section class="subcolumns sc-2">
+					<div class="psy escape">
+						<b>Mental</b>
+						<p><b>Hedonistic</b> - <i>Racial Trait.</i> They are naturally drawn towards novel, interesting and pleasurable experiences, even if they may be detrimental.</p>
+						<p><b>Hyperaware</b> - <i>Racial Trait.</i> Having evolved as predators, they can become alert at the slightest stimulus, and tend to be very perceptive, making it difficult to catch them off-guard. That's not to say they are constantly in fight-or-flight, however - it is simply natural to them.</p>
 					</div>
-					<div>
-						<b class="title">Magical</b>
-						<p><b>Magic Affinity</b> - They are one of the races with highest average <a page-link="magicsystem:capacity">natural mana capacity</a>, alongside [dragonkinrace]. They also have a natural ease at both understanding the mechanics of <a page-link="magicsystem">mana and the veil</a> and <a page-link="magicsystem:effects&spellcasting">casting spells</a>, unlike with [dragonkinrace], to whom only spellcasting comes naturally. Consequentially, many of the most innovative and versatile magic users are kitsunes, and nearly all have some level of knowledge or mastery, though not many of them are scholars.</p>
-						<p><b><a section-link="foxfire">Foxfire</a></b> - The name given to their ability to conjure magical flames, and to the flames themselves, primarily used for <a section-link="behavior">mischief and hunting</a>, and as a way to share intimacy. Though considered a form of <a page-link="magicsystem:manaconjuring">mana conjuring</a>, it is sufficiently distinct to be considered unique.</p>
+					<div class="phy" style="grid-row: 2;">
+						<b>Physical</b>
+						<p><b><a section-link="tails">Prehensile Tails</a></b> - <i>Racial Trait/Ability.</i> Their tails are prehensile, though their usual size and fur coverage makes them functionally akin to an enormous thumb, and, as such, not well suited for precise manipulation. They do, however, serve very well as paddles for swimming.</p>
+						<p><b><a section-link="vision">Dimsight</a></b> - <i>Racial Trait.</i> Their vision in low-light conditions is improved by the presence of a <i>tapetum lucidum</i> behind their retinas.</p>
+						<p><b><a page-link="kitsunes:physiology:3">Flexible Joints</a></b> - <i>Racial Trait.</i> Their joints are generally more flexible than that of humans and other races, conferring them higher agility and dexterity. However, this also makes them more prone to certain injuries.</p>
+						<p><b>Toxin Resistance</b> - <i>Racial Trait.</i> Through <a page-link="kitsunes:traits&abilities:1">intentional repeated exposure</a> <i>(reads: stubborn novel-seeking behavior)</i>, they have developed inherent resistances, partial or complete, to many plant toxins, and some animal toxins.</p>
+					</div>
+					<div class="mag" style="grid-row: 2;">
+						<b>Magical</b>
+						<p><b>Magic Affinity</b> - <i>Racial Trait.</i> They are one of the races with the highest average <a page-link="magicsystem:capacity">natural mana capacity</a>, alongside [dragonkinrace]. They also have a natural ease at both understanding the mechanics of <a page-link="magicsystem">mana and the veil</a> and <a page-link="magicsystem:effects&spellcasting">casting spells</a>, unlike with [dragonkinrace], to whom only spellcasting comes naturally. Consequentially, many of the most innovative and versatile magic users are Kitsunes, and nearly all have some level of knowledge or mastery, though not many of them are scholars.</p>
+						<p><b><a section-link="foxfire">Foxfire</a></b> - <i>Racial Ability.</i> The name given to their ability to conjure magical flames, and to the flames themselves, which are primarily used for <a section-link="behavior">mischief and hunting</a>, and as a way to share intimacy. Though considered a form of <a page-link="magicsystem:manaconjuring">mana conjuring</a>, it is sufficiently distinct to be considered unique.</p>
 					</div>
 				</section>
 			</div>
@@ -823,19 +982,26 @@
 		<article class="page" id="elves">
 			<nav class="sidebar">
 				<span class="header">Navigation:</span>
-				<button class="header-pointer" section-link="overview"><b>Overview</b></button>
-				<button class="header-pointer" section-link="culture"><b>Culture</b></button>
-				<button class="header-pointer" section-link="creationmyth"><span>Creation Myth</span></button>
-				<button class="header-pointer" section-link="communities"><span>Communities</span></button>
-				<button class="header-pointer" section-link="families"><span>Families</span></button>
-				<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
-				<button class="header-pointer" section-link="empire"><b>The Elven Empire</b></button>
+				<div class="left-scrollbar">
+					<div>
+						<button class="header-pointer" section-link="overview"><b>Overview</b></button>
+						<button class="header-pointer" section-link="culture"><b>Culture</b></button>
+						<button class="header-pointer" section-link="music&arts"><span>Music & Arts</span></button>
+						<button class="header-pointer" section-link="creationmyth"><span>Creation Myth</span></button>
+						<button class="header-pointer" section-link="communities"><span>Communities</span></button>
+						<button class="header-pointer" section-link="families"><span>Family Structure</span></button>
+						<button class="header-pointer" section-link="physiology"><b>Physiology</b></button>
+						<button class="header-pointer" section-link="woodforming"><b>Woodforming</b></button>
+						<button class="header-pointer" section-link="traits&abilities"><b>Traits & Abilities</b></button>
+					</div>
+				</div>
+
 
 				<span class="header">Related:</span>
 				<a page-link="elvenempire">The Elven Empire</a>
 				<a page-link="ras">Ras Silverleaf</a>
 
-				<span class="last-updated">Last updated:<br>May 5th, 2023</span>
+				<span class="last-updated">Last updated:<br>June 10th, 2023</span>
 			</nav>
 			<div class="content">
 				<header>
@@ -844,47 +1010,66 @@
 				</header>
 				<h1 section-id="overview">Overview</h1>
 				<section>
-					<p>The most prevalent subrace of elfins, which are a group of races characterized by long, pointy ears, a strong bond with nature and above-average affinity for magic. They have pale skin and their hairs range from white and blonde to light brown. Though other elfins tend to be fairly similar, those that live in deserts can have tan or even dark skin, with hair ranging from black to brown and even ginger.</p>
-					<p>They call themselves <i>ley'iyish</i>, which means <i>'born from silver'</i>, relating to their <a section-link="creationmyth">creation myth</a>.</p>
+					<p>The most prevalent subrace of Elfins, which is a clade of races characterized by long, pointy ears, a strong bond with nature and above-average affinity for magic.</p>
+					<p>Elves themselves have pale skin and their hairs range from white and blonde to light brown. Though other Elfins tend to be fairly similar, those that live in deserts can have tan or even dark skin, with hair ranging from black to brown and even ginger.</p>
+					<p>They call themselves <i>Ley'iyish</i>, which means <i>'from silverwood'</i>, relating to their <a section-link="creationmyth">creation myth</a>.</p>
 				</section>
 				<h1 section-id="culture">Culture</h1>
 				<section>
-					<p>Elves generally believe they are the "original" elfins, from which other subraces differentiated, which is likely to be at least partially true, as some elfins bear strong resemblance with elves. Some of the other elfin subraces don't consider themselves to be from the same culture, however, and challenge this belief.</p>
-					<p>Though they tend to be very xenophobic, this only extends toward races and individuals that aren't attuned with nature, especially if such individuals are elfins. This also extends, though to a much lesser degree, to elfins that have lost their pale complexion, and consequently - according to some extremists who consider them "corrupted" elfins - their bond with their goddess of creation. Those cases aside, they are very welcoming toward other races, most communities even embracing those of other cultures that wish to study theirs or to attune themselves with nature.</p>
+					<p>Much of their culture revolves around their bond with nature and their connection to <i>Nyirshnil</i>, their <a section-link="creationmyth">goddess of creation</a>. They respect plants, animals and fungi, viewing themselves and other sapient beings as being part of the ecosystems from which they emerged. They see themselves as both guardians of natural ecosystems and enforcers of mindful usage of its resources, often having <a page-link="elvenempire:society:3">conflicts and territorial disputes</a> with those that exploit nature in a destructive manner.</p>
+					<p>Over their history, this has led to a xenophobic tendency toward races and individuals that aren't attuned with nature, especially if such individuals are Elfins as well. This xenophobia also extends, though to a much lesser degree, to Elfins that have lost their pale complexion, and consequently - according to some extremists who consider them "corrupted" Elfins - also their bond with <i>Nyirshnil</i>.</p>
+					<p>Those cases aside, they are generally <a page-link="elvenempire:society:1">welcoming towards individuals of other races</a>, many communities even embracing those that wish to study their culture and form their own bonds with nature. This openness to embracing foreigners that share their values has, over time, formed a strong kinship between them and other nature-attuned races and individuals in and around their territory. Gradually, this gave rise to <a section-link="empire">the Elven Empire</a>, a respectably powerful, decentralized entity of which they are the central constituent.</p>
+					<p>Elves generally believe they are the "original" Elfins, from which other subraces differentiated - which is likely to be at least partially true, as most Elfins bear strong resemblance with Elves. Some Elfins don't consider themselves to be from the same culture, however, and some even challenge this belief. It isn't a matter that generates much hostility among Elfins, however.</p>
+				</section>
+				<h2 section-id="music&arts">Music & Arts</h2>
+				<section>
+					<p>Forms of visual arts and music are another important part of their culture, seen as ways to celebrate their deep bonds with nature and to reflect and surround themselves with its beauty and harmony.</p>
+					<p>Among their most common physical creations are sculpted and <a section-link="woodforming">woodformed</a> artifacts, from figures and statuettes to decorations and personal accessories, and colorful and intricately woven tapestries and pieces of clothing, often depicting natural scenes or more abstract representations of nature in its various forms. Decorative elements, like arrangements of leaves and flowers - living, when possible - are often added to their creations, along with various natural pigments, in the forms of painted details, dyed fabrics and ropes and stained woods.</p>
+					<p>Dances, rituals and other performative arts are also prominent in their culture, serving as central pieces to many of their festivities and celebrations, which are usually held at night and in open air. Their dances and rituals often embrace the open and multiracial nature of their society, incorporating sections and variations that accomodate performers of all levels of skill. Such performances are often accompanied by music, played on the various instruments they've devised themselves or embraced for other cultures, including lutes, harp-like instruments, flutes and percussion instruments, among others.</p>
 				</section>
 				<h2 section-id="creationmyth">Creation Myth</h2>
 				<section>
-					<p>In their belief, they were initially created by a goddess, who formed their kin from the bark and leaves of the silverwood tree, a unique and long-lasting species of tree with white leaves and ivory-colored bark that attains a silver shimmer as it ages. As such, these trees are worshipped by them.</p>
-					<p>While it is uncertain even to them whether their worship came from the myth, or the myth from the worship, these trees are of great importance to them as a people, having served as their homes and as living sources of material for their crafts for much of their history.</p>
+					<p>Myth says that a goddess named <i>Nyirshnil</i>, represented by a bright star, descended from the sky and formed the first of their kin in her image, from the white wood and ivory bark of Silverwood trees, granting them their pale forms and <a page-link="elves:traits&abilities:5">their ability to permanently enchant wood</a>, smilar to that which gave them form. As such, this unique species of very tall and long-lived trees with gold-yellow leaves, endemic to their initial territory, are worshipped by them.</p>
+					<p>While it is uncertain even to them whether their worship came from the myth, or the myth from the worship, the importance of the Silverwood trees to them as a people is indisputable. The trees themselves <a page-link="elves:communities:2">serve as their homes</a>, its wood as material for many their crafts and its soft bark as a writing medium, while its leaves are used in medicine and as a source of a distinct gold-yellow pigment that is characteristic to their art and culture.</p>
+					<p>Due to this creation myth, brightest star visible in the night sky is known to Elfins as <i>Nyirshnil</i></p>
 				</section>
 				<h2 section-id="communities">Communities</h2>
 				<section>
-					<p>They usually live in large, multiracial communities, alongside beastkins, satyrs, centaurs and other races. Smaller communities do exist, however, sometimes due to slight differences in cultural, ideological or racial makeup.</p>
-					<p>Using a <a section-link="traits&abilities">special form of magic</a> similar to <a page-link="schoolsofmagic:enchanting">enchanting</a>, they grow buildings and structures out of the trunks and branches of silverwoods and other large trees. They bridge these structures together either by using the same method or by constructing suspension bridges, out of ropes or living vines.</p>
+					<p>They usually live in medium to large multiracial communities, alongside Beastkins, Kitsunes, [Satyrs], [Centaurs] and other races. Smaller communities do exist, however, sometimes due to slight differences in cultural, ideological or racial makeup.</p>
+					<p>Using a <a page-link="elves:traits&abilities:5">special form of magic</a> similar to <a page-link="schoolsofmagic:enchanting">enchanting</a>, they grow buildings and structures out of the trunks and branches of silverwoods and other large trees. They bridge these structures together either by using the same method or by constructing suspension bridges, out of ropes or living vines.</p>
 				</section>
-				<h2 section-id="families">Families</h2>
+				<h2 section-id="families">Family Structure</h2>
 				<section>
 					<p>An elf's family unit usually consists of a male and two "wives", though the term <i>wife</i> doesn't necessarily mean female, in this context. One such family unit will often bear two or more offspring, which the entire community takes part in teaching and caring for. Members of other races in the same community will sometimes form similar family units, though most follow their own racial culture.</p>
-					<p>Though procreation between the two wives of a male elf is deeply frowned upon, there are occasions where two male elves will make an agreement wherein one's male wife is allowed to parent a child with one of the other's wives. In this case, the child is considered a progeny of the family of the male wife - the child's <i>male mother</i> - and the head of said family is the child's father. The child's female progenitor is still considered its <i>female mother</i>, however.</p>
+					<p>Though procreation between the two wives of a male elf is deeply frowned upon, there are occasions when two male Elves may form an agreement allowing one's male wife to parent a child with one of the other's wives. In this case, the child is considered a progeny of the family of the male wife - the child's <i>male mother</i> - and the head of said family is the child's father. The child's female progenitor is still considered its <i>female mother</i>, however.</p>
 					<p>In most communities, a male elf is encouraged to take at least one female elf - or elfin, depending on the community - wife, so as to ensure the continuation of their kin.</p>
+				</section>
+				<h1 section-id="physiology">Physiology</h1>
+				<section>
+					<p>The most immediately obvious aspects of their physiology are their pale skin, light hair and long, pointed ears. While their almost complete lack of melanin may be explained by them having spent much of their evolutionary history in forested areas, there is little explanation for the particular shape of their ears, though they do seem better able to notice quieter sounds.</p>
+					<p>Their musculature is lean, primarily consisting of slow-twitch fibers, which are better suited for endurance rather than strength. This is exacerbated by a natural difficulty in gaining substantial muscle mass, making them generally weaker than humans and many other races. However, a combination of adaptations in their metabolism and muscle structure enable them to generate quick bursts of speed, granting them the agility to easily change directions and the ability to jump farther. Their high endurance, coupled with these bursts of speed, allow them to maintain sprinting speeds in more-or-less straight lines. Their nimbleness and adaptation to life in nature also come into play, allowing them to skillfully navigate through trees and vegetation, sometimes leaping between trees and branches when it offers an easier route.</p>
+					<p>Their most easily overlooked trait, however, is in their eyes. Elves are best able to see things that are at medium to far distances, an adaptation resulting from living above-ground for much of their evolutionary history. Their irises are usually light hues of blue, green, amber and even violet, but they also have a slight shimmering quality to them.</p>
+				</section>
+				<h1 section-id="woodforming">Woodforming</h1>
+				<section>
+					<p>An ability seemingly unique to them, woodforming is the magical art of manipulating both the growth, shape, density and structure of plant matter, particularly wood. It is very similar to, and is considered a form of, enchanting, but with an important distinction: alterations made through woodforming are <b>permanent</b>.</p>
+					<p>One's ability to woodform is largely influenced not only by mental acuity and focus, but also by their familiarity with the type of material involved, be it one of the many types of wood, a stem, a leaf, flower, bud or any other plant structure. Some woodformers even specialize in making flower and leaf arrangements, or in growing smaller plants and vines over surfaces and across small gaps.</p>
+					<p>Woodforming is largely used in Elven society, being used to provide anything from infrastructure, to day-to-day objects, to weapons and armor, to instruments and pieces of art. Particularly skilled woodformers can alter many types of wood into weapons-grade material, and may even be able to form blade edges that maintain sharpness as well as some types of stone, when used for slashing and thrusting.</p>
 				</section>
 				<h1 section-id="traits&abilities">Traits & Abilities</h1>
 				<section class="subcolumns">
-					<div>
-						<b class="title">Physical</b>
-						<p><b>Graceful</b> - Though they generally lack raw physical strength and constitution, they tend to be quite agile, which hints at them having been ambush predators in their earlier stages of evolution.</p>
-						<p><b>Longsight</b> - Living far above ground has, over time, pressured them to adapt to see better at longer distances. This has become a hindrance as their empire grew, however, as those with political or scholarly pursuits must wear glasses to read.</p>
+					<div class="phy">
+						<b>Physical</b>
+						<p><b><a page-link="elves:physiology:2">Quickfooted</a></b> - <i>Racial Trait.</i> Though they generally lack raw physical strength and constitution, they tend to be quite agile and dexterous, able to quickly change directions while in motion and leap between branches and trees. This hints that they might've been either prey or ambush predators in earlier stages of evolution.</p>
+						<p><b><a page-link="elves:physiology:2">Endurance</a></b> - <i>Racial Trait.</i> They are able to endure prolonged physical exertion quite well, being able to hang from their limbs and hold strenuous positions for prolonged lengths of time, perhaps to hide their presence, and to run very long distances.</p>
+						<p><b><a page-link="elves:physiology:3">Longsight</a></b> - <i>Racial Trait.</i> Living above ground has, over time, pressured them into adapting for better sight at longer distances. This has become a hindrance in more recent times, however, as those with political or scholarly pursuits must wear glasses to read.</p>
 					</div>
-					<div>
-						<b class="title">Magical</b>
-						<p><b>Natural Bond</b> - They are very well attuned with nature, both mentally and culturally. They have a deep respect for all animal and plant life, and a predisposition toward good understanding of both.</p>
-						<p><b>Magic Affinity</b> - Their strong bond with nature also confers them an innate basic understanding of the Veil, a naturally high capacity for mana, and the ability to more easily understand its particulars.</p>
-						<p><b>Woodforming</b> - The name given to a form of magic they've naturally developed. It pertains to the ability to spur the growth of new structures in plants and trees, as well as influence said growth, allowing them to form not only objects, but entire homes, from wood, without cutting trees down.</p>
+					<div class="mag">
+						<b>Magical</b>
+						<p><b>Natural Bond</b> - <i>Racial Trait.</i> They are very well attuned with nature, both mentally and culturally. They have a deep respect for all animal and plant life, and a predisposition toward good understanding of both.</p>
+						<p><b>Magic Affinity</b> - <i>Racial Trait.</i> Their strong bond with nature also confers them an innate basic understanding of the Veil, a naturally high capacity for mana, and the ability to more easily understand its particulars.</p>
+						<p><b><a section-link="woodforming">Woodforming</a></b> - <i>Racial Ability.</i> The name given to a form of magic they've naturally developed. It pertains to the ability to spur the growth of new structures in plants and trees, as well as influence said growth, allowing them to form not only objects, but entire homes, from wood, without cutting trees down.</p>
 					</div>
-				</section>
-				<h1 section-id="empire">The Elven Empire</h1>
-				<section>
-					<p>Through their bond with nature and the strong kinship they've formed between nature-attuned races and individals in and around the areas they inhabit, elves have, over their history, steadily expanded their territory and area of influence throughout the west of the continent, giving rise to <a section-link="empire">the Elven Empire</a>.</p>
 				</section>
 			</div>
 		</article>
@@ -892,8 +1077,10 @@
 
 
 
+
+
 		<div page-bg="ras" style="background-image: url(assets/bg-ras.jpg)"></div>
-		<div page-bg="kitsunes" style="background-image: url(assets/bg-kitsune.jpg)"></div>
+		<div page-bg="kitsunes" style="background-image: url(assets/bg-Kitsune.jpg)"></div>
 		<div page-bg="world" style="background-image: url(assets/bg-world.jpg)"></div>
 	</main>
 	<svg>
