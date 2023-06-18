@@ -87,7 +87,7 @@ const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('goto')){
 	document.querySelector('.current')?.classList.remove('current')
 	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
-	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 20)
+	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
 }
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
