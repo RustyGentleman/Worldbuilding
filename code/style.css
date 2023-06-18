@@ -323,7 +323,7 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url(../assets/smoke-bg.png), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-image: url("https://static.tumblr.com/k0xpxi3/OMirwh1qe/smoke-bg.png"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   background-size: 100% auto;
   -webkit-animation: bg-vert-scroll 1024s linear infinite;
           animation: bg-vert-scroll 1024s linear infinite;
@@ -369,7 +369,7 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
   border-bottom-right-radius: 70%;
   -webkit-mask-image: linear-gradient(to left, white, transparent);
           mask-image: linear-gradient(to left, white, transparent);
-  background-image: url(../assets/leafveinhalf.png);
+  background-image: url("https://static.tumblr.com/k0xpxi3/Bktrwh1qj/leafveinhalf.png");
   background-size: 100% auto;
   background-position: right center;
   background-blend-mode: overlay;
@@ -404,7 +404,7 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
 .page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
   height: 1rem;
   aspect-ratio: 1;
-  background-image: url(../assets/createlink.png);
+  background-image: url("https://static.tumblr.com/k0xpxi3/8Fzrwh23c/createlink.png");
   background-size: cover;
   margin-left: -1rem;
   padding: 0;
