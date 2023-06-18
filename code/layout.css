@@ -257,6 +257,9 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+body > iframe {
+  display: none;
+}
 
 .page {
   pointer-events: none;
