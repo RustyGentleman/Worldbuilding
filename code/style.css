@@ -412,9 +412,8 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
   opacity: 0;
 }
 
-section.blink > *, section .blink {
-  text-shadow: 0 0 1rem, 0 0 1rem;
-  transition: text-shadow 0.3s ease 0.3s !important;
+section.blink *, section .blink {
+  text-shadow: 0 0 1rem currentColor, 0 0 1rem currentColor;
 }
 
 ::-moz-selection {
@@ -455,9 +454,6 @@ section.blink > *, section .blink {
 .page {
   transition: transform 1s ease, opacity 1s ease, color 0.3s ease;
 }
-.page:not(.content-only) > .content {
-  transition: transform 1s ease, width 0 ease 1s;
-}
 .page.tiled > .tile,
 .page .tiled > .tile {
   transition: transform 1s ease, opacity 1s ease;
@@ -472,8 +468,8 @@ section.blink > *, section .blink {
 .page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
   transition: background 1s ease;
 }
-.page .content section, .page .content section p, .page .content section li {
-  transition: text-shadow 1s ease-out;
+.page .content section, .page .content section * {
+  transition: text-shadow 0.3s ease;
 }
 
 .page .sidebar .header-pointer {
@@ -713,12 +709,6 @@ nav#topnav #history > a:last-child::before {
   font-weight: bolder;
   transform: translateY(0.05rem);
 }
-.content section.subcolumns.sc-2 {
-  grid-template-columns: 1fr 1fr;
-}
-.content section.subcolumns.sc-3 {
-  grid-template-columns: 1fr 1fr 1fr;
-}
 .content section.subcolumns > :not(.escape) {
   border-right: solid 1px;
   -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
@@ -731,10 +721,6 @@ nav#topnav #history > a:last-child::before {
 .content section.subcolumns > :not(.escape):last-of-type {
   padding-right: 0;
   border: none;
-}
-.content section.subcolumns > .escape {
-  grid-column: 1/-1;
-  grid-row: auto;
 }
 
 .left-scrollbar::-webkit-scrollbar {

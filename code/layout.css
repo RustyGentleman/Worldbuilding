@@ -452,6 +452,7 @@ main {
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
+  container-type: inline-size;
 }
 .content section.subcolumns.sc-2 {
   grid-template-columns: 1fr 1fr;
@@ -459,11 +460,33 @@ main {
 .content section.subcolumns.sc-3 {
   grid-template-columns: 1fr 1fr 1fr;
 }
+.content section.subcolumns.sc-2-half {
+  grid-template-columns: 1fr 1fr;
+}
+.content section.subcolumns.sc-2-half > :not(.escape) {
+  grid-row: 2;
+  -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+     border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+  border-image-slice: 1 !important;
+}
+.content section.subcolumns.sc-2-half > :not(.escape):first-of-type {
+  padding-top: 0.5rem;
+}
+.content section.subcolumns.sc-2-half > :not(.escape):nth-of-type(2) {
+  grid-row: 1;
+  grid-column: 1/span 2;
+  margin-bottom: 0;
+  border-right: 0 !important;
+  border-bottom: solid 1px;
+  -o-border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent) !important;
+     border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent) !important;
+  border-image-slice: 1 !important;
+}
 .content section.subcolumns > :not(.escape) {
   padding-inline: 0.5rem;
   border-right: solid 1px;
-  -o-border-image: lg(top, "transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent");
-     border-image: lg(top, "transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent");
+  -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
+     border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
   border-image-slice: 1;
 }
 .content section.subcolumns > :not(.escape):first-of-type {
@@ -543,5 +566,46 @@ header h2, .tile h2 {
 
 #world, #characters, #races {
   overflow-y: auto;
+}
+
+@media screen and (width < 55rem) {
+  .content section.subcolumns.sc-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content section.subcolumns.sc-3 > :not(.escape) {
+    grid-row: 2;
+    -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+       border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+    border-image-slice: 1 !important;
+  }
+  .content section.subcolumns.sc-3 > :not(.escape):first-of-type {
+    padding-top: 0.5rem;
+  }
+  .content section.subcolumns.sc-3 > :not(.escape):nth-of-type(2) {
+    grid-row: 1;
+    grid-column: 1/span 2;
+    margin-bottom: 0;
+    border-right: 0 !important;
+    border-bottom: solid 1px;
+    -o-border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent) !important;
+       border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent) !important;
+    border-image-slice: 1 !important;
+  }
+}
+@media screen and (width < 40rem) {
+  .content section.subcolumns.sc-3, .content section.subcolumns.sc-2, .content section.subcolumns.sc-2-half {
+    display: block;
+  }
+  .content section.subcolumns.sc-3 > :not(.escape):last-of-type, .content section.subcolumns.sc-2 > :not(.escape):last-of-type, .content section.subcolumns.sc-2-half > :not(.escape):last-of-type {
+    border-bottom: none;
+  }
+  .content section.subcolumns.sc-3 > :not(.escape), .content section.subcolumns.sc-2 > :not(.escape), .content section.subcolumns.sc-2-half > :not(.escape) {
+    text-align: inherit;
+    border-inline: none !important;
+    border-bottom: solid 1px;
+    -o-border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+       border-image: linear-gradient(to right, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%) !important;
+    border-image-slice: 1 !important;
+  }
 }
 /*# sourceMappingURL=layout.css.map */

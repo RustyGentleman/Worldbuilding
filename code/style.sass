@@ -371,9 +371,9 @@ a[page-link], a[section-link]
 			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
 //* Navigation blink
-section.blink > *, section .blink
-	text-shadow: 0 0 1rem, 0 0 1rem
-	transition: text-shadow $tr-s ease $tr-s !important
+section.blink *, section .blink
+	text-shadow: 0 0 1rem currentColor, 0 0 1rem currentColor
+	// transition: text-shadow $tr-s ease $tr-s !important
 //* Text selection
 ::selection
 	color: var(--nav-txt)
@@ -406,8 +406,6 @@ section.blink > *, section .blink
 			transition-delay: 0s
 .page
 	transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
-	&:not(.content-only) > .content
-		transition: transform $tr-vl ease, width 0 ease $tr-vl
 	&.tiled > .tile,
 	.tiled > .tile
 		transition: transform $tr-vl ease, opacity $tr-vl ease
@@ -419,8 +417,8 @@ section.blink > *, section .blink
 		> h1, > h2, > h3
 			&::before, &::after
 				transition: background $tr-vl ease
-		section, section p, section li
-			transition: text-shadow $tr-vl ease-out
+		section, section *
+			transition: text-shadow $tr-s ease
 .page .sidebar .header-pointer
 	transition: color $tr-s ease, filter $tr-s ease
 	> *
@@ -604,10 +602,6 @@ nav#topnav
 				font-weight: bolder
 				transform: translateY(.05rem)
 		&.subcolumns
-			&.sc-2
-				grid-template-columns: 1fr 1fr
-			&.sc-3
-				grid-template-columns: 1fr 1fr 1fr
 			> :not(.escape)
 				border-right: solid 1px
 				border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
@@ -617,9 +611,6 @@ nav#topnav
 				&:last-of-type
 					padding-right: 0
 					border: none
-			> .escape
-				grid-column: 1/-1
-				grid-row: auto
 .left-scrollbar
 	&::-webkit-scrollbar
 		width: 5px

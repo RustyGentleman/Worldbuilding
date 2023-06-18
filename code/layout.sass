@@ -1,3 +1,4 @@
+@use "sass:string"
 @import '_variables.sass'
 //# ----------------------------------------
 //# Functions
@@ -17,7 +18,8 @@
 		&.content-only
 			transform: scale(1) !important
 			opacity: 1
-
+@function lg($dir, $stops)
+	@return linear-gradient(to $dir, string.unquote($stops))
 //# ----------------------------------------
 //# Defaults
 //# ----------------------------------------
@@ -187,10 +189,27 @@ main
 		display: grid
 		grid-auto-columns: 1fr
 		grid-auto-flow: column
+		container-type: inline-size
 		&.sc-2
 			grid-template-columns: 1fr 1fr
 		&.sc-3
 			grid-template-columns: 1fr 1fr 1fr
+		&.sc-2-half
+			grid-template-columns: 1fr 1fr
+			> :not(.escape)
+				grid-row: 2
+				border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%') !important
+				border-image-slice: 1 !important
+				&:first-of-type
+					padding-top: 0.5rem
+				&:nth-of-type(2)
+					grid-row: 1
+					grid-column: 1 / span 2
+					margin-bottom: 0
+					border-right: 0 !important
+					border-bottom: solid 1px
+					border-image: lg(right, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent') !important
+					border-image-slice: 1 !important
 		> :not(.escape)
 			padding-inline: .5rem
 			border-right: solid 1px
@@ -259,3 +278,34 @@ header, .tile
 //# ----------------------------------------
 #world, #characters, #races
 	overflow-y: auto
+@media screen and (width < 55rem)
+	.content section.subcolumns.sc-3
+		grid-template-columns: 1fr 1fr
+		> :not(.escape)
+			grid-row: 2
+			border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%') !important
+			border-image-slice: 1 !important
+			&:first-of-type
+				padding-top: 0.5rem
+			&:nth-of-type(2)
+				grid-row: 1
+				grid-column: 1 / span 2
+				margin-bottom: 0
+				border-right: 0 !important
+				border-bottom: solid 1px
+				border-image: lg(right, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent') !important
+				border-image-slice: 1 !important
+@media screen and (width < 40rem)
+	.content section.subcolumns
+		&.sc-3,
+		&.sc-2,
+		&.sc-2-half
+			display: block
+			> :not(.escape):last-of-type
+				border-bottom: none
+			> :not(.escape)
+				text-align: inherit
+				border-inline: none !important
+				border-bottom: solid 1px
+				border-image: lg(right, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%') !important
+				border-image-slice: 1 !important
