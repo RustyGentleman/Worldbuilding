@@ -80,7 +80,7 @@ a
 	background-size: cover
 	background-position: center center
 //* Scrollbar
-.content
+.content, .page
 	&::-webkit-scrollbar-track
 		background-color: transparent
 	&::-webkit-scrollbar
@@ -383,6 +383,10 @@ section.blink > *, section .blink
 //# ----------------------------------------
 //# Transitions
 //# ----------------------------------------
+.toggle
+	transition: all $tr-vl ease
+	> span
+		transition: inherit
 #topnav
 	transition: color $tr-l ease
 	button, .dropdown
@@ -402,14 +406,15 @@ section.blink > *, section .blink
 			transition-delay: 0s
 .page
 	transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
-	> .sidebar,
 	&:not(.content-only) > .content
-		transition: transform $tr-vl ease
+		transition: transform $tr-vl ease, width 0 ease $tr-vl
 	&.tiled > .tile,
 	.tiled > .tile
 		transition: transform $tr-vl ease, opacity $tr-vl ease
 		&::before
 			transition: transform $tr-s ease, opacity $tr-s ease
+	.sidebar
+		transition: transform $tr-vl ease
 	.content
 		> h1, > h2, > h3
 			&::before, &::after
@@ -489,6 +494,30 @@ header, .tile //* Page headers and tiles
 //# ----------------------------------------
 //# Styles
 //# ----------------------------------------
+main
+	position: relative
+	.toggle
+		width: fit-content
+		aspect-ratio: 1
+		position: absolute
+		top: 0
+		left: min(10.5rem, 30vw)
+		background-color: $t
+		transform: translateX(-100%)
+		z-index: 1
+		border: solid 0
+		border-right: solid 1px $t
+		border-bottom: solid 1px $t
+		> span
+			display: inline-block
+			color: white
+		&.off
+			background-color: rgb(0 0 0 / 0.8)
+			transform: translateX(max(-10.5rem, -30vw))
+			border-right: solid 1px currentColor
+			border-bottom: solid 1px currentColor
+			> span
+				transform: rotateY(180deg)
 nav#topnav
 	position: relative
 	background-color: var(--pg-acc)
@@ -537,6 +566,8 @@ nav#topnav
 .sidebar
 	background-color: rgb(0 0 0 / 80%)
 	backdrop-filter: blur(.5rem) url(#glass)
+	flex-shrink: 0
+	overflow: hidden
 	.header-pointer i
 		font-size: .9em
 	.credit a
@@ -546,7 +577,13 @@ nav#topnav
 			margin-left: .5rem
 		&:has(>i)
 			margin-left: 1rem
+	&.collapsed
+		transform: translateX(calc(-100% - .5rem)) !important
+		+ .content
+			width: 100vw
+			transform: translateX(calc(-1 * min(10rem, 30vw) - .5rem)) !important
 .content
+	width: calc(100vw - (min(10rem, 30vw) + .5rem))
 	header
 		@extend .ts-b
 		margin-bottom: 2rem
@@ -595,7 +632,6 @@ nav#topnav
 		background-color: var(--pg-acc)
 		height: 5px
 		border-radius: 100%
-
 //# ----------------------------------------
 //# Specifics
 //# ----------------------------------------

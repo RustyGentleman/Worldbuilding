@@ -103,6 +103,25 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 })
 //? Make page-links tabbable
 document.querySelectorAll('a[page-link], a[section-link]').forEach(l => l.setAttribute('tabindex', '0'))
+//? Make sidebar collapsible
+let sidebar = true
+const tg = document.createElement('button')
+{
+	tg.classList.add('toggle')
+	tg.innerHTML = '<span>◀</span>'
+	document.body.children[1].prepend(tg)
+	tg.addEventListener('click', function() {
+		tg.classList.toggle('off')
+		sidebar = !sidebar
+		document.querySelectorAll('.sidebar').forEach(
+			bar => bar.classList.toggle('collapsed')
+		)
+	})
+}
+
+// document.querySelectorAll('.sidebar').forEach(bar => {
+// 	bar.prepend(tg)
+// })
 
 //# ----------------------------------------
 //# Event listeners
@@ -186,6 +205,12 @@ function GoToPage(id, section=null, ps=null, pe=null) {
 	setTimeout(Page_RefreshSectionPointer, 100)
 	if (section)
 	setTimeout(() => GoToSection(section, ps, pe), 100)
+	// debugger
+	if (!document.querySelector('.toggle')) return
+	if (next.sidebar)
+		document.querySelector('.toggle').style.display = ''
+	else
+		document.querySelector('.toggle').style.display = 'none'
 }
 function GoToSection(id, ps=null, pe=null) {
 	ps !== null? ps-- : null

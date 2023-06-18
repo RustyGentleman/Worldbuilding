@@ -156,11 +156,12 @@ main
 	.last-updated
 		margin-block: 1rem 0
 .content
-	height: calc(100vh - 2rem - 2*5rem)
-	overflow-y: scroll
+	height: calc(100vh - 2rem)
+	overflow-y: auto
 	overflow-x: hidden
 	padding: 5rem 1rem
 	text-align: center
+	box-sizing: border-box
 	> h1, > h2, > h3
 		margin: 0
 	section
@@ -257,4 +258,4 @@ header, .tile
 //# Specific
 //# ----------------------------------------
 #world, #characters, #races
-	overflow-y: scroll
+	overflow-y: auto

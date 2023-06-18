@@ -45,13 +45,13 @@ a {
   background-position: center center;
 }
 
-.content::-webkit-scrollbar-track {
+.content::-webkit-scrollbar-track, .page::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.content::-webkit-scrollbar {
+.content::-webkit-scrollbar, .page::-webkit-scrollbar {
   width: 10px;
 }
-.content::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb, .page::-webkit-scrollbar-thumb {
   background-image: linear-gradient(to bottom, var(--pg-acc-d), var(--pg-acc), var(--pg-acc-d));
   background-color: var(--pg-acc);
   box-shadow: none;
@@ -427,6 +427,13 @@ section.blink > *, section .blink {
   background: var(--pg-acc);
 }
 
+.toggle {
+  transition: all 1s ease;
+}
+.toggle > span {
+  transition: inherit;
+}
+
 #topnav {
   transition: color 0.5s ease;
 }
@@ -448,8 +455,8 @@ section.blink > *, section .blink {
 .page {
   transition: transform 1s ease, opacity 1s ease, color 0.3s ease;
 }
-.page > .sidebar, .page:not(.content-only) > .content {
-  transition: transform 1s ease;
+.page:not(.content-only) > .content {
+  transition: transform 1s ease, width 0 ease 1s;
 }
 .page.tiled > .tile,
 .page .tiled > .tile {
@@ -458,6 +465,9 @@ section.blink > *, section .blink {
 .page.tiled > .tile::before,
 .page .tiled > .tile::before {
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.page .sidebar {
+  transition: transform 1s ease;
 }
 .page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
   transition: background 1s ease;
@@ -567,6 +577,38 @@ header h2, .tile h2 {
   font-size: 1.5rem;
 }
 
+main {
+  position: relative;
+}
+main .toggle {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 0;
+  left: min(10.5rem, 30vw);
+  background-color: transparent;
+  transform: translateX(-100%);
+  z-index: 1;
+  border: solid 0;
+  border-right: solid 1px transparent;
+  border-bottom: solid 1px transparent;
+}
+main .toggle > span {
+  display: inline-block;
+  color: white;
+}
+main .toggle.off {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(max(-10.5rem, -30vw));
+  border-right: solid 1px currentColor;
+  border-bottom: solid 1px currentColor;
+}
+main .toggle.off > span {
+  transform: rotateY(180deg);
+}
+
 nav#topnav {
   position: relative;
   background-color: var(--pg-acc);
@@ -625,6 +667,8 @@ nav#topnav #history > a:last-child::before {
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-backdrop-filter: blur(0.5rem) url(#glass);
           backdrop-filter: blur(0.5rem) url(#glass);
+  flex-shrink: 0;
+  overflow: hidden;
 }
 .sidebar .header-pointer i {
   font-size: 0.9em;
@@ -638,7 +682,17 @@ nav#topnav #history > a:last-child::before {
 .sidebar .header-pointer:has(> i) {
   margin-left: 1rem;
 }
+.sidebar.collapsed {
+  transform: translateX(calc(-100% - 0.5rem)) !important;
+}
+.sidebar.collapsed + .content {
+  width: 100vw;
+  transform: translateX(calc(-1 * min(10rem, 30vw) - 0.5rem)) !important;
+}
 
+.content {
+  width: calc(100vw - (min(10rem, 30vw) + 0.5rem));
+}
 .content header {
   margin-bottom: 2rem;
 }
