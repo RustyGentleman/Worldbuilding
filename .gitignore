@@ -3,3 +3,6 @@ conlangs
 .ignore
 .vscode
 prompting
+code/style.min.css
+code/layout.min.css
+code/app-min.js
