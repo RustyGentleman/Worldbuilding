@@ -136,6 +136,18 @@ body[current=elvenempire] {
   --pg-txt: white;
   --pg-tint: hsl(50 100% 25%);
 }
+body[current=fauna] {
+  --pg-acc: hsl(34,100%,50%);
+  --pg-acc-hsl: 34 100% 50%;
+  --pg-acc-txt: hsl(34 100% 50%);
+  --pg-acc-d: hsl(34 100% 30%);
+}
+body[current=flora] {
+  --pg-acc: hsl(135,100%,50%);
+  --pg-acc-hsl: 135 100% 50%;
+  --pg-acc-txt: hsl(135 100% 50%);
+  --pg-acc-d: hsl(135 100% 30%);
+}
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
@@ -413,7 +425,15 @@ section.blink > *, section .blink {
   transition: background 0.5s ease, transform 0.3s ease;
 }
 #topnav .dropdown button::before {
-  transition: background 0.3s ease;
+  transition: background 0.3s ease 0.15s;
+}
+#topnav .dropdown button:hover::before, #topnav .dropdown button:focus::before {
+  transition: background 0s ease 0s;
+}
+#topnav > div:hover > .dropdown, #topnav > div:focus-within > .dropdown,
+#topnav > div .dropdown:hover,
+#topnav > div .dropdown:focus-within {
+  transition-delay: 0s;
 }
 
 .page {

@@ -169,6 +169,16 @@ body
 		--pg-acc-d: hsl(54,61%,27%)
 		--pg-txt: white
 		--pg-tint: hsl(50 100% 25%)
+	&[current='fauna']
+		--pg-acc: hsl(34,100%,50%)
+		--pg-acc-hsl: 34 100% 50%
+		--pg-acc-txt: hsl(34 100% 50%)
+		--pg-acc-d: hsl(34 100% 30%)
+	&[current='flora']
+		--pg-acc: hsl(135,100%,50%)
+		--pg-acc-hsl: 135 100% 50%
+		--pg-acc-txt: hsl(135 100% 50%)
+		--pg-acc-d: hsl(135 100% 30%)
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
@@ -369,8 +379,19 @@ section.blink > *, section .blink
 	transition: color $tr-l ease
 	button, .dropdown
 		transition: background $tr-l ease, transform $tr-s ease
-	.dropdown button::before
-		transition: background $tr-s ease
+	.dropdown button
+		&::before
+			transition: background $tr-s ease $tr-vs
+		&:hover,
+		&:focus
+			&::before
+				transition: background 0s ease 0s
+	> div
+		&:hover > .dropdown,
+		&:focus-within > .dropdown,
+		.dropdown:hover,
+		.dropdown:focus-within
+			transition-delay: 0s
 .page
 	transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
 	> .sidebar,
