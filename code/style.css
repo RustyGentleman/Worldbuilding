@@ -78,6 +78,15 @@ body {
   --c-foxfire-d: hsl(220 100% 50%);
   --c-foxfire-l: hsl(203 100% 70%);
 }
+body[current=home] {
+  --pg-acc: hsl(201,39%,85%);
+  --pg-acc-hsl: 201 39% 85%;
+  --pg-acc-txt: hsl(201 39% 85%);
+  --pg-acc-d: hsl(201 39% 50%);
+  --pg-txt: white;
+  --nav-txt: black;
+  --nav-txt-i: white;
+}
 body[current=ras] {
   --pg-acc: hsl(203 100% 50%);
   --pg-acc-hsl: 203 100% 50%;
@@ -103,10 +112,10 @@ body[current=world] {
   --pg-txt-i: white;
 }
 body[current=whisperwoodforest] {
-  --pg-acc: hsl(140 100% 41%);
-  --pg-acc-hsl: 140 100% 41%;
-  --pg-acc-txt: hsl(140 100% 41%);
-  --pg-acc-d: hsl(140 100% 25%);
+  --pg-acc: hsl(352,89%,34%);
+  --pg-acc-hsl: 352 89% 41%;
+  --pg-acc-txt: hsl(352 100% 41%);
+  --pg-acc-d: hsl(352 89% 25%);
 }
 body[current=magicsystem] {
   --pg-acc: hsl(268 100% 60%);
@@ -137,16 +146,16 @@ body[current=elvenempire] {
   --pg-tint: hsl(50 100% 25%);
 }
 body[current=fauna] {
-  --pg-acc: hsl(34,100%,50%);
-  --pg-acc-hsl: 34 100% 50%;
-  --pg-acc-txt: hsl(34 100% 50%);
-  --pg-acc-d: hsl(34 100% 30%);
+  --pg-acc: hsl(0,90%,40%);
+  --pg-acc-hsl: 0 90% 40%;
+  --pg-acc-txt: hsl(0 90% 50%);
+  --pg-acc-d: hsl(0 90% 30%);
 }
 body[current=flora] {
-  --pg-acc: hsl(135,100%,50%);
-  --pg-acc-hsl: 135 100% 50%;
-  --pg-acc-txt: hsl(135 100% 50%);
-  --pg-acc-d: hsl(135 100% 30%);
+  --pg-acc: hsl(115,76%,43%);
+  --pg-acc-hsl: 115 76% 43%;
+  --pg-acc-txt: hsl(115 76% 43%);
+  --pg-acc-d: hsl(115 76% 30%);
 }
 
 #home.current ~ [page-bg=home] {
