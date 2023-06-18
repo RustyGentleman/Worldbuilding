@@ -109,7 +109,7 @@ const tg = document.createElement('button')
 {
 	tg.classList.add('toggle')
 	tg.innerHTML = '<span>◀</span>'
-	document.body.children[1].prepend(tg)
+	document.body.querySelector('main').prepend(tg)
 	tg.addEventListener('click', function() {
 		tg.classList.toggle('off')
 		sidebar = !sidebar
