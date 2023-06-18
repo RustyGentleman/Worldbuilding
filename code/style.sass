@@ -8,6 +8,17 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap')
 
+// //! ----------------------------------------
+// //! Asset Switch
+// //! ----------------------------------------
+// - Production
+$smoke-bg: 'https://static.tumblr.com/k0xpxi3/OMirwh1qe/smoke-bg.png'
+$leafveinhalf: 'https://static.tumblr.com/k0xpxi3/Bktrwh1qj/leafveinhalf.png'
+
+// - Development
+// $smoke-bg: '../assets/smoke-bg.png'
+// $leafveinhalf: '../assets/leafveinhalf.png'
+
 // //# ----------------------------------------
 // //# Mixins & Animations
 // //# ----------------------------------------
@@ -288,7 +299,7 @@ a[page-link], a[section-link]
 		content: ''
 		position: absolute
 		inset: 0
-		background-image: url(../assets/smoke-bg.png), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
+		background-image: url($smoke-bg), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
 		background-size: 100% auto
 		animation: bg-vert-scroll 1024s linear infinite
 		z-index: -1
@@ -328,7 +339,7 @@ a[page-link], a[section-link]
 			border-top-right-radius: 		70%
 			border-bottom-right-radius: 	70%
 			mask-image: lg(left, 'white, transparent')
-			background-image: url(../assets/leafveinhalf.png)
+			background-image: url($leafveinhalf)
 			background-size: 100% auto
 			background-position: right center
 			background-blend-mode: overlay
