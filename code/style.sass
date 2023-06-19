@@ -12,54 +12,18 @@
 // //! Asset Switch
 // //! ----------------------------------------
 // - Production
-$smoke-bg: 'https://static.tumblr.com/k0xpxi3/OMirwh1qe/smoke-bg.png'
-$leafveinhalf: 'https://static.tumblr.com/k0xpxi3/Bktrwh1qj/leafveinhalf.png'
-$createlink: 'https://static.tumblr.com/k0xpxi3/8Fzrwh23c/createlink.png'
+// $smoke-bg: 'https://static.tumblr.com/k0xpxi3/OMirwh1qe/smoke-bg.png'
+// $leafveinhalf: 'https://static.tumblr.com/k0xpxi3/Bktrwh1qj/leafveinhalf.png'
+// $createlink: 'https://static.tumblr.com/k0xpxi3/8Fzrwh23c/createlink.png'
 
 // - Development
-// $smoke-bg: '../assets/smoke-bg.png'
-// $leafveinhalf: '../assets/leafveinhalf.png'
-// $createlink: '../assets/createlink.png'
+$smoke-bg: '../assets/smoke-bg.png'
+$leafveinhalf: '../assets/leafveinhalf.png'
+$createlink: '../assets/createlink.png'
 
 // //# ----------------------------------------
 // //# Mixins & Animations
 // //# ----------------------------------------
-// @mixin CGradBorder($width: 1px, $color: currentColor, $hor: true)
-// 	border-style: solid
-// 	@if $hor == true
-// 		border-block-width: $width
-// 		border-image: linear-gradient(to left, $t, $color, $color, $t)
-// 	@else
-// 		border-inline-width: $width
-// 		border-image: linear-gradient(to top, $t, $color, $color, $t)
-// 	border-image-slice: 1
-// @mixin UniGradientBorder($width: 1px, $color: currentColor, $hor: true, $cex: 0%, $tex: 100%, $dir: 'right')
-// 	border-image: linear-gradient(to string.unquote($dir), $color $cex, $t $tex)
-// 	border-image-slice: 1
-// 	@if $hor == true
-// 		border-block: solid $width
-// 	@else 
-// 		border-inline: solid $width
-// @mixin GradientBg($color: currentColor, $hor: true)
-// 	@if $hor
-// 		background-image: linear-gradient(to left, $t, $color, $color, $t)
-// 	@else
-// 		background-image: linear-gradient(to top, $t, $color, $color, $t)
-// @mixin Transition($props, $length, $function: ease)
-// 	transition-property: string.unquote($props)
-// 	@if type-of($length) == string
-// 		transition-duration: string.unquote($length)
-// 	@else 
-// 		transition-duration: $length
-// 	@if type-of($function) == string
-// 		transition-timing-function: string.unquote($function)
-// 	@else 
-// 		transition-timing-function: $function
-// @keyframes sway
-// 	0%
-// 		transform: translateX(-10vw)
-// 	100%
-// 		transform: translateX(10vw)
 @keyframes bg-vert-scroll
 	0%
 		background-position-y: 0
