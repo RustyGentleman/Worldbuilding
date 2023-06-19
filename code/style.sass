@@ -91,10 +91,10 @@ body
 	--c-foxfire-d: hsl(220 100% 50%)
 	--c-foxfire-l: hsl(203 100% 70%)
 	&[current='home']
-		--pg-acc: hsl(201,39%,85%)
-		--pg-acc-hsl: 201 39% 85%
-		--pg-acc-txt: hsl(201 39% 85%)
-		--pg-acc-d: hsl(201 9% 50%)
+		--pg-acc: hsl(115,45%,50%)
+		--pg-acc-hsl: 115 45% 50%
+		--pg-acc-txt: hsl(115 45% 50%)
+		--pg-acc-d: hsl(115,40%,31%)
 		--pg-txt: white
 		--nav-txt: black
 		--nav-txt-i: white
@@ -390,7 +390,12 @@ section.blink *, section .blink
 			transition: transform $tr-s ease, opacity $tr-s ease
 	.sidebar
 		transition: transform $tr-vl ease
+		.header-pointer
+			transition: color $tr-s ease, filter $tr-s ease
+		> *
+			transition: transform $tr-s ease
 	.content
+		transition: transform $tr-vl ease
 		> h1, > h2, > h3
 			&::before, &::after
 				transition: background $tr-vl ease
