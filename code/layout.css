@@ -369,7 +369,8 @@ main {
 }
 .page.content-only .content {
   height: auto;
-  max-height: calc(100vh - 2rem - 10rem);
+  max-height: calc(100vh - 2rem);
+  width: 100vw;
 }
 .page:not(.content-only) .content {
   margin-left: -1px;
