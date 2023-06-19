@@ -82,7 +82,7 @@ body[current=home] {
   --pg-acc: hsl(201,39%,85%);
   --pg-acc-hsl: 201 39% 85%;
   --pg-acc-txt: hsl(201 39% 85%);
-  --pg-acc-d: hsl(201 39% 50%);
+  --pg-acc-d: hsl(201 9% 50%);
   --pg-txt: white;
   --nav-txt: black;
   --nav-txt-i: white;
