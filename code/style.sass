@@ -20,6 +20,13 @@
 $smoke-bg: '../assets/smoke-bg.png'
 $leafveinhalf: '../assets/leafveinhalf.png'
 $createlink: '../assets/createlink.png'
+$bg-ras: '../assets/bg-ras.jpg'
+$bg-kitsunes: '../assets/bg-kitsunes.jpg'
+$bg-world: '../assets/bg-world.jpg'
+$bg-whisperwoodforest: '../assets/bg-whisperwoodforest.jpg'
+$bg-magicsystem: '../assets/bg-magicsystem.jpg'
+$bg-schoolsofmagic: '../assets/bg-schoolsofmagic.jpg'
+$bg-home: '../assets/bg-home.jpg'
 
 // //# ----------------------------------------
 // //# Mixins & Animations
@@ -96,8 +103,6 @@ body
 		--pg-acc-txt: hsl(115 45% 50%)
 		--pg-acc-d: hsl(115,40%,31%)
 		--pg-txt: white
-		--nav-txt: black
-		--nav-txt-i: white
 	&[current='ras']
 		$c-ras: rgb(0,157,255)
 		--pg-acc: hsl(203 100% 50%)
@@ -124,10 +129,10 @@ body
 		// --pg-tint: hsl(20 100% 30%)
 	&[current='whisperwoodforest']
 		// --pg-bg: hsl(32 24% 57%)
-		--pg-acc: hsl(352,89%,34%)
-		--pg-acc-hsl: 352 89% 41%
-		--pg-acc-txt: hsl(352 100% 41%)
-		--pg-acc-d: hsl(352 89% 25%)
+		--pg-acc: hsl(342,99%,37%)
+		--pg-acc-hsl: 342 99% 37%
+		--pg-acc-txt: hsl(347,95%,46%)
+		--pg-acc-d: hsl(342 99% 25%)
 		// --pg-txt: black
 		// --pg-tint: hsl(20 100% 30%)
 	&[current='magicsystem']
@@ -402,10 +407,6 @@ section.blink *, section .blink
 				transition: background $tr-vl ease
 		section, section *
 			transition: text-shadow $tr-s ease
-.page .sidebar .header-pointer
-	transition: color $tr-s ease, filter $tr-s ease
-	> *
-		transition: transform $tr-s ease
 [page-bg]
 	transition: opacity $tr-vl ease
 #feedbackform, .btn-container>a.kofi-button
@@ -551,8 +552,6 @@ nav#topnav
 	overflow: hidden
 	.header-pointer i
 		font-size: .9em
-	.credit a
-		color: inherit
 	.header-pointer
 		&:has(>span)
 			margin-left: .5rem
@@ -675,3 +674,18 @@ nav#topnav
 		> div.mag
 			p b:not(.escape)
 				color: hsl(60,89%,89%)
+
+[page-bg='ras']
+	background-image: url($bg-ras)
+[page-bg='kitsunes']
+	background-image: url($bg-kitsunes)
+[page-bg='world']
+	background-image: url($bg-world)
+[page-bg='whisperwoodforest']
+	background-image: url($bg-whisperwoodforest)
+[page-bg='magicsystem']
+	background-image: url($bg-magicsystem)
+[page-bg='schoolsofmagic']
+	background-image: url($bg-schoolsofmagic)
+[page-bg='home']
+	background-image: url($bg-home)
