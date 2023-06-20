@@ -160,56 +160,154 @@ body[current=flora] {
   opacity: 1;
 }
 
+body[current=home] #topnav button[page-link=home]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #world.current ~ [page-bg=world] {
   opacity: 1;
+}
+
+body[current=world] #topnav button[page-link=world]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
   opacity: 1;
 }
 
+body[current=whisperwoodforest] #topnav button[page-link=whisperwoodforest]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #magicsystem.current ~ [page-bg=magicsystem] {
   opacity: 1;
+}
+
+body[current=magicsystem] #topnav button[page-link=magicsystem]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #schoolsofmagic.current ~ [page-bg=schoolsofmagic] {
   opacity: 1;
 }
 
+body[current=schoolsofmagic] #topnav button[page-link=schoolsofmagic]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #fauna.current ~ [page-bg=fauna] {
   opacity: 1;
+}
+
+body[current=fauna] #topnav button[page-link=fauna]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #flora.current ~ [page-bg=flora] {
   opacity: 1;
 }
 
+body[current=flora] #topnav button[page-link=flora]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #characters.current ~ [page-bg=characters] {
   opacity: 1;
+}
+
+body[current=characters] #topnav button[page-link=characters]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #ras.current ~ [page-bg=ras] {
   opacity: 1;
 }
 
+body[current=ras] #topnav button[page-link=ras]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #riella.current ~ [page-bg=riella] {
   opacity: 1;
+}
+
+body[current=riella] #topnav button[page-link=riella]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #races.current ~ [page-bg=races] {
   opacity: 1;
 }
 
+body[current=races] #topnav button[page-link=races]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #kitsunes.current ~ [page-bg=kitsunes] {
   opacity: 1;
+}
+
+body[current=kitsunes] #topnav button[page-link=kitsunes]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #elves.current ~ [page-bg=elves] {
   opacity: 1;
 }
 
+body[current=elves] #topnav button[page-link=elves]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #elvenempire.current ~ [page-bg=elvenempire] {
   opacity: 1;
+}
+
+body[current=elvenempire] #topnav button[page-link=elvenempire]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 a[page-link], a[section-link] {

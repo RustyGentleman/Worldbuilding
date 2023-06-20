@@ -172,6 +172,11 @@ body
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
+	body[current="#{$pg}"] #topnav button[page-link="#{$pg}"]::before
+		background-image: linear-gradient(to right, $t, var(--nav-txt), $t)
+		background-position: center center
+		background-size: 100%
+		background-repeat: no-repeat
 
 // # ----------------------------------------
 // # Effects
