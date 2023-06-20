@@ -467,7 +467,7 @@ section.blink *, section .blink {
 .page .sidebar .header-pointer {
   transition: color 0.3s ease, filter 0.3s ease;
 }
-.page .sidebar > * {
+.page .sidebar .header-pointer > * {
   transition: transform 0.3s ease;
 }
 .page .content {
