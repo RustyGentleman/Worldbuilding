@@ -656,6 +656,9 @@ nav#topnav > div > button {
   font-style: italic;
   font-size: 1.2rem;
 }
+.content section {
+  line-height: 1.2em;
+}
 .content section ul {
   text-align: left;
 }
@@ -837,6 +840,18 @@ nav#topnav #history > a:last-child::before {
 
 .credit a {
   color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 #world > :last-child {
