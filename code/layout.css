@@ -34,24 +34,6 @@
   opacity: 1;
 }
 
-#whisperwoodforest.current {
-  display: grid;
-  pointer-events: all;
-  opacity: 1;
-}
-#whisperwoodforest.current.tiled {
-  display: flex;
-}
-#whisperwoodforest.current:not(.content-only) > .content,
-#whisperwoodforest.current > .sidebar {
-  transform: translateX(0%);
-}
-#whisperwoodforest.current.tiled > .tile,
-#whisperwoodforest.current .tiled > .tile, #whisperwoodforest.current.content-only {
-  transform: scale(1) !important;
-  opacity: 1;
-}
-
 #magicsystem.current {
   display: grid;
   pointer-events: all;
@@ -120,6 +102,42 @@
 }
 #flora.current.tiled > .tile,
 #flora.current .tiled > .tile, #flora.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
+#whisperwoodforest.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#whisperwoodforest.current.tiled {
+  display: flex;
+}
+#whisperwoodforest.current:not(.content-only) > .content,
+#whisperwoodforest.current > .sidebar {
+  transform: translateX(0%);
+}
+#whisperwoodforest.current.tiled > .tile,
+#whisperwoodforest.current .tiled > .tile, #whisperwoodforest.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
+#crestbendharbor.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#crestbendharbor.current.tiled {
+  display: flex;
+}
+#crestbendharbor.current:not(.content-only) > .content,
+#crestbendharbor.current > .sidebar {
+  transform: translateX(0%);
+}
+#crestbendharbor.current.tiled > .tile,
+#crestbendharbor.current .tiled > .tile, #crestbendharbor.current.content-only {
   transform: scale(1) !important;
   opacity: 1;
 }
