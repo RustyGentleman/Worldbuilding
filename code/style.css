@@ -155,6 +155,12 @@ body[current=flora] {
   --pg-acc-txt: hsl(115 76% 43%);
   --pg-acc-d: hsl(115 76% 30%);
 }
+body[current=crestbendharbor] {
+  --pg-acc: hsl(212,100%,55%);
+  --pg-acc-hsl: 212 100% 55%;
+  --pg-acc-txt: hsl(212 100% 55%);
+  --pg-acc-d: hsl(212 100% 30%);
+}
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
@@ -172,17 +178,6 @@ body[current=home] #topnav button[page-link=home]::before {
 }
 
 body[current=world] #topnav button[page-link=world]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-#whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
-  opacity: 1;
-}
-
-body[current=whisperwoodforest] #topnav button[page-link=whisperwoodforest]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -227,6 +222,28 @@ body[current=fauna] #topnav button[page-link=fauna]::before {
 }
 
 body[current=flora] #topnav button[page-link=flora]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
+  opacity: 1;
+}
+
+body[current=whisperwoodforest] #topnav button[page-link=whisperwoodforest]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#crestbendharbor.current ~ [page-bg=crestbendharbor] {
+  opacity: 1;
+}
+
+body[current=crestbendharbor] #topnav button[page-link=crestbendharbor]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
