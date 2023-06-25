@@ -479,8 +479,8 @@ a[page-link]:hover, a[page-link]:focus, a[section-link]:hover, a[section-link]:f
   height: var(--height);
   width: var(--size);
   background-color: var(--pg-acc);
-  border-top-right-radius: 70%;
-  border-bottom-right-radius: 70%;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   -webkit-mask-image: linear-gradient(to left, white, transparent);
           mask-image: linear-gradient(to left, white, transparent);
   background-image: url("../assets/leafveinhalf.png");
