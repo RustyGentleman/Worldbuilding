@@ -624,13 +624,6 @@ nav#topnav #history:not(:empty) {
   border-right: solid 1px;
 }
 
-.page:not(.content-only) .content {
-  -o-border-image: linear-gradient(to bottom, currentColor, transparent);
-     border-image: linear-gradient(to bottom, currentColor, transparent);
-  border-image-slice: 1;
-  border-left: solid 1px;
-}
-
 body {
   font-family: "Dosis";
   font-weight: 400;
