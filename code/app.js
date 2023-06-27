@@ -91,6 +91,31 @@ function pg2md() {
 	}
 	return res
 }
+function treeworld() {
+	const tree = (function(){
+		let headers = Array.from(document.querySelector('#world > div').children).filter(e => e.tagName == 'SPAN').map((h, i) => {
+			return [`- ${h.textContent}`, Array.from(document.querySelector('#world > div').querySelectorAll(`.tiled:nth-of-type(${i+1}) > .tile`)).map(t => `\t- ${t.querySelector('h1').innerText.trim().replaceAll('\t','').replaceAll('\n', ' ')} - ${t.querySelector('h2').innerText.trim().replaceAll('\t','').replaceAll('\n', ' ')}`).join('\n')].join('\n')
+		})
+		return headers.join('\n')
+	})()
+	console.log(tree)
+	return tree
+}
+function treecurrent() {
+	const tree = Array.from(document.page.querySelectorAll('.content > h1, .content > h2, .content > h3'))
+		.map(h => {
+			let num = h.tagName.match(/\d+/)[0]
+			let ret = ''
+			while (num != 1) {
+				ret += '\t'
+				num--
+			}
+			return ret + '- ' + h.innerText.trim().replaceAll('\n', ' ')
+		})
+		.join('\n')
+	console.log(tree)
+	return tree
+}
 
 //# ----------------------------------------
 //# Run on load
