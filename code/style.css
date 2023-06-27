@@ -820,6 +820,17 @@ nav#topnav #history > a:last-child::before {
   padding-right: 0;
   border: none;
 }
+.content figure {
+  padding: 1rem;
+}
+.content figure img {
+  max-height: 40vh;
+  max-width: 100%;
+}
+.content figure figcaption {
+  font-style: italic;
+  font-size: 0.8em;
+}
 
 .left-scrollbar::-webkit-scrollbar {
   width: 5px;
