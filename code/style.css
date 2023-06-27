@@ -874,6 +874,9 @@ nav#topnav #history > a:last-child::before {
   font-size: 1em !important;
   line-height: initial !important;
   min-width: initial !important;
+  text-decoration: none;
+  display: flex !important;
+  align-items: center;
 }
 #home #feedbackform:hover, #home #feedbackform:focus-within, #home .btn-container > a.kofi-button:hover, #home .btn-container > a.kofi-button:focus-within {
   background-color: #222 !important;
