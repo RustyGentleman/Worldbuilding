@@ -460,7 +460,7 @@ main {
 .content section > *:last-child {
   margin-bottom: 0;
 }
-.content section ul {
+.content section > ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
