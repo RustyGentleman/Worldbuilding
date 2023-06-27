@@ -117,6 +117,30 @@ const tg = document.createElement('button')
 		)
 	})
 }
+//? Gather link data
+document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
+	const [pg, sc, pr] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
+	// console.log(pg, sc, pr)
+	if (!document.getElementById(pg)) return
+
+	let title = [document.getElementById(pg).querySelector('.content header h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ')]
+	if (sc)
+		title.push(document.getElementById(pg).querySelector(`[section-id="${sc}"]`)?.textContent.trim().replaceAll('\t', '').	replaceAll('\n', ' '))
+	if (sc && pr)
+		title.push('Paragraph '+pr)
+	l.setAttribute('title', title.filter(e => !!e).join(' > '))
+
+	let preview = ''
+	if (sc && pr)
+		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"]`)?.nextElementSibling.querySelectorAll('p, li')[pr-1].textContent.replace(/^(.{256}[^\s]*).*/, "$1")
+
+	if (title[0])
+		l.setAttribute('data-page', title[0])
+	if (title[1])
+		l.setAttribute('data-section', title[1])
+	if (title[2])
+		l.setAttribute('data-preview', preview)
+})
 
 // document.querySelectorAll('.sidebar').forEach(bar => {
 // 	bar.prepend(tg)
@@ -255,8 +279,8 @@ function AddToHistory() {
 	a.setAttribute('page-link', Page_GetCurrentLink())
 	a.innerHTML = `<b>${document.page.content.querySelector('header h1').textContent.trim().replaceAll('\t','').replace('\n',' ')}</b>${sectionID? `<span>${document.page.content.querySelector(`[section-id="${sectionID}"]`).textContent}</span>` : ''}`
 	a.addEventListener('click', function() {
-		const [pg, sc] = [...this.getAttribute('page-link').split(':')]
-		GoToPage(pg, sc)
+		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
+		GoToPage(pg, sc, pr)
 
 		const here = this.parentElement.querySelector('[disabled]')
 		const index = Array.from(this.parentElement.children).indexOf(this)
