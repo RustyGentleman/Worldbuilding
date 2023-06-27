@@ -314,10 +314,15 @@ header, .tile
 #home
 	section ul
 		list-style-type: disclosure-closed
+		li
+			text-indent: -1rem
+			padding-left: 1rem
 		ul
 			list-style-type: square
 			ul
 				list-style-type: disc
+				ul
+					list-style-type: circle
 @media screen and (width < 55rem)
 	.content section.subcolumns.sc-3
 		grid-template-columns: 1fr 1fr
