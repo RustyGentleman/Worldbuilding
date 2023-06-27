@@ -187,17 +187,18 @@ body
 // # Effects
 // # ----------------------------------------
 //* In-site links
-a[page-link], a[section-link]
+a[page-link], a[section-link], #history a b
 	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor)
 	background-size: 0% 1px, 100% 1px
 	background-position: bottom left, bottom center
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease !important
 //* In-site link hover
-a[page-link], a[section-link]
+a[page-link], a[section-link], #history a
 	&:hover, &:focus
-		background-size: 100% 1px, 100% 1px
-		outline: none
+		&, b
+			background-size: 100% 1px, 100% 1px
+			outline: none
 //* Current header in navigation
 .header-pointer.current
 	color: var(--pg-acc-txt, var(--pg-acc))
@@ -545,7 +546,7 @@ nav#topnav
 			&::after
 				content: '>'
 				position: absolute
-				left: calc(100% + .5rem)
+				left: calc(100% + 1rem)
 				top: 50%
 				transform: translate(-50%, -50%)
 				font-weight: bold

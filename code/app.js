@@ -152,6 +152,24 @@ for (const sl of document.querySelectorAll('[section-link]'))
 //# ----------------------------------------
 //# Section tracking
 //# ----------------------------------------
+function Page_GetCurrentLink() {
+	const height = document.page.content.offsetHeight
+	let ret
+	for (const child of document.page.content.children) {
+		const rect = child.getBoundingClientRect()
+		if (rect.bottom >= height * .4) {
+			Array.from(child.children).forEach((par, i) => {
+				const rect = par.getBoundingClientRect()
+				if (rect.bottom >= height *.4) {
+					ret = `${body.getAttribute('current')}:${Page_GetCurrentSectionHeader()}:${i}`
+					return
+				}
+			})
+			break
+		}
+	}
+	return ret
+}
 function Page_GetCurrentSection() {
 	const height = document.page.content.offsetHeight
 	for (const child of document.page.content.children) {
@@ -232,15 +250,31 @@ function Blink(element) {
 function AddToHistory() {
 	const a = document.createElement('a')
 	const sectionID = Page_GetCurrentSectionHeader()
-	a.removeAttribute('a')
-	a.setAttribute('page-link', `${document.page.id}:${sectionID}`)
+	a.removeAttribute('href')
+	a.setAttribute('tabindex', '0')
+	a.setAttribute('page-link', Page_GetCurrentLink())
 	a.innerHTML = `<b>${document.page.content.querySelector('header h1').textContent.trim().replaceAll('\t','').replace('\n',' ')}</b>${sectionID? `<span>${document.page.content.querySelector(`[section-id="${sectionID}"]`).textContent}</span>` : ''}`
 	a.addEventListener('click', function() {
 		const [pg, sc] = [...this.getAttribute('page-link').split(':')]
 		GoToPage(pg, sc)
-		this.remove()
+
+		const here = this.parentElement.querySelector('[disabled]')
+		const index = Array.from(this.parentElement.children).indexOf(this)
+		Array.from(this.parentElement.children).forEach((e, i) => {
+			if (i > index && e != here) e.remove()
+		})
+		if (this.parentElement.childElementCount == 2)
+			this.parentElement.innerHTML = ''
+		else
+			this.remove()
 	})
-	document.history.appendChild(a)
+	if (!document.history.innerHTML.length) {
+		const here = document.createElement('span')
+		here.textContent = 'Here'
+		here.setAttribute('disabled', '')
+		document.history.prepend(here)
+	}
+	document.history.insertBefore(a, document.history.lastElementChild)
 }
 
 //# ----------------------------------------
