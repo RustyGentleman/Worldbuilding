@@ -807,17 +807,6 @@ nav#topnav #history > a:last-child::before {
   -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
           clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
 }
-.content section ul li::marker {
-  content: "";
-}
-.content section ul li::before {
-  content: "•";
-  display: inline-block;
-  width: 1rem;
-  font-size: 1.3em;
-  font-weight: bolder;
-  transform: translateY(0.05rem);
-}
 .content section.subcolumns > :not(.escape) {
   border-right: solid 1px;
   -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
