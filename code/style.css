@@ -918,6 +918,39 @@ nav#topnav #history > a:last-child::before {
   color: hsl(60deg, 89%, 89%);
 }
 
+#popover {
+  background-color: var(--pg-bg);
+  border: solid 1px;
+  border-radius: 0.5rem;
+  --x: 0;
+  --y: 0;
+  left: min(1rem + var(--x), 100vw - 20.5rem);
+  top: min(-1rem + var(--y), 100vh);
+  border-color: var(--pg-acc);
+  box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 12rem -5rem black;
+}
+#popover > * {
+  padding: 0.5rem;
+}
+#popover > *:not(:last-child) {
+  -o-border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
+     border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
+  border-image-slice: 1;
+  border-bottom: solid 1px;
+}
+#popover .title-subtitle {
+  font-family: "IM Fell English";
+  font-size: 1.2em;
+}
+#popover .title-subtitle b {
+  font-size: 1.2em;
+  margin-bottom: -0.3rem;
+}
+#popover .section {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 [page-bg=ras] {
   background-image: url("../assets/bg-ras.jpg");
 }

@@ -2,17 +2,31 @@
 //# Access shortcuts
 //# ----------------------------------------
 const body = document.body
-Object.defineProperty(document, 'current', {
-	get: function() {return this.querySelector('page.current').id}})
-Object.defineProperty(document, 'page', {
-	get: function() {return document.querySelector(`.page.current`)}})
-Object.defineProperty(document, 'history', {
-	get: function() {return document.querySelector(`#history`)}})
+const popover = document.querySelector('#popover')
+Object.defineProperty(document, 'current', {get: function() {return this.querySelector('page.current').id}})
+Object.defineProperty(document, 'page', {get: function() {return document.querySelector(`.page.current`)}})
+Object.defineProperty(document, 'history', {get: function() {return document.querySelector(`#history`)}})
 for (const page of document.querySelectorAll('main > .page')) {
-	Object.defineProperty(page, 'content', {
-		get: function() {return this.querySelector('.content')}})
-	Object.defineProperty(page, 'sidebar', {
-		get: function() {return this.querySelector('.sidebar')}})
+	Object.defineProperty(page, 'content', {get: function() {return this.querySelector('.content')}})
+	Object.defineProperty(page, 'sidebar', {get: function() {return this.querySelector('.sidebar')}})
+}
+{// - Popover
+	Object.defineProperty(popover, 'title', {
+		get: function() {return this.querySelector('.title-subtitle b')},
+		set: function(content) {this.querySelector('.title-subtitle b').textContent = content}
+	})
+	Object.defineProperty(popover, 'subtitle', {
+		get: function() {return this.querySelector('.title-subtitle i')},
+		set: function(content) {this.querySelector('.title-subtitle i').textContent = content}
+	})
+	Object.defineProperty(popover, 'section', {
+		get: function() {return this.querySelector('.section')},
+		set: function(content) {this.querySelector('.section').textContent = content}
+	})
+	Object.defineProperty(popover, 'preview', {
+		get: function() {return this.querySelector('.preview')},
+		set: function(content) {this.querySelector('.preview').textContent = content}
+	})
 }
 
 //# ----------------------------------------
@@ -124,6 +138,7 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	if (!document.getElementById(pg)) return
 
 	let title = [document.getElementById(pg).querySelector('.content header h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ')]
+	let subtitle = document.getElementById(pg).querySelector('.content header h2')?.textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ') || ''
 	if (sc)
 		title.push(document.getElementById(pg).querySelector(`[section-id="${sc}"]`)?.textContent.trim().replaceAll('\t', '').	replaceAll('\n', ' '))
 	if (sc && pr)
@@ -132,15 +147,80 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 
 	let preview = ''
 	if (sc && pr)
-		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"]`)?.nextElementSibling.querySelectorAll('p, li')[pr-1].textContent.replace(/^(.{256}[^\s]*).*/, "$1")
+		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li')[pr-1]?.textContent || 'Error'
+	else if (sc)
+		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.textContent || 'Error'
+	else
+		preview = document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent || 'Error'
+	if (preview.length >= 200)
+		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s,.-]*).*/, "$1...")
 
 	if (title[0])
-		l.setAttribute('data-page', title[0])
+		l.setAttribute('data-title', title[0])
 	if (title[1])
 		l.setAttribute('data-section', title[1])
-	if (title[2])
-		l.setAttribute('data-preview', preview)
+	else
+		l.setAttribute('data-section', document.getElementById(pg).querySelector('.content > h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' '))
+	l.setAttribute('data-preview', preview)
+	l.setAttribute('data-subtitle', subtitle)
 })
+//? Popover
+{
+	const INTERVAL = 500
+	let to_show = []
+	let to_hide = []
+	let last
+	function Show(instant=false) {
+		const to = setTimeout(() => {
+			popover.classList.add('active')
+			to_show = to_show.filter(e => e != to)
+		}, instant? 0 : INTERVAL)
+		to_show.push(to)
+	}
+	function Hide(instant=false) {
+		const to = setTimeout(() => {
+			popover.classList.remove('active')
+			to_hide = to_hide.filter(e => e != to)
+		}, instant? 0 : INTERVAL)
+		to_hide.push(to)
+	}
+	function AddToPopover(link) {
+		[popover.title, popover.subtitle, popover.section, popover.preview] = [link.dataset.title, link.dataset.subtitle, link.dataset.section, link.dataset.preview]
+	}
+
+	document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
+		l.addEventListener('mouseover', () => {
+			// console.log('link hover', to_show.length, to_hide.length)
+			to_hide.forEach(e => clearTimeout(e))
+			to_hide = []
+			Show(popover.classList.contains('active'))
+
+			AddToPopover(l)
+			const rect = l.getBoundingClientRect()
+			popover.style.setProperty('--x', `${rect.left + rect.width}px`)
+			popover.style.setProperty('--y', `${rect.top - popover.clientHeight}px`)
+
+			l.addEventListener('mouseleave', () => {
+				// console.log('link leave', to_show.length, to_hide.length)
+				to_show.forEach(e => clearTimeout(e))
+				to_show = []
+				if (popover.classList.contains('active')) Hide()
+			})
+		})
+	})
+	popover.addEventListener('mouseover', () => {
+		// console.log('popover hover', to_show.length, to_hide.length)
+		to_hide.forEach(e => clearTimeout(e))
+		to_hide = []
+		Show(popover.classList.contains('active'))
+		popover.addEventListener('mouseleave', () => {
+			// console.log('popover leave', to_show.length, to_hide.length)
+			to_show.forEach(e => clearTimeout(e))
+			to_show = []
+			if (popover.classList.contains('active')) Hide()
+		})
+	})
+}
 
 // document.querySelectorAll('.sidebar').forEach(bar => {
 // 	bar.prepend(tg)

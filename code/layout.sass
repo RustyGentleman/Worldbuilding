@@ -286,6 +286,25 @@ header, .tile
 		> div
 			display: flex
 			flex-direction: column
+#popover
+	position: absolute
+	top: 0
+	right: 0
+	display: flex
+	flex-direction: column
+	width: 20rem
+	z-index: 10
+	text-align: center
+	pointer-events: none
+	opacity: 0
+	&.active
+		pointer-events: all
+		opacity: 1
+	.title-subtitle
+		display: flex
+		flex-direction: column
+	.section
+		line-height: .5lh
 
 //# ----------------------------------------
 //# Specific
