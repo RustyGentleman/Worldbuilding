@@ -32,8 +32,6 @@ for (const page of document.querySelectorAll('main > .page')) {
 //# ----------------------------------------
 //# In development
 //# ----------------------------------------
-const DEV = window.location.origin.match(/127.0.0.1/)
-window.addEventListener('load', () => GoToPage('home'))
 function gena(element, level=1) {
 	let a = 'a'
 	if (level == 1)
@@ -120,13 +118,15 @@ function treecurrent() {
 //# ----------------------------------------
 //# Run on load
 //# ----------------------------------------
-//? Go to page and section on the link
-const qparams = new URLSearchParams(window.location.search)
-if (qparams.get('goto')){
-	document.querySelector('.current')?.classList.remove('current')
-	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
-	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
-}
+window.addEventListener('load', () => {
+	//? Go to page and section on the link
+	const qparams = new URLSearchParams(window.location.search)
+	if (qparams.get('goto')){
+		document.querySelector('.current')?.classList.remove('current')
+		const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
+		setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
+	} else GoToPage('home')
+})
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
 	h.innerHTML = `<span>${h.innerHTML}</span><button></button>`
