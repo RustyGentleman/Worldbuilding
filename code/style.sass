@@ -288,7 +288,7 @@ a[page-link], a[section-link], #history a
 		z-index: -1
 //* Text shadow where necessary
 .ts-b
-	text-shadow: 0 0 .5em var(--pg-txt-i)
+	text-shadow: 2px 2px .5em var(--pg-txt-i)
 //* Tile hover effect
 .tiled .tile
 	position: relative
@@ -384,7 +384,7 @@ section.blink *, section .blink
 #topnav
 	transition: color $tr-l ease
 	button, .dropdown
-		transition: background $tr-l ease, transform $tr-s ease
+		transition: background $tr-l ease, transform $tr-l cubic-bezier(0.61, 1.57, 0.4, 0.76)
 	.dropdown button
 		&::before
 			transition: background $tr-s ease $tr-vs
@@ -718,8 +718,6 @@ nav#topnav
 	top: min(calc(-1rem + var(--y)), 100vh)
 	border-color: var(--pg-acc)
 	box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 12rem -5rem black
-	> *
-		padding: .5rem
 	> *:not(:last-child)
 		border-image: lg(right, 'transparent, var(--pg-acc), transparent')
 		border-image-slice: 1

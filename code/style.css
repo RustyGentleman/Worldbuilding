@@ -445,7 +445,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
 }
 
 .ts-b, .content header {
-  text-shadow: 0 0 0.5em var(--pg-txt-i);
+  text-shadow: 2px 2px 0.5em var(--pg-txt-i);
 }
 
 .tiled .tile {
@@ -551,7 +551,7 @@ section.blink *, section .blink {
   transition: color 0.5s ease;
 }
 #topnav button, #topnav .dropdown {
-  transition: background 0.5s ease, transform 0.3s ease;
+  transition: background 0.5s ease, transform 0.5s cubic-bezier(0.61, 1.57, 0.4, 0.76);
 }
 #topnav .dropdown button::before {
   transition: background 0.3s ease 0.15s;
@@ -944,9 +944,6 @@ nav#topnav #history > a:last-child::before {
   top: min(-1rem + var(--y), 100vh);
   border-color: var(--pg-acc);
   box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 12rem -5rem black;
-}
-#popover > * {
-  padding: 0.5rem;
 }
 #popover > *:not(:last-child) {
   -o-border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);

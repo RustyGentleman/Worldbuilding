@@ -209,7 +209,7 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 
 	let preview = ''
 	if (sc && ps && pe)
-		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li'))?.filter((_, i) => i >= ps && i <= pe).map(e => `<p>${e.textContent}</p>`).join('\n') || 'Error'
+		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li'))?.filter((_, i) => (i+1) >= ps && (i+1) <= pe).map(e => `<p>${e.textContent}</p>`).join('\n') || 'Error'
 	else if (sc && ps)
 		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li')[ps-1]?.textContent}</p>` || 'Error'
 	else if (sc)
@@ -217,14 +217,14 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	else
 		preview = `<p>${document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent}</p>` || 'Error'
 	if (preview.length >= 200)
-		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s,.-]*).*/, "$1...</p>")
+		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s\.]*).*/, "$1...</p>")
 
 	if (title[0])
 		l.setAttribute('data-title', title[0])
 	if (title[1] && ps && pe)
-		l.setAttribute('data-section', `<span>${title[1]}</span><span>paragraphs ${ps}-${pe}</span>`)
+		l.setAttribute('data-section', `<span>${title[1]}</span><span>paras. ${ps}-${pe}</span>`)
 	else if (title[1] && ps)
-		l.setAttribute('data-section', `<span>${title[1]}</span><span>paragraph ${ps}</span>`)
+		l.setAttribute('data-section', `<span>${title[1]}</span><span>para. ${ps}</span>`)
 	else if (title[1])
 		l.setAttribute('data-section', title[1])
 	else

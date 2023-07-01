@@ -607,6 +607,9 @@ header h2, .tile h2 {
   pointer-events: none;
   opacity: 0;
 }
+#popover > * {
+  padding: 0.5rem;
+}
 #popover.active {
   pointer-events: all;
   opacity: 1;
@@ -616,7 +619,7 @@ header h2, .tile h2 {
   flex-direction: column;
 }
 #popover .section {
-  line-height: 0.5lh;
+  line-height: 1lh;
 }
 
 #world, #characters, #races {
