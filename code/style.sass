@@ -17,16 +17,16 @@
 // $createlink: 'https://static.tumblr.com/k0xpxi3/x5Lrwtr2p/createlink.png'
 
 // - Development
-$smoke-bg: '../assets/smoke-bg.png'
-$leafveinhalf: '../assets/leafveinhalf.png'
+$smoke-bg: '../assets/smoke-bg.webp'
+$leafveinhalf: '../assets/leafveinhalf.webp'
 $createlink: '../assets/createlink.png'
-$bg-ras: '../assets/bg-ras.jpg'
-$bg-kitsunes: '../assets/bg-kitsunes.jpg'
+$bg-ras: '../assets/bg-ras.webp'
+$bg-kitsunes: '../assets/bg-kitsunes.webp'
 $bg-world: '../assets/bg-world.jpg'
-$bg-whisperwoodforest: '../assets/bg-whisperwoodforest.jpg'
-$bg-magicsystem: '../assets/bg-magicsystem.jpg'
-$bg-schoolsofmagic: '../assets/bg-schoolsofmagic.jpg'
-$bg-home: '../assets/bg-home.jpg'
+$bg-whisperwoodforest: '../assets/bg-whisperwoodforest.webp'
+$bg-magicsystem: '../assets/bg-magicsystem.webp'
+$bg-schoolsofmagic: '../assets/bg-schoolsofmagic.webp'
+$bg-home: '../assets/bg-home.webp'
 
 // //# ----------------------------------------
 // //# Mixins & Animations
@@ -398,6 +398,8 @@ section.blink *, section .blink
 		.dropdown:hover,
 		.dropdown:focus-within
 			transition-delay: 0s
+	#history
+		transition: border $tr-l ease
 .page
 	transition: transform $tr-vl ease, opacity $tr-vl ease, color $tr-s ease
 	&.tiled > .tile,
@@ -422,6 +424,8 @@ section.blink *, section .blink
 	transition: opacity $tr-vl ease
 #feedbackform, .btn-container>a.kofi-button
 	transition: background $tr-s ease
+#popover
+	transition: opacity $tr-s ease, top $tr-s ease, left $tr-s ease
 //# ----------------------------------------
 //# Borders
 //# ----------------------------------------
@@ -434,6 +438,7 @@ nav#topnav
 		border-top: none
 	#history:not(:empty)
 		border-block: solid 1px
+		border-color: var(--nav-txt, inherit)
 .sidebar
 	border-image: lg(bottom, 'currentColor, transparent')
 	border-image-slice: 1
@@ -531,15 +536,9 @@ nav#topnav
 		z-index: -1
 	#history
 		position: relative
-		color: var(--nav-txt)
-		background-image: lg(bottom, 'rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)')
-		&::before
-			content: ''
-			position: absolute
-			inset: 0
-			z-index: -1
-			background-color: var(--nav-txt-i)
-			opacity: .5
+		color: white
+		background-color: rgb(0 0 0 / .5)
+		backdrop-filter: blur(6px)
 		> a
 			position: relative
 			background-image: none
@@ -732,8 +731,22 @@ nav#topnav
 			font-size: 1.2em
 			margin-bottom: -.3rem
 	.section
+		display: flex
+		justify-content: center
 		font-size: 1.2em
 		font-weight: bold
+		:nth-child(2)
+			font-size: .8em
+			font-weight: normal
+			font-style: italic
+			&::before
+				content: '-'
+				margin: .5rem
+	.preview p
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
 
 [page-bg='ras']
 	background-image: url($bg-ras)

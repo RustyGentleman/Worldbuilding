@@ -21,11 +21,11 @@ for (const page of document.querySelectorAll('main > .page')) {
 	})
 	Object.defineProperty(popover, 'section', {
 		get: function() {return this.querySelector('.section')},
-		set: function(content) {this.querySelector('.section').textContent = content}
+		set: function(content) {this.querySelector('.section').innerHTML = content}
 	})
 	Object.defineProperty(popover, 'preview', {
 		get: function() {return this.querySelector('.preview')},
-		set: function(content) {this.querySelector('.preview').textContent = content}
+		set: function(content) {this.querySelector('.preview').innerHTML = content}
 	})
 }
 
@@ -114,24 +114,57 @@ function treecurrent() {
 	console.log(tree)
 	return tree
 }
+function pg2template() {
+	return (function(){
+		const pg = document.page.content
+		let out = `
+		title: '${trim(pg.querySelector('header h1'))}',
+		subtitle: '${(pg.querySelector('header h2'))? trim((pg.querySelector('header h2'))) : ''}',
+		sections: [${(function(){
+				return Array.from(pg.children).filter(e => e.tagName != 'HEADER' && e.tagName != 'SECTION')
+					.map(e => {
+return `
+			{
+				h: ${e.tagName.match(/\d/)[0]},
+				title: '${trim(e)}',
+				id: '${e.getAttribute('section-id')}',
+				elements: [${(function(){
+					return Array.from(e.nextElementSibling.children)
+						.map(p => {
+return `
+					{
+						tag: '${p.tagName}',
+						content: \`${p.innerHTML}\`,
+					},`
+						}).join('')
+			})()}\n\t\t\t\t]
+			},`
+					}).join('')
+			})()}\n\t\t]
+`
+	
+		return out
+		function trim(str) {
+			return str.innerText.replaceAll('\t','').replaceAll('\n',' ')
+		}
+	})()
+}
 
 //# ----------------------------------------
 //# Run on load
 //# ----------------------------------------
-window.addEventListener('load', () => {
-	//? Go to page and section on the link
-	const qparams = new URLSearchParams(window.location.search)
-	if (qparams.get('goto')){
-		document.querySelector('.current')?.classList.remove('current')
-		const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
-		setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
-	} else GoToPage('home')
-})
+//? Go to page and section on the link
+const qparams = new URLSearchParams(window.location.search)
+if (qparams.get('goto')){
+	document.querySelector('.current')?.classList.remove('current')
+	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
+	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
+} else GoToPage('home')
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
-	h.innerHTML = `<span>${h.innerHTML}</span><button></button>`
+	h.innerHTML = `<span>${h.innerHTML}</span><button aria-label="Copy a link to here"></button>`
 	h.lastElementChild.addEventListener('click', () => {
-		console.log(h.getAttribute('section-id').replaceAll('&', 'ý'))
+		// console.log(h.getAttribute('section-id').replaceAll('&', 'ý'))/
 		navigator.clipboard.writeText(
 			window.location.origin
 			+ window.location.pathname
@@ -158,7 +191,9 @@ const tg = document.createElement('button')
 }
 //? Gather link data
 document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
-	const [pg, sc, pr] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
+	if (l.getAttribute('page-link') == '' || l.getAttribute('section-link') == '')
+		return
+	const [pg, sc, ps, pe] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
 	// console.log(pg, sc, pr)
 	if (!document.getElementById(pg)) return
 
@@ -166,23 +201,31 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	let subtitle = document.getElementById(pg).querySelector('.content header h2')?.textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ') || ''
 	if (sc)
 		title.push(document.getElementById(pg).querySelector(`[section-id="${sc}"]`)?.textContent.trim().replaceAll('\t', '').	replaceAll('\n', ' '))
-	if (sc && pr)
-		title.push('Paragraph '+pr)
+	if (sc && ps && pe)
+		title.push(`Paragraphs ${ps}-${pe}`)
+	else if (sc && ps)
+		title.push(`Paragraph ${ps}`)
 	l.setAttribute('title', title.filter(e => !!e).join(' > '))
 
 	let preview = ''
-	if (sc && pr)
-		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li')[pr-1]?.textContent || 'Error'
+	if (sc && ps && pe)
+		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li'))?.filter((_, i) => i >= ps && i <= pe).map(e => `<p>${e.textContent}</p>`).join('\n') || 'Error'
+	else if (sc && ps)
+		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li')[ps-1]?.textContent}</p>` || 'Error'
 	else if (sc)
-		preview = document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.textContent || 'Error'
+		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.textContent}</p>` || 'Error'
 	else
-		preview = document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent || 'Error'
+		preview = `<p>${document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent}</p>` || 'Error'
 	if (preview.length >= 200)
-		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s,.-]*).*/, "$1...")
+		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s,.-]*).*/, "$1...</p>")
 
 	if (title[0])
 		l.setAttribute('data-title', title[0])
-	if (title[1])
+	if (title[1] && ps && pe)
+		l.setAttribute('data-section', `<span>${title[1]}</span><span>paragraphs ${ps}-${pe}</span>`)
+	else if (title[1] && ps)
+		l.setAttribute('data-section', `<span>${title[1]}</span><span>paragraph ${ps}</span>`)
+	else if (title[1])
 		l.setAttribute('data-section', title[1])
 	else
 		l.setAttribute('data-section', document.getElementById(pg).querySelector('.content > h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' '))
@@ -261,22 +304,25 @@ for (const page of document.querySelectorAll('main > .page'))
 		page.content?.addEventListener('mouseup', Page_RefreshSectionPointer, {once:true})
 	})
 for (const pl of document.querySelectorAll('[page-link]'))
-	pl.addEventListener('click', function() {
-		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
-		if (this.tagName != 'BUTTON')
-			AddToHistory()
-		GoToPage(pg, sc || null, pr || null)
-		document.activeElement.blur()
-	})
+	if (pl.getAttribute('page-link'))
+		pl.addEventListener('click', function() {
+			const [pg, sc, ps, pe] = [...this.getAttribute('page-link').split(':')]
+			// console.log(pg, sc, ps, pe)
+			if (this.tagName != 'BUTTON')
+				AddToHistory()
+			GoToPage(pg, sc || null, ps || null, pe || null)
+			document.activeElement.blur()
+		})
 for (const nb of document.querySelectorAll('button[page-link]'))
 	nb.addEventListener('click', () => document.history.innerHTML = '')
 for (const sl of document.querySelectorAll('[section-link]'))
-	sl.addEventListener('click', function() {
-		if (this.tagName != 'BUTTON')
-			AddToHistory()
-		GoToSection(this.getAttribute('section-link'))
-		document.activeElement.blur()
-	})
+	if (sl.getAttribute('section-link'))
+		sl.addEventListener('click', function() {
+			if (this.tagName != 'BUTTON')
+				AddToHistory()
+			GoToSection(this.getAttribute('section-link'))
+			document.activeElement.blur()
+		})
 
 //# ----------------------------------------
 //# Section tracking

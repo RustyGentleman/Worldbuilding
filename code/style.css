@@ -437,7 +437,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../assets/smoke-bg.png"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-image: url("../assets/smoke-bg.webp"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   background-size: 100% auto;
   -webkit-animation: bg-vert-scroll 1024s linear infinite;
           animation: bg-vert-scroll 1024s linear infinite;
@@ -483,7 +483,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   border-bottom-right-radius: 1rem;
   -webkit-mask-image: linear-gradient(to left, white, transparent);
           mask-image: linear-gradient(to left, white, transparent);
-  background-image: url("../assets/leafveinhalf.png");
+  background-image: url("../assets/leafveinhalf.webp");
   background-size: 100% auto;
   background-position: right center;
   background-blend-mode: overlay;
@@ -564,6 +564,9 @@ section.blink *, section .blink {
 #topnav > div .dropdown:focus-within {
   transition-delay: 0s;
 }
+#topnav #history {
+  transition: border 0.5s ease;
+}
 
 .page {
   transition: transform 1s ease, opacity 1s ease, color 0.3s ease;
@@ -603,6 +606,10 @@ section.blink *, section .blink {
   transition: background 0.3s ease;
 }
 
+#popover {
+  transition: opacity 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
 nav#topnav {
   border-bottom: solid 1px;
 }
@@ -615,6 +622,7 @@ nav#topnav > div > .dropdown {
 }
 nav#topnav #history:not(:empty) {
   border-block: solid 1px;
+  border-color: var(--nav-txt, inherit);
 }
 
 .sidebar {
@@ -738,16 +746,10 @@ nav#topnav .dropdown {
 }
 nav#topnav #history {
   position: relative;
-  color: var(--nav-txt);
-  background-image: linear-gradient(to bottom, rgba(0 0 0 / 40%), rgba(0 0 0 / 40%));
-}
-nav#topnav #history::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: var(--nav-txt-i);
-  opacity: 0.5;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
 }
 nav#topnav #history > a {
   position: relative;
@@ -961,16 +963,33 @@ nav#topnav #history > a:last-child::before {
   margin-bottom: -0.3rem;
 }
 #popover .section {
+  display: flex;
+  justify-content: center;
   font-size: 1.2em;
   font-weight: bold;
 }
+#popover .section :nth-child(2) {
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: italic;
+}
+#popover .section :nth-child(2)::before {
+  content: "-";
+  margin: 0.5rem;
+}
+#popover .preview p:first-child {
+  margin-top: 0;
+}
+#popover .preview p:last-child {
+  margin-bottom: 0;
+}
 
 [page-bg=ras] {
-  background-image: url("../assets/bg-ras.jpg");
+  background-image: url("../assets/bg-ras.webp");
 }
 
 [page-bg=kitsunes] {
-  background-image: url("../assets/bg-kitsunes.jpg");
+  background-image: url("../assets/bg-kitsunes.webp");
 }
 
 [page-bg=world] {
@@ -978,18 +997,18 @@ nav#topnav #history > a:last-child::before {
 }
 
 [page-bg=whisperwoodforest] {
-  background-image: url("../assets/bg-whisperwoodforest.jpg");
+  background-image: url("../assets/bg-whisperwoodforest.webp");
 }
 
 [page-bg=magicsystem] {
-  background-image: url("../assets/bg-magicsystem.jpg");
+  background-image: url("../assets/bg-magicsystem.webp");
 }
 
 [page-bg=schoolsofmagic] {
-  background-image: url("../assets/bg-schoolsofmagic.jpg");
+  background-image: url("../assets/bg-schoolsofmagic.webp");
 }
 
 [page-bg=home] {
-  background-image: url("../assets/bg-home.jpg");
+  background-image: url("../assets/bg-home.webp");
 }
 /*# sourceMappingURL=style.css.map */
