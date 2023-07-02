@@ -44,7 +44,7 @@
 <body current="home">
 	<nav id="topnav">
 		<div>
-			<button page-link="home" tabindex="0">
+			<button page-link="home" aria-label="Home" tabindex="0">
 				<svg viewBox="0 0 80 69" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M14.6458 68.1029V32.6497H0.749969L39.8782 1.34052L79.0064 32.6497H65.1106V68.1029H47.1832V44.6976H32.5731V68.1029H14.6458Z" fill="currentColor"/>
 					<path d="M32.5731 68.1029H14.6458V32.6497H0.749969L39.8782 1.34052L79.0064 32.6497H65.1106V68.1029H47.1832M32.5731 68.1029V44.6976H47.1832V68.1029M32.5731 68.1029H47.1832" stroke="currentColor" stroke-linejoin="round"/>
@@ -96,6 +96,7 @@
 			<div class="content">
 				<header>
 					<h1>Yet Unnamed</h1>
+					<h2>a Worldbuilding Project</h2>
 				</header>
 				<h1 section-id="about">About</h1>
 				<section>
@@ -121,15 +122,18 @@
 								<li>Page, code and style changes</li>
 								<ul>
 									<li>Small style changes, such as section spacings, <a page-link="fauna">Fauna</a> and <a page-link="flora">Flora</a> section colors, among others.</li>
-									<li>Added backgrounds to <a page-link="home">Home</a> (with permission), <a page-link="magicsystem">Magic System</a>, <a page-link="schoolsofmagic">Schools of Magic</a> and <a page-link="whisperwoodforest">Whisperwood Forest</a> (permission pending).</li>
+									<li>Compressed assets.</li>
+									<li>Small accessibility improvements.</li>
 									<li>Navigation history improved.</li>
-									<li>Implemented popovers for in-page navigation links, showing an excerpt from where it points to.</li>
+									<li>Added backgrounds to <a page-link="home">Home</a> (with permission), <a page-link="magicsystem">Magic System</a>, <a page-link="schoolsofmagic">Schools of Magic</a> and <a page-link="whisperwoodforest">Whisperwood Forest</a> (permission pending).</li>
+									<li>Implemented popovers such as <a page-link data-title="Page" data-subtitle="an Interesting Subtitle" data-section="<span>Section</span><span>paragraph</span>" data-preview="Here is an excerpt from where the link points to.">this</a> for in-page navigation links, showing an excerpt from where it points to.</li>
 								</ul>
 								<li>Content changes</li>
 								<ul>
 									<li><b><a page-link="fauna">Fauna</a></b> - Added <a page-link="fauna:wolfcatcherdeer">Wolfcatcher Deer</a> and <a page-link="fauna:harmonare">Harmonare</a>.</li>
 									<li><b><a page-link="whisperwoodforest">Whisperwood Forest</a></b> - Added sections about the region's <a page-link="whisperwoodforest:settlements">settlements</a> and its <a page-link="whisperwoodforest:geology&climate">geology and climate</a>, including the <a page-link="whisperwoodforest:winterblushpeaks">Winterblush Peaks</a>.</li>
 									<li><b><a page-link="crestbendharbor">Crestbend Harbor</a></b> - Written, added and integrated.</li>
+									<li><b><a page-link="ras">Ras Silverleaf</a></b> - Added and expanded on previously existing descriptions of his home, including <a page-link="ras:cabin">the cabin</a>, <a page-link="ras:garden">the garden</a>, and <a page-link="ras:lake">the lake</a>.</li>
 									<li>Fixed a few spelling mistakes.</li>
 								</ul>
 							</ul>
@@ -937,6 +941,15 @@
 						<button class="header-pointer" section-link="obi"><span>Silk Obi</span></button>
 						<button class="header-pointer" section-link="kimono"><span>Embroidered Kimono</span></button>
 						<button class="header-pointer" section-link="haori"><span>Haori</span></button>
+						<button class="header-pointer" section-link="home"><b>Home</b></button>
+						<button class="header-pointer" section-link="garden"><span>Garden</span></button>
+						<button class="header-pointer" section-link="cabin"><span>Cabin</span></button>
+						<button class="header-pointer" section-link="kitchen"><i>Kitchen</i></button>
+						<button class="header-pointer" section-link="storage"><i>Storage</i></button>
+						<button class="header-pointer" section-link="livingroom"><i>Living Room</i></button>
+						<button class="header-pointer" section-link="den&workshop"><i>Den & Workshop</i></button>
+						<button class="header-pointer" section-link="loftbedroom"><i>Loft Bedroom</i></button>
+						<button class="header-pointer" section-link="lake"><span>Lake</span></button>
 					</div>
 				</div>
 
@@ -947,7 +960,7 @@
 				<a page-link="whisperwoodforest">Whisperwood Forest</a>
 				<a page-link="crestbendharbor">Crestbend Harbor</a>
 
-				<span class="last-updated">Last updated:<br>June 10th, 2023</span>
+				<span class="last-updated">Last updated:<br>July 1st, 2023</span>
 				<small class="credit">Background artwork from <a href="https://louise-auxcimes.tumblr.com/post/673841705147039744/the-summit-of-the-gods-2021" target="_blank">The Summit of the Gods, 2021</a>. Used with permission from the artist.</small>
 			</nav>
 			<div class="content">
@@ -1013,7 +1026,7 @@
 					<p>Eventually, as he delved into <a page-link="whisperwoodforest">the Whisperwood Forest</a> he decided to settle at a village there, through which passed a road that connected more northern regions to <a page-link="crestbendharbor">Crestbend Harbor</a>. This promised a near-constant stream of new people, commoners and merchants alike, passing by the village, including people of races he'd never seen before. The charm and mystique of the surrounding environment was another reason for his decision to stay there, as he was eager to study what different and unique animals and plants he could find there.</p>
 					<p>He was quick make friends with locals, especially the village apothecary and the smith/carpenter, from which he sought apprenticeships. Though he had to be more discrete in his intimate relations, he still sought after passersby, especially those he found attractive, interesting or peculiar. Balancing his time between learning different things and mingling with villagers and passersby alike, he still made time to journey out in secret to explore the surrounding areas, often taking notes. It was in one of these surveys that he found the lake near which he'd later move to, and during which he began to <a section-link="communion">commune</a> with the <a page-link="flora:whisperwoodoak">whisperwoods</a> themselves.</p>
 					<p>By the time he was nearing his mid twenties, he was fairly well liked and respected in the village, seen by acquaintances as a scholarly man, and by friends as a witty, playful and caring person. The village grew as traffic through the road increased, however, and merchant stalls and shops began to appear along it. For him, it was getting much too lively for comfort, so he planned ahead and picked a spot nearby in the woods to build himself a home.</p>
-					<p>At about the age of twenty four was when he started cutting a clearing, near a gentle slope that led down towards the western side of the lake. Using the wood, he started building a comfortably-sized (for one) wooden cabin, and picked stones from a nearby river to build a fireplace, as winters did get dangerously cold there. It took him about two and a half years, working whenever the weather allowed, to get to a point where he could finally move in.</p>
+					<p>At about the age of twenty four was when he started cutting a clearing, near a gentle slope that led down towards the western side of the lake. Using the wood, he started building a comfortably-sized (for one) wooden cabin, and picked stones from a nearby river to build a fireplace, as harsh winters did come in the region. It took him about two and a half years, working whenever the weather allowed, to get to a point where he could finally move in. He has continually worked on it since, however, making additions and improvements.</p>
 				</section>
 				<h3 section-id="communion">Communion</h3>
 				<section>
@@ -1129,6 +1142,71 @@
 				<section>
 					<p>A pure white, hip-length haori - essentially a jacket with loose, wide sleeves - hemmed in black. Its lining is dyed black, and painted in an elaborate bamboo leaf pattern, symbolizing calmness and tranquility.</p>
 					<p>It isn't used often, generally reserved for colder days in which he can't be bothered to enchant his clothes for warmth. How he came into possession of it is unclear, though, given its style, either he had it tailored for him as well, or it was a fairly lucky find.</p>
+				</section>
+				<h1 section-id="home">Home</h1>
+				<section>
+					<p>His current home in <a page-link="whisperwoodforest">the forest</a> consists of a <a section-link="garden">lush garden</a>, in which he cultivates a variety of both plants and fungi, and a <a section-link="cabin">cozy wooden cabin</a> situated uphill from a <a section-link="lake">lake</a>. It was built out of wood from the trees he cut to open the clearing, which is now consists the garden.</p>
+					<p>What he considers his home spans more than just his cabin, however. Aside from his garden, he considers the lake to the near-east part of his home too, as well as the surrounding forest, in a certain radius.</p>
+					<p>In an attempt to keep nosy passersby from simply wandering into his home, he employs a <a page-link="magicsystem:spellproxies">spell proxy</a> that casts a discreet <a page-link="schoolsofmagic:illusion">illusion</a> spell that drives wanderers away from his home.</p>
+				</section>
+				<h2 section-id="garden">Garden</h2>
+				<section>
+					<p>A clearing carved into the woods and made into a garden, which his <a section-link="cabin">cabin</a> sits at the east-southeastern edge of. Its shape is roughly elliptical, though it also extends towards the sides of the cabin, somewhat.</p>
+					<p>Gently curving paths of river stones cut and weave through it like veins, dividing it into sections where different kinds of plants and fungi are grown. Some of these sections have been altered to mimic different environments, which, while requiring more maintenance, also allows for the cultivation of a wider variety of species, some of which are difficult to find, or are only naturally available in difficult to reach places.</p>
+					<p>The garden is home to a diversity of types and species of plants, from grasses and shrubs to some small trees, as well as some lichens and fungi. Flowers of different shapes and colors, berries sweet and tart, herbs, fruits, and even tubers are harvested throughout much of the year. While much of what he cultivates consists of edible and medicinal plants - especially berries, teas and plants that have some form of recreative use or psychoactive component - many are also alchemical ingredients, some of which may be sold for a significant amount of coin.</p>
+					<p>There is a central section, which mostly consists of moss- and lichen-covered rocks and boulders. Among them is a large geode, roughly 1.5 meters (or 5 feet) in diameter at its widest point. It is whole, so what's inside the geode isn't known, though its relatively low weight and the resonant sound it makes when struck hint that it is. The geode was found on the surface, within the forest, and rolled into its current place - with... a significant amount of effort, over the span of a few days.</p>
+					<p>Ras will sometimes sit or lay upon these boulders to enjoy a light breeze, observe passing animals, meditate, or gaze at the clouds or stars - the heat they retain from bathing in sunlight can make them fairly cozy, if somewhat spartan, seating.</p>
+				</section>
+				<h2 section-id="cabin">Cabin</h2>
+				<section>
+					<p>A reasonably sized wooden cabin, roughly square in shape. Notably, it lacks inner walls, the open space lending it a fairly spacious feel, despite the small footprint. Instead, the fireplace, support beams, and furniture divide the indoor space. Adding to its cozy feel are its wooden floors - except immediately near the fireplace and stove, where stone tiles take their place - and a small variety of rugs placed here and there.</p>
+					<figure>
+						<img src="https://static.tumblr.com/k0xpxi3/s9jrmo0hu/home.png" alt="A draft of the cabin's floor plan">
+						<figcaption>A rough draft of the cabin's interior. Not completely accurate, or to scale.</figcaption>
+					</figure>
+					<p>The space is divided into four sections: a <a page-link="ras:kitchen">quaint kitchen</a> at the far left, a <a page-link="ras:storage">busy storage area</a> in the far right, a <a page-link="ras:livingroom">living room</a> at the near left, and a <a page-link="ras:den&workshop">cozy space for activities</a> immediately to the left, which is subdivided into a workshop toward the front, and a study, or <i>den</i>, near the fireplace - which is double-sided, and shared with the kitchen.</p>
+					<p>A loft spans over the back half of the cabin, where he sleeps. Being closer to the ceiling, where warm air accumulates, makes for quite a <a page-link="ras:bedroom">cozy and reserved sleeping space</a>, especially during winter. An u-shaped set of stairs, between the storage area and the living room, leads to it.</p>
+					<p>A small porch extends across the front of the cabin, covered by a shallow sloping roof. While there it is adorned with a rocking chair and a bench, its purpose is mostly to prevent dirt from being tracked indoors - though it still is, and he doesn't really mind it much. A small woodshed was built near the northeastern side of the cabin.</p>
+				</section>
+				<h3 section-id="kitchen">Kitchen</h3>
+				<section>
+					<p>A small but sufficiently well-equipped kitchen, placed in the far left corner of the cabin. The fireplace it shares with the <a page-link="ras:den&workshop:2:3">den</a> has a larger opening on this side, allowing for the use of cauldrons and larger pots. A stone brick stove is built into the side wall as well, with the back exposed to the outside - a post-construction addition. Together, they allow for a variety of dishes to be prepared, which serves his novel-seeking tendencies.</p>
+					<p>Against the back wall, a counter with drawers and cabinets sits under a window, which is framed by shelves filled with bowls and jars of spices, teas (which he loves), and other herbs and ingredients. The window provides a nice view of <a page-link="ras:lake">the nearby lake</a> and its northern bank - where hares, squirrels and other small mammals can often be seen going by - the surrounding forest, and, in the distance, the <a page-link="whisperwoodforest:winterblushpeaks">Winterblush Peaks</a>. A door sits to the left of the counter, leading out the back of the cabin.</p>
+					<p>A small round table complements the quaint kitchen, with only two opposing chairs - it isn't as though he's often visited by more than one person, after all.</p>
+				</section>
+				<h3 section-id="storage">Storage</h3>
+				<section>
+					<p>A busy but reasonably well organized storage area sits in the far right. Tall shelves sit against the side and back walls, with crates and sacks of foodstuffs, materials and other things. The area extends into the space beneath the stairs as well, where more crates and sacks lie somewhat haphazardly in piles. A sturdy table sits against the stair supports, in front of which a long rug, made of woven plant fibers, runs lengthwise.</p>
+					<p>Between the stairs and the cabin's right wall, there is a smallish, shallow compartment inset into the floor, lined with stone and topped with a trapdoor that sits flush with the wooden floor. In <i>his</i> mind, this compartment may remain cooler than the house itself and the outside, and thus potentially able to keep meat fresh for a day or two longer than it otherwise would, especially in summer and spring. Its effectiveness is... unclear, however, as it is equally possible that he is simply highly resistant to food poisoning. Much of what he hunts is either eaten fresh or dried for storage, anyhow.</p>
+				</section>
+				<h3 section-id="livingroom">Living Room</h3>
+				<section>
+					<p>The space to the right of the entrance is essentially a living room. A three-seat couch sits with its back facing the left, as if denoting a corridor extending from the front door. It is simple in construction: a wooden frame with animal pelts for cushions. Another sits with its back against the front wall, under a window that spans from near the front door to around the corner, providing a nice view of the garden and the southern edge of the clearing.</p>
+					<p>A rectangular wooden coffee table sits in the middle of this space. It has been polished smooth and treated with a dark stain, which accentuates the wood's natural grain. A small ceramic pot sits at its center, housing a small plant he'd found growing on <a page-link="whisperwoodforest:winterblushpeaks">the mountainside</a>, which grows flowers with white, blue-tipped petals.</p>
+					<p>Against the side wall, opposing the first couch, stands a console and, to the left of it, a standing shelf, both polished and stained similarly to the coffee table, albeit a shade lighter. Both are filled with trinkets and baubles, most carved from wood and bone, others from rocks, or sculpted from clay, along with crystals and pretty-looking rocks - many of which are gifts from fellow forest dwellers - and small pots with plants and mosses. A deer skull, carved with decorative swirling patterns and mounted on a base, sits centered atop the console, with a pair of antlers formed in <a page-link="fauna:wolfcatcherdeer:2">elegant, fluid arcs</a>.</p>
+				</section>
+				<h3 section-id="den&workshop">Den & Workshop</h3>
+				<section>
+					<p>Occupying a little more than a quarter of the cabin's space, this is where Ras spends much of his free time - sat in his armchair by the fireplace, indulging on his various interests, or at his workbench, working on some design or trinket.</p>
+					<p>A simple but very comfy-looking armchair sits by the fireplace, facing it diagonally, away from <a page-link="ras:livingroom">the living room</a>. Much like the couches in the living room, it is simply a wooden frame with animal pelts for cushions, but with decorative carvings along the arms and behind the back. It is also built to his size, so it might look a bit large for most visitors. A small rug runs across its front, where his feet rest, and a soft floor pillow sits against its right side. A small round table also sits beside it, where his smoking pipe usually rests.</p>
+					<p>A bookcase, tall but somewhat thin, sits against the cabin's left wall, directly facing the armchair. Among pots with decorative arrangements of stones, mosses, and flowers or dangling plants, a small collection of books sit upon its shelves - mostly <a page-link="ras:developed:1">martial arts manuals</a> and books on various <a page-link="magicsystem">aspects</a> and <a page-link="schoolsofmagic">schools of magic</a>.</p>
+					<p>Against the cabin's front wall sits a spacious, sturdily built workbench, often cluttered with various tools and bits of cloth, tanned leather and other materials, as well as sheets of paper with notes and design sketches. The very back of the workbench extends up into a shelf, where more tools, writing utensils and a number of crafting manuals sit. A fist-sized chunk of raw citrine sits in the corner, beneath the shelf - an interesting find of his, the color of which is reminiscent to that of his eyes.</p>
+					<p>Beside the workbench sit a barrel and a large chest, both similarly filled to the brim with raw materials - rolls of cloth and leather, animal pelts and furs, pieces of wood, bone and horns, even sacks of pretty or interesting rocks and gems. The chest itself is so full it probably couldn't be closed, if one tried.</p>
+				</section>
+				<h3 section-id="loftbedroom">Loft Bedroom</h3>
+				<section>
+					<p>An u-shaped set of stairs, between the living room and the storage corner, leads up to a loft that spans the back of the cabin, which serves as a bedroom. It is sparsely furnished, with only a bed, a set of nightstands - one on each side - a chest, and a dresser.</p>
+					<p>A spacious bed sits low against the gable, which takes the form of a large window past the height of the headboard - despite not spending much of his waking time there, he made it a point to make a comfortable bed, with space for two plus extra. Its short headboard, designed to let the sun wake him in the morning, is carved with curved, swirly patterns and sculped in nature motifs - quite reminiscent of <a page-link="elves:music&arts:1:2">elven art</a>. A somewhat hefty animal fur cover lays haphazardly across the foot end of the bed, reserved for harsh winter nights wherein layers of mere fabric won't suffice.</p>
+					<p>A chest, as wide as the bed itself, sits immediately in front of it, its cushioned lid almost serving as an extension. Within it are stored sheets, covers, towels and, notably, the old clothes he used to wear in <a page-link="ras:teenagehood:3:4">his time at the village</a> - pants and shirts, rather than his now-usual single-piece apparels.</p>
+				</section>
+				<h2 section-id="lake">Lake</h2>
+				<section>
+					<p>Out from behind the cabin, to the east, the terrain soon curves down into a gentle slope, leading towards a small spring-fed lake. A narrow trail of trodden grass - shorter and a shade darker - leads down the slope, around the northern side of the lake, and on west into the forest.</p>
+					<p>A fire pit and sitting area sit on a flatter section of the slope, to the south of the trail that leads down it. A ring of stones surround the pit, with a small divot of charred earth within, and an area of compacted dirt without. Two halves of a mostly-straight log sit in a half-circle around it for seating.</p>
+					<p>The lake's crystal-clear waters come from aquifers in the region, which feeds into it via a spring. A small variety of aquatic and semi-aquatic plants live within and at the edge of its waters, as well as animals such as fishes - including the <a page-link="fauna:moonlightperch">moonlight perch</a> - small crustaceans, insects, and even some frogs. Some species of waterfowl may also be seen at certain times of the year, stopping by to rest and feed as they migrate.</p>
+					<p>The lake is a most beautiful sight at night, when the darkness allows the glow of the moonlight perch to show through and illuminate the water from within - on nights when the waters are calm, they may be see so clearly one might convince themselves they're simply flying through air. During the warmer months of the year, they're joined by the blinking yellow-green lights of fireflies, which makes for quite the spectacle.</p>
+					<p>The trail that leads around its northern side splits and extends into the lake in the form of a small pier, at about halfway from the western to the eastern edge. It isn't as well built as would be ideal, but is sturdy enough to serve as a relaxing spot, a diving platform, and a mooring point for a small boat.</p>
+					<p>The lake's northern bank consists of a small glade of mostly flat terrain, with a few small groups of trees strewn about, while the southern edge consists almost entirely of a series of large boulders that almost seem to keep the short hill which leans on them from falling in. The forest peers over the lake from upon this hill, the canopy extending over the edge of the lake - quite a nice place to sit and relax on warmer days.</p>
 				</section>
 			</div>
 		</article>
