@@ -182,6 +182,11 @@ body
 		--pg-acc-hsl: 212 100% 55%
 		--pg-acc-txt: hsl(212 100% 55%)
 		--pg-acc-d: hsl(212 100% 30%)
+	&[current='wolfkins']
+		--pg-acc: hsl(226,100%,50%)
+		--pg-acc-hsl: 226 100% 50%
+		--pg-acc-txt: hsl(216,100%,50%)
+		--pg-acc-d: hsl(226 100% 30%)
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
