@@ -73,15 +73,16 @@ a
 //* Scrollbar
 .content, .page
 	&::-webkit-scrollbar-track
-		background-color: transparent
+		background-color: var(--pg-bg, black)
 	&::-webkit-scrollbar
-		width: 10px
+		width: 12px
 	&::-webkit-scrollbar-thumb
 		background-image: lg(bottom, 'var(--pg-acc-d), var(--pg-acc), var(--pg-acc-d)')
 		background-color: var(--pg-acc)
 		box-shadow: none
 		border-radius: 0
 		border: none
+		border-inline: solid 1px var(--pg-bg, black)
 		transition: background $tr-vl ease
 
 //# ----------------------------------------
