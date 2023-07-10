@@ -250,6 +250,24 @@
   opacity: 1;
 }
 
+#wolfkins.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#wolfkins.current.tiled {
+  display: flex;
+}
+#wolfkins.current:not(.content-only) > .content,
+#wolfkins.current > .sidebar {
+  transform: translateX(0%);
+}
+#wolfkins.current.tiled > .tile,
+#wolfkins.current .tiled > .tile, #wolfkins.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 #elvenempire.current {
   display: grid;
   pointer-events: all;
@@ -405,13 +423,17 @@ main {
 
 .sidebar {
   position: relative;
-  height: calc(100vh - 2rem);
+  height: calc(100vh - 2rem - 1rem);
   width: 10rem;
   max-width: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 0.5rem;
+  padding: 0.5rem;
+}
+.sidebar > .left-scrollbar {
+  margin-right: -0.5rem;
+  margin-left: -0.4rem;
 }
 .sidebar .header,
 .sidebar .credit {
@@ -629,12 +651,12 @@ header h2, .tile h2 {
 #home section ul {
   list-style-type: disclosure-closed;
 }
-#home section ul li {
-  text-indent: -1rem;
-  padding-left: 1rem;
-}
 #home section ul ul {
   list-style-type: square;
+}
+#home section ul ul li {
+  text-indent: -1rem;
+  padding-left: 1rem;
 }
 #home section ul ul ul {
   list-style-type: disc;
