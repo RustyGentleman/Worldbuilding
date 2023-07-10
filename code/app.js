@@ -290,10 +290,6 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	})
 }
 
-// document.querySelectorAll('.sidebar').forEach(bar => {
-// 	bar.prepend(tg)
-// })
-
 //# ----------------------------------------
 //# Event listeners
 //# ----------------------------------------
