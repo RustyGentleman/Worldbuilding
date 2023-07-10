@@ -147,13 +147,16 @@ main
 		display: none
 .sidebar
 	position: relative
-	height: calc(100vh - 2rem)
+	height: calc(100vh - 2rem - 1rem)
 	width: 10rem
 	max-width: 30vw
 	display: flex
 	flex-direction: column
 	justify-content: center
-	padding-left: .5rem
+	padding: .5rem
+	> .left-scrollbar
+		margin-right: -0.5rem
+		margin-left: -0.4rem
 	.header,
 	.credit
 		text-align: center
