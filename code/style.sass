@@ -686,6 +686,20 @@ nav#topnav
 	.kofitext img.kofiimg
 		height: 1rem !important
 		width: auto !important
+	[section-id='changes'] + section > ul
+		padding-inline-start: 1rem
+		ul
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				inset: 0
+				top: .5lh
+				bottom: .5lh
+				--x: 1.6rem
+				background-image: linear-gradient(to right, transparent calc(var(--x) - 1px), currentColor calc(var(--x) - 1px), calc(var(--x) + 0px), transparent calc(var(--x) + 0px))
+				opacity: .5
+				z-index: -1
 #ras
 	section.subcolumns
 		> div.phy
