@@ -600,18 +600,8 @@ nav#topnav
 		box-shadow: 0 0 5rem 0.3rem rgb(0 0 0)
 		clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
 	section
-		ul li
-			// &::marker
-			// 	content: ''
-			// &::before
-			// 	content: '•'
-			// 	display: inline-block
-			// 	width: 1rem
-			// 	font-size: 1.3em
-			// 	font-weight: bolder
-			// 	transform: translateY(.05rem)
 		&.subcolumns
-			> :not(.escape)
+			> *
 				border-right: solid 1px
 				border-image: lg(top, 'transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent')
 				border-image-slice: 1

@@ -830,16 +830,16 @@ nav#topnav #history > a:last-child::before {
   -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
           clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
 }
-.content section.subcolumns > :not(.escape) {
+.content section.subcolumns > * {
   border-right: solid 1px;
   -o-border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
      border-image: linear-gradient(to top, transparent, var(--pg-acc) 40%, var(--pg-acc) 60%, transparent);
   border-image-slice: 1;
 }
-.content section.subcolumns > :not(.escape):first-of-type {
+.content section.subcolumns > *:first-of-type {
   padding-left: 0;
 }
-.content section.subcolumns > :not(.escape):last-of-type {
+.content section.subcolumns > *:last-of-type {
   padding-right: 0;
   border: none;
 }
