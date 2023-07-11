@@ -728,15 +728,17 @@ nav#topnav
 			p b:not(.escape)
 				color: hsl(60,89%,89%)
 #popover
-	background-color: var(--pg-bg)
-	border: solid 1px
+	background-color: rgb(0 0 0 / .5)
+	// background-color: var(--pg-bg)
+	border: outset 5px
 	border-radius: .5rem
 	--x: 0
 	--y: 0
 	left: min(calc(1rem + var(--x)), calc(100vw - 20.5rem))
 	top: min(calc(-1rem + var(--y)), 100vh)
 	border-color: var(--pg-acc)
-	box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 12rem -5rem black
+	box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black
+	backdrop-filter: blur(20px) url(#glass) contrast(1.1)
 	> *:not(:last-child)
 		border-image: lg(right, 'transparent, var(--pg-acc), transparent')
 		border-image-slice: 1
