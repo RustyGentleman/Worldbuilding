@@ -162,7 +162,7 @@ if (qparams.get('goto')){
 } else GoToPage('home')
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
-	h.innerHTML = `<span>${h.innerHTML}</span><button aria-label="Copy a link to here"></button>`
+	h.innerHTML = `<div>${h.innerHTML}<button aria-label="Copy a link to here"></button></div>`
 	h.lastElementChild.addEventListener('click', () => {
 		// console.log(h.getAttribute('section-id').replaceAll('&', 'ý'))/
 		navigator.clipboard.writeText(
@@ -289,6 +289,10 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 		})
 	})
 }
+//? Section header decorations
+document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div').forEach(h => {
+	h.innerHTML = `<div class="h-left"></div>${h.innerHTML}<div class="h-right"></div>`
+})
 
 //# ----------------------------------------
 //# Event listeners

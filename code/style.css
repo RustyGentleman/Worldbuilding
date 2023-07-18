@@ -74,6 +74,10 @@ body {
   --pg-sec-invert: 0;
   --nav-txt: white;
   --nav-txt-i: black;
+  --pg-sec-h: 290;
+  --pg-sec-b: 2;
+  --pg-sec-s: 1;
+  --pg-sec-i: 0;
   color: var(--pg-txt);
   background-color: var(--pg-bg);
   --c-foxfire-d: hsl(220 100% 50%);
@@ -85,6 +89,8 @@ body[current=home] {
   --pg-acc-txt: hsl(115 45% 50%);
   --pg-acc-d: hsl(115,40%,31%);
   --pg-txt: white;
+  --pg-sec-h: 100;
+  --pg-sec-b: 2.3;
 }
 body[current=ras] {
   --pg-acc: hsl(203 100% 50%);
@@ -93,6 +99,8 @@ body[current=ras] {
   --pg-acc-d: hsl(203 100% 30%);
   --pg-txt: white;
   --pg-tint: hsl(50 100% 25%);
+  --pg-sec-h: 230;
+  --pg-sec-b: 2;
 }
 body[current=kitsunes] {
   --pg-acc: hsl(5 100% 30%);
@@ -100,6 +108,8 @@ body[current=kitsunes] {
   --pg-acc-txt: hsl(5 100% 55%);
   --pg-acc-d: hsl(5 100% 20%);
   --pg-txt: white;
+  --pg-sec-h: 20;
+  --pg-sec-b: 3;
 }
 body[current=world] {
   --pg-bg: hsl(32 24% 57%);
@@ -109,24 +119,32 @@ body[current=world] {
   --pg-acc-d: hsl(32 24% 32%);
   --pg-txt: black;
   --pg-txt-i: white;
+  --pg-sec-h: 0;
+  --pg-sec-b: 0;
 }
 body[current=whisperwoodforest] {
   --pg-acc: hsl(342,99%,37%);
   --pg-acc-hsl: 342 99% 37%;
   --pg-acc-txt: hsl(347,95%,46%);
   --pg-acc-d: hsl(342 99% 25%);
+  --pg-sec-h: 0;
+  --pg-sec-b: 50;
 }
 body[current=magicsystem] {
   --pg-acc: hsl(268 100% 60%);
   --pg-acc-hsl: 268 100% 50%;
   --pg-acc-txt: hsl(268 100% 69%);
   --pg-acc-d: hsl(268 100% 30%);
+  --pg-sec-h: 200;
+  --pg-sec-b: 2;
 }
 body[current=schoolsofmagic] {
   --pg-acc: hsl(234,100%,60%);
   --pg-acc-hsl: 234 100% 50%;
   --pg-acc-txt: hsl(234 100% 69%);
   --pg-acc-d: hsl(234 100% 30%);
+  --pg-sec-h: 270;
+  --pg-sec-b: 1.5;
 }
 body[current=elves] {
   --pg-acc: hsl(60,81%,90%);
@@ -135,6 +153,9 @@ body[current=elves] {
   --pg-acc-d: hsl(60,11%,65%);
   --nav-txt: black;
   --nav-txt-i: white;
+  --pg-sec-h: 65;
+  --pg-sec-b: 3.2;
+  --pg-sec-s: .4;
 }
 body[current=elvenempire] {
   --pg-acc: hsl(54,76%,59%);
@@ -143,30 +164,40 @@ body[current=elvenempire] {
   --pg-acc-d: hsl(54,61%,27%);
   --pg-txt: white;
   --pg-tint: hsl(50 100% 25%);
+  --pg-sec-h: 69;
+  --pg-sec-b: 5;
+  --pg-sec-s: 0;
 }
 body[current=fauna] {
   --pg-acc: hsl(0,90%,40%);
   --pg-acc-hsl: 0 90% 40%;
   --pg-acc-txt: hsl(0 90% 50%);
   --pg-acc-d: hsl(0 90% 30%);
+  --pg-sec-h: 0;
+  --pg-sec-b: .5;
 }
 body[current=flora] {
   --pg-acc: hsl(115,76%,43%);
   --pg-acc-hsl: 115 76% 43%;
   --pg-acc-txt: hsl(115 76% 43%);
   --pg-acc-d: hsl(115 76% 30%);
+  --pg-sec-h: 100;
 }
 body[current=crestbendharbor] {
   --pg-acc: hsl(212,100%,55%);
   --pg-acc-hsl: 212 100% 55%;
   --pg-acc-txt: hsl(212 100% 55%);
   --pg-acc-d: hsl(212 100% 30%);
+  --pg-sec-h: 240;
+  --pg-sec-b: 2;
 }
 body[current=wolfkins] {
   --pg-acc: hsl(226,100%,50%);
   --pg-acc-hsl: 226 100% 50%;
   --pg-acc-txt: hsl(216,100%,50%);
   --pg-acc-d: hsl(226 100% 30%);
+  --pg-sec-h: 243;
+  --pg-sec-b: .6;
 }
 
 #home.current ~ [page-bg=home] {
@@ -485,48 +516,71 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
 }
 
 .page .content > h1, .page .content > h2, .page .content > h3 {
-  position: relative;
+  --w: 20rem;
+  --h: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.page .content > h1::before, .page .content > h1::after, .page .content > h2::before, .page .content > h2::after, .page .content > h3::before, .page .content > h3::after {
-  --size: 10rem;
-  --height: 100%;
-  content: "";
+.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .content > h1 > div .h-left, .page .content > h1 > div .h-right, .page .content > h2 > div .h-left, .page .content > h2 > div .h-right, .page .content > h3 > div .h-left, .page .content > h3 > div .h-right {
+  width: var(--w);
+  height: var(--h);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: var(--height);
-  width: var(--size);
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
   background-color: var(--pg-acc);
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  -webkit-mask-image: linear-gradient(to left, white, transparent);
-          mask-image: linear-gradient(to left, white, transparent);
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/leafveinhalf.webp");
-  background-size: 100% auto;
-  background-position: right center;
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
   background-blend-mode: overlay;
+  -webkit-mask-image: linear-gradient(to left, white, white, transparent);
+          mask-image: linear-gradient(to left, white, white, transparent);
+  filter: url(#wavyh2);
+  overflow: hidden;
 }
-.page .content > h1::before, .page .content > h2::before, .page .content > h3::before {
-  margin-left: calc(var(--size) * -1 - 1rem);
+.page .content > h1 > div .h-left::after, .page .content > h1 > div .h-right::after, .page .content > h2 > div .h-left::after, .page .content > h2 > div .h-right::after, .page .content > h3 > div .h-left::after, .page .content > h3 > div .h-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/leafvein.webp);
+  background-size: 12rem;
+  -webkit-mask-image: linear-gradient(to left, transparent, white, white);
+          mask-image: linear-gradient(to left, transparent, white, white);
+  filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) saturate(var(--pg-sec-s, 1)) invert(var(--pg-sec-i));
 }
-.page .content > h1::after, .page .content > h2::after, .page .content > h3::after {
-  margin-left: 1rem;
-  transform: translateY(-50%) rotate(180deg);
+.page .content > h1 > div .h-left, .page .content > h2 > div .h-left, .page .content > h3 > div .h-left {
+  right: calc(100% + 1rem);
 }
-.page .content > h1::before, .page .content > h1::after {
-  --size: calc(100% / 2 * .8);
-  --height: 1rem;
-  filter: url(#wavyh1) blur(0.6px);
+.page .content > h1 > div .h-right, .page .content > h2 > div .h-right, .page .content > h3 > div .h-right {
+  left: calc(100% + 1rem);
+  transform: translateY(-50%) rotateY(180deg);
 }
-.page .content > h2::before, .page .content > h2::after {
-  --size: calc(100% / 2 * .5);
-  --height: .6rem;
-  filter: url(#wavyh2) blur(0.6px);
+.page .content > h1 {
+  --w: 20rem;
+  --h: 1.5rem;
 }
-.page .content > h3::before, .page .content > h3::after {
-  --size: calc(100% / 2 * .3);
-  --height: .3rem;
-  filter: url(#wavyh3) blur(0.6px);
+.page .content > h1 .h-left, .page .content > h1 .h-right {
+  filter: url(#wavyh1) blur(0.5px) !important;
+}
+.page .content > h2 {
+  --w: 15rem;
+  --h: .8rem;
+}
+.page .content > h2 .h-left, .page .content > h2 .h-right {
+  filter: url(#wavyh2) blur(0.5px) !important;
+}
+.page .content > h3 {
+  --w: 15rem;
+  --h: .4rem;
+}
+.page .content > h3 .h-left, .page .content > h3 .h-right {
+  filter: url(#wavyh3) blur(0.5px) !important;
 }
 
 .page .content > h1:has(+ section:hover) button, .page .content > h1:has(+ section:focus-within) button, .page .content > h1:hover button, .page .content > h1:focus-within button, .page .content > h2:has(+ section:hover) button, .page .content > h2:has(+ section:focus-within) button, .page .content > h2:hover button, .page .content > h2:focus-within button, .page .content > h3:has(+ section:hover) button, .page .content > h3:has(+ section:focus-within) button, .page .content > h3:hover button, .page .content > h3:focus-within button {
@@ -542,6 +596,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   padding: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease;
   opacity: 0;
+  z-index: 10;
 }
 
 section.blink *, section .blink {
@@ -556,6 +611,20 @@ section.blink *, section .blink {
 ::selection {
   color: var(--nav-txt);
   background: var(--pg-acc);
+}
+
+#topnav > div > button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/leafvein.webp);
+  background-size: auto 10rem;
+  background-blend-mode: overlay;
+  filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) saturate(var(--pg-sec-s, 1)) invert(var(--pg-sec-i)) blur(0.6px) url(#wavyh1);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
+          mask-image: linear-gradient(to bottom, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
+  transition: background 0.5s ease, filter 0.5s ease;
+  z-index: -2;
 }
 
 .toggle {
@@ -974,15 +1043,17 @@ nav#topnav #history > a:last-child::before {
 }
 
 #popover {
-  background-color: var(--pg-bg);
-  border: solid 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: outset 5px;
   border-radius: 0.5rem;
   --x: 0;
   --y: 0;
   left: min(1rem + var(--x), 100vw - 20.5rem);
   top: min(-1rem + var(--y), 100vh);
   border-color: var(--pg-acc);
-  box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 12rem -5rem black;
+  box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black;
+  -webkit-backdrop-filter: blur(20px) url(#glass) contrast(1.1);
+          backdrop-filter: blur(20px) url(#glass) contrast(1.1);
 }
 #popover > *:not(:last-child) {
   -o-border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
