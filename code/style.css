@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
 @-webkit-keyframes bg-vert-scroll {
   0% {
     background-position-y: 0;
@@ -394,11 +392,14 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   font-weight: bold;
 }
 
+.header-pointer > :not(b, span)::before {
+  content: "";
+}
 .header-pointer > *::before {
   content: "•";
   display: inline-block;
   position: absolute;
-  left: -1rem;
+  left: -1.2rem;
   color: var(--pg-acc-txt, var(--pg-acc));
   font-weight: bold;
   transform: translateX(-1rem);
@@ -411,8 +412,11 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
 .header-pointer.current {
   filter: none !important;
 }
+.header-pointer.current > :not(b, span) {
+  transform: translateX(0.5rem);
+}
 .header-pointer.current > * {
-  transform: translateX(1rem);
+  transform: translateX(0.5rem);
 }
 .header-pointer.current > *::before {
   transform: translateX(0);
@@ -627,6 +631,27 @@ section.blink *, section .blink {
   z-index: -2;
 }
 
+.sidebar .left-scrollbar > div button:has(i, span) i::after, .sidebar .left-scrollbar > div button:has(i, span) span::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: calc(100% + 0.1rem);
+  top: -100%;
+  bottom: 40%;
+  width: 0.4rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, white);
+          mask-image: linear-gradient(to bottom, transparent, white);
+  font-style: normal;
+  border-left: solid 1px;
+  border-bottom: solid 1px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  opacity: 0.4;
+}
+.sidebar .left-scrollbar > div button:has(i, span).current > *::after {
+  transform: translateX(-0.5rem);
+}
+
 .toggle {
   transition: transform 1s ease, border 1s ease, background 0.3s;
 }
@@ -724,7 +749,7 @@ nav#topnav #history:not(:empty) {
 
 body {
   font-family: "Dosis";
-  font-weight: 400;
+  font-weight: 200;
 }
 
 header, .tile {
@@ -744,6 +769,15 @@ nav#topnav > div > button {
 .sidebar .header {
   font-weight: bold;
 }
+.sidebar .header-pointer b {
+  font-weight: 900;
+}
+.sidebar .header-pointer span {
+  font-weight: 500;
+}
+.sidebar .header-pointer i {
+  font-weight: 300;
+}
 .sidebar .last-updated {
   text-align: center;
 }
@@ -751,18 +785,18 @@ nav#topnav > div > button {
 .content > h1, .content > h2, .content > h3 {
   color: white;
 }
-.content > h2, .content > h3 {
-  font-weight: normal;
-}
 .content > h1 {
   font-size: 1.8rem;
+  font-weight: 900;
 }
 .content > h2 {
   font-size: 1.5rem;
+  font-weight: 500;
 }
 .content > h3 {
   font-style: italic;
   font-size: 1.2rem;
+  font-weight: 300;
 }
 .content section {
   line-height: 1.2em;
