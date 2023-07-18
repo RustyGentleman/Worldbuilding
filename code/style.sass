@@ -247,24 +247,28 @@ a[page-link], a[section-link], #history a
 	font-weight: bold
 //* Current section pointer and hover/focus
 .header-pointer
+	> :not(b, span)::before
+		content: ''
 	> *::before
 		content: '•'
 		display: inline-block
 		position: absolute
-		left: -1rem
+		left: -1.2rem
 		color: var(--pg-acc-txt, var(--pg-acc))
 		font-weight: bold
 		transform: translateX(-1rem)
-		transition: transform .3s ease
+		transition: transform $tr-s ease
 	> *
 		display: inline-block
 		position: relative
 	&.current
 		filter: none !important
+		> :not(b, span)
+			transform: translateX(.5rem)
 		> *
-			transform: translateX(1rem)
+			transform: translateX(.5rem)
 			&::before
-				transform: translateX(0)
+				transform: translateX(.5rem)
 	&:hover,
 	&:focus-within
 		outline: none
@@ -445,6 +449,28 @@ section.blink *, section .blink
 		mask-image: linear-gradient(to bottom, $t 20%, rgb(255 255 255 / .5) 80%, white 100%)
 		transition: background $tr-l ease, filter $tr-l ease
 		z-index: -2
+//* Sidebar navigation tree thingies
+.sidebar .left-scrollbar > div
+	button:has(i, span)
+		i, span
+			&::after
+				content: ''
+				display: inline-block
+				position: absolute
+				right: calc(100% + .1rem)
+				top: -100%
+				bottom: 40%
+				width: .4rem
+				mask-image: linear-gradient(to bottom, $t, white)
+				font-style: normal
+				border-left: solid 1px
+				border-bottom: solid 1px
+				transform: translateX(0)
+				transition: transform $tr-s ease
+				opacity: .4
+		&.current
+			> *::after
+				transform: translateX(-.5rem)
 
 //# ----------------------------------------
 //# Transitions
