@@ -5,8 +5,6 @@
 // //# Imports
 // //# ----------------------------------------
 @import '_variables.sass'
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap')
 
 // //! ----------------------------------------
 // //! Asset Switch
@@ -529,7 +527,7 @@ nav#topnav
 // # ----------------------------------------
 body
 	font-family: 'Dosis'
-	font-weight: 400
+	font-weight: 200
 header, .tile
 	font-family: 'IM Fell English'
 	h1
@@ -540,20 +538,28 @@ nav#topnav > div > button
 	color: white
 	.header
 		font-weight: bold
+	.header-pointer
+		b
+			font-weight: 900
+		span
+			font-weight: 500
+		i
+			font-weight: 300
 	.last-updated
 		text-align: center
 .content
 	> h1, > h2, > h3
 		color: white
-	> h2, > h3
-		font-weight: normal
 	> h1
 		font-size: 1.8rem
+		font-weight: 900
 	> h2
 		font-size: 1.5rem
+		font-weight: 500
 	> h3
 		font-style: italic
 		font-size: 1.2rem
+		font-weight: 300
 	section
 		line-height: 1.2em
 		ul
