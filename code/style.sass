@@ -82,6 +82,10 @@ a
 		border: none
 		border-inline: solid 1px var(--pg-bg, black)
 		transition: background $tr-vl ease
+//* Popover element
+popover[data-preview]
+	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor 50%, transparent 50%)
+	background-size: 0% 1px, 4px 1px
 
 //# ----------------------------------------
 //# Page colors
@@ -210,16 +214,16 @@ body
 		--pg-sec-h: 240
 		--pg-sec-b: 2
 	&[current='wolfkins']
-		--pg-acc: hsl(226,100%,50%)
-		--pg-acc-hsl: 226 100% 50%
+		--pg-acc: hsl(246,100%,18%)
+		--pg-acc-hsl: 246 100% 18%
 		--pg-acc-txt: hsl(216,100%,50%)
-		--pg-acc-d: hsl(226 100% 30%)
-		--pg-sec-h: 243
-		--pg-sec-b: .6
+		--pg-acc-d: hsl(246 100% 5%)
+		--pg-sec-h: 240
+		--pg-sec-b: 1
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
-	body[current="#{$pg}"] #topnav button[page-link="#{$pg}"]::before
+	body[current="#{$pg}"] #topnav .dropdown button[page-link="#{$pg}"]::before
 		background-image: linear-gradient(to right, $t, var(--nav-txt), $t)
 		background-position: center center
 		background-size: 100%
@@ -229,17 +233,17 @@ body
 // # Effects
 // # ----------------------------------------
 //* In-site links
-a[page-link], a[section-link], #history a b
+a[page-link], a[section-link], popover, #history a b
 	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor)
-	background-size: 0% 1px, 100% 1px
-	background-position: bottom left, bottom center
+	background-size: 0% 1px, 4px 1px
+	background-position: bottom left, bottom left
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease !important
 //* In-site link hover
-a[page-link], a[section-link], #history a
+a[page-link], a[section-link], popover, #history a
 	&:hover, &:focus
 		&, b
-			background-size: 100% 1px, 100% 1px
+			background-size: 100% 1px, 4px 1px
 			outline: none
 //* Current header in navigation
 .header-pointer.current
@@ -294,12 +298,12 @@ a[page-link], a[section-link], #history a
 //* Dropdown button hover & disabled
 #topnav
 	> div > button
-		background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, $t, $t)
-		background-position: center center
-		background-repeat: no-repeat
-		&:focus-within
-			background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, var(--nav-txt-i), $t)
-			outline: none
+		// background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, $t, $t)
+		// background-position: center center
+		// background-repeat: no-repeat
+		// &:focus-within
+		// 	background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, var(--nav-txt-i), $t)
+		// 	outline: none
 	.dropdown button
 		position: relative
 		&:disabled
@@ -446,7 +450,7 @@ section.blink *, section .blink
 		background-size: auto 10rem
 		background-blend-mode: overlay
 		filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) string.unquote('saturate(var(--pg-sec-s, 1))') string.unquote('invert(var(--pg-sec-i))') blur(.6px) url(#wavyh1)
-		mask-image: linear-gradient(to bottom, $t 20%, rgb(255 255 255 / .5) 80%, white 100%)
+		mask-image: linear-gradient(to top, $t 20%, rgb(255 255 255 / .5) 80%, white 100%)
 		transition: background $tr-l ease, filter $tr-l ease
 		z-index: -2
 //* Sidebar navigation tree thingies
@@ -530,7 +534,6 @@ section.blink *, section .blink
 //# Borders
 //# ----------------------------------------
 nav#topnav
-	border-bottom: solid 1px
 	> div:not(:first-child) > button
 		border-left: solid 1px
 	> div > .dropdown
@@ -558,8 +561,12 @@ header, .tile
 	font-family: 'IM Fell English'
 	h1
 		font-size: 3rem
-nav#topnav > div > button
-	font-size: 1.5rem
+#topnav
+	> div > button
+		font-size: 1.5rem
+		font-weight: 500
+	.dropdown
+		font-weight: 400
 .sidebar
 	color: white
 	.header
@@ -859,6 +866,10 @@ nav#topnav
 			margin-top: 0
 		&:last-child
 			margin-bottom: 0
+	img
+		max-width: 100%
+		max-height: 13rem
+		border-radius: 1rem
 
 [page-bg='ras']
 	background-image: url($bg-ras)
