@@ -60,6 +60,11 @@ a {
   transition: background 1s ease;
 }
 
+popover[data-preview] {
+  background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor 50%, transparent 50%);
+  background-size: 0% 1px, 4px 1px;
+}
+
 body {
   --pg-bg: #111;
   --pg-acc: crimson;
@@ -190,19 +195,19 @@ body[current=crestbendharbor] {
   --pg-sec-b: 2;
 }
 body[current=wolfkins] {
-  --pg-acc: hsl(226,100%,50%);
-  --pg-acc-hsl: 226 100% 50%;
+  --pg-acc: hsl(246,100%,18%);
+  --pg-acc-hsl: 246 100% 18%;
   --pg-acc-txt: hsl(216,100%,50%);
-  --pg-acc-d: hsl(226 100% 30%);
-  --pg-sec-h: 243;
-  --pg-sec-b: .6;
+  --pg-acc-d: hsl(246 100% 5%);
+  --pg-sec-h: 240;
+  --pg-sec-b: 1;
 }
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
 }
 
-body[current=home] #topnav button[page-link=home]::before {
+body[current=home] #topnav .dropdown button[page-link=home]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -213,7 +218,7 @@ body[current=home] #topnav button[page-link=home]::before {
   opacity: 1;
 }
 
-body[current=world] #topnav button[page-link=world]::before {
+body[current=world] #topnav .dropdown button[page-link=world]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -224,7 +229,7 @@ body[current=world] #topnav button[page-link=world]::before {
   opacity: 1;
 }
 
-body[current=magicsystem] #topnav button[page-link=magicsystem]::before {
+body[current=magicsystem] #topnav .dropdown button[page-link=magicsystem]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -235,7 +240,7 @@ body[current=magicsystem] #topnav button[page-link=magicsystem]::before {
   opacity: 1;
 }
 
-body[current=schoolsofmagic] #topnav button[page-link=schoolsofmagic]::before {
+body[current=schoolsofmagic] #topnav .dropdown button[page-link=schoolsofmagic]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -246,7 +251,7 @@ body[current=schoolsofmagic] #topnav button[page-link=schoolsofmagic]::before {
   opacity: 1;
 }
 
-body[current=fauna] #topnav button[page-link=fauna]::before {
+body[current=fauna] #topnav .dropdown button[page-link=fauna]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -257,7 +262,7 @@ body[current=fauna] #topnav button[page-link=fauna]::before {
   opacity: 1;
 }
 
-body[current=flora] #topnav button[page-link=flora]::before {
+body[current=flora] #topnav .dropdown button[page-link=flora]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -268,7 +273,7 @@ body[current=flora] #topnav button[page-link=flora]::before {
   opacity: 1;
 }
 
-body[current=whisperwoodforest] #topnav button[page-link=whisperwoodforest]::before {
+body[current=whisperwoodforest] #topnav .dropdown button[page-link=whisperwoodforest]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -279,7 +284,7 @@ body[current=whisperwoodforest] #topnav button[page-link=whisperwoodforest]::bef
   opacity: 1;
 }
 
-body[current=crestbendharbor] #topnav button[page-link=crestbendharbor]::before {
+body[current=crestbendharbor] #topnav .dropdown button[page-link=crestbendharbor]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -290,7 +295,7 @@ body[current=crestbendharbor] #topnav button[page-link=crestbendharbor]::before 
   opacity: 1;
 }
 
-body[current=characters] #topnav button[page-link=characters]::before {
+body[current=characters] #topnav .dropdown button[page-link=characters]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -301,7 +306,7 @@ body[current=characters] #topnav button[page-link=characters]::before {
   opacity: 1;
 }
 
-body[current=ras] #topnav button[page-link=ras]::before {
+body[current=ras] #topnav .dropdown button[page-link=ras]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -312,7 +317,7 @@ body[current=ras] #topnav button[page-link=ras]::before {
   opacity: 1;
 }
 
-body[current=riella] #topnav button[page-link=riella]::before {
+body[current=riella] #topnav .dropdown button[page-link=riella]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -323,7 +328,7 @@ body[current=riella] #topnav button[page-link=riella]::before {
   opacity: 1;
 }
 
-body[current=races] #topnav button[page-link=races]::before {
+body[current=races] #topnav .dropdown button[page-link=races]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -334,7 +339,7 @@ body[current=races] #topnav button[page-link=races]::before {
   opacity: 1;
 }
 
-body[current=kitsunes] #topnav button[page-link=kitsunes]::before {
+body[current=kitsunes] #topnav .dropdown button[page-link=kitsunes]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -345,7 +350,7 @@ body[current=kitsunes] #topnav button[page-link=kitsunes]::before {
   opacity: 1;
 }
 
-body[current=elves] #topnav button[page-link=elves]::before {
+body[current=elves] #topnav .dropdown button[page-link=elves]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -356,7 +361,18 @@ body[current=elves] #topnav button[page-link=elves]::before {
   opacity: 1;
 }
 
-body[current=wolfkins] #topnav button[page-link=wolfkins]::before {
+body[current=wolfkins] #topnav .dropdown button[page-link=wolfkins]::before {
+  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#harpies.current ~ [page-bg=harpies] {
+  opacity: 1;
+}
+
+body[current=harpies] #topnav .dropdown button[page-link=harpies]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
@@ -367,23 +383,23 @@ body[current=wolfkins] #topnav button[page-link=wolfkins]::before {
   opacity: 1;
 }
 
-body[current=elvenempire] #topnav button[page-link=elvenempire]::before {
+body[current=elvenempire] #topnav .dropdown button[page-link=elvenempire]::before {
   background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
   background-position: center center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
-a[page-link], a[section-link], #history a b {
+a[page-link], a[section-link], popover, #history a b {
   background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor);
-  background-size: 0% 1px, 100% 1px;
-  background-position: bottom left, bottom center;
+  background-size: 0% 1px, 4px 1px;
+  background-position: bottom left, bottom left;
   background-repeat: no-repeat, repeat-x;
   transition: background-size 0.3s ease !important;
 }
 
-a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus b, a[section-link]:hover, a[section-link]:hover b, a[section-link]:focus, a[section-link]:focus b, #history a:hover, #history a:hover b, #history a:focus, #history a:focus b {
-  background-size: 100% 1px, 100% 1px;
+a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus b, a[section-link]:hover, a[section-link]:hover b, a[section-link]:focus, a[section-link]:focus b, popover:hover, popover:hover b, popover:focus, popover:focus b, #history a:hover, #history a:hover b, #history a:focus, #history a:focus b {
+  background-size: 100% 1px, 4px 1px;
   outline: none;
 }
 
@@ -448,15 +464,6 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   opacity: 0.2;
 }
 
-#topnav > div > button {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent), radial-gradient(closest-side, transparent, transparent);
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-#topnav > div > button:focus-within {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent), radial-gradient(closest-side, var(--nav-txt-i), transparent);
-  outline: none;
-}
 #topnav .dropdown button {
   position: relative;
 }
@@ -625,8 +632,8 @@ section.blink *, section .blink {
   background-size: auto 10rem;
   background-blend-mode: overlay;
   filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) saturate(var(--pg-sec-s, 1)) invert(var(--pg-sec-i)) blur(0.6px) url(#wavyh1);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
-          mask-image: linear-gradient(to bottom, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
+          mask-image: linear-gradient(to top, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
   transition: background 0.5s ease, filter 0.5s ease;
   z-index: -2;
 }
@@ -725,9 +732,6 @@ section.blink *, section .blink {
   transition: opacity 0.3s ease, top 0.3s ease, left 0.3s ease;
 }
 
-nav#topnav {
-  border-bottom: solid 1px;
-}
 nav#topnav > div:not(:first-child) > button {
   border-left: solid 1px;
 }
@@ -759,8 +763,12 @@ header h1, .tile h1 {
   font-size: 3rem;
 }
 
-nav#topnav > div > button {
+#topnav > div > button {
   font-size: 1.5rem;
+  font-weight: 500;
+}
+#topnav .dropdown {
+  font-weight: 400;
 }
 
 .sidebar {
@@ -1123,6 +1131,11 @@ nav#topnav #history > a:last-child::before {
 }
 #popover .preview p:last-child {
   margin-bottom: 0;
+}
+#popover img {
+  max-width: 100%;
+  max-height: 13rem;
+  border-radius: 1rem;
 }
 
 [page-bg=ras] {

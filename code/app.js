@@ -256,7 +256,7 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 		[popover.title, popover.subtitle, popover.section, popover.preview] = [link.dataset.title, link.dataset.subtitle, link.dataset.section, link.dataset.preview]
 	}
 
-	document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
+	document.querySelectorAll('a[page-link], a[section-link], popover').forEach(l => {
 		l.addEventListener('mouseover', () => {
 			// console.log('link hover', to_show.length, to_hide.length)
 			to_hide.forEach(e => clearTimeout(e))
