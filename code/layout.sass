@@ -69,6 +69,8 @@ nav#topnav
 	&.content-only
 		transform: scale(.7)
 		opacity: 0
+#settings.on
+	transform: translateX(0%)
 
 //# ----------------------------------------
 //# Layout
@@ -90,17 +92,20 @@ nav#topnav
 	text-align: center
 	border-bottom: solid 1px
 	z-index: 10
-	svg //* Home button
+	svg
 		height: 1.5rem
 		width:  1.5rem
 		margin-bottom: -.1rem
 	> div
 		grid-row: 1
 		position: relative
-		button
+		> button
 			position: relative
+			display: flex
+			place-items: center
+			place-content: center
 			width: 100%
-			height: 100%
+			height: 2rem
 			z-index: 2
 		.dropdown
 			position: absolute
@@ -310,6 +315,36 @@ header, .tile
 		flex-direction: column
 	.section
 		line-height: 1lh
+#settings
+	position: fixed
+	bottom: 0
+	right: 0
+	height: calc(100vh - 2rem)
+	width: 15rem
+	max-width: 100vw
+	border-left: solid 1px
+	background: rgba(0, 0, 0, 0.8)
+	text-align: center
+	transform: translateX(100%)
+	> :first-child b
+		font-size: 1.5rem
+	> div
+		padding: .5rem
+		b
+			font-size: 1.2em
+	> div[id]
+		display: flex
+		flex-direction: column
+		b
+			display: inline-block
+		.grid
+			display: grid
+			grid-auto-columns: 1fr
+			grid-auto-rows: 1fr
+			gap: .5rem
+			> *
+				display: flex
+				flex-direction: column
 
 //# ----------------------------------------
 //# Specific

@@ -479,6 +479,8 @@ section.blink *, section .blink
 //# ----------------------------------------
 //# Transitions
 //# ----------------------------------------
+body
+	transition: font-size $tr-s ease, line-height $tr-s ease, letter-spacing $tr-s ease, word-spacing $tr-s ease
 .toggle
 	transition: transform $tr-vl ease, border $tr-vl ease, background $tr-s
 	&.off
@@ -523,13 +525,16 @@ section.blink *, section .blink
 			&::before, &::after
 				transition: background $tr-vl ease
 		section, section *
-			transition: text-shadow $tr-s ease
+			transition: text-shadow $tr-s ease, letter-spacing .1s ease, word-spacing .1s ease, line-height .1s ease
 [page-bg]
 	transition: opacity $tr-vl ease
 #feedbackform, .btn-container>a.kofi-button
 	transition: background $tr-s ease
 #popover
 	transition: opacity $tr-s ease, top $tr-s ease, left $tr-s ease
+#settings
+	transition: transform $tr-s ease
+
 //# ----------------------------------------
 //# Borders
 //# ----------------------------------------
@@ -555,15 +560,43 @@ nav#topnav
 // # Text
 // # ----------------------------------------
 body
-	font-family: 'Dosis'
+	--t-fs: 0
+	--t-lh: 0
+	--t-ls: 0
+	--t-ws: 0
+	font-size: calc(1rem + 1px * var(--t-fs))
+	font-family: 'Grenze'
 	font-weight: 200
+	.page .content section
+		letter-spacing: calc(.1px * var(--t-ls))
+		word-spacing: calc(1px * var(--t-ws))
+		line-height: calc(1.2em + 1px * var(--t-lh))
+
+
+	&.grenze
+		font-family: 'Grenze', serif
+		.page .content section
+			line-height: calc(1.15em + 1px * var(--t-lh))
+			font-size: calc(1.1rem + 1px * var(--t-fs))
+	&.rasa
+		font-family: 'Rasa', serif
+		.page .content section
+			line-height: calc(1.2em + 1px * var(--t-lh))
+	&.ysabeau
+		font-family: 'Ysabeau Infant', sans-serif
+		.page .content section
+			letter-spacing: calc(.1px * var(--t-ls) - .5px)
+	&.dosis
+		font-family: 'Dosis', sans-serif
+		.page .content section
+			line-height: calc(1.2em + 1px * var(--t-lh))
 header, .tile
 	font-family: 'IM Fell English'
 	h1
-		font-size: 3rem
+		font-size: 3em
 #topnav
 	> div > button
-		font-size: 1.5rem
+		font-size: 1.5em
 		font-weight: 500
 	.dropdown
 		font-weight: 400
@@ -680,6 +713,7 @@ nav#topnav
 	.header-pointer i
 		font-size: .9em
 	.header-pointer
+		line-height: 1rem
 		&:has(>span)
 			margin-left: .5rem
 		&:has(>i)
@@ -742,6 +776,105 @@ nav#topnav
 	clip: rect(0, 0, 0, 0)
 	white-space: nowrap
 	border-width: 0
+#popover
+	background-color: rgb(0 0 0 / .5)
+	// background-color: var(--pg-bg)
+	border: outset 5px
+	border-radius: .5rem
+	--x: 0
+	--y: 0
+	left: min(calc(1rem + var(--x)), calc(100vw - 20.5rem))
+	top: min(calc(-1rem + var(--y)), 100vh)
+	border-color: var(--pg-acc)
+	box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black
+	backdrop-filter: blur(20px) url(#glass) contrast(1.1)
+	> *:not(:last-child)
+		border-image: lg(right, 'transparent, var(--pg-acc), transparent')
+		border-image-slice: 1
+		border-bottom: solid 1px
+	.title-subtitle
+		font-family: 'IM Fell English'
+		font-size: 1.2em
+		b
+			font-size: 1.2em
+			margin-bottom: -.3rem
+	.section
+		display: flex
+		justify-content: center
+		font-size: 1.2em
+		font-weight: bold
+		:nth-child(2)
+			font-size: .8em
+			font-weight: normal
+			font-style: italic
+			&::before
+				content: '-'
+				margin: .5rem
+	.preview p
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
+	img
+		max-width: 100%
+		max-height: 13rem
+		border-radius: 1rem
+#settings
+	line-height: 1.6em
+	> div
+		position: relative
+		&::after
+			content: ''
+			position: absolute
+			inset: 0
+			right: -.5rem
+			border-image: lg(right, 'white, transparent')
+			border-image-slice: 1
+			border-bottom: solid 1px
+			opacity: 1
+			pointer-events: none
+	#text
+		.grid
+			place-items: center
+			place-content: center
+			> div
+				place-items: center
+				place-content: center
+				input
+					width: 3rem
+					box-sizing: border-box
+					border: none
+					border-bottom: solid 1px currentColor
+					background-color: $t
+					color: inherit
+					text-align: center
+	#font
+		.grid
+			place-items: center
+			place-content: center
+			input
+				display: none
+				&:checked + label
+					border-color: $cc
+			> label
+				height: 4rem
+				width: 100%
+				box-sizing: border-box
+				background-color: rgb(100 100 100 / .4)
+				font-size: 1rem
+				border-radius: .3rem
+				place-items: center
+				place-content: center
+				user-select: none
+				border: solid 1px $t
+				backdrop-filter: blur(5px) url(#glass)
+				&:hover
+					background-color: rgb(100 100 100 / .8)
+				> :first-child
+					font-size: 3rem
+					line-height: 1em
+				> :last-child
+					line-height: 1em
 
 //# ----------------------------------------
 //# Specifics
@@ -827,49 +960,6 @@ nav#topnav
 		> div.mag
 			p b:not(.escape)
 				color: hsl(60,89%,89%)
-#popover
-	background-color: rgb(0 0 0 / .5)
-	// background-color: var(--pg-bg)
-	border: outset 5px
-	border-radius: .5rem
-	--x: 0
-	--y: 0
-	left: min(calc(1rem + var(--x)), calc(100vw - 20.5rem))
-	top: min(calc(-1rem + var(--y)), 100vh)
-	border-color: var(--pg-acc)
-	box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black
-	backdrop-filter: blur(20px) url(#glass) contrast(1.1)
-	> *:not(:last-child)
-		border-image: lg(right, 'transparent, var(--pg-acc), transparent')
-		border-image-slice: 1
-		border-bottom: solid 1px
-	.title-subtitle
-		font-family: 'IM Fell English'
-		font-size: 1.2em
-		b
-			font-size: 1.2em
-			margin-bottom: -.3rem
-	.section
-		display: flex
-		justify-content: center
-		font-size: 1.2em
-		font-weight: bold
-		:nth-child(2)
-			font-size: .8em
-			font-weight: normal
-			font-style: italic
-			&::before
-				content: '-'
-				margin: .5rem
-	.preview p
-		&:first-child
-			margin-top: 0
-		&:last-child
-			margin-bottom: 0
-	img
-		max-width: 100%
-		max-height: 13rem
-		border-radius: 1rem
 
 [page-bg='ras']
 	background-image: url($bg-ras)

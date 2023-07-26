@@ -659,6 +659,10 @@ section.blink *, section .blink {
   transform: translateX(-0.5rem);
 }
 
+body {
+  transition: font-size 0.3s ease, line-height 0.3s ease, letter-spacing 0.3s ease, word-spacing 0.3s ease;
+}
+
 .toggle {
   transition: transform 1s ease, border 1s ease, background 0.3s;
 }
@@ -717,7 +721,7 @@ section.blink *, section .blink {
   transition: background 1s ease;
 }
 .page .content section, .page .content section * {
-  transition: text-shadow 0.3s ease;
+  transition: text-shadow 0.3s ease, letter-spacing 0.1s ease, word-spacing 0.1s ease, line-height 0.1s ease;
 }
 
 [page-bg] {
@@ -730,6 +734,10 @@ section.blink *, section .blink {
 
 #popover {
   transition: opacity 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+#settings {
+  transition: transform 0.3s ease;
 }
 
 nav#topnav > div:not(:first-child) > button {
@@ -752,19 +760,54 @@ nav#topnav #history:not(:empty) {
 }
 
 body {
-  font-family: "Dosis";
+  --t-fs: 0;
+  --t-lh: 0;
+  --t-ls: 0;
+  --t-ws: 0;
+  font-size: calc(1rem + 1px * var(--t-fs));
+  font-family: "Grenze";
   font-weight: 200;
+}
+body .page .content section {
+  letter-spacing: calc(0.1px * var(--t-ls));
+  word-spacing: calc(1px * var(--t-ws));
+  line-height: calc(1.2em + 1px * var(--t-lh));
+}
+body.grenze {
+  font-family: "Grenze", serif;
+}
+body.grenze .page .content section {
+  line-height: calc(1.15em + 1px * var(--t-lh));
+  font-size: calc(1.1rem + 1px * var(--t-fs));
+}
+body.rasa {
+  font-family: "Rasa", serif;
+}
+body.rasa .page .content section {
+  line-height: calc(1.2em + 1px * var(--t-lh));
+}
+body.ysabeau {
+  font-family: "Ysabeau Infant", sans-serif;
+}
+body.ysabeau .page .content section {
+  letter-spacing: calc(0.1px * var(--t-ls) - 0.5px);
+}
+body.dosis {
+  font-family: "Dosis", sans-serif;
+}
+body.dosis .page .content section {
+  line-height: calc(1.2em + 1px * var(--t-lh));
 }
 
 header, .tile {
   font-family: "IM Fell English";
 }
 header h1, .tile h1 {
-  font-size: 3rem;
+  font-size: 3em;
 }
 
 #topnav > div > button {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 500;
 }
 #topnav .dropdown {
@@ -915,6 +958,9 @@ nav#topnav #history > a:last-child::before {
 .sidebar .header-pointer i {
   font-size: 0.9em;
 }
+.sidebar .header-pointer {
+  line-height: 1rem;
+}
 .sidebar .header-pointer:has(> span) {
   margin-left: 0.5rem;
 }
@@ -996,6 +1042,132 @@ nav#topnav #history > a:last-child::before {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+#popover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: outset 5px;
+  border-radius: 0.5rem;
+  --x: 0;
+  --y: 0;
+  left: min(1rem + var(--x), 100vw - 20.5rem);
+  top: min(-1rem + var(--y), 100vh);
+  border-color: var(--pg-acc);
+  box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black;
+  -webkit-backdrop-filter: blur(20px) url(#glass) contrast(1.1);
+          backdrop-filter: blur(20px) url(#glass) contrast(1.1);
+}
+#popover > *:not(:last-child) {
+  -o-border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
+     border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
+  border-image-slice: 1;
+  border-bottom: solid 1px;
+}
+#popover .title-subtitle {
+  font-family: "IM Fell English";
+  font-size: 1.2em;
+}
+#popover .title-subtitle b {
+  font-size: 1.2em;
+  margin-bottom: -0.3rem;
+}
+#popover .section {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#popover .section :nth-child(2) {
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: italic;
+}
+#popover .section :nth-child(2)::before {
+  content: "-";
+  margin: 0.5rem;
+}
+#popover .preview p:first-child {
+  margin-top: 0;
+}
+#popover .preview p:last-child {
+  margin-bottom: 0;
+}
+#popover img {
+  max-width: 100%;
+  max-height: 13rem;
+  border-radius: 1rem;
+}
+
+#settings {
+  line-height: 1.6em;
+}
+#settings > div {
+  position: relative;
+}
+#settings > div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  right: -0.5rem;
+  -o-border-image: linear-gradient(to right, white, transparent);
+     border-image: linear-gradient(to right, white, transparent);
+  border-image-slice: 1;
+  border-bottom: solid 1px;
+  opacity: 1;
+  pointer-events: none;
+}
+#settings #text .grid {
+  place-items: center;
+  place-content: center;
+}
+#settings #text .grid > div {
+  place-items: center;
+  place-content: center;
+}
+#settings #text .grid > div input {
+  width: 3rem;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: solid 1px currentColor;
+  background-color: transparent;
+  color: inherit;
+  text-align: center;
+}
+#settings #font .grid {
+  place-items: center;
+  place-content: center;
+}
+#settings #font .grid input {
+  display: none;
+}
+#settings #font .grid input:checked + label {
+  border-color: currentColor;
+}
+#settings #font .grid > label {
+  height: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(100, 100, 100, 0.4);
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  place-items: center;
+  place-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  border: solid 1px transparent;
+  -webkit-backdrop-filter: blur(5px) url(#glass);
+          backdrop-filter: blur(5px) url(#glass);
+}
+#settings #font .grid > label:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+#settings #font .grid > label > :first-child {
+  font-size: 3rem;
+  line-height: 1em;
+}
+#settings #font .grid > label > :last-child {
+  line-height: 1em;
 }
 
 #world > :last-child {
@@ -1082,60 +1254,6 @@ nav#topnav #history > a:last-child::before {
 }
 #elves section.subcolumns > div.mag p b:not(.escape) {
   color: hsl(60deg, 89%, 89%);
-}
-
-#popover {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: outset 5px;
-  border-radius: 0.5rem;
-  --x: 0;
-  --y: 0;
-  left: min(1rem + var(--x), 100vw - 20.5rem);
-  top: min(-1rem + var(--y), 100vh);
-  border-color: var(--pg-acc);
-  box-shadow: 0.2rem 0.2rem 1.6rem -8px black, inset 0 0 8rem -3rem black;
-  -webkit-backdrop-filter: blur(20px) url(#glass) contrast(1.1);
-          backdrop-filter: blur(20px) url(#glass) contrast(1.1);
-}
-#popover > *:not(:last-child) {
-  -o-border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
-     border-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
-  border-image-slice: 1;
-  border-bottom: solid 1px;
-}
-#popover .title-subtitle {
-  font-family: "IM Fell English";
-  font-size: 1.2em;
-}
-#popover .title-subtitle b {
-  font-size: 1.2em;
-  margin-bottom: -0.3rem;
-}
-#popover .section {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-#popover .section :nth-child(2) {
-  font-size: 0.8em;
-  font-weight: normal;
-  font-style: italic;
-}
-#popover .section :nth-child(2)::before {
-  content: "-";
-  margin: 0.5rem;
-}
-#popover .preview p:first-child {
-  margin-top: 0;
-}
-#popover .preview p:last-child {
-  margin-bottom: 0;
-}
-#popover img {
-  max-width: 100%;
-  max-height: 13rem;
-  border-radius: 1rem;
 }
 
 [page-bg=ras] {

@@ -160,6 +160,10 @@ if (qparams.get('goto')){
 	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
 	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
 } else GoToPage('home')
+//? Goto settings
+document.querySelector('#topnav button[aria-label="Setting"]').addEventListener('click', () => {
+	document.getElementById('settings').classList.toggle('on')
+})
 //? Generate link-generators for page sections
 document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
 	h.innerHTML = `<div>${h.innerHTML}<button aria-label="Copy a link to here"></button></div>`
@@ -173,17 +177,16 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 	})
 })
 //? Make page-links tabbable
-document.querySelectorAll('a[page-link], a[section-link]').forEach(l => l.setAttribute('tabindex', '0'))
+document.querySelectorAll('a[page-link], a[section-link], input, label').forEach(l => l.setAttribute('tabindex', '0'))
 //? Make sidebar collapsible
-let sidebar = true
 const tg = document.createElement('button')
 {
 	tg.classList.add('toggle')
+	tg.style.display = 'none'
 	tg.innerHTML = '<span>◀</span>'
 	document.body.querySelector('main').prepend(tg)
 	tg.addEventListener('click', function() {
 		tg.classList.toggle('off')
-		sidebar = !sidebar
 		document.querySelectorAll('.sidebar').forEach(
 			bar => bar.classList.toggle('collapsed')
 		)
@@ -237,7 +240,6 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	const INTERVAL = 500
 	let to_show = []
 	let to_hide = []
-	let last
 	function Show(instant=false) {
 		const to = setTimeout(() => {
 			popover.classList.add('active')
@@ -292,6 +294,64 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 //? Section header decorations
 document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div').forEach(h => {
 	h.innerHTML = `<div class="h-left"></div>${h.innerHTML}<div class="h-right"></div>`
+})
+//? Settings: text
+{
+	const fs = document.querySelector('#text #fs')
+	const lh = document.querySelector('#text #lh')
+	const ls = document.querySelector('#text #ls')
+	const ws = document.querySelector('#text #ws')
+	fs.addEventListener('change', () => {
+		window.localStorage.setItem('font-size', +fs.value)
+		body.style.setProperty('--t-fs', fs.value)
+	})
+	lh.addEventListener('change', () => {
+		window.localStorage.setItem('line-height', +lh.value)
+		body.style.setProperty('--t-lh', lh.value)
+	})
+	ls.addEventListener('change', () => {
+		window.localStorage.setItem('letter-spacing', +ls.value)
+		body.style.setProperty('--t-ls', ls.value)
+	})
+	ws.addEventListener('change', () => {
+		window.localStorage.setItem('word-spacing', +ws.value)
+		body.style.setProperty('--t-ws', ws.value)
+	})
+	if (window.localStorage.getItem('font-size')) {
+		fs.value = +window.localStorage.getItem('font-size')
+		fs.dispatchEvent(new Event('change'))
+	}
+	if (window.localStorage.getItem('line-height')) {
+		lh.value = +window.localStorage.getItem('line-height')
+		lh.dispatchEvent(new Event('change'))
+	}
+	if (window.localStorage.getItem('letter-spacing')) { 
+		ls.value = +window.localStorage.getItem('letter-spacing')
+		ls.dispatchEvent(new Event('change'))
+	}
+	if (window.localStorage.getItem('word-spacing')) { 
+		ws.value = +window.localStorage.getItem('word-spacing')
+		ws.dispatchEvent(new Event('change'))
+	}
+}
+//? Settings: font
+document.getElementById('font').querySelectorAll('input').forEach(f => {
+	const att = f.getAttribute('value')
+	f.addEventListener('click', () => {
+		body.className = att
+		window.localStorage.setItem('font', att)
+	})
+	// f.addEventListener('click', click)
+	if (window.localStorage.getItem('font') == att) {
+		f.dispatchEvent(new Event('click'))
+		f.setAttribute('checked', '')
+	}
+})
+document.getElementById('font').querySelectorAll('label').forEach(f => {
+	f.addEventListener('keyup', e => {
+		if (e.key == ' ' || e.key == 'Enter')
+			f.previousElementSibling.dispatchEvent(new Event('click'))
+	})
 })
 
 //# ----------------------------------------
