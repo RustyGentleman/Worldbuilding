@@ -497,10 +497,10 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/smoke-bg.webp"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-image: url("../assets/smoke-bg.webp"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   background-size: 100% auto;
-  -webkit-animation: bg-vert-scroll 1024s linear infinite;
-          animation: bg-vert-scroll 1024s linear infinite;
+  -webkit-animation: bg-vert-scroll 4096s linear infinite;
+          animation: bg-vert-scroll 4096s linear infinite;
   z-index: -1;
 }
 
@@ -601,7 +601,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
 .page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
   height: 1rem;
   aspect-ratio: 1;
-  background-image: url("https://static.tumblr.com/k0xpxi3/x5Lrwtr2p/createlink.png");
+  background-image: url("../assets/createlink.png");
   background-size: cover;
   margin-left: -1rem;
   padding: 0;
@@ -982,10 +982,13 @@ nav#topnav #history > a:last-child::before {
   margin-bottom: 2rem;
 }
 .content > h1, .content > h2, .content > h3 {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22));
-  box-shadow: 0 0 5rem 0.3rem rgb(0, 0, 0);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  box-shadow: 0 0 5rem 1.4rem rgb(0, 0, 0);
   -webkit-clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
           clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%);
+}
+.content section {
+  text-shadow: 0 0 0.5rem var(--pg-txt-i);
 }
 .content section.subcolumns > * {
   border-right: solid 1px;
@@ -1257,30 +1260,30 @@ nav#topnav #history > a:last-child::before {
 }
 
 [page-bg=ras] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-ras.webp");
+  background-image: url("../assets/bg-ras.webp");
 }
 
 [page-bg=kitsunes] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-kitsunes.webp");
+  background-image: url("../assets/bg-kitsunes.webp");
 }
 
 [page-bg=world] {
-  background-image: url("https://static.tumblr.com/k0xpxi3/PbXrx5ti0/bg-world.jpg");
+  background-image: url("../assets/bg-world.jpg");
 }
 
 [page-bg=whisperwoodforest] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-whisperwoodforest.webp");
+  background-image: url("../assets/bg-whisperwoodforest.webp");
 }
 
 [page-bg=magicsystem] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-magicsystem.webp");
+  background-image: url("../assets/bg-magicsystem.webp");
 }
 
 [page-bg=schoolsofmagic] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-schoolsofmagic.webp");
+  background-image: url("../assets/bg-schoolsofmagic.webp");
 }
 
 [page-bg=home] {
-  background-image: url("https://rustygentleman.github.io/Worldbuilding/assets/bg-home.webp");
+  background-image: url("../assets/bg-home.webp");
 }
 /*# sourceMappingURL=style.css.map */

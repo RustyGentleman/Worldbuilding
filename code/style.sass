@@ -10,28 +10,28 @@
 // //! Asset Switch
 // //! ----------------------------------------
 // - Production
-$smoke-bg: 'https://rustygentleman.github.io/Worldbuilding/assets/smoke-bg.webp'
-$leafveinhalf: 'https://rustygentleman.github.io/Worldbuilding/assets/leafveinhalf.webp'
-$createlink: 'https://static.tumblr.com/k0xpxi3/x5Lrwtr2p/createlink.png'
-$bg-world: 'https://static.tumblr.com/k0xpxi3/PbXrx5ti0/bg-world.jpg'
-$bg-ras: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-ras.webp'
-$bg-kitsunes: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-kitsunes.webp'
-$bg-whisperwoodforest: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-whisperwoodforest.webp'
-$bg-magicsystem: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-magicsystem.webp'
-$bg-schoolsofmagic: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-schoolsofmagic.webp'
-$bg-home: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-home.webp'
+// $smoke-bg: 'https://rustygentleman.github.io/Worldbuilding/assets/smoke-bg.webp'
+// $leafveinhalf: 'https://rustygentleman.github.io/Worldbuilding/assets/leafveinhalf.webp'
+// $createlink: 'https://static.tumblr.com/k0xpxi3/x5Lrwtr2p/createlink.png'
+// $bg-world: 'https://static.tumblr.com/k0xpxi3/PbXrx5ti0/bg-world.jpg'
+// $bg-ras: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-ras.webp'
+// $bg-kitsunes: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-kitsunes.webp'
+// $bg-whisperwoodforest: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-whisperwoodforest.webp'
+// $bg-magicsystem: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-magicsystem.webp'
+// $bg-schoolsofmagic: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-schoolsofmagic.webp'
+// $bg-home: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-home.webp'
 
 // - Development
-// $smoke-bg: '../assets/smoke-bg.webp'
-// $leafveinhalf: '../assets/leafveinhalf.webp'
-// $createlink: '../assets/createlink.png'
-// $bg-ras: '../assets/bg-ras.webp'
-// $bg-kitsunes: '../assets/bg-kitsunes.webp'
-// $bg-world: '../assets/bg-world.jpg'
-// $bg-whisperwoodforest: '../assets/bg-whisperwoodforest.webp'
-// $bg-magicsystem: '../assets/bg-magicsystem.webp'
-// $bg-schoolsofmagic: '../assets/bg-schoolsofmagic.webp'
-// $bg-home: '../assets/bg-home.webp'
+$smoke-bg: '../assets/smoke-bg.webp'
+$leafveinhalf: '../assets/leafveinhalf.webp'
+$createlink: '../assets/createlink.png'
+$bg-ras: '../assets/bg-ras.webp'
+$bg-kitsunes: '../assets/bg-kitsunes.webp'
+$bg-world: '../assets/bg-world.jpg'
+$bg-whisperwoodforest: '../assets/bg-whisperwoodforest.webp'
+$bg-magicsystem: '../assets/bg-magicsystem.webp'
+$bg-schoolsofmagic: '../assets/bg-schoolsofmagic.webp'
+$bg-home: '../assets/bg-home.webp'
 
 // //# ----------------------------------------
 // //# Mixins & Animations
@@ -334,7 +334,7 @@ a[page-link], a[section-link], popover, #history a
 		inset: 0
 		background-image: url($smoke-bg), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
 		background-size: 100% auto
-		animation: bg-vert-scroll 1024s linear infinite
+		animation: bg-vert-scroll 4096s linear infinite
 		z-index: -1
 //* Text shadow where necessary
 .ts-b
@@ -730,10 +730,11 @@ nav#topnav
 		margin-bottom: 2rem
 	> h1, > h2, > h3
 		// filter: drop-shadow(0 0 .5rem var(--pg-txt-i))
-		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22))
-		box-shadow: 0 0 5rem 0.3rem rgb(0 0 0)
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5))
+		box-shadow: 0 0 5rem 1.4rem rgb(0 0 0)
 		clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
 	section
+		text-shadow: 0 0 .5rem var(--pg-txt-i)
 		&.subcolumns
 			> *
 				border-right: solid 1px
