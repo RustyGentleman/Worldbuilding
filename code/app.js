@@ -220,7 +220,7 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	else
 		preview = `<p>${document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent}</p>` || 'Error'
 	if (preview.length >= 256)
-		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{200}[^\s\.]*).*/, "$1...</p>")
+		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{256}[^\s\.]*).*/, "$1...</p>")
 
 	if (preview == '<p>undefined</p>')
 		console.warn('Invalid preview:', l.closest('.page').id, l.closest('section').previousElementSibling.getAttribute('section-id'), ':', pg, sc, ps, pe)
