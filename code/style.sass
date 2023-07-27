@@ -420,15 +420,19 @@ a[page-link], a[section-link], popover, #history a
 			opacity: 1
 			margin-left: .3rem
 		button
-			height: 1rem
+			height: 1.5rem
+			display: flex
 			aspect-ratio: 1
-			background-image: url($createlink)
+			// background-image: url($createlink)
 			background-size: cover
 			margin-left: -1rem
 			padding: 0
 			transition: opacity $tr-s ease, transform $tr-s ease, margin $tr-s ease
 			opacity: 0
 			z-index: 10
+			svg
+				width: 100%
+				height: 100%
 //* Navigation blink
 section.blink *, section .blink
 	text-shadow: 0 0 1rem currentColor, 0 0 1rem currentColor

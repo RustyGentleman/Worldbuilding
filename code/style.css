@@ -499,8 +499,8 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   inset: 0;
   background-image: url("../assets/smoke-bg.webp"), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   background-size: 100% auto;
-  -webkit-animation: bg-vert-scroll 4096s linear infinite;
-          animation: bg-vert-scroll 4096s linear infinite;
+  -webkit-animation: bg-vert-scroll 2048s linear infinite;
+          animation: bg-vert-scroll 2048s linear infinite;
   z-index: -1;
 }
 
@@ -552,7 +552,6 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   background-blend-mode: overlay;
   -webkit-mask-image: linear-gradient(to left, white, white, transparent);
           mask-image: linear-gradient(to left, white, white, transparent);
-  filter: url(#wavyh2);
   overflow: hidden;
 }
 .page .content > h1 > div .h-left::after, .page .content > h1 > div .h-right::after, .page .content > h2 > div .h-left::after, .page .content > h2 > div .h-right::after, .page .content > h3 > div .h-left::after, .page .content > h3 > div .h-right::after {
@@ -577,21 +576,21 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   --h: 1.5rem;
 }
 .page .content > h1 .h-left, .page .content > h1 .h-right {
-  filter: url(#wavyh1) blur(0.5px) !important;
+  filter: url(#wavyh1) blur(0.5px);
 }
 .page .content > h2 {
   --w: 15rem;
   --h: .8rem;
 }
 .page .content > h2 .h-left, .page .content > h2 .h-right {
-  filter: url(#wavyh2) blur(0.5px) !important;
+  filter: url(#wavyh2) blur(0.5px);
 }
 .page .content > h3 {
   --w: 15rem;
   --h: .4rem;
 }
 .page .content > h3 .h-left, .page .content > h3 .h-right {
-  filter: url(#wavyh3) blur(0.5px) !important;
+  filter: url(#wavyh3) blur(0.5px);
 }
 
 .page .content > h1:has(+ section:hover) button, .page .content > h1:has(+ section:focus-within) button, .page .content > h1:hover button, .page .content > h1:focus-within button, .page .content > h2:has(+ section:hover) button, .page .content > h2:has(+ section:focus-within) button, .page .content > h2:hover button, .page .content > h2:focus-within button, .page .content > h3:has(+ section:hover) button, .page .content > h3:has(+ section:focus-within) button, .page .content > h3:hover button, .page .content > h3:focus-within button {
@@ -599,15 +598,19 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   margin-left: 0.3rem;
 }
 .page .content > h1 button, .page .content > h2 button, .page .content > h3 button {
-  height: 1rem;
+  height: 1.5rem;
+  display: flex;
   aspect-ratio: 1;
-  background-image: url("../assets/createlink.png");
   background-size: cover;
   margin-left: -1rem;
   padding: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease;
   opacity: 0;
   z-index: 10;
+}
+.page .content > h1 button svg, .page .content > h2 button svg, .page .content > h3 button svg {
+  width: 100%;
+  height: 100%;
 }
 
 section.blink *, section .blink {
@@ -739,6 +742,12 @@ body {
 #settings {
   transition: transform 0.3s ease;
 }
+#settings #acsb label {
+  transition: background-color 0.15s ease;
+}
+#settings #acsb label::after {
+  transition: transform 0.15s ease;
+}
 
 nav#topnav > div:not(:first-child) > button {
   border-left: solid 1px;
@@ -757,46 +766,6 @@ nav#topnav #history:not(:empty) {
      border-image: linear-gradient(to bottom, currentColor, transparent);
   border-image-slice: 1;
   border-right: solid 1px;
-}
-
-body {
-  --t-fs: 0;
-  --t-lh: 0;
-  --t-ls: 0;
-  --t-ws: 0;
-  font-size: calc(1rem + 1px * var(--t-fs));
-  font-family: "Grenze";
-  font-weight: 200;
-}
-body .page .content section {
-  letter-spacing: calc(0.1px * var(--t-ls));
-  word-spacing: calc(1px * var(--t-ws));
-  line-height: calc(1.2em + 1px * var(--t-lh));
-}
-body.grenze {
-  font-family: "Grenze", serif;
-}
-body.grenze .page .content section {
-  line-height: calc(1.15em + 1px * var(--t-lh));
-  font-size: calc(1.1rem + 1px * var(--t-fs));
-}
-body.rasa {
-  font-family: "Rasa", serif;
-}
-body.rasa .page .content section {
-  line-height: calc(1.2em + 1px * var(--t-lh));
-}
-body.ysabeau {
-  font-family: "Ysabeau Infant", sans-serif;
-}
-body.ysabeau .page .content section {
-  letter-spacing: calc(0.1px * var(--t-ls) - 0.5px);
-}
-body.dosis {
-  font-family: "Dosis", sans-serif;
-}
-body.dosis .page .content section {
-  line-height: calc(1.2em + 1px * var(--t-lh));
 }
 
 header, .tile {
@@ -866,6 +835,74 @@ header h2, .tile h2 {
 
 .page > header > h1 {
   font-size: 1.5rem;
+}
+
+body {
+  --t-fs: 0;
+  --t-lh: 0;
+  --t-ls: 0;
+  --t-ws: 0;
+  font-size: calc(1rem + 1px * var(--t-fs));
+  font-family: "Grenze";
+  font-weight: 200;
+}
+body .page .content section {
+  letter-spacing: calc(0.1px * var(--t-ls));
+  word-spacing: calc(1px * var(--t-ws));
+  line-height: calc(1.2em + 1px * var(--t-lh));
+}
+body.grenze {
+  font-family: "Grenze", serif;
+}
+body.grenze .page .content section {
+  line-height: calc(1.15em + 1px * var(--t-lh));
+  font-size: calc(1.1rem + 1px * var(--t-fs));
+}
+body.grenze #home [section-id=changes] + section > ul ul::before {
+  --x: 1.54rem;
+}
+body.rasa {
+  font-family: "Rasa", serif;
+}
+body.rasa .page .content section {
+  line-height: calc(1.2em + 1px * var(--t-lh));
+}
+body.rasa #home [section-id=changes] + section > ul ul::before {
+  --x: 1.7rem;
+}
+body.ysabeau {
+  font-family: "Ysabeau Infant", sans-serif;
+}
+body.ysabeau .page .content section {
+  letter-spacing: calc(0.1px * var(--t-ls) - 0.5px);
+}
+body.ysabeau #home [section-id=changes] + section > ul ul::before {
+  --x: 1.55rem;
+}
+body.dosis {
+  font-family: "Dosis", sans-serif;
+}
+body.dosis .page .content section {
+  line-height: calc(1.2em + 1px * var(--t-lh));
+}
+body.dosis #home [section-id=changes] + section > ul ul::before {
+  --x: 1.6rem;
+}
+body.no-anims .page .content > h1 .h-left, body.no-anims .page .content > h1 .h-right {
+  filter: url(#wavyh1s) blur(0.5px);
+}
+body.no-anims .page .content > h2 .h-left, body.no-anims .page .content > h2 .h-right {
+  filter: url(#wavyh2s) blur(0.5px);
+}
+body.no-anims .page .content > h3 .h-left, body.no-anims .page .content > h3 .h-right {
+  filter: url(#wavyh3s) blur(0.5px);
+}
+body.no-anims .page .content section::before {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+body.flat-section-background .content section::before {
+  background-image: linear-gradient(to right, transparent, rgb(36, 36, 36) 0.7rem, rgb(36, 36, 36) calc(100% - 0.7rem), transparent);
 }
 
 main {
@@ -1171,6 +1208,44 @@ nav#topnav #history > a:last-child::before {
 }
 #settings #font .grid > label > :last-child {
   line-height: 1em;
+}
+#settings #acsb > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#settings #acsb > div input[type=checkbox] {
+  width: 0px;
+  height: 0px;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#settings #acsb > div input[type=checkbox] + label {
+  position: relative;
+  height: 0.8rem;
+  width: 1.6rem;
+  border-radius: 1rem;
+  border: solid 1px;
+  z-index: 2;
+}
+#settings #acsb > div input[type=checkbox] + label::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: black;
+  border-radius: 1rem;
+  border: inherit;
+}
+#settings #acsb > div input[type=checkbox]:checked + label {
+  background-color: white;
+}
+#settings #acsb > div input[type=checkbox]:checked + label::after {
+  transform: translateX(0.8rem);
 }
 
 #world > :last-child {
