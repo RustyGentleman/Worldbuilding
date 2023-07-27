@@ -341,7 +341,11 @@ document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div,
 document.getElementById('font').querySelectorAll('input').forEach(f => {
 	const att = f.getAttribute('value')
 	f.addEventListener('click', () => {
-		body.className = att
+		body.classList.remove('grenze')
+		body.classList.remove('rasa')
+		body.classList.remove('ysabeau')
+		body.classList.remove('dosis')
+		body.classList.add(att)
 		window.localStorage.setItem('font', att)
 	})
 	// f.addEventListener('click', click)
@@ -356,6 +360,33 @@ document.getElementById('font').querySelectorAll('label').forEach(f => {
 			f.previousElementSibling.dispatchEvent(new Event('click'))
 	})
 })
+//? Settings: accessibility
+{
+	const anim = document.querySelector('#acsb #anim')
+	const fsbg = document.querySelector('#acsb #fsbg')
+	anim.addEventListener('change', function(){
+		window.localStorage.setItem('no-anims', this.checked)
+		if (this.checked)
+			body.classList.add('no-anims')
+		else
+			body.classList.remove('no-anims')
+	})
+	fsbg.addEventListener('change', function(){
+		window.localStorage.setItem('flat-section-background', this.checked)
+		if (this.checked)
+			body.classList.add('flat-section-background')
+		else
+			body.classList.remove('flat-section-background')
+	})
+	if (window.localStorage.getItem('no-anims')){
+		anim.checked = window.localStorage.getItem('no-anims') == 'true'? true : false
+		anim.dispatchEvent(new Event('change'))
+	}
+	if (window.localStorage.getItem('flat-section-background')){
+		fsbg.checked = window.localStorage.getItem('flat-section-background') == 'true'? true : false
+		fsbg.dispatchEvent(new Event('change'))
+	}
+}
 
 //# ----------------------------------------
 //# Event listeners

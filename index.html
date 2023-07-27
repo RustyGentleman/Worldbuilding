@@ -1924,7 +1924,7 @@
 		<span class="section">Section</span>
 		<span class="preview">This is a text preview for the given section, of the given page.</span>
 	</div>
-	<div id="settings">
+	<div id="settings" class="">
 		<div><b>Settings</b></div>
 		<div id="text">
 			<b>Text</b>
@@ -1976,6 +1976,17 @@
 				</label>
 			</div>
 		</div>
+		<div id="acsb">
+			<b>Accessibility</b>
+			<div>
+				No distracting animations:
+				<input type="checkbox" id="anim"><label for="anim"></label>
+			</div>
+			<div>
+				Flat section background:
+				<input type="checkbox" id="fsbg"><label for="fsbg"></label>
+			</div>
+		</div>
 	</div>
 	<svg>
 		<filter id="glass">
@@ -2015,6 +2026,18 @@
 			<feDisplacementMap in="SourceGraphic" in2="NOISEH3" scale="8"></feDisplacementMap>
 			<animate xlink:href="#turbulenceh3" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
 			values=".04 .08; .08 .04; .04 .08" repeatCount="indefinite"></animate>
+		</filter>
+		<filter id="wavyh1s">
+			<feTurbulence id="turbulenceh1s" type="turbulence" numOctaves="5" seed="4" result="NOISEH1s" baseFrequency=".06 .12"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISEH1s" scale="20"></feDisplacementMap>
+		</filter>
+		<filter id="wavyh2s">
+			<feTurbulence id="turbulenceh2s" type="turbulence" numOctaves="5" seed="6" result="NOISEH2s" baseFrequency=".06 .125"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISEH2s" scale="15"></feDisplacementMap>
+		</filter>
+		<filter id="wavyh3s">
+			<feTurbulence id="turbulenceh3s" type="turbulence" numOctaves="5" seed="6" result="NOISEH3s" baseFrequency=".06 .06"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISEH3s" scale="8"></feDisplacementMap>
 		</filter>
 		<filter id="wavydots">
 			<feTurbulence id="turbulencedots" type="turbulence" numOctaves="5" seed="4" result="NOISEdots"></feTurbulence>

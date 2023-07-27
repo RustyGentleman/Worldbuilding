@@ -334,7 +334,7 @@ a[page-link], a[section-link], popover, #history a
 		inset: 0
 		background-image: url($smoke-bg), linear-gradient(to right, $t, rgb(0 0 0 / 30%), $t)
 		background-size: 100% auto
-		animation: bg-vert-scroll 4096s linear infinite
+		animation: bg-vert-scroll 2048s linear infinite
 		z-index: -1
 //* Text shadow where necessary
 .ts-b
@@ -380,7 +380,6 @@ a[page-link], a[section-link], popover, #history a
 				background-image: linear-gradient(to bottom, $t, rgb(255 255 255 / .5), $t)
 				background-blend-mode: overlay
 				mask-image: lg(left, 'white, white, transparent')
-				filter: url(#wavyh2)
 				overflow: hidden
 				&::after
 					content: ''
@@ -400,17 +399,17 @@ a[page-link], a[section-link], popover, #history a
 		--w: 20rem
 		--h: 1.5rem
 		.h-left, .h-right
-			filter: url(#wavyh1) blur(.5px) !important
+			filter: url(#wavyh1) blur(.5px)
 	> h2
 		--w: 15rem
 		--h: .8rem
 		.h-left, .h-right
-			filter: url(#wavyh2) blur(.5px) !important
+			filter: url(#wavyh2) blur(.5px)
 	> h3
 		--w: 15rem
 		--h: .4rem
 		.h-left, .h-right
-			filter: url(#wavyh3) blur(.5px) !important
+			filter: url(#wavyh3) blur(.5px)
 //* "Create link" button on section headers
 .page .content
 	> h1, > h2, > h3
@@ -534,6 +533,10 @@ body
 	transition: opacity $tr-s ease, top $tr-s ease, left $tr-s ease
 #settings
 	transition: transform $tr-s ease
+	#acsb label
+		transition: background-color $tr-vs ease
+		&::after
+			transition: transform $tr-vs ease
 
 //# ----------------------------------------
 //# Borders
@@ -559,37 +562,6 @@ nav#topnav
 // # ----------------------------------------
 // # Text
 // # ----------------------------------------
-body
-	--t-fs: 0
-	--t-lh: 0
-	--t-ls: 0
-	--t-ws: 0
-	font-size: calc(1rem + 1px * var(--t-fs))
-	font-family: 'Grenze'
-	font-weight: 200
-	.page .content section
-		letter-spacing: calc(.1px * var(--t-ls))
-		word-spacing: calc(1px * var(--t-ws))
-		line-height: calc(1.2em + 1px * var(--t-lh))
-
-
-	&.grenze
-		font-family: 'Grenze', serif
-		.page .content section
-			line-height: calc(1.15em + 1px * var(--t-lh))
-			font-size: calc(1.1rem + 1px * var(--t-fs))
-	&.rasa
-		font-family: 'Rasa', serif
-		.page .content section
-			line-height: calc(1.2em + 1px * var(--t-lh))
-	&.ysabeau
-		font-family: 'Ysabeau Infant', sans-serif
-		.page .content section
-			letter-spacing: calc(.1px * var(--t-ls) - .5px)
-	&.dosis
-		font-family: 'Dosis', sans-serif
-		.page .content section
-			line-height: calc(1.2em + 1px * var(--t-lh))
 header, .tile
 	font-family: 'IM Fell English'
 	h1
@@ -638,6 +610,63 @@ header, .tile //* Page headers and tiles
 		font-style: italic
 .page > header > h1 //* Section header in pages with tiles
 	font-size: 1.5rem
+
+//# ----------------------------------------
+//# Settings
+//# ----------------------------------------
+body
+	--t-fs: 0
+	--t-lh: 0
+	--t-ls: 0
+	--t-ws: 0
+	font-size: calc(1rem + 1px * var(--t-fs))
+	font-family: 'Grenze'
+	font-weight: 200
+	.page .content section
+		letter-spacing: calc(.1px * var(--t-ls))
+		word-spacing: calc(1px * var(--t-ws))
+		line-height: calc(1.2em + 1px * var(--t-lh))
+	&.grenze
+		font-family: 'Grenze', serif
+		.page .content section
+			line-height: calc(1.15em + 1px * var(--t-lh))
+			font-size: calc(1.1rem + 1px * var(--t-fs))
+		#home [section-id=changes] + section > ul ul::before
+			--x: 1.54rem
+	&.rasa
+		font-family: 'Rasa', serif
+		.page .content section
+			line-height: calc(1.2em + 1px * var(--t-lh))
+		#home [section-id=changes] + section > ul ul::before
+			--x: 1.7rem
+	&.ysabeau
+		font-family: 'Ysabeau Infant', sans-serif
+		.page .content section
+			letter-spacing: calc(.1px * var(--t-ls) - .5px)
+		#home [section-id=changes] + section > ul ul::before
+			--x: 1.55rem
+	&.dosis
+		font-family: 'Dosis', sans-serif
+		.page .content section
+			line-height: calc(1.2em + 1px * var(--t-lh))
+		#home [section-id=changes] + section > ul ul::before
+			--x: 1.6rem
+	&.no-anims
+		.page .content
+			> h1
+				.h-left, .h-right
+					filter: url(#wavyh1s) blur(0.5px)
+			> h2
+				.h-left, .h-right
+					filter: url(#wavyh2s) blur(0.5px)
+			> h3
+				.h-left, .h-right
+					filter: url(#wavyh3s) blur(0.5px)
+			section::before
+				animation-play-state: paused
+	&.flat-section-background
+		.content section::before
+			background-image: linear-gradient(to right, $t, rgb(36 36 36) .7rem, rgb(36 36 36) calc(100% - .7rem), $t)
 
 //# ----------------------------------------
 //# Styles
@@ -876,6 +905,39 @@ nav#topnav
 					line-height: 1em
 				> :last-child
 					line-height: 1em
+	#acsb
+		> div
+			display: flex
+			justify-content: space-between
+			align-items: center
+			input[type=checkbox]
+				width: 0px
+				height: 0px
+				padding: 0
+				margin: 0
+				visibility: hidden
+				pointer-events: none
+				+ label
+					position: relative
+					height: .8rem
+					width: 1.6rem
+					border-radius: 1rem
+					border: solid 1px
+					z-index: 2
+					&::after
+						content: ''
+						position: absolute
+						top: -1px
+						left: -1px
+						height: 100%
+						aspect-ratio: 1
+						background-color: black
+						border-radius: 1rem
+						border: inherit
+				&:checked + label
+					background-color: white
+					&::after
+						transform: translateX(.8rem)
 
 //# ----------------------------------------
 //# Specifics
