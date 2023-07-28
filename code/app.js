@@ -506,7 +506,8 @@ function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 		}
 	//* If pushState
 	if (push)
-		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+		history.pushState([id, section, ps, pe], undefined, '')
+		// history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
 	//* If toggle isn't  there, nvm
 	if (!document.querySelector('.toggle')) return
 	//* If it is, hide or show
