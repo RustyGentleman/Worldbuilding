@@ -387,6 +387,8 @@ document.getElementById('font').querySelectorAll('label').forEach(f => {
 		fsbg.dispatchEvent(new Event('change'))
 	}
 }
+//? PopState listener
+window.addEventListener('popstate', e => GoToPage(...e.state, false))
 
 //# ----------------------------------------
 //# Event listeners
@@ -470,7 +472,7 @@ Page_RefreshSectionPointer()
 //# ----------------------------------------
 //# Page transitions
 //# ----------------------------------------
-function GoToPage(id, section=null, ps=null, pe=null) {
+function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 	if (!document.querySelector(`.page#${id}`)) {
 		console.warn(`No page with ID "${id}"`)
 		return
@@ -497,6 +499,8 @@ function GoToPage(id, section=null, ps=null, pe=null) {
 		document.querySelector('.toggle').style.display = ''
 	else
 		document.querySelector('.toggle').style.display = 'none'
+	if (push)
+		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
 }
 function GoToSection(id, ps=null, pe=null) {
 	ps !== null? ps-- : null
