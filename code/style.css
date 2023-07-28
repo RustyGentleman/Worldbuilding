@@ -125,6 +125,29 @@ body[current=world] {
   --pg-sec-h: 0;
   --pg-sec-b: 0;
 }
+body[current=characters] {
+  --pg-acc: hsl(0,0%,94%);
+  --pg-acc-txt: hsl(0,0%,94%);
+  --pg-acc-d: hsl(0,0%,55%);
+  --pg-txt: white;
+  --pg-txt-i: black;
+  --nav-txt: black;
+  --nav-txt-i: white;
+  --pg-sec-h: 0;
+  --pg-sec-b: 0;
+}
+body[current=races] {
+  --pg-acc: hsl(265,55%,45%);
+  --pg-acc-txt: hsl(0,0%,94%);
+  --pg-acc-d: hsl(0,0%,55%);
+  --pg-txt: white;
+  --pg-txt-i: black;
+  --nav-txt: white;
+  --nav-txt-i: black;
+  --pg-sec-h: 250;
+  --pg-sec-b: 4;
+  --pg-sec-s: 1;
+}
 body[current=whisperwoodforest] {
   --pg-acc: hsl(342,99%,37%);
   --pg-acc-hsl: 342 99% 37%;
@@ -639,6 +662,7 @@ section.blink *, section .blink {
           mask-image: linear-gradient(to top, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
   transition: background 0.5s ease, filter 0.5s ease;
   z-index: -2;
+  transform: translateY(-0.3rem);
 }
 
 .sidebar .left-scrollbar > div button:has(i, span) i::after, .sidebar .left-scrollbar > div button:has(i, span) span::after {
