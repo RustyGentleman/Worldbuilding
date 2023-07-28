@@ -681,6 +681,7 @@ header h2, .tile h2 {
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
   transform: translateX(100%);
+  color: white;
 }
 #settings > :first-child b {
   font-size: 1.5rem;
