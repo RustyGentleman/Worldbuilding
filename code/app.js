@@ -153,6 +153,7 @@ return `
 //# ----------------------------------------
 //# Run on load
 //# ----------------------------------------
+const base_title = document.title
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('goto')){
@@ -491,16 +492,28 @@ function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 		next.classList.remove('displaying')
 	}, 10)
 	setTimeout(Page_RefreshSectionPointer, 100)
+	//* Go to section
 	if (section)
-	setTimeout(() => GoToSection(section, ps, pe), 100)
-	// debugger
+		setTimeout(() => GoToSection(section, ps, pe), 100)
+	//* Change title
+	if (id == 'home')
+		ChangeTitle()
+	else
+		try {
+			ChangeTitle(next.content.querySelector('header h1').textContent.trim().replaceAll('\n',' ').replaceAll('\t', '') + ', ' + next.content.querySelector('header h2').textContent.trim().replaceAll('\n',' ').replaceAll('\t', ''))
+		} catch (e) {
+			ChangeTitle(next.id[0].toUpperCase() + next.id.slice(1))
+		}
+	//* If pushState
+	if (push)
+		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+	//* If toggle isn't  there, nvm
 	if (!document.querySelector('.toggle')) return
+	//* If it is, hide or show
 	if (next.sidebar)
 		document.querySelector('.toggle').style.display = ''
 	else
 		document.querySelector('.toggle').style.display = 'none'
-	if (push)
-		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
 }
 function GoToSection(id, ps=null, pe=null) {
 	ps !== null? ps-- : null
@@ -548,6 +561,12 @@ function AddToHistory() {
 		document.history.prepend(here)
 	}
 	document.history.insertBefore(a, document.history.lastElementChild)
+}
+function ChangeTitle(title='') {
+	if (title != '')
+		document.title = [title, base_title].join(' - ')
+	else
+		document.title = base_title
 }
 
 //# ----------------------------------------
