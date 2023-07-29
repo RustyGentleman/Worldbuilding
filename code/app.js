@@ -389,7 +389,27 @@ document.getElementById('font').querySelectorAll('label').forEach(f => {
 	}
 }
 //? PopState listener
-window.addEventListener('popstate', e => GoToPage(...e.state, false))
+window.addEventListener('popstate', event => {
+	GoToPage(...event.state, false)
+	// console.log(event.state)
+	// let closest = {closeness: null, e: null, i: null}
+	// Array.from(document.history.children).reverse().forEach((e, i) => {
+	// 	if (closest.closeness > 3) return
+	// 	if (!e.getAttribute('page-link')) return
+	// 	const link = e.getAttribute('page-link').split(':')
+	// 	let closeness = 0
+	// 	link.forEach((part, i) => {
+	// 		if (part == event.state[i])
+	// 			closeness ++
+	// 	})
+	// 	if (closeness > closest.closeness) {
+	// 		closest.closeness = closeness
+	// 		closest.e = e
+	// 		closest.i = i
+	// 	}
+	// })
+	// Array.from(document.history.children).filter((_, i) => i >= closest.i < document.history.childElementCount-1).map(e => e.remove())
+})
 
 //# ----------------------------------------
 //# Event listeners
