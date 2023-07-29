@@ -1109,7 +1109,8 @@ nav#topnav #history > a:last-child::before {
 }
 
 #popover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #111;
+  color: white;
   border: outset 5px;
   border-radius: 0.5rem;
   --x: 0;
