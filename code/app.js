@@ -241,23 +241,23 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 })
 //? Popover
 {
-	const INTERVAL = 500
-	let to_show = []
-	let to_hide = []
-	function Show(instant=false) {
-		const to = setTimeout(() => {
-			popover.classList.add('active')
-			to_show = to_show.filter(e => e != to)
-		}, instant? 0 : INTERVAL)
-		to_show.push(to)
-	}
-	function Hide(instant=false) {
-		const to = setTimeout(() => {
-			popover.classList.remove('active')
-			to_hide = to_hide.filter(e => e != to)
-		}, instant? 0 : INTERVAL)
-		to_hide.push(to)
-	}
+// const INTERVAL = 500
+let to_show = []
+let to_hide = []
+function Show(instant=false) {
+	const to = setTimeout(() => {
+		popover.classList.add('active')
+		to_show = to_show.filter(e => e != to)
+	}, instant? 0 : 500)
+	to_show.push(to)
+}
+function Hide(instant=false) {
+	const to = setTimeout(() => {
+		popover.classList.remove('active')
+		to_hide = to_hide.filter(e => e != to)
+	}, instant? 0 : 500)
+	to_hide.push(to)
+}
 	function AddToPopover(link) {
 		[popover.title, popover.subtitle, popover.section, popover.preview] = [link.dataset.title, link.dataset.subtitle, link.dataset.section, link.dataset.preview]
 	}
