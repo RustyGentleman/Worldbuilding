@@ -240,61 +240,59 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 	l.setAttribute('data-subtitle', subtitle)
 })
 //? Popover
-(() => {
-	// const INTERVAL = 500
-	let to_show = []
-	let to_hide = []
-	function Show(instant=false) {
-		const to = setTimeout(() => {
-			popover.classList.add('active')
-			to_show = to_show.filter(e => e != to)
-		}, instant? 0 : 500)
-		to_show.push(to)
-	}
-	function Hide(instant=false) {
-		const to = setTimeout(() => {
-			popover.classList.remove('active')
-			to_hide = to_hide.filter(e => e != to)
-		}, instant? 0 : 500)
-		to_hide.push(to)
-	}
-	function AddToPopover(link) {
-		[popover.title, popover.subtitle, popover.section, popover.preview] = [link.dataset.title, link.dataset.subtitle, link.dataset.section, link.dataset.preview]
-	}
+// const INTERVAL = 500
+let to_show = []
+let to_hide = []
+function Show(instant=false) {
+	const to = setTimeout(() => {
+		popover.classList.add('active')
+		to_show = to_show.filter(e => e != to)
+	}, instant? 0 : 500)
+	to_show.push(to)
+}
+function Hide(instant=false) {
+	const to = setTimeout(() => {
+		popover.classList.remove('active')
+		to_hide = to_hide.filter(e => e != to)
+	}, instant? 0 : 500)
+	to_hide.push(to)
+}
+function AddToPopover(link) {
+	[popover.title, popover.subtitle, popover.section, popover.preview] = [link.dataset.title, link.dataset.subtitle, link.dataset.section, link.dataset.preview]
+}
 
-	document.querySelectorAll('a[page-link], a[section-link], popover').forEach(l => {
-		l.addEventListener('mouseover', () => {
-			// console.log('link hover', to_show.length, to_hide.length)
-			to_hide.forEach(e => clearTimeout(e))
-			to_hide = []
-			Show(popover.classList.contains('active'))
-
-			AddToPopover(l)
-			const rect = l.getBoundingClientRect()
-			popover.style.setProperty('--x', `${rect.left + rect.width}px`)
-			popover.style.setProperty('--y', `${rect.top - popover.clientHeight}px`)
-
-			l.addEventListener('mouseleave', () => {
-				// console.log('link leave', to_show.length, to_hide.length)
-				to_show.forEach(e => clearTimeout(e))
-				to_show = []
-				if (popover.classList.contains('active')) Hide()
-			})
-		})
-	})
-	popover.addEventListener('mouseover', () => {
-		// console.log('popover hover', to_show.length, to_hide.length)
+document.querySelectorAll('a[page-link], a[section-link], popover').forEach(l => {
+	l.addEventListener('mouseover', () => {
+		// console.log('link hover', to_show.length, to_hide.length)
 		to_hide.forEach(e => clearTimeout(e))
 		to_hide = []
 		Show(popover.classList.contains('active'))
-		popover.addEventListener('mouseleave', () => {
-			// console.log('popover leave', to_show.length, to_hide.length)
+
+		AddToPopover(l)
+		const rect = l.getBoundingClientRect()
+		popover.style.setProperty('--x', `${rect.left + rect.width}px`)
+		popover.style.setProperty('--y', `${rect.top - popover.clientHeight}px`)
+
+		l.addEventListener('mouseleave', () => {
+			// console.log('link leave', to_show.length, to_hide.length)
 			to_show.forEach(e => clearTimeout(e))
 			to_show = []
 			if (popover.classList.contains('active')) Hide()
 		})
 	})
-})()
+})
+popover.addEventListener('mouseover', () => {
+	// console.log('popover hover', to_show.length, to_hide.length)
+	to_hide.forEach(e => clearTimeout(e))
+	to_hide = []
+	Show(popover.classList.contains('active'))
+	popover.addEventListener('mouseleave', () => {
+		// console.log('popover leave', to_show.length, to_hide.length)
+		to_show.forEach(e => clearTimeout(e))
+		to_show = []
+		if (popover.classList.contains('active')) Hide()
+	})
+})
 //? Section header decorations
 document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div').forEach(h => {
 	h.innerHTML = `<div class="h-left"></div>${h.innerHTML}<div class="h-right"></div>`
