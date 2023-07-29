@@ -431,9 +431,10 @@ function Page_GetCurrentLink() {
 		const rect = child.getBoundingClientRect()
 		if (rect.bottom >= height * .4) {
 			Array.from(child.children).forEach((par, i) => {
+				if (ret) return
 				const rect = par.getBoundingClientRect()
 				if (rect.bottom >= height *.4) {
-					ret = `${body.getAttribute('current')}:${Page_GetCurrentSectionHeader()}:${i}`
+					ret = `${body.getAttribute('current')}:${Page_GetCurrentSectionHeader()}:${i+1}`
 					return
 				}
 			})
