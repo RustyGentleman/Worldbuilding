@@ -423,8 +423,8 @@ for (const pl of document.querySelectorAll('[page-link]'))
 		pl.addEventListener('click', function() {
 			const [pg, sc, ps, pe] = [...this.getAttribute('page-link').split(':')]
 			// console.log(pg, sc, ps, pe)
-			if (this.tagName != 'BUTTON')
-				AddToHistory()
+			// if (this.tagName != 'BUTTON')
+			// 	AddToHistory()
 			GoToPage(pg, sc || null, ps || null, pe || null)
 			document.activeElement.blur()
 		})
@@ -433,8 +433,8 @@ for (const nb of document.querySelectorAll('button[page-link]'))
 for (const sl of document.querySelectorAll('[section-link]'))
 	if (sl.getAttribute('section-link'))
 		sl.addEventListener('click', function() {
-			if (this.tagName != 'BUTTON')
-				AddToHistory()
+			// if (this.tagName != 'BUTTON')
+			// 	AddToHistory()
 			GoToSection(this.getAttribute('section-link'))
 			document.activeElement.blur()
 		})
@@ -553,35 +553,35 @@ function Blink(element) {
 	element.classList.add('blink')
 	setTimeout(() => element.classList.remove('blink'), 2000)
 }
-function AddToHistory() {
-	const a = document.createElement('a')
-	const sectionID = Page_GetCurrentSectionHeader()
-	a.removeAttribute('href')
-	a.setAttribute('tabindex', '0')
-	a.setAttribute('page-link', Page_GetCurrentLink())
-	a.innerHTML = `<b>${document.page.content.querySelector('header h1').textContent.trim().replaceAll('\t','').replace('\n',' ')}</b>${sectionID? `<span>${document.page.content.querySelector(`[section-id="${sectionID}"]`).textContent}</span>` : ''}`
-	a.addEventListener('click', function() {
-		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
-		GoToPage(pg, sc, pr)
+// function AddToHistory() {
+// 	const a = document.createElement('a')
+// 	const sectionID = Page_GetCurrentSectionHeader()
+// 	a.removeAttribute('href')
+// 	a.setAttribute('tabindex', '0')
+// 	a.setAttribute('page-link', Page_GetCurrentLink())
+// 	a.innerHTML = `<b>${document.page.content.querySelector('header h1').textContent.trim().replaceAll('\t','').replace('\n',' ')}</b>${sectionID? `<span>${document.page.content.querySelector(`[section-id="${sectionID}"]`).textContent}</span>` : ''}`
+// 	a.addEventListener('click', function() {
+// 		const [pg, sc, pr] = [...this.getAttribute('page-link').split(':')]
+// 		GoToPage(pg, sc, pr)
 
-		const here = this.parentElement.querySelector('[disabled]')
-		const index = Array.from(this.parentElement.children).indexOf(this)
-		Array.from(this.parentElement.children).forEach((e, i) => {
-			if (i > index && e != here) e.remove()
-		})
-		if (this.parentElement.childElementCount == 2)
-			this.parentElement.innerHTML = ''
-		else
-			this.remove()
-	})
-	if (!document.history.innerHTML.length) {
-		const here = document.createElement('span')
-		here.textContent = 'Here'
-		here.setAttribute('disabled', '')
-		document.history.prepend(here)
-	}
-	document.history.insertBefore(a, document.history.lastElementChild)
-}
+// 		const here = this.parentElement.querySelector('[disabled]')
+// 		const index = Array.from(this.parentElement.children).indexOf(this)
+// 		Array.from(this.parentElement.children).forEach((e, i) => {
+// 			if (i > index && e != here) e.remove()
+// 		})
+// 		if (this.parentElement.childElementCount == 2)
+// 			this.parentElement.innerHTML = ''
+// 		else
+// 			this.remove()
+// 	})
+// 	if (!document.history.innerHTML.length) {
+// 		const here = document.createElement('span')
+// 		here.textContent = 'Here'
+// 		here.setAttribute('disabled', '')
+// 		document.history.prepend(here)
+// 	}
+// 	document.history.insertBefore(a, document.history.lastElementChild)
+// }
 function ChangeTitle(title='') {
 	if (title != '')
 		document.title = [title, base_title].join(' - ')
