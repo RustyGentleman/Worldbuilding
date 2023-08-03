@@ -241,6 +241,16 @@ body
 		--pg-acc-d: hsl(246 100% 5%)
 		--pg-sec-h: 240
 		--pg-sec-b: 1
+	&[current='riella']
+		--pg-acc: hsl(80 77% 60%)
+		--pg-acc-hsl: 80 77% 18%
+		--pg-acc-txt: hsl(80,77%,60%)
+		--pg-acc-d: hsl(96,82%,28%)
+		--pg-sec-h: 282
+		--pg-sec-b: 2
+		--pg-sec-i: 1
+		--nav-txt: black
+		--nav-txt-i: white
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
