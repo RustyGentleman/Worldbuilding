@@ -585,6 +585,16 @@ main {
   text-align: left;
   border: none;
 }
+.content blockquote {
+  font-style: italic;
+  font-weight: 400;
+  text-wrap: balance;
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+.content blockquote i {
+  font-style: normal;
+}
 
 .tiled {
   display: flex;
@@ -631,6 +641,7 @@ header h2, .tile h2 {
   overflow-y: auto;
   overflow-x: hidden;
   direction: rtl;
+  padding-block: 1px;
 }
 .left-scrollbar > div {
   direction: ltr;

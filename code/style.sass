@@ -260,6 +260,8 @@ a[page-link], a[section-link], popover, #history a b
 	background-position: bottom left, bottom left
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease !important
+	blockquote &
+		background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt))
 //* In-site link hover
 a[page-link], a[section-link], popover, #history a
 	&:hover, &:focus
@@ -808,6 +810,8 @@ nav#topnav
 		figcaption
 			font-style: italic
 			font-size: .8em
+	blockquote
+		color: var(--pg-acc-txt, var(--pg-acc))
 .left-scrollbar
 	&::-webkit-scrollbar
 		width: 5px
