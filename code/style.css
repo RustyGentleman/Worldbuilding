@@ -225,203 +225,320 @@ body[current=wolfkins] {
   --pg-sec-h: 240;
   --pg-sec-b: 1;
 }
+body[current=riella] {
+  --pg-acc: hsl(80 77% 60%);
+  --pg-acc-hsl: 80 77% 18%;
+  --pg-acc-txt: hsl(80,77%,60%);
+  --pg-acc-d: hsl(96,82%,28%);
+  --pg-sec-h: 282;
+  --pg-sec-b: 2;
+  --pg-sec-i: 1;
+  --nav-txt: black;
+  --nav-txt-i: white;
+}
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
 }
 
+body[current=home] #topnav .dropdown button[page-link=home]::before, body[current=home] #topnav .dropdown button[page-link=home]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=home] #topnav .dropdown button[page-link=home]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=home] #topnav .dropdown button[page-link=home]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #world.current ~ [page-bg=world] {
   opacity: 1;
 }
 
+body[current=world] #topnav .dropdown button[page-link=world]::before, body[current=world] #topnav .dropdown button[page-link=world]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=world] #topnav .dropdown button[page-link=world]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=world] #topnav .dropdown button[page-link=world]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #magicsystem.current ~ [page-bg=magicsystem] {
   opacity: 1;
 }
 
+body[current=magicsystem] #topnav .dropdown button[page-link=magicsystem]::before, body[current=magicsystem] #topnav .dropdown button[page-link=magicsystem]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=magicsystem] #topnav .dropdown button[page-link=magicsystem]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=magicsystem] #topnav .dropdown button[page-link=magicsystem]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #schoolsofmagic.current ~ [page-bg=schoolsofmagic] {
   opacity: 1;
 }
 
+body[current=schoolsofmagic] #topnav .dropdown button[page-link=schoolsofmagic]::before, body[current=schoolsofmagic] #topnav .dropdown button[page-link=schoolsofmagic]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=schoolsofmagic] #topnav .dropdown button[page-link=schoolsofmagic]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=schoolsofmagic] #topnav .dropdown button[page-link=schoolsofmagic]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #fauna.current ~ [page-bg=fauna] {
   opacity: 1;
 }
 
+body[current=fauna] #topnav .dropdown button[page-link=fauna]::before, body[current=fauna] #topnav .dropdown button[page-link=fauna]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=fauna] #topnav .dropdown button[page-link=fauna]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=fauna] #topnav .dropdown button[page-link=fauna]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #flora.current ~ [page-bg=flora] {
   opacity: 1;
 }
 
+body[current=flora] #topnav .dropdown button[page-link=flora]::before, body[current=flora] #topnav .dropdown button[page-link=flora]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=flora] #topnav .dropdown button[page-link=flora]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=flora] #topnav .dropdown button[page-link=flora]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
   opacity: 1;
 }
 
+body[current=whisperwoodforest] #topnav .dropdown button[page-link=whisperwoodforest]::before, body[current=whisperwoodforest] #topnav .dropdown button[page-link=whisperwoodforest]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=whisperwoodforest] #topnav .dropdown button[page-link=whisperwoodforest]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=whisperwoodforest] #topnav .dropdown button[page-link=whisperwoodforest]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #crestbendharbor.current ~ [page-bg=crestbendharbor] {
   opacity: 1;
 }
 
+body[current=crestbendharbor] #topnav .dropdown button[page-link=crestbendharbor]::before, body[current=crestbendharbor] #topnav .dropdown button[page-link=crestbendharbor]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=crestbendharbor] #topnav .dropdown button[page-link=crestbendharbor]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=crestbendharbor] #topnav .dropdown button[page-link=crestbendharbor]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #characters.current ~ [page-bg=characters] {
   opacity: 1;
 }
 
+body[current=characters] #topnav .dropdown button[page-link=characters]::before, body[current=characters] #topnav .dropdown button[page-link=characters]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=characters] #topnav .dropdown button[page-link=characters]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=characters] #topnav .dropdown button[page-link=characters]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #ras.current ~ [page-bg=ras] {
   opacity: 1;
 }
 
+body[current=ras] #topnav .dropdown button[page-link=ras]::before, body[current=ras] #topnav .dropdown button[page-link=ras]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=ras] #topnav .dropdown button[page-link=ras]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=ras] #topnav .dropdown button[page-link=ras]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #riella.current ~ [page-bg=riella] {
   opacity: 1;
 }
 
+body[current=riella] #topnav .dropdown button[page-link=riella]::before, body[current=riella] #topnav .dropdown button[page-link=riella]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=riella] #topnav .dropdown button[page-link=riella]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=riella] #topnav .dropdown button[page-link=riella]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #races.current ~ [page-bg=races] {
   opacity: 1;
 }
 
+body[current=races] #topnav .dropdown button[page-link=races]::before, body[current=races] #topnav .dropdown button[page-link=races]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=races] #topnav .dropdown button[page-link=races]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=races] #topnav .dropdown button[page-link=races]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #kitsunes.current ~ [page-bg=kitsunes] {
   opacity: 1;
 }
 
+body[current=kitsunes] #topnav .dropdown button[page-link=kitsunes]::before, body[current=kitsunes] #topnav .dropdown button[page-link=kitsunes]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=kitsunes] #topnav .dropdown button[page-link=kitsunes]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=kitsunes] #topnav .dropdown button[page-link=kitsunes]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #elves.current ~ [page-bg=elves] {
   opacity: 1;
 }
 
+body[current=elves] #topnav .dropdown button[page-link=elves]::before, body[current=elves] #topnav .dropdown button[page-link=elves]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=elves] #topnav .dropdown button[page-link=elves]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=elves] #topnav .dropdown button[page-link=elves]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #wolfkins.current ~ [page-bg=wolfkins] {
   opacity: 1;
 }
 
+body[current=wolfkins] #topnav .dropdown button[page-link=wolfkins]::before, body[current=wolfkins] #topnav .dropdown button[page-link=wolfkins]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=wolfkins] #topnav .dropdown button[page-link=wolfkins]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=wolfkins] #topnav .dropdown button[page-link=wolfkins]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #harpies.current ~ [page-bg=harpies] {
   opacity: 1;
 }
 
+body[current=harpies] #topnav .dropdown button[page-link=harpies]::before, body[current=harpies] #topnav .dropdown button[page-link=harpies]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=harpies] #topnav .dropdown button[page-link=harpies]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=harpies] #topnav .dropdown button[page-link=harpies]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
 #elvenempire.current ~ [page-bg=elvenempire] {
   opacity: 1;
 }
 
+body[current=elvenempire] #topnav .dropdown button[page-link=elvenempire]::before, body[current=elvenempire] #topnav .dropdown button[page-link=elvenempire]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
 body[current=elvenempire] #topnav .dropdown button[page-link=elvenempire]::before {
-  background-image: linear-gradient(to right, transparent, var(--nav-txt), transparent);
-  background-position: center center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=elvenempire] #topnav .dropdown button[page-link=elvenempire]::after {
+  content: "◀";
+  margin-left: 0.5rem;
 }
 
-a[page-link], a[section-link], popover, #history a b {
+a[page-link], a[section-link], popover {
   background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor);
   background-size: 0% 1px, 4px 1px;
-  background-position: bottom left, bottom left;
+  background-position-x: left, left;
+  background-position-y: calc(100% - var(--f-ul-off, 0px)), calc(100% - var(--f-ul-off, 0px));
   background-repeat: no-repeat, repeat-x;
   transition: background-size 0.3s ease !important;
 }
+blockquote a[page-link], blockquote a[section-link], blockquote popover {
+  background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, var(--pg-txt), var(--pg-txt));
+}
 
-a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus b, a[section-link]:hover, a[section-link]:hover b, a[section-link]:focus, a[section-link]:focus b, popover:hover, popover:hover b, popover:focus, popover:focus b, #history a:hover, #history a:hover b, #history a:focus, #history a:focus b {
+a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus b, a[section-link]:hover, a[section-link]:hover b, a[section-link]:focus, a[section-link]:focus b, popover:hover, popover:hover b, popover:focus, popover:focus b {
   background-size: 100% 1px, 4px 1px;
   outline: none;
 }
@@ -489,28 +606,18 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
 
 #topnav .dropdown button {
   position: relative;
+  background-image: linear-gradient(to right, transparent, transparent, transparent);
+  background-position: center center;
+  background-size: 100% 100%;
 }
 #topnav .dropdown button:disabled {
   font-style: italic;
   text-decoration: line-through;
   cursor: default;
 }
-#topnav .dropdown button:not(:disabled)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(to right, transparent, var(--nav-txt-i), transparent);
-  background-position: center center;
-  background-size: 100% 0%;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  z-index: -1;
-}
 #topnav .dropdown button:not(:disabled):hover, #topnav .dropdown button:not(:disabled):focus-within {
   outline: none;
-}
-#topnav .dropdown button:not(:disabled):hover::before, #topnav .dropdown button:not(:disabled):focus-within::before {
-  background-size: 100% 100%;
+  background-image: linear-gradient(to right, transparent, var(--pg-acc), transparent);
 }
 
 .content section {
@@ -643,11 +750,13 @@ section.blink *, section .blink {
 ::-moz-selection {
   color: var(--nav-txt);
   background: var(--pg-acc);
+  text-shadow: none;
 }
 
 ::selection {
   color: var(--nav-txt);
   background: var(--pg-acc);
+  text-shadow: none;
 }
 
 #topnav > div > button::before {
@@ -706,19 +815,16 @@ body {
 #topnav button, #topnav .dropdown {
   transition: background 0.5s ease, transform 0.5s cubic-bezier(0.61, 1.57, 0.4, 0.76);
 }
-#topnav .dropdown button::before {
+#topnav .dropdown button {
   transition: background 0.3s ease 0.15s;
 }
-#topnav .dropdown button:hover::before, #topnav .dropdown button:focus::before {
+#topnav .dropdown button:hover, #topnav .dropdown button:focus {
   transition: background 0s ease 0s;
 }
 #topnav > div:hover > .dropdown, #topnav > div:focus-within > .dropdown,
 #topnav > div .dropdown:hover,
 #topnav > div .dropdown:focus-within {
   transition-delay: 0s;
-}
-#topnav #history {
-  transition: border 0.5s ease;
 }
 
 .page {
@@ -779,10 +885,6 @@ nav#topnav > div:not(:first-child) > button {
 nav#topnav > div > .dropdown {
   border: solid 1px;
   border-top: none;
-}
-nav#topnav #history:not(:empty) {
-  border-block: solid 1px;
-  border-color: var(--nav-txt, inherit);
 }
 
 .sidebar {
@@ -869,6 +971,7 @@ body {
   font-size: calc(1rem + 1px * var(--t-fs));
   font-family: "Grenze";
   font-weight: 200;
+  --f-ul-off: 0px;
 }
 body .page .content section {
   letter-spacing: calc(0.1px * var(--t-ls));
@@ -877,6 +980,7 @@ body .page .content section {
 }
 body.grenze {
   font-family: "Grenze", serif;
+  --f-ul-off: 4px;
 }
 body.grenze .page .content section {
   line-height: calc(1.15em + 1px * var(--t-lh));
@@ -885,8 +989,12 @@ body.grenze .page .content section {
 body.grenze #home [section-id=changes] + section > ul ul::before {
   --x: 1.54rem;
 }
+body.grenze .sidebar {
+  --f-ul-off: 3px;
+}
 body.rasa {
   font-family: "Rasa", serif;
+  --f-ul-off: 1px;
 }
 body.rasa .page .content section {
   line-height: calc(1.2em + 1px * var(--t-lh));
@@ -894,8 +1002,12 @@ body.rasa .page .content section {
 body.rasa #home [section-id=changes] + section > ul ul::before {
   --x: 1.7rem;
 }
+body.rasa .sidebar {
+  --f-ul-off: 3px;
+}
 body.ysabeau {
   font-family: "Ysabeau Infant", sans-serif;
+  --f-ul-off: 1px;
 }
 body.ysabeau .page .content section {
   letter-spacing: calc(0.1px * var(--t-ls) - 0.5px);
@@ -980,34 +1092,6 @@ nav#topnav .dropdown {
   border-bottom-right-radius: 0.4rem;
   z-index: -1;
 }
-nav#topnav #history {
-  position: relative;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
-}
-nav#topnav #history > a {
-  position: relative;
-  background-image: none;
-}
-nav#topnav #history > a::after {
-  content: ">";
-  position: absolute;
-  left: calc(100% + 1rem);
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-}
-nav#topnav #history > a:last-child::before {
-  content: "Here";
-  display: block;
-  position: absolute;
-  left: calc(100% + 2rem);
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-}
 
 .sidebar {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1074,6 +1158,9 @@ nav#topnav #history > a:last-child::before {
 .content figure figcaption {
   font-style: italic;
   font-size: 0.8em;
+}
+.content blockquote {
+  color: var(--pg-acc-txt, var(--pg-acc));
 }
 
 .left-scrollbar::-webkit-scrollbar {
@@ -1357,6 +1444,16 @@ nav#topnav #history > a:last-child::before {
 }
 #elves section.subcolumns > div.mag p b:not(.escape) {
   color: hsl(60deg, 89%, 89%);
+}
+
+#riella section.subcolumns > div.phy p b:not(.escape) {
+  color: hsl(113deg, 91%, 45%);
+}
+#riella section.subcolumns > div.psy p b:not(.escape) {
+  color: hsl(76deg, 94%, 56%);
+}
+#riella section.subcolumns > div.mag p b:not(.escape) {
+  color: hsl(170deg, 96%, 42%);
 }
 
 [page-bg=ras] {
