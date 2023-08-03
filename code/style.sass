@@ -254,11 +254,17 @@ body
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
-	body[current="#{$pg}"] #topnav .dropdown button[page-link="#{$pg}"]::before
-		background-image: linear-gradient(to right, $t, var(--nav-txt), $t)
-		background-position: center center
-		background-size: 100%
-		background-repeat: no-repeat
+	body[current="#{$pg}"] #topnav .dropdown button[page-link="#{$pg}"]
+		&::before,
+		&::after
+			display: inline-block
+			font-size: .7em
+		&::before
+			content: '▶'
+			margin-right: .5rem
+		&::after
+			content: '◀'
+			margin-left: .5rem
 
 // # ----------------------------------------
 // # Effects
@@ -267,7 +273,8 @@ body
 a[page-link], a[section-link], popover, #history a b
 	background-image: linear-gradient(to right, var(--pg-acc-txt, --pg-acc), var(--pg-acc-txt, --pg-acc)), linear-gradient(to right, currentColor, currentColor)
 	background-size: 0% 1px, 4px 1px
-	background-position: bottom left, bottom left
+	background-position-x: left, left
+	background-position-y: calc(100% - var(--f-ul-off, 0px)), calc(100% - var(--f-ul-off, 0px))
 	background-repeat: no-repeat, repeat-x
 	transition: background-size $tr-s ease !important
 	blockquote &
@@ -331,33 +338,19 @@ a[page-link], a[section-link], popover, #history a
 //* Dropdown button hover & disabled
 #topnav
 	> div > button
-		// background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, $t, $t)
-		// background-position: center center
-		// background-repeat: no-repeat
-		// &:focus-within
-		// 	background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent), radial-gradient(closest-side, var(--nav-txt-i), $t)
-		// 	outline: none
 	.dropdown button
 		position: relative
+		background-image: linear-gradient(to right, $t, $t, $t)
+		background-position: center center
+		background-size: 100% 100%
 		&:disabled
 			font-style: italic
 			text-decoration: line-through
 			cursor: default
-		&:not(:disabled)::before
-			content: ''
-			position: absolute
-			inset: 0
-			background-image: linear-gradient(to right, $t, var(--nav-txt-i), $t)
-			background-position: center center
-			background-size: 100% 0%
-			background-repeat: no-repeat
-			opacity: .5
-			z-index: -1
 		&:not(:disabled):hover,
 		&:not(:disabled):focus-within
 			outline: none
-			&::before
-				background-size: 100% 100%
+			background-image: linear-gradient(to right, $t, var(--pg-acc), $t)
 //* Content section smoke background
 .content section
 	position: relative
@@ -529,11 +522,9 @@ body
 	button, .dropdown
 		transition: background $tr-l ease, transform $tr-l cubic-bezier(0.61, 1.57, 0.4, 0.76)
 	.dropdown button
-		&::before
 			transition: background $tr-s ease $tr-vs
 		&:hover,
 		&:focus
-			&::before
 				transition: background 0s ease 0s
 	> div
 		&:hover > .dropdown,
@@ -592,10 +583,6 @@ nav#topnav
 	border-image: lg(bottom, 'currentColor, transparent')
 	border-image-slice: 1
 	border-right: solid 1px
-// .page:not(.content-only) .content
-// 	border-image: lg(bottom, 'currentColor, transparent')
-// 	border-image-slice: 1
-// 	border-left: solid 1px
 
 // # ----------------------------------------
 // # Text
@@ -804,7 +791,6 @@ nav#topnav
 		@extend .ts-b
 		margin-bottom: 2rem
 	> h1, > h2, > h3
-		// filter: drop-shadow(0 0 .5rem var(--pg-txt-i))
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5))
 		box-shadow: 0 0 5rem 1.4rem rgb(0 0 0)
 		clip-path: polygon(-1000% 0%, 1000% 0%, 1000% 100%, -1000% 100%, -1000% 0%)
