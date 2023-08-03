@@ -485,7 +485,7 @@ function Page_RefreshSectionPointer() {
 	if (document.page.sidebar?.querySelector('.current') == document.page.sidebar.querySelector(`[section-link="${headerID}"]`)) return
 	document.page.sidebar?.querySelector('.current')?.classList.remove('current')
 	document.page.sidebar?.querySelector(`[section-link="${headerID}"]`).classList.add('current')
-	document.page.sidebar?.querySelector(`[section-link="${headerID}"]`).scrollIntoView({ behavior:'smooth' })
+	document.page.sidebar?.querySelector(`[section-link="${headerID}"]`).scrollIntoView({ behavior:'smooth', block: 'center' })
 }
 Page_RefreshSectionPointer()
 
