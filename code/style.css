@@ -1124,7 +1124,7 @@ nav#topnav .dropdown {
   width: calc(100vw - (min(10.5rem, 30vw) + 0.5rem));
 }
 .content header {
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 .content > h1, .content > h2, .content > h3 {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
