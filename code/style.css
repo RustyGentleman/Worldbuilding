@@ -70,7 +70,7 @@ body {
   --pg-acc: crimson;
   --pg-acc-d: hsl(348 83% 30%);
   --pg-acc-h: 348;
-  --pg-acc-txt: crimson;
+  --pg-acc-txt: hsl(348 100% 63%);
   --pg-txt: white;
   --pg-txt-i: black;
   --pg-tint: hsl(0 100% 100%);
@@ -193,6 +193,8 @@ body[current=elvenempire] {
   --pg-sec-h: 69;
   --pg-sec-b: 5;
   --pg-sec-s: 0;
+  --nav-txt: black;
+  --nav-txt-i: white;
 }
 body[current=fauna] {
   --pg-acc: hsl(0,90%,40%);
@@ -224,6 +226,15 @@ body[current=wolfkins] {
   --pg-acc-d: hsl(246 100% 5%);
   --pg-sec-h: 240;
   --pg-sec-b: 1;
+}
+body[current=harpies] {
+  --pg-acc: crimson;
+  --pg-acc-d: hsl(348 83% 30%);
+  --pg-acc-h: 348;
+  --pg-acc-txt: hsl(348 100% 63%);
+  --pg-sec-h: 290;
+  --pg-sec-b: 2;
+  --pg-sec-s: 1;
 }
 body[current=riella] {
   --pg-acc: hsl(80 77% 60%);
@@ -982,7 +993,7 @@ body.grenze {
   font-family: "Grenze", serif;
   --f-ul-off: 4px;
 }
-body.grenze .page .content section {
+body.grenze .page .content section, body.grenze #popover .preview {
   line-height: calc(1.15em + 1px * var(--t-lh));
   font-size: calc(1.1rem + 1px * var(--t-fs));
 }
@@ -996,7 +1007,7 @@ body.rasa {
   font-family: "Rasa", serif;
   --f-ul-off: 1px;
 }
-body.rasa .page .content section {
+body.rasa .page .content section, body.rasa #popover .preview {
   line-height: calc(1.2em + 1px * var(--t-lh));
 }
 body.rasa #home [section-id=changes] + section > ul ul::before {
@@ -1009,7 +1020,7 @@ body.ysabeau {
   font-family: "Ysabeau Infant", sans-serif;
   --f-ul-off: 1px;
 }
-body.ysabeau .page .content section {
+body.ysabeau .page .content section, body.ysabeau #popover .preview {
   letter-spacing: calc(0.1px * var(--t-ls) - 0.5px);
 }
 body.ysabeau #home [section-id=changes] + section > ul ul::before {
@@ -1018,7 +1029,7 @@ body.ysabeau #home [section-id=changes] + section > ul ul::before {
 body.dosis {
   font-family: "Dosis", sans-serif;
 }
-body.dosis .page .content section {
+body.dosis .page .content section, body.dosis #popover .preview {
   line-height: calc(1.2em + 1px * var(--t-lh));
 }
 body.dosis #home [section-id=changes] + section > ul ul::before {
@@ -1161,6 +1172,36 @@ nav#topnav .dropdown {
 }
 .content blockquote {
   color: var(--pg-acc-txt, var(--pg-acc));
+}
+.content h1[section-id="traits&abilities"] + section b + i,
+.content h2[section-id=innate] + section b + i,
+.content h2[section-id=developed] + section b + i,
+.content h2[section-id=attained] + section b + i {
+  position: relative;
+  display: inline-block;
+  padding-inline: 0.3rem;
+}
+.content h1[section-id="traits&abilities"] + section b + i::before,
+.content h2[section-id=innate] + section b + i::before,
+.content h2[section-id=developed] + section b + i::before,
+.content h2[section-id=attained] + section b + i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0.1;
+  z-index: -1;
+}
+.content h1[section-id="traits&abilities"] + section b + i::after,
+.content h2[section-id=innate] + section b + i::after,
+.content h2[section-id=developed] + section b + i::after,
+.content h2[section-id=attained] + section b + i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: solid 1px;
+  border-radius: 0.5rem;
+  opacity: 0.3;
 }
 
 .left-scrollbar::-webkit-scrollbar {
@@ -1419,40 +1460,50 @@ nav#topnav .dropdown {
   z-index: -1;
 }
 
-#ras section.subcolumns > div.phy p b:not(.escape) {
+#ras section.subcolumns > div.phy p b, #ras section.subcolumns > div.phy p b + i::before, #ras section.subcolumns > div.phy p b + i::after {
   color: hsl(160deg, 100%, 40%);
 }
-#ras section.subcolumns > div.psy p b:not(.escape) {
+#ras section.subcolumns > div.psy p b, #ras section.subcolumns > div.psy p b + i::before, #ras section.subcolumns > div.psy p b + i::after {
   color: hsl(214deg, 94%, 56%);
 }
-#ras section.subcolumns > div.mag p b:not(.escape) {
+#ras section.subcolumns > div.mag p b, #ras section.subcolumns > div.mag p b + i::before, #ras section.subcolumns > div.mag p b + i::after {
   color: hsl(249deg, 96%, 68%);
 }
 
-#kitsunes section.subcolumns > div.phy p b:not(.escape) {
+#kitsunes section.subcolumns > div.phy p b, #kitsunes section.subcolumns > div.phy p b + i::before, #kitsunes section.subcolumns > div.phy p b + i::after {
   color: hsl(27deg, 100%, 51%);
 }
-#kitsunes section.subcolumns > div.psy p b:not(.escape) {
+#kitsunes section.subcolumns > div.psy p b, #kitsunes section.subcolumns > div.psy p b + i::before, #kitsunes section.subcolumns > div.psy p b + i::after {
   color: hsl(51deg, 100%, 63%);
 }
-#kitsunes section.subcolumns > div.mag p b:not(.escape) {
+#kitsunes section.subcolumns > div.mag p b, #kitsunes section.subcolumns > div.mag p b + i::before, #kitsunes section.subcolumns > div.mag p b + i::after {
   color: hsl(352deg, 100%, 63%);
 }
 
-#elves section.subcolumns > div.phy p b:not(.escape) {
+#elves section.subcolumns > div.phy p b, #elves section.subcolumns > div.phy p b + i::before, #elves section.subcolumns > div.phy p b + i::after {
   color: hsl(204deg, 78%, 82%);
 }
-#elves section.subcolumns > div.mag p b:not(.escape) {
+#elves section.subcolumns > div.mag p b, #elves section.subcolumns > div.mag p b + i::before, #elves section.subcolumns > div.mag p b + i::after {
   color: hsl(60deg, 89%, 89%);
 }
 
-#riella section.subcolumns > div.phy p b:not(.escape) {
+#harpies section.subcolumns > div.phy p b, #harpies section.subcolumns > div.phy p b + i::before, #harpies section.subcolumns > div.phy p b + i::after {
+  color: hsl(350deg, 100%, 50%);
+}
+#harpies section.subcolumns > div.psy p b, #harpies section.subcolumns > div.psy p b + i::before, #harpies section.subcolumns > div.psy p b + i::after {
+  color: hsl(335deg, 100%, 65%);
+}
+#harpies section.subcolumns > div.mag p b, #harpies section.subcolumns > div.mag p b + i::before, #harpies section.subcolumns > div.mag p b + i::after {
+  color: hsl(170deg, 96%, 42%);
+}
+
+#riella section.subcolumns > div.phy p b, #riella section.subcolumns > div.phy p b + i::before, #riella section.subcolumns > div.phy p b + i::after {
   color: hsl(113deg, 91%, 45%);
 }
-#riella section.subcolumns > div.psy p b:not(.escape) {
+#riella section.subcolumns > div.psy p b, #riella section.subcolumns > div.psy p b + i::before, #riella section.subcolumns > div.psy p b + i::after {
   color: hsl(76deg, 94%, 56%);
 }
-#riella section.subcolumns > div.mag p b:not(.escape) {
+#riella section.subcolumns > div.mag p b, #riella section.subcolumns > div.mag p b + i::before, #riella section.subcolumns > div.mag p b + i::after {
   color: hsl(170deg, 96%, 42%);
 }
 

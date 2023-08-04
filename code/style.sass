@@ -799,6 +799,28 @@ nav#topnav
 			font-size: .8em
 	blockquote
 		color: var(--pg-acc-txt, var(--pg-acc))
+	h1[section-id="traits&abilities"],
+	h2[section-id="innate"],
+	h2[section-id="developed"],
+	h2[section-id="attained"]
+		+ section b + i
+			position: relative
+			display: inline-block
+			padding-inline: .3rem
+			&::before
+				content: ''
+				position: absolute
+				inset: 0
+				background-color: $cc
+				opacity: .1
+				z-index: -1
+			&::after
+				content: ''
+				position: absolute
+				inset: 0
+				border: solid 1px
+				border-radius: .5rem
+				opacity: .3
 .left-scrollbar
 	&::-webkit-scrollbar
 		width: 5px
@@ -1010,46 +1032,57 @@ nav#topnav
 				z-index: -1
 #ras
 	section.subcolumns
-		> div.phy
-			p b:not(.escape)
+		> div.phy p
+			b, b + i::before, b + i::after
 				color: hsl(160 100% 40%)
-		> div.psy
-			p b:not(.escape)
+		> div.psy p
+			b, b + i::before, b + i::after
 				color: hsl(214,94%,56%)
-		> div.mag
-			p b:not(.escape)
+		> div.mag p
+			b, b + i::before, b + i::after
 				color: hsl(249,96%,68%)
 #kitsunes
 	section.subcolumns
-		> div.phy
-			p b:not(.escape)
+		> div.phy p
+			b, b + i::before, b + i::after
 				color: hsl(27,100%,51%)
-		> div.psy
-			p b:not(.escape)
+		> div.psy p
+			b, b + i::before, b + i::after
 				color: hsl(51,100%,63%)
-		> div.mag
-			p b:not(.escape)
+		> div.mag p
+			b, b + i::before, b + i::after
 				color: hsl(352,100%,63%)
 #elves
 	section.subcolumns
-		> div.phy
-			p b:not(.escape)
+		> div.phy p
+			b, b + i::before, b + i::after
 				color: hsl(204,78%,82%)
-		> div.psy
-			p b:not(.escape)
-		> div.mag
-			p b:not(.escape)
+		> div.psy p
+			b, b + i::before, b + i::after
+		> div.mag p
+			b, b + i::before, b + i::after
 				color: hsl(60,89%,89%)
+#harpies
+	section.subcolumns
+		> div.phy p
+			b, b + i::before, b + i::after
+				color: hsl(350 100% 50%)
+		> div.psy p
+			b, b + i::before, b + i::after
+				color: hsl(335 100% 65%)
+		> div.mag p
+			b, b + i::before, b + i::after
+				color: hsl(170,96%,42%)
 #riella
 	section.subcolumns
-		> div.phy
-			p b:not(.escape)
+		> div.phy p
+			b, b + i::before, b + i::after
 				color: hsl(113,91%,45%)
-		> div.psy
-			p b:not(.escape)
+		> div.psy p
+			b, b + i::before, b + i::after
 				color: hsl(76,94%,56%)
-		> div.mag
-			p b:not(.escape)
+		> div.mag p
+			b, b + i::before, b + i::after
 				color: hsl(170,96%,42%)
 
 [page-bg='ras']
