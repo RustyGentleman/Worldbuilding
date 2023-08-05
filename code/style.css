@@ -1307,6 +1307,9 @@ nav#topnav .dropdown {
   content: "-";
   margin: 0.5rem;
 }
+#popover .preview {
+  text-wrap: balance;
+}
 #popover .preview p:first-child {
   margin-top: 0;
 }
