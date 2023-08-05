@@ -213,13 +213,21 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 
 	let preview = ''
 	if (sc && ps && pe)
-		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li'))?.filter((_, i) => (i+1) >= ps && (i+1) <= pe).map(e => `<p>${e.textContent}</p>`).join('\n') || 'Error'
+		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p:not(.spoiler), li:not(.spoiler)'))
+				?.filter((_, i) => (i+1) >= ps && (i+1) <= pe)
+				.map(e => `<p>${e.textContent}</p>`)
+				.join('\n')
+			|| 'No preview'
 	else if (sc && ps)
-		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p, li')[ps-1]?.textContent}</p>` || 'Error'
+		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p:not(.spoiler), li:not(.spoiler)')[ps-1]?.textContent}</p>` || 'No preview'
 	else if (sc)
-		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.textContent}</p>` || 'Error'
+		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.children)
+				.filter(e => !(e.classList.contains('spoiler') || e.classList.contains('warning')))
+				.map(e => `<p>${e.textContent}</p>`)
+				.join('\n')
+			|| 'No preview'
 	else
-		preview = `<p>${document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent}</p>` || 'Error'
+		preview = `<p>${document.getElementById(pg).querySelector(`.content > h1 + section`)?.textContent}</p>` || 'No preview'
 	if (preview.length >= 256)
 		preview = preview.replaceAll('\t', '').replaceAll('\n', ' ').replace(/^(.{256}[^\s\.]*).*/, "$1...</p>")
 
