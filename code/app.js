@@ -222,7 +222,7 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
 		preview = `<p>${document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.querySelectorAll('p:not(.spoiler), li:not(.spoiler)')[ps-1]?.textContent}</p>` || 'No preview'
 	else if (sc)
 		preview = Array.from(document.getElementById(pg).querySelector(`[section-id="${sc}"] + section`)?.children)
-				.filter(e => !(e.classList.contains('spoiler') || e.classList.contains('warning')))
+				.filter(e => !(e.classList.contains('spoiler') || e.querySelector('.spoiler') || e.classList.contains('warning')))
 				.map(e => `<p>${e.textContent}</p>`)
 				.join('\n')
 			|| 'No preview'
