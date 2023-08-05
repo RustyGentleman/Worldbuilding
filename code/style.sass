@@ -560,6 +560,8 @@ body
 				transition: background $tr-vl ease
 		section, section *
 			transition: text-shadow $tr-s ease, letter-spacing .1s ease, word-spacing .1s ease, line-height .1s ease
+		.spoiler
+			transition: text-shadow $tr-s ease, letter-spacing .1s ease, word-spacing .1s ease, line-height .1s ease, color $tr-s ease, background $tr-s ease
 [page-bg]
 	transition: opacity $tr-vl ease
 #feedbackform, .btn-container>a.kofi-button
@@ -818,6 +820,25 @@ nav#topnav
 				border: solid 1px
 				border-radius: .5rem
 				opacity: .3
+	.warning
+		display: flex
+		flex-direction: column
+		border: solid 1px red
+		border-radius: .5rem
+		width: fit-content
+		margin-inline: auto
+		padding: .5rem
+		b
+			color: hsl(0,88%,53%)
+	.spoiler
+		position: relative
+		text-shadow: none
+		color: transparent
+		background-color: #222
+		&:hover
+			text-shadow: inherit
+			color: inherit
+			background-color: $t
 .left-scrollbar
 	&::-webkit-scrollbar
 		width: 5px
