@@ -428,8 +428,6 @@ for (const pl of document.querySelectorAll('[page-link]'))
 			GoToPage(pg, sc || null, ps || null, pe || null)
 			document.activeElement.blur()
 		})
-for (const nb of document.querySelectorAll('button[page-link]'))
-	nb.addEventListener('click', () => document.history.innerHTML = '')
 for (const sl of document.querySelectorAll('[section-link]'))
 	if (sl.getAttribute('section-link'))
 		sl.addEventListener('click', function() {
