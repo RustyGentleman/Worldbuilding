@@ -699,7 +699,7 @@ a[page-link]:hover, a[page-link]:hover b, a[page-link]:focus, a[page-link]:focus
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../assets/leafveinhalf.webp");
+  background-image: url("../assets/leafvein.webp");
   background-size: 12rem;
   -webkit-mask-image: linear-gradient(to left, transparent, white, white);
           mask-image: linear-gradient(to left, transparent, white, white);
@@ -774,7 +774,7 @@ section.blink *, section .blink {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../assets/leafveinhalf.webp");
+  background-image: url("../assets/leafvein.webp");
   background-size: auto 10rem;
   background-blend-mode: overlay;
   filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) saturate(var(--pg-sec-s, 1)) invert(var(--pg-sec-i)) blur(0.6px) url(#wavyh1);
