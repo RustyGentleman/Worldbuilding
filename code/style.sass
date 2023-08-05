@@ -10,9 +10,8 @@
 // //! Asset Switch
 // //! ----------------------------------------
 // - Production
-// $smoke-bg: 'https://rustygentleman.github.io/Worldbuilding/assets/smoke-bg.webp'
-// $leafveinhalf: 'https://rustygentleman.github.io/Worldbuilding/assets/leafveinhalf.webp'
-// $createlink: 'https://static.tumblr.com/k0xpxi3/x5Lrwtr2p/createlink.png'
+// $smoke-bg: 'https://static.tumblr.com/k0xpxi3/g49ryvg8l/smoke-bg.png'
+// $leafvein: 'https://static.tumblr.com/k0xpxi3/gG3ryvg7z/leafvein.png'
 // $bg-world: 'https://static.tumblr.com/k0xpxi3/PbXrx5ti0/bg-world.jpg'
 // $bg-ras: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-ras.webp'
 // $bg-kitsunes: 'https://rustygentleman.github.io/Worldbuilding/assets/bg-kitsunes.webp'
@@ -23,8 +22,7 @@
 
 // - Development
 $smoke-bg: '../assets/smoke-bg.webp'
-$leafveinhalf: '../assets/leafveinhalf.webp'
-$createlink: '../assets/createlink.png'
+$leafvein: '../assets/leafveinhalf.webp'
 $bg-ras: '../assets/bg-ras.webp'
 $bg-kitsunes: '../assets/bg-kitsunes.webp'
 $bg-world: '../assets/bg-world.jpg'
@@ -422,7 +420,7 @@ a[page-link], a[section-link], popover
 					position: absolute
 					inset: 0
 					// border-block: solid .3rem red
-					background-image: url(../assets/leafvein.webp)
+					background-image: url($leafvein)
 					background-size: 12rem
 					mask-image: lg(left, 'transparent, white, white')
 					filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) string.unquote('saturate(var(--pg-sec-s, 1))') string.unquote('invert(var(--pg-sec-i))')
@@ -459,7 +457,6 @@ a[page-link], a[section-link], popover
 			height: 1.5rem
 			display: flex
 			aspect-ratio: 1
-			// background-image: url($createlink)
 			background-size: cover
 			margin-left: -1rem
 			padding: 0
@@ -486,7 +483,7 @@ section.blink *, section .blink
 		position: absolute
 		inset: 0
 		// background: red
-		background-image: url(../assets/leafvein.webp)
+		background-image: url($leafvein)
 		background-size: auto 10rem
 		background-blend-mode: overlay
 		filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) string.unquote('saturate(var(--pg-sec-s, 1))') string.unquote('invert(var(--pg-sec-i))') blur(.6px) url(#wavyh1)
