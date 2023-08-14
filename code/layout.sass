@@ -190,6 +190,24 @@ main
 	section, > h1, > h2, > h3
 		max-width: 60rem
 		margin-inline: auto
+	section
+		.table-scroll
+			width: fit-content
+			max-width: 100%
+			margin-inline: auto
+			overflow-x: auto
+			overflow-y: visible
+		table
+			border-spacing: 0px
+			margin-bottom: 1px
+			td, th
+				padding: .2rem .4rem
+			th
+				border: solid 1px
+				+ th
+					border-left: 0
+				&:first-of-type:last-of-type
+					border-top: 0
 	section.subcolumns
 		display: grid
 		grid-auto-columns: 1fr

@@ -350,6 +350,23 @@ body[current=flora] #topnav .dropdown button[page-link=flora]::after {
   margin-left: 0.5rem;
 }
 
+#alchemy.current ~ [page-bg=alchemy] {
+  opacity: 1;
+}
+
+body[current=alchemy] #topnav .dropdown button[page-link=alchemy]::before, body[current=alchemy] #topnav .dropdown button[page-link=alchemy]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
+body[current=alchemy] #topnav .dropdown button[page-link=alchemy]::before {
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=alchemy] #topnav .dropdown button[page-link=alchemy]::after {
+  content: "◀";
+  margin-left: 0.5rem;
+}
+
 #whisperwoodforest.current ~ [page-bg=whisperwoodforest] {
   opacity: 1;
 }
@@ -1162,6 +1179,38 @@ nav#topnav .dropdown {
   padding-right: 0;
   border: none;
 }
+.content section table thead th:first-child {
+  position: relative;
+}
+.content section table thead th:first-child::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(-45deg, currentColor 0rem, currentColor 0.25rem, transparent 0.25rem, transparent 0.5rem);
+  opacity: 0.3;
+}
+.content section table td {
+  position: relative;
+}
+.content section table td::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-style: dotted;
+  border-width: 0 1px 1px 0;
+  opacity: 0.5;
+  z-index: -1;
+}
+.content section table td::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg);
+  opacity: 0.3;
+}
 .content figure {
   padding: 1rem;
 }
@@ -1232,19 +1281,21 @@ nav#topnav .dropdown {
   background-color: transparent;
 }
 
-.left-scrollbar::-webkit-scrollbar {
+.left-scrollbar::-webkit-scrollbar, .table-scroll::-webkit-scrollbar {
   width: 5px;
+  height: 0.5rem;
 }
-.left-scrollbar::-webkit-scrollbar-track {
+.left-scrollbar::-webkit-scrollbar-track, .table-scroll::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.left-scrollbar::-webkit-scrollbar-thumb {
+.left-scrollbar::-webkit-scrollbar-thumb, .table-scroll::-webkit-scrollbar-thumb {
   background-color: var(--pg-acc);
   border-radius: 5px;
 }
-.left-scrollbar::-webkit-scrollbar-button {
+.left-scrollbar::-webkit-scrollbar-button, .table-scroll::-webkit-scrollbar-button {
   background-color: var(--pg-acc);
   height: 5px;
+  width: 0.5rem;
   border-radius: 100%;
 }
 

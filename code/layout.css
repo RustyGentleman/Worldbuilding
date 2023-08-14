@@ -106,6 +106,24 @@
   opacity: 1;
 }
 
+#alchemy.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#alchemy.current.tiled {
+  display: flex;
+}
+#alchemy.current:not(.content-only) > .content,
+#alchemy.current > .sidebar {
+  transform: translateX(0%);
+}
+#alchemy.current.tiled > .tile,
+#alchemy.current .tiled > .tile, #alchemy.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 #whisperwoodforest.current {
   display: grid;
   pointer-events: all;
@@ -508,6 +526,31 @@ main {
 .content section, .content > h1, .content > h2, .content > h3 {
   max-width: 60rem;
   margin-inline: auto;
+}
+.content section .table-scroll {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.content section table {
+  border-spacing: 0px;
+  margin-bottom: 1px;
+}
+.content section table td, .content section table th {
+  padding: 0.2rem 0.4rem;
+}
+.content section table th {
+  border: solid 1px;
+}
+.content section table th + th {
+  border-left: 0;
+}
+.content section table th:first-of-type:last-of-type {
+  border-top: 0;
 }
 .content section.subcolumns {
   display: grid;
