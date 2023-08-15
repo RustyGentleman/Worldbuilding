@@ -539,18 +539,20 @@ main {
 .content section table {
   border-spacing: 0px;
   margin-bottom: 1px;
+  border-left: solid 1px;
 }
 .content section table td, .content section table th {
   padding: 0.2rem 0.4rem;
 }
+.content section table tbody th {
+  border-top: 0;
+}
 .content section table th {
   border: solid 1px;
 }
-.content section table th + th {
-  border-left: 0;
-}
-.content section table th:first-of-type:last-of-type {
-  border-top: 0;
+.content section table tr th,
+.content section table tr + tr th {
+  border-left: none;
 }
 .content section.subcolumns {
   display: grid;

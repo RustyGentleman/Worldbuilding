@@ -247,6 +247,15 @@ body[current=riella] {
   --nav-txt: black;
   --nav-txt-i: white;
 }
+body[current=alchemy] {
+  --pg-acc: hsl(125,100%,20%);
+  --pg-acc-hsl: 125 100% 20%;
+  --pg-acc-txt: hsl(125,100%,30%);
+  --pg-acc-d: hsl(32, 85%, 11%);
+  --pg-sec-h: 60;
+  --pg-sec-s: 0.6;
+  --pg-sec-b: 1.5;
+}
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
@@ -795,8 +804,8 @@ section.blink *, section .blink {
   background-size: auto 10rem;
   background-blend-mode: overlay;
   filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) saturate(var(--pg-sec-s, 1)) invert(var(--pg-sec-i)) blur(0.6px) url(#wavyh1);
-  -webkit-mask-image: linear-gradient(to top, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
-          mask-image: linear-gradient(to top, transparent 20%, rgba(255, 255, 255, 0.5) 80%, white 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 10%, rgba(255, 255, 255, 0.5) 50%, white 100%);
+          mask-image: linear-gradient(to top, transparent 10%, rgba(255, 255, 255, 0.5) 50%, white 100%);
   transition: background 0.5s ease, filter 0.5s ease;
   z-index: -2;
   transform: translateY(-0.3rem);
