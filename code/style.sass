@@ -495,7 +495,7 @@ section.blink *, section .blink
 		background-size: auto 10rem
 		background-blend-mode: overlay
 		filter: hue-rotate(calc(var(--pg-sec-h) * 1deg)) brightness(var(--pg-sec-b)) string.unquote('saturate(var(--pg-sec-s, 1))') string.unquote('invert(var(--pg-sec-i))') blur(.6px) url(#wavyh1)
-		mask-image: linear-gradient(to top, $t 20%, rgb(255 255 255 / .5) 80%, white 100%)
+		mask-image: linear-gradient(to top, $t 10%, rgb(255 255 255 / .5) 50%, white 100%)
 		transition: background $tr-l ease, filter $tr-l ease
 		z-index: -2
 		transform: translateY(-0.3rem)
