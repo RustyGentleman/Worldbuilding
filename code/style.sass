@@ -259,6 +259,14 @@ body
 		--pg-sec-i: 1
 		--nav-txt: black
 		--nav-txt-i: white
+	&[current='alchemy']
+		--pg-acc: hsl(125,100%,20%)
+		--pg-acc-hsl: 125 100% 20%
+		--pg-acc-txt: hsl(125,100%,30%)
+		--pg-acc-d: hsl(32, 85%, 11%)
+		--pg-sec-h: 60
+		--pg-sec-s: 0.6
+		--pg-sec-b: 1.5
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
