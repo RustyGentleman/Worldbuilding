@@ -256,6 +256,20 @@ body[current=alchemy] {
   --pg-sec-s: 0.6;
   --pg-sec-b: 1.5;
 }
+body[current=lizans] {
+  --pg-acc: hsl(30 61% 52%);
+  --pg-acc-hsl: 30 61% 52%;
+  --pg-acc-txt: hsl(30 61% 52%);
+  --pg-acc-d: hsl(29.52 53.85% 22.94%);
+  --nav-txt: black;
+  --nav-txt-i: white;
+  --pg-sec-h: 60;
+  --pg-sec-s: 0.6;
+  --pg-sec-b: 1.5;
+}
+body[current=lizans] #lizans .content > h1 .h-right, body[current=lizans] #lizans .content > h1 .h-left, body[current=lizans] #lizans .content > h2 .h-right, body[current=lizans] #lizans .content > h2 .h-left, body[current=lizans] #lizans .content > h3 .h-right, body[current=lizans] #lizans .content > h3 .h-left {
+  background-image: linear-gradient(to bottom, transparent, hsla(33.75deg, 95.5%, 50.83%, 0.3), transparent);
+}
 
 #home.current ~ [page-bg=home] {
   opacity: 1;
@@ -542,6 +556,23 @@ body[current=harpies] #topnav .dropdown button[page-link=harpies]::before {
   margin-right: 0.5rem;
 }
 body[current=harpies] #topnav .dropdown button[page-link=harpies]::after {
+  content: "◀";
+  margin-left: 0.5rem;
+}
+
+#lizans.current ~ [page-bg=lizans] {
+  opacity: 1;
+}
+
+body[current=lizans] #topnav .dropdown button[page-link=lizans]::before, body[current=lizans] #topnav .dropdown button[page-link=lizans]::after {
+  display: inline-block;
+  font-size: 0.7em;
+}
+body[current=lizans] #topnav .dropdown button[page-link=lizans]::before {
+  content: "▶";
+  margin-right: 0.5rem;
+}
+body[current=lizans] #topnav .dropdown button[page-link=lizans]::after {
   content: "◀";
   margin-left: 0.5rem;
 }
@@ -1031,6 +1062,10 @@ body.grenze #home [section-id=changes] + section > ul ul::before {
 }
 body.grenze .sidebar {
   --f-ul-off: 3px;
+  line-height: calc(1em + 1px * var(--t-lh));
+}
+body.grenze .sidebar a[page-link], body.grenze .sidebar a[section-link] {
+  line-height: calc(1.2em + 1px * var(--t-lh));
 }
 body.rasa {
   font-family: "Rasa", serif;

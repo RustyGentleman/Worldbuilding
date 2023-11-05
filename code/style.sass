@@ -267,6 +267,20 @@ body
 		--pg-sec-h: 60
 		--pg-sec-s: 0.6
 		--pg-sec-b: 1.5
+	&[current='lizans']
+		--pg-acc: hsl(30 61% 52%)
+		--pg-acc-hsl: 30 61% 52%
+		--pg-acc-txt: hsl(30 61% 52%)
+		--pg-acc-d: hsl(29.52 53.85% 22.94%)
+		--nav-txt: black
+		--nav-txt-i: white
+		--pg-sec-h: 60
+		--pg-sec-s: 0.6
+		--pg-sec-b: 1.5
+		#lizans .content
+			>h1, >h2, >h3
+				.h-right, .h-left
+					background-image: linear-gradient(to bottom, transparent, hsl(33.75deg 95.5% 50.83% / 30%), transparent)
 @each $pg in $pages
 	##{$pg}.current ~ [page-bg="#{$pg}"]
 		opacity: 1
@@ -675,6 +689,9 @@ body
 			--x: 1.54rem
 		.sidebar
 			--f-ul-off: 3px
+			line-height: calc(1em + 1px * var(--t-lh))
+			a[page-link], a[section-link]
+				line-height: calc(1.2em + 1px * var(--t-lh))
 	&.rasa
 		font-family: 'Rasa', serif
 		--f-ul-off: 1px

@@ -304,6 +304,24 @@
   opacity: 1;
 }
 
+#lizans.current {
+  display: grid;
+  pointer-events: all;
+  opacity: 1;
+}
+#lizans.current.tiled {
+  display: flex;
+}
+#lizans.current:not(.content-only) > .content,
+#lizans.current > .sidebar {
+  transform: translateX(0%);
+}
+#lizans.current.tiled > .tile,
+#lizans.current .tiled > .tile, #lizans.current.content-only {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 #elvenempire.current {
   display: grid;
   pointer-events: all;
