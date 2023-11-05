@@ -166,7 +166,7 @@ document.querySelector('#topnav button[aria-label="Setting"]').addEventListener(
 	document.getElementById('settings').classList.toggle('on')
 })
 //? Generate link-generators for page sections
-document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(h => {
+document.querySelectorAll('.page .content > h1, .page .content > h2, .page .content > h3').forEach(async h => {
 	h.innerHTML = `<div>${h.innerHTML}<button aria-label="Copy a link to here"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13.19 8.688C13.8398 8.99825 14.4057 9.45993 14.8401 10.0342C15.2745 10.6085 15.5647 11.2787 15.6864 11.9885C15.8081 12.6982 15.7577 13.4268 15.5394 14.113C15.3211 14.7992 14.9414 15.423 14.432 15.932L9.932 20.432C9.08808 21.2759 7.94348 21.75 6.75 21.75C5.55652 21.75 4.41192 21.2759 3.568 20.432C2.72408 19.5881 2.24997 18.4435 2.24997 17.25C2.24997 16.0565 2.72408 14.9119 3.568 14.068L5.325 12.311M18.675 11.689L20.432 9.932C21.2759 9.08808 21.75 7.94348 21.75 6.75C21.75 5.55652 21.2759 4.41192 20.432 3.568C19.5881 2.72408 18.4435 2.24997 17.25 2.24997C16.0565 2.24997 14.9119 2.72408 14.068 3.568L9.568 8.068C9.05863 8.577 8.67886 9.20081 8.46058 9.88702C8.2423 10.5732 8.19188 11.3018 8.31357 12.0115C8.43525 12.7213 8.72549 13.3915 9.15989 13.9658C9.59429 14.5401 10.1602 15.0017 10.81 15.312" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.4041 18.5771H18.5771M21.75 18.5771H18.5771M18.5771 18.5771V15.4041M18.5771 18.5771V21.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div>`
 	h.lastElementChild.addEventListener('click', () => {
 		// console.log(h.getAttribute('section-id').replaceAll('&', 'ý'))/
@@ -178,7 +178,7 @@ document.querySelectorAll('.page .content > h1, .page .content > h2, .page .cont
 	})
 })
 //? Make page-links tabbable
-document.querySelectorAll('a[page-link], a[section-link], input, label').forEach(l => l.setAttribute('tabindex', '0'))
+document.querySelectorAll('a[page-link], a[section-link], input, label').forEach(async l => l.setAttribute('tabindex', '0'))
 //? Make sidebar collapsible
 const tg = document.createElement('button')
 {
@@ -194,7 +194,7 @@ const tg = document.createElement('button')
 	})
 }
 //? Gather link data
-document.querySelectorAll('a[page-link], a[section-link]').forEach(l => {
+document.querySelectorAll('a[page-link], a[section-link]').forEach(async l => {
 	if (l.getAttribute('page-link') == '' || l.getAttribute('section-link') == '')
 		return
 	const [pg, sc, ps, pe] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
@@ -302,7 +302,7 @@ popover.addEventListener('mouseover', () => {
 	})
 })
 //? Section header decorations
-document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div').forEach(h => {
+document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div, .page .content > h3 > div').forEach(async h => {
 	h.innerHTML = `<div class="h-left"></div>${h.innerHTML}<div class="h-right"></div>`
 })
 //? Settings: text
@@ -345,7 +345,7 @@ document.querySelectorAll('.page .content > h1 > div, .page .content > h2 > div,
 	}
 }
 //? Settings: font
-document.getElementById('font').querySelectorAll('input').forEach(f => {
+document.getElementById('font').querySelectorAll('input').forEach(async f => {
 	const att = f.getAttribute('value')
 	f.addEventListener('click', () => {
 		body.classList.remove('grenze')
@@ -361,7 +361,7 @@ document.getElementById('font').querySelectorAll('input').forEach(f => {
 		f.setAttribute('checked', '')
 	}
 })
-document.getElementById('font').querySelectorAll('label').forEach(f => {
+document.getElementById('font').querySelectorAll('label').forEach(async f => {
 	f.addEventListener('keyup', e => {
 		if (e.key == ' ' || e.key == 'Enter')
 			f.previousElementSibling.dispatchEvent(new Event('click'))
@@ -395,7 +395,7 @@ document.getElementById('font').querySelectorAll('label').forEach(f => {
 	}
 }
 //? PopState listener
-window.addEventListener('popstate', event => {
+window.addEventListener('popstate', async event => {
 	GoToPage(...event.state, false)
 	// console.log(event.state)
 	// let closest = {closeness: null, e: null, i: null}
@@ -415,6 +415,12 @@ window.addEventListener('popstate', event => {
 	// 	}
 	// })
 	// Array.from(document.history.children).filter((_, i) => i >= closest.i < document.history.childElementCount-1).map(e => e.remove())
+})
+//? Wordcount
+document.querySelectorAll('.page').forEach(async pg => {
+	const wc = pg.querySelector('.sidebar .wc')
+	if (!wc) return
+	wc.innerHTML = wc.innerHTML.replace(/\?+/, pg.content.textContent.match(/\w+/g).length)
 })
 
 //# ----------------------------------------
