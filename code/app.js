@@ -160,7 +160,7 @@ if (qparams.get('goto')){
 	document.querySelector('.current')?.classList.remove('current')
 	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
 	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
-} else GoToPage('home')
+} else GoToPage('home', null, null, null, false)
 //? Goto settings
 document.querySelector('#topnav button[aria-label="Setting"]').addEventListener('click', () => {
 	document.getElementById('settings').classList.toggle('on')
@@ -397,29 +397,11 @@ document.getElementById('font').querySelectorAll('label').forEach(async f => {
 //? PopState listener
 window.addEventListener('popstate', async event => {
 	console.log(event.state)
-	GoToPage(...event.state.slice(0, -1), false)
+	GoToPage(event.state[0], event.state[1], event.state[2], event.state[3], false)
 	setTimeout(() => {
 		if (!event.state[1])
 			document.page.content.scrollTo({top: event.state[4], behavior: 'smooth'})
 	}, 100)
-	// console.log(event.state)
-	// let closest = {closeness: null, e: null, i: null}
-	// Array.from(document.history.children).reverse().forEach((e, i) => {
-	// 	if (closest.closeness > 3) return
-	// 	if (!e.getAttribute('page-link')) return
-	// 	const link = e.getAttribute('page-link').split(':')
-	// 	let closeness = 0
-	// 	link.forEach((part, i) => {
-	// 		if (part == event.state[i])
-	// 			closeness ++
-	// 	})
-	// 	if (closeness > closest.closeness) {
-	// 		closest.closeness = closeness
-	// 		closest.e = e
-	// 		closest.i = i
-	// 	}
-	// })
-	// Array.from(document.history.children).filter((_, i) => i >= closest.i < document.history.childElementCount-1).map(e => e.remove())
 })
 //? Wordcount
 document.querySelectorAll('.page').forEach(async pg => {
@@ -551,10 +533,10 @@ function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 	//* If pushState
 	if (push) {
 		const current = history.state?.slice()
-		if (current)
+		if (current && cur.querySelector('.content'))
 			current[4] = cur.content.scrollTop
 		history.replaceState(current, undefined)
-		history.pushState([id, section, ps, pe, next.content.scrollTop], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
 	}
 	//* If toggle isn't  there, nvm
 	if (!document.querySelector('.toggle')) return
