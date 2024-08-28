@@ -3,7 +3,7 @@
 //# ----------------------------------------
 const body = document.body
 const popover = document.querySelector('#popover')
-Object.defineProperty(document, 'current', {get: function() {return this.querySelector('page.current').id}})
+Object.defineProperty(document, 'current', {get: function() {return this.querySelector('.page.current').id}})
 Object.defineProperty(document, 'page', {get: function() {return document.querySelector(`.page.current`)}})
 Object.defineProperty(document, 'history', {get: function() {return document.querySelector(`#history`)}})
 for (const page of document.querySelectorAll('main > .page')) {
@@ -396,7 +396,12 @@ document.getElementById('font').querySelectorAll('label').forEach(async f => {
 }
 //? PopState listener
 window.addEventListener('popstate', async event => {
-	GoToPage(...event.state, false)
+	console.log(event.state)
+	GoToPage(...event.state.slice(0, -1), false)
+	setTimeout(() => {
+		if (!event.state[1])
+			document.page.content.scrollTo({top: event.state[4], behavior: 'smooth'})
+	}, 100)
 	// console.log(event.state)
 	// let closest = {closeness: null, e: null, i: null}
 	// Array.from(document.history.children).reverse().forEach((e, i) => {
@@ -435,12 +440,11 @@ for (const page of document.querySelectorAll('main > .page'))
 for (const pl of document.querySelectorAll('[page-link]'))
 	if (pl.getAttribute('page-link'))
 		pl.addEventListener('click', function(e) {
-			console.log(e.button)
 			const [pg, sc, ps, pe] = [...this.getAttribute('page-link').split(':')]
 			// console.log(pg, sc, ps, pe)
 			// if (this.tagName != 'BUTTON')
 			// 	AddToHistory()
-			GoToPage(pg, sc || null, ps || null, pe || null)
+			GoToPage(pg?? document.current, sc?? null, ps?? null, pe?? null)
 			document.activeElement.blur()
 			e.preventDefault()
 		})
@@ -450,6 +454,7 @@ for (const sl of document.querySelectorAll('[section-link]'))
 			// if (this.tagName != 'BUTTON')
 			// 	AddToHistory()
 			GoToSection(this.getAttribute('section-link'))
+			// GoToPage()
 			document.activeElement.blur()
 		})
 
@@ -507,23 +512,29 @@ Page_RefreshSectionPointer()
 //# Page transitions
 //# ----------------------------------------
 function GoToPage(id, section=null, ps=null, pe=null, push=true) {
-	if (!document.querySelector(`.page#${id}`)) {
-		console.warn(`No page with ID "${id}"`)
-		return
+	try {
+		document.querySelector(`.page#${id}`)
+	} catch (error) {
+		id = document.current
 	}
 	body.setAttribute('current', id)
 
-	const cur = document.querySelectorAll('.current')
-	cur?.forEach(e => e.classList.remove('current'))
-	cur?.forEach(e => e.classList.add('displaying'))
-	setTimeout(() => cur?.forEach(e => e.classList.remove('displaying')), 1000)
-
+	const cur = document.querySelector('.page.current')
 	const next = document.querySelector('#'+id)
-	next.classList.add('displaying')
-	setTimeout(() => {
-		next.classList.add('current')
-		next.classList.remove('displaying')
-	}, 10)
+
+	if (cur !== next) {
+		if (cur) {
+			cur.classList.remove('current')
+			cur.classList.add('displaying')
+			setTimeout(() => cur.classList.remove('displaying'), 1000)
+		}
+
+		next.classList.add('displaying')
+		setTimeout(() => {
+			next.classList.add('current')
+			next.classList.remove('displaying')
+		}, 10)
+	}
 	setTimeout(Page_RefreshSectionPointer, 100)
 	//* Go to section
 	if (section)
@@ -538,8 +549,13 @@ function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 			ChangeTitle(next.id[0].toUpperCase() + next.id.slice(1))
 		}
 	//* If pushState
-	if (push)
-		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+	if (push) {
+		const current = history.state?.slice()
+		if (current)
+			current[4] = cur.content.scrollTop
+		history.replaceState(current, undefined)
+		history.pushState([id, section, ps, pe, next.content.scrollTop], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+	}
 	//* If toggle isn't  there, nvm
 	if (!document.querySelector('.toggle')) return
 	//* If it is, hide or show

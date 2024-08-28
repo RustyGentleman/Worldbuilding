@@ -491,7 +491,7 @@ main {
 .sidebar .header-pointer {
   padding-block: 0.2rem;
 }
-.sidebar [page-link] {
+.sidebar a[page-link] {
   text-align: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
