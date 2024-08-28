@@ -434,13 +434,15 @@ for (const page of document.querySelectorAll('main > .page'))
 	})
 for (const pl of document.querySelectorAll('[page-link]'))
 	if (pl.getAttribute('page-link'))
-		pl.addEventListener('click', function() {
+		pl.addEventListener('click', function(e) {
+			console.log(e.button)
 			const [pg, sc, ps, pe] = [...this.getAttribute('page-link').split(':')]
 			// console.log(pg, sc, ps, pe)
 			// if (this.tagName != 'BUTTON')
 			// 	AddToHistory()
 			GoToPage(pg, sc || null, ps || null, pe || null)
 			document.activeElement.blur()
+			e.preventDefault()
 		})
 for (const sl of document.querySelectorAll('[section-link]'))
 	if (sl.getAttribute('section-link'))
@@ -537,8 +539,7 @@ function GoToPage(id, section=null, ps=null, pe=null, push=true) {
 		}
 	//* If pushState
 	if (push)
-		history.pushState([id, section, ps, pe], undefined, '')
-		// history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
+		history.pushState([id, section, ps, pe], undefined, '?goto=' + [id, section, ps, pe].filter(e => !!e).join(':'))
 	//* If toggle isn't  there, nvm
 	if (!document.querySelector('.toggle')) return
 	//* If it is, hide or show
