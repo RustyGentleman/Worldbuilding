@@ -13,19 +13,19 @@ for (const page of document.querySelectorAll('main > .page')) {
 {// - Popover
 	Object.defineProperty(popover, 'title', {
 		get: function() {return this.querySelector('.title-subtitle b')},
-		set: function(content) {this.querySelector('.title-subtitle b').textContent = content}
+		set: function(content) {this.querySelector('.title-subtitle b').textContent = content?? ''}
 	})
 	Object.defineProperty(popover, 'subtitle', {
 		get: function() {return this.querySelector('.title-subtitle i')},
-		set: function(content) {this.querySelector('.title-subtitle i').textContent = content}
+		set: function(content) {this.querySelector('.title-subtitle i').textContent = content?? ''}
 	})
 	Object.defineProperty(popover, 'section', {
 		get: function() {return this.querySelector('.section')},
-		set: function(content) {this.querySelector('.section').innerHTML = content}
+		set: function(content) {this.querySelector('.section').innerHTML = content?? ''}
 	})
 	Object.defineProperty(popover, 'preview', {
 		get: function() {return this.querySelector('.preview')},
-		set: function(content) {this.querySelector('.preview').innerHTML = content}
+		set: function(content) {this.querySelector('.preview').innerHTML = content?? ''}
 	})
 }
 
@@ -246,6 +246,10 @@ document.querySelectorAll('a[page-link], a[section-link]').forEach(async l => {
 		l.setAttribute('data-section', document.getElementById(pg).querySelector('.content > h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' '))
 	l.setAttribute('data-preview', preview)
 	l.setAttribute('data-subtitle', subtitle)
+})
+//? Add href to ':section' page-links
+document.querySelectorAll('[page-link^=":"]').forEach(async l => {
+	l.setAttribute('href', `./?goto=${l.closest('.page').id}${l.getAttribute('page-link')}`)
 })
 //? Popover
 // const INTERVAL = 500
