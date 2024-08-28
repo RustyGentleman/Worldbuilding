@@ -157,7 +157,6 @@ const base_title = document.title
 //? Go to page and section on the link
 const qparams = new URLSearchParams(window.location.search)
 if (qparams.get('goto')){
-	document.querySelector('.current')?.classList.remove('current')
 	const [pg, sc, ps, pe] = [...qparams.get('goto').split(':')]
 	setTimeout(() => GoToPage(pg, sc?.replaceAll('ý', '&') || null, ps || null, pe || null), 200)
 } else GoToPage('home', null, null, null, false)
@@ -197,9 +196,10 @@ const tg = document.createElement('button')
 document.querySelectorAll('a[page-link], a[section-link]').forEach(async l => {
 	if (l.getAttribute('page-link') == '' || l.getAttribute('section-link') == '')
 		return
-	const [pg, sc, ps, pe] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
+	let [pg, sc, ps, pe] = l.getAttribute('page-link')?.split(':') || [l.closest('.page').id, l.getAttribute('section-link'), undefined]
 	// console.log(pg, sc, pr)
-	if (!document.getElementById(pg)) return
+	if (!document.getElementById(pg))
+		pg = l.closest('.page').id
 
 	let title = [document.getElementById(pg).querySelector('.content header h1').textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ')]
 	let subtitle = document.getElementById(pg).querySelector('.content header h2')?.textContent.trim().replaceAll('\t', '').replaceAll('\n', ' ') || ''
